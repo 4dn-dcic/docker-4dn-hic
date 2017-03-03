@@ -103,8 +103,7 @@ Alignment module for Hi-C data, based on merge-pairs.
 #### Usage
 Run the following in the container.
 ```
-run-merge-pairs.sh <outdir> <output_prefix> <pairs1> <pairs2> [<pairs3> [...]]  
-# outdir: output directory
+run-merge-pairs.sh <output_prefix> <pairs1> <pairs2> [<pairs3> [...]]  
 # output_prefix : prefix of the output pairs file.
 # pairs1, pairs2, ... : input pairs files
 ```
