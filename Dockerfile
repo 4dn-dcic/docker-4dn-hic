@@ -24,7 +24,7 @@ ENV PATH=/usr/local/bin/pairix/bin/:$PATH
 ENV PATH=/usr/local/bin/bam2pairs/:$PATH
 
 # wrapper
-COPY run*.sh .
+COPY scripts/ .
 RUN chmod +x run*.sh
 
 # default command

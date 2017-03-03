@@ -38,7 +38,18 @@ Sample data files that can be used for testing the tools are included in the `sa
 
 ## Tool wrappers
 
-Tool wrappers follow naming conventions `run-xx.sh`. These wrappers are copied to the docker image at built time and may be used as a single step in a workflow.
+Tool wrappers are under the `scripts` directory and follow naming conventions `run-xx.sh`. These wrappers are copied to the docker image at built time and may be used as a single step in a workflow.
+
+```
+# default
+docker run duplexa/4dn-hic:v1
+
+# specific run command
+docker run duplexa/4dn-hic:v1 <run-xx.sh> <arg1> <arg2> ...
+
+# may need -v option to mount data file/folder if they are used as arguments.
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v1 <run-xx.sh> /d1/file1 /d2/file2 ...
+```
 
 ### run-list.sh
 Default command for this docker image. It lists the run commands available.
