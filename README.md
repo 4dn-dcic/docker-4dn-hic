@@ -8,6 +8,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
 * [Building docker image](#building-docker-image)
 * [Sample data](#sample-data)
 * [Tool wrappers](#tool-wrappers)
+  * [run-list.sh](#run-listsh)
   * [run-bwa-mem.sh](#run-bwa-memsh)
   * [run-sort-bam.sh](#run-sort-bamsh)
   * [run-bam2pairs.sh](#run-bam2pairssh)
@@ -38,6 +39,9 @@ Sample data files that can be used for testing the tools are included in the `sa
 ## Tool wrappers
 
 Tool wrappers follow naming conventions `run-xx.sh`. These wrappers are copied to the docker image at built time and may be used as a single step in a workflow.
+
+### run-list.sh
+Default command for this docker image. It lists the run commands available.
 
 ### run-bwa-mem.sh
 Alignment module for Hi-C data, based on bwa-mem.
