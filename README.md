@@ -35,7 +35,7 @@ run-bwa-mem.sh <fastq1> <fastq2> <bwaIndex> <output_prefix> <nThreads>
 # nThreads : number of threads 
 ```
 
-### run-sortbam.sh
+### run-sort-bam.sh
 Data-type-independent, generic bam sorting module
 * Input : any unsorted bam file (.bam)
 * Output : a bam file sorted by coordinate (.sorted.bam) and its index (.sorted.bam.bai).
@@ -43,7 +43,7 @@ Data-type-independent, generic bam sorting module
 #### Usage
 Run the following in the container.
 ```
-run-sortbam.sh <input_bam> <output_prefix>
+run-sort-bam.sh <input_bam> <output_prefix>
 # input_bam : any bam file to be sorted
 # output_prefix : prefix of the output bam file.
 ```
