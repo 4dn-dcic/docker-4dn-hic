@@ -33,7 +33,7 @@ docker push duplexa/4dn-hic:v1
 
 ## Tool wrappers
 
-Tool wrappers follow naming conventions `run-xx.sh`. These wrappers are copied to docker at built time and may be used as a single step in a workflow.
+Tool wrappers follow naming conventions `run-xx.sh`. These wrappers are copied to the docker image at built time and may be used as a single step in a workflow.
 
 ### run-bwa-mem.sh
 Alignment module for Hi-C data, based on bwa-mem.
