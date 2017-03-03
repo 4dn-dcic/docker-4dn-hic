@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 outprefix=$1
 shift
 pairs_merger $@ |bgzip -c > $outprefix.pairs.gz
