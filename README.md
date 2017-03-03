@@ -6,6 +6,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
 * [Cloning the repo](#cloning-the-repo)
 * [Tool specifications](#tool-specifications)
 * [Building docker image](#building-docker-image)
+* [Sample data](#sample-data)
 * [Tool wrappers](#tool-wrappers)
   * [run-bwa-mem.sh](#run-bwa-memsh)
   * [run-sort-bam.sh](#run-sort-bamsh)
@@ -30,6 +31,9 @@ You need docker daemon to rebuild the docker image. If you want to push it to a 
 docker build -t duplexa/4dn-hic:v1 .
 docker push duplexa/4dn-hic:v1
 ```
+
+## Sample data
+Sample data files that can be used for testing the tools are included in the `sample_data` folder. These data are not included in the docker image.
 
 ## Tool wrappers
 
