@@ -4,7 +4,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
-* [Tool specification](#tool-specification)
+* [Tool specifications](#tool-specifications)
 * [Building docker image](#building-docker-image)
 * [Tool wrappers](#tool-wrappers)
   * [run-bwa-mem.sh](#run-bwa-memsh)
