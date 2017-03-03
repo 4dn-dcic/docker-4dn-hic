@@ -7,11 +7,11 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
 * [Tool specification](#tool-specification)
 * [Building docker image](#building-docker-image)
 * [Tool wrappers](#tool-wrappers)
-  * [run-bwa-mem.sh](#run-bwa-mem.sh)
-  * [run-sort-bam.sh](#run-sort-bam.sh)
-  * [run-bam2pairs.sh](#run-bam2pairs.sh)
-  * [run-merge-pairs.sh](#run-merge-pairs.sh)
-  * [run-cooler.sh](#run-cooler.sh)
+  * [run-bwa-mem.sh](#run-bwa-mem-sh)
+  * [run-sort-bam.sh](#run-sort-bam-sh)
+  * [run-bam2pairs.sh](#run-bam2pairs-sh)
+  * [run-merge-pairs.sh](#run-merge-pairs-sh)
+  * [run-cooler.sh](#run-cooler-sh)
 
 
 ## Cloning the repo
