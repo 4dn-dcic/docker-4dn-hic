@@ -13,7 +13,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-sort-bam.sh](#run-sort-bamsh)
   * [run-bam2pairs.sh](#run-bam2pairssh)
   * [run-merge-pairs.sh](#run-merge-pairssh)
-  * [run-cooler.sh](#run-coolersh)
+  * [run-cooler.sh](#run-coolersh)    (note: current version of cooler has an issue. Please do not use it)
 
 
 ## Cloning the repo
