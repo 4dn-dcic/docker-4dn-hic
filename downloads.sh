@@ -41,5 +41,5 @@ ln -s bam2pairs-0.0.2 bam2pairs
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.6.3
-pip install cooler==0.6.3
+## VERSION: 0.6.4
+pip install cooler==0.6.4
