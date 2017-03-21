@@ -11,6 +11,9 @@ RUN apt-get install -y python3.5-dev python3-setuptools
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.5 get-pip.py
 
+# installing java (for nozzle)
+RUN apt-get install -y default-jdk # latest version
+
 # installing R & dependencies for pairsqc
 RUN apt-get install -y r-base r-base-dev # R
 RUN apt-get install -y libcurl4-openssl-dev libssl-dev # for devtools to work 
