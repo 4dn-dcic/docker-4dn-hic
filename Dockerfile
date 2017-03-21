@@ -11,6 +11,13 @@ RUN apt-get install -y python3.5-dev python3-setuptools
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.5 get-pip.py
 
+# installing R & dependencies for pairsqc
+RUN apt-get install -y r-base r-base-dev # R
+RUN apt-get install -y libcurl4-openssl-dev libssl-dev # for devtools to work 
+RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")' # devtools 
+RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-project.org" )' # nozzle
+RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' # plotosaurus
+
 # download tools
 WORKDIR /usr/local/bin
 COPY downloads.sh .
@@ -21,6 +28,7 @@ ENV PATH=/usr/local/bin/bwa/:$PATH
 ENV PATH=/usr/local/bin/samtools/:$PATH
 ENV PATH=/usr/local/bin/pairix/bin/:$PATH
 ENV PATH=/usr/local/bin/bam2pairs/:$PATH
+ENV PATH=/usr/local/bin/pairsqc/:$PATH
 
 # wrapper
 COPY scripts/ .
