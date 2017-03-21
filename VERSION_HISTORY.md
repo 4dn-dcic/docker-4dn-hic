@@ -1,3 +1,6 @@
+### v4
+* updated cooler (Issues with pairix file input have been resolved)
+
 ### v3
 * updated cooler
 

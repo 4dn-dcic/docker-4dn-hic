@@ -7,8 +7,8 @@ out_prefix=$5
 
 cp $chrsize_file ./tmpchrsize
 
-# make bin file
-cooler makebins -o ./tmpchrsize:$bin_size ./tmpchrsize $bin_size
+# make bin file (skipped)
+# cooler makebins -o ./tmpchrsize:$bin_size ./tmpchrsize $bin_size
 
 # the cload command requires the chrom size file to exist besides the chrom size bin file.
 cooler cload pairix ./tmpchrsize:$bin_size $pairs_file $out_prefix.cool
