@@ -113,11 +113,6 @@ Runs cooler to create a matrix .cool file, taking in a (4dn-style) pairs file
 * Input : a pairs file (.gz, along with .px2), chrom.size file
 * Output : a contact matrix file (.cool)
 
-### run-cool2multirescool.sh
-Runs cooler coarsegrain to create multi-res cool file from a .cool file.
-* Input : a cool file (.cool)
-* Output : a multires.cool file (.multires.cool)
-
 #### Usage
 Run the following in the container.
 ```
@@ -128,3 +123,17 @@ run-cooler.sh <input_pairs> <chromsize> <binsize> <max_iter> <output_prefix>
 # max_iter : max number of iteration (default is 200)
 # output_prefix : prefix of the output cool file
 ```
+
+## run-cool2multirescool.sh
+Runs cooler coarsegrain to create multi-res cool file from a .cool file.
+* Input : a cool file (.cool)
+* Output : a multires.cool file (.multires.cool)
+
+### Usage
+Run the following in the container.
+```
+run-cool2multirescool.sh <input_cool> <ncores>
+# input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
+# ncores: number of cores to use
+```
+

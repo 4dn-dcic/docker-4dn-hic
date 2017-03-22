@@ -7,16 +7,16 @@ MAINTAINER Soo Lee (duplexa@gmail.com)
 RUN apt-get update -y && apt-get install -y wget unzip less vim bzip2 make gcc zlib1g-dev libncurses-dev git
 
 # installing python3.5 & pip
-RUN apt-get install -y python3.5-dev python3-setuptools
+RUN apt-get update -y && apt-get install -y python3.5-dev python3-setuptools
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.5 get-pip.py
 
-# installing java (for nozzle)
-RUN apt-get install -y default-jdk # latest version
+# installing java (for nozzle) - latest java version
+RUN apt-get update -y && apt-get install -y default-jdk 
 
 # installing R & dependencies for pairsqc
-RUN apt-get install -y r-base r-base-dev # R
-RUN apt-get install -y libcurl4-openssl-dev libssl-dev # for devtools to work 
+# r-base, r-base-dev for R, libcurl4-openssl-dev, libssl-dev for devtools
+RUN apt-get update -y && apt-get install -y r-base r-base-dev libcurl4-openssl-dev libssl-dev 
 RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")' # devtools 
 RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-project.org" )' # nozzle
 RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' # plotosaurus
