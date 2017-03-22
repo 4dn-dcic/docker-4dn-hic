@@ -125,12 +125,12 @@ run-cooler.sh <input_pairs> <chromsize> <binsize> <max_iter> <ncores> <output_pr
 # output_prefix : prefix of the output cool file
 ```
 
-## run-cool2multirescool.sh
+### run-cool2multirescool.sh
 Runs cooler coarsegrain to create multi-res cool file from a .cool file.
 * Input : a cool file (.cool)
 * Output : a multires.cool file (.multires.cool)
 
-### Usage
+#### Usage
 Run the following in the container.
 ```
 run-cool2multirescool.sh <input_cool> <ncores>
