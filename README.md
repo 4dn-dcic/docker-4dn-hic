@@ -116,11 +116,12 @@ Runs cooler to create a matrix .cool file, taking in a (4dn-style) pairs file
 #### Usage
 Run the following in the container.
 ```
-run-cooler.sh <input_pairs> <chromsize> <binsize> <max_iter> <output_prefix>
+run-cooler.sh <input_pairs> <chromsize> <binsize> <max_iter> <ncores> <output_prefix>
 # input_pairs : a pairs file
 # chromsize : a chromsize file
 # binsize : binsize in bp
 # max_iter : max number of iteration (default is 200)
+# ncores : number of cores to use
 # output_prefix : prefix of the output cool file
 ```
 
