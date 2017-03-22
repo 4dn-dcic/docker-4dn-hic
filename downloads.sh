@@ -41,5 +41,13 @@ ln -s bam2pairs-0.0.2 bam2pairs
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.6.3
-pip install cooler==0.6.3
+## VERSION: 0.6.6
+pip install cooler==0.6.6
+
+
+## SOFTWARE: pairsqc
+## VERSION: 0.2.0
+wget https://github.com/4dn-dcic/pairsqc/archive/0.2.0.tar.gz
+tar -xzf 0.2.0.tar.gz
+ln -s pairsqc-0.2.0 pairsqc
+
