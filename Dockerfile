@@ -11,6 +11,9 @@ RUN apt-get update -y && apt-get install -y python3.5-dev python3-setuptools
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.5 get-pip.py
 
+# python module dependencies
+RUN pip install pypairix==0.1.0
+
 # installing java (for nozzle) - latest java version
 RUN apt-get update -y && apt-get install -y default-jdk 
 
@@ -20,6 +23,7 @@ RUN apt-get update -y && apt-get install -y r-base r-base-dev libcurl4-openssl-d
 RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")' # devtools 
 RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-project.org" )' # nozzle
 RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' # plotosaurus
+RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
 # download tools
 WORKDIR /usr/local/bin
