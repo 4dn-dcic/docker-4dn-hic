@@ -1,3 +1,5 @@
+sudo: required
+language: ruby
 services:
   - docker
  
@@ -6,4 +8,3 @@ install:
 
 script:
   - source tests/tests.sh
-
