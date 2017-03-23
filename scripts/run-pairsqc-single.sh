@@ -6,7 +6,8 @@ enzyme=$4 # either 4 or 6
 outdir=$5
 
 scriptdir=/usr/local/bin/pairsqc/
-python $scriptdir/pairsqc.py -p $input_pairs -c $chromsize -tP -n $sample_name -O $sample_name
+python3 $scriptdir/pairsqc.py -p $input_pairs -c $chromsize -tP -s $sample_name -O $sample_name
 Rscript $scriptdir/plot.r $enzyme $sample_name\_report
-zip $sample_name\_report.zip $sample_name\_report
+zip -r $sample_name\_report.zip $sample_name\_report
+mkdir -p $outdir
 mv $sample_name\_report.zip $outdir
