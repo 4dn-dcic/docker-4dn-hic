@@ -1,0 +1,10 @@
+sudo: required
+language: ruby
+services:
+  - docker
+ 
+install:
+  - docker build -t docker-4dn-hic_local .
+
+script:
+  - source tests/tests.sh
