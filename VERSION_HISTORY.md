@@ -1,3 +1,6 @@
+### v6
+* updated tests for pairsqc
+
 ### v5
 * run-pairsqc-single.sh available now.
 
