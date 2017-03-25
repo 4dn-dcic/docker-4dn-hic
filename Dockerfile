@@ -11,9 +11,6 @@ RUN apt-get update -y && apt-get install -y python3.5-dev python3-setuptools
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.5 get-pip.py
 
-# python module dependencies
-RUN pip install pypairix==0.1.0
-
 # installing java (for nozzle) - latest java version
 RUN apt-get update -y && apt-get install -y default-jdk 
 

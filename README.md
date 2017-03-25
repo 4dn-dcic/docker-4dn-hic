@@ -15,6 +15,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-merge-pairs.sh](#run-merge-pairssh)
   * [run-cooler.sh](#run-coolersh) 
   * [run-cool2multirescool.sh](#run-cool2multirescoolsh)
+  * [run-pairsqc-single.sh](#run-pairsqc-singlesh)
 
 ## Cloning the repo
 ```
@@ -137,4 +138,21 @@ run-cool2multirescool.sh <input_cool> <ncores>
 # input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
 # ncores: number of cores to use
 ```
+
+### run-pairsqc-single.sh
+Runs pairsqc on a single pairs file and generates a report zip file.
+* Input: a pairs file, chromsize file
+* Output: a zipped QC report file 
+
+#### Usage
+Run the following in the container.
+```
+run-pairsqc-single.sh <input_pairs> <chromsize> <sample_name> <enzyme> <outdir>
+# input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2)
+# chromsize : a chromsize file
+# sample_name : sample name - to be used as both the prefix of the report and the title of the sample in the report.
+# enzyme : either 4 (4-cutter) or 6 (6-cutter)
+# outdir : output directory
+```
+
 

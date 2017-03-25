@@ -1,0 +1,18 @@
+Archive:  tmp_out/tst/tst_report.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  03-23-2017 16:40   tst_report/
+     2374  03-23-2017 16:40   tst_report/pairsqc_report.RData
+        0  03-23-2017 16:40   tst_report/plots/
+     9163  03-23-2017 16:40   tst_report/plots/tst.log10prob.pdf
+   746363  03-23-2017 16:40   tst_report/plots/tst.proportion.png
+    26843  03-23-2017 16:40   tst_report/plots/tst.proportion.pdf
+   144195  03-23-2017 16:40   tst_report/plots/tst.log10prob.png
+    78641  03-23-2017 16:40   tst_report/tst.plot_table.out
+      316  03-23-2017 16:40   tst_report/distanceplot_perchr.tst.js
+     1334  03-23-2017 16:40   tst_report/tsvcol.d3div_contact_frequency_vs_genomic_separation_per_chr_tst___.tsv
+      198  03-23-2017 16:40   tst_report/tst.summary.out
+   137700  03-23-2017 16:40   tst_report/pairsqc_report.html
+      160  03-23-2017 16:40   tst_report/tst.cis_to_trans.out
+---------                     -------
+  1147287                     13 files
