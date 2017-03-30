@@ -1,3 +1,6 @@
+### v7
+* fixed run-pairsqc-single.sh issue with output directory '.'
+
 ### v6
 * updated tests for pairsqc
 
