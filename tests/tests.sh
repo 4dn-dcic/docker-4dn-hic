@@ -23,6 +23,7 @@ fi
 
 ## run-pairsqc-single test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-pairsqc-single.sh /sample_data/test.pairs.gz /sample_data/hg19.chrom.sizes.mainonly test 4 /out/test
+chmod 777 tmp_out/test/
 cd tmp_out/test/
 unzip -o test_report.zip
 cd ../../
