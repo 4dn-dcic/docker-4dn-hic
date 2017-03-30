@@ -1,5 +1,8 @@
 ### v7
 * fixed run-pairsqc-single.sh issue with output directory '.'
+* modified run-cool2multirescool.sh usage (added outprefix so it doesn't try to modify read-only input directory).
+* added test for run-cool2multirescool.sh
+* added a larger test file for cooler, so the balancing doesn't fail sometimes.
 
 ### v6
 * updated tests for pairsqc
