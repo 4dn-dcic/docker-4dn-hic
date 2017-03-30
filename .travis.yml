@@ -15,7 +15,7 @@ script:
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      if [[ $TRAVIS_PULL_REQUEST ]]; then
+      if [ "$TRAVIS_PULL_REQUEST" != false ]; then
         docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
         docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
       else 
