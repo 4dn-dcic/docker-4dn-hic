@@ -136,9 +136,10 @@ Runs cooler coarsegrain to create multi-res cool file from a .cool file.
 #### Usage
 Run the following in the container.
 ```
-run-cool2multirescool.sh <input_cool> <ncores>
+run-cool2multirescool.sh <input_cool> <ncores> <output_prefix>
 # input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
 # ncores: number of cores to use
+# output_prefix: prefix of the output multires.cool file
 ```
 
 ### run-pairsqc-single.sh

@@ -11,6 +11,15 @@ if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
   return 1;
 fi
 
+## run-cool2multirescool test
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cool2multirescool.sh /d/test.cool 2 /e/test
+du -s tmp_out/test.multires.cool |cut -f1 > mcool.log1
+du -s tests/test.multires.cool |cut -f1 > mcool.log2
+python -c 'import cooler; print(cooler.io.ls("tmp_out/test.multires.cool"))' >> mcool.log1
+python -c 'import cooler; print(cooler.io.ls("tests/test.multires.cool"))' >> mcool.log2
+if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
+  return 1;
+fi
 
 ## run-pairsqc-single test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-pairsqc-single.sh /sample_data/tst.gz /sample_data/hg19.chrom.sizes.mainonly tst 4 /out/tst
