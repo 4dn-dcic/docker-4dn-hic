@@ -22,12 +22,12 @@ if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
 fi
 
 ## run-pairsqc-single test
-docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-pairsqc-single.sh /sample_data/tst.gz /sample_data/hg19.chrom.sizes.mainonly tst 4 /out/tst
-cd tmp_out/tst/
-unzip -o tst_report.zip
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-pairsqc-single.sh /sample_data/test.pairs.gz /sample_data/hg19.chrom.sizes.mainonly test 4 /out/test
+cd tmp_out/test/
+unzip -o test_report.zip
 cd ../../
-du -s tests/pairsqc/tst_report/ |cut -f1 > pairsqc.log1
-du -s tmp_out/tst/tst_report/ | cut -f1 > pairsqc.log2
+du -s tests/pairsqc/test_report/ |cut -f1 > pairsqc.log1
+du -s tmp_out/test/test_report/ | cut -f1 > pairsqc.log2
 if [ ! -z "$(diff pairsqc.log1 pairsqc.log2)" ]; then
   return 1;
 fi
