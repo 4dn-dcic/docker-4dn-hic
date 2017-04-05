@@ -38,14 +38,14 @@ fi
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-addfrag2pairs.sh /sample_data/test2.pairs.gz /sample_data/hg19_DpnII.mainonly.txt /out/test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 30
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar juicer_tools dump observed NONE /out/test.hic chr1 chr1 BP 5000 > tmp_out/test.hicdump
-gunzip -c /out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l > juicebox-pre.log1
-cut -f3 /out/test.hicdump | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
+gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l > juicebox-pre.log1
+cut -f3 tmp_out/test.hicdump | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
 if [ ! -z "$(diff juicebox-pre.log1 juicebox-pre.log2)" ]; then
   return 1;
 fi
-docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar juicer_tools dump observed NONE /out/test.hic chr1 chr1 BP 500000 > /out/test.hicdump3
-cut -f3 /out/test.hicdump3 | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 | cut -c1-2 > juicebox-norm.log1
-gunzip -c /out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | cut -c1-2 > juicebox-norm.log2
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar juicer_tools dump observed NONE /out/test.hic chr1 chr1 BP 500000 > tmp_out/test.hicdump3
+cut -f3 tmp_out/test.hicdump3 | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 | cut -c1-2 > juicebox-norm.log1
+gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | cut -c1-2 > juicebox-norm.log2
 if [ ! -z "$(diff juicebox-norm.log1 juicebox-norm.log2)" ]; then
   return 1;
 fi
