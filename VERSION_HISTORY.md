@@ -1,3 +1,9 @@
+### v8
+* juicer and juicer_tools installed.
+* run-addfrag2pairs.sh and run-juicebox-pre.sh added 
+* pairix version 0.1.1
+* bam2pairs depricated (now a part of pairix 0.1.1)
+
 ### v7
 * fixed run-pairsqc-single.sh issue with output directory '.'
 * modified run-cool2multirescool.sh usage (added outprefix so it doesn't try to modify read-only input directory).

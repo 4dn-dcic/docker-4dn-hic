@@ -1,6 +1,6 @@
 # Docker-4dn-hic
 
-This repo contains the source files for a docker image stored in duplexa/4dn-hic:v7. (we will change the docker hub account soon)
+This repo contains the source files for a docker image stored in duplexa/4dn-hic:v8. (we will change the docker hub account soon)
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
@@ -16,6 +16,9 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-cooler.sh](#run-coolersh) 
   * [run-cool2multirescool.sh](#run-cool2multirescoolsh)
   * [run-pairsqc-single.sh](#run-pairsqc-singlesh)
+  * [run-addfrag2pairs.sh](#run-addfrag2pairssh)
+  * [run-juicebox-pre.sh](#run-juicebox-presh)
+
 
 ## Cloning the repo
 ```
@@ -28,12 +31,12 @@ Major software tools used inside the docker container are downloaded by the scri
 The `downloads.sh` file also contains comment lines that specifies the name and version of individual software tools.
 
 ## Building docker image
-You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v7 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v7.
+You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v8 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v8.
 ```
-docker build -t duplexa/4dn-hic:v7 .
-docker push duplexa/4dn-hic:v7
+docker build -t duplexa/4dn-hic:v8 .
+docker push duplexa/4dn-hic:v8
 ```
-You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v7). The command 'docker run' (below) automatically pulls the image from docker hub.
+You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v8). The command 'docker run' (below) automatically pulls the image from docker hub.
 
 
 ## Sample data
@@ -45,13 +48,13 @@ Tool wrappers are under the `scripts` directory and follow naming conventions `r
 
 ```
 # default
-docker run duplexa/4dn-hic:v7
+docker run duplexa/4dn-hic:v8
 
 # specific run command
-docker run duplexa/4dn-hic:v7 <run-xx.sh> <arg1> <arg2> ...
+docker run duplexa/4dn-hic:v8 <run-xx.sh> <arg1> <arg2> ...
 
 # may need -v option to mount data file/folder if they are used as arguments.
-docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v7 <run-xx.sh> /d1/file1 /d2/file2 ...
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v8 <run-xx.sh> /d1/file1 /d2/file2 ...
 ```
 
 ### run-list.sh
@@ -156,6 +159,35 @@ run-pairsqc-single.sh <input_pairs> <chromsize> <sample_name> <enzyme> <outdir>
 # sample_name : sample name - to be used as both the prefix of the report and the title of the sample in the report.
 # enzyme : either 4 (4-cutter) or 6 (6-cutter)
 # outdir : output directory
+```
+
+### run-addfrag2pairs.sh
+Adds juicer frag information to pairs file and creates an updated pairs file.
+* Input: a pairs file, a (juicer-style) restriction_site_file
+* Output: a pairs file
+
+#### Usage
+Run the following in the container
+```
+run-addfrag2pairs.sh <input_pairs> <restriction_site_file> <output_prefix>
+# input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2)
+# restriction_site_file : a text file containing positions of restriction enzyme sites, separated by space, one chromosome per line (Juicer style).
+# output prefix: prefix of the output pairs file
+```
+
+### run-juicebox-pre.sh
+Runs juicebox pre and addNorm on a pairs file and creates a hic file.
+* Input: a pairs file, a chromsize file
+* Output: a hic file
+
+#### Usage
+Run the following in the container
+```
+run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res>
+# input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2), preferably containing frag information.
+# chromsize_file : a chromsize file
+# output prefix: prefix of the output hic file
+# min_res : minimum resolution for whole-genome normalization (e.g. 5000)
 ```
 
 

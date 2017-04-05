@@ -24,20 +24,13 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.1.0
-wget https://github.com/4dn-dcic/pairix/archive/0.1.0.tar.gz
-tar -xzf 0.1.0.tar.gz
-cd pairix-0.1.0
+## VERSION: 0.1.1
+wget https://github.com/4dn-dcic/pairix/archive/0.1.1.tar.gz
+tar -xzf 0.1.1.tar.gz
+cd pairix-0.1.1
 make
 cd ..
-ln -s pairix-0.1.0 pairix
-
-
-## SOFTWARE: bam2pairs
-## VERSION: 0.0.2
-wget https://github.com/4dn-dcic/bam2pairs/archive/0.0.2.tar.gz
-tar -xzf 0.0.2.tar.gz
-ln -s bam2pairs-0.0.2 bam2pairs
+ln -s pairix-0.1.1 pairix
 
 
 ## SOFTWARE: cooler
@@ -50,4 +43,20 @@ pip install cooler==0.6.6
 wget https://github.com/4dn-dcic/pairsqc/archive/0.2.0.tar.gz
 tar -xzf 0.2.0.tar.gz
 ln -s pairsqc-0.2.0 pairsqc
+
+
+## SOFTWARE: juicebox
+## VERSION: 1.6.2-cuda8
+wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.6.2_linux_jcuda.0.8.jar
+ln -s juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools
+
+
+## SOFTWARE: juicer
+## COMMIT: 855e6291c6926371aeeab3d5f96b3895c0cdb171
+git clone https://github.com/theaidenlab/juicer
+cd juicer
+git checkout 855e6291c6926371aeeab3d5f96b3895c0cdb171
+chmod +x CPU/* CPU/common/*
+cd ..
+
 
