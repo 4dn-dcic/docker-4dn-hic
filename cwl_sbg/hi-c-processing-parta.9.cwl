@@ -679,7 +679,8 @@
             ],
             "required": false,
             "sbg:includeInPorts": true,
-            "sbg:fileTypes": "BAM"
+            "sbg:fileTypes": "BAM",
+            "ff:format": "bam"
         },
         {
             "label": "out_sorted_bam_index",
@@ -695,7 +696,8 @@
             ],
             "required": false,
             "sbg:includeInPorts": true,
-            "sbg:fileTypes": "BAI"
+            "sbg:fileTypes": "BAI",
+            "ff:format": "bai"
         },
         {
             "label": "out_pairs",
@@ -711,7 +713,8 @@
             ],
             "required": false,
             "sbg:includeInPorts": true,
-            "sbg:fileTypes": "GZ"
+            "sbg:fileTypes": "GZ",
+            "ff:format": "pairs"
         },
         {
             "label": "out_pairs_index",
@@ -727,7 +730,8 @@
             ],
             "required": false,
             "sbg:includeInPorts": true,
-            "sbg:fileTypes": "PX2"
+            "sbg:fileTypes": "PX2",
+            "ff:format": "pairs_px2"
         }
     ],
     "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-parta/9.png",
@@ -742,7 +746,8 @@
             "type": [
                 "File"
             ],
-            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ"
+            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
+            "ff:format": "fastq"
         },
         {
             "label": "fastq2",
@@ -752,7 +757,8 @@
             "type": [
                 "File"
             ],
-            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ"
+            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
+            "ff:format": "fastq"
         },
         {
             "label": "bwa_index",
@@ -762,7 +768,8 @@
             "type": [
                 "File"
             ],
-            "sbg:fileTypes": "TGZ"
+            "sbg:fileTypes": "TGZ",
+            "ff:format": "bwaIndex"
         },
         {
             "label": "nThreads",
