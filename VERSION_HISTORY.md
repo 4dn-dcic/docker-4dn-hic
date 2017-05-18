@@ -1,3 +1,8 @@
+### v9
+* run-juicer.sh is now included.
+* hic2cool is now included.
+* pairix 0.1.6 and cooler 0.7.2 (updated version) are now used.
+
 ### v8
 * juicer and juicer_tools installed.
 * run-addfrag2pairs.sh and run-juicebox-pre.sh added 

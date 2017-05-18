@@ -24,18 +24,18 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.1.1
-wget https://github.com/4dn-dcic/pairix/archive/0.1.1.tar.gz
-tar -xzf 0.1.1.tar.gz
-cd pairix-0.1.1
+## VERSION: 0.1.6
+wget https://github.com/4dn-dcic/pairix/archive/0.1.6.tar.gz
+tar -xzf 0.1.6.tar.gz
+cd pairix-0.1.6
 make
 cd ..
-ln -s pairix-0.1.1 pairix
+ln -s pairix-0.1.6 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.6.6
-pip install cooler==0.6.6
+## VERSION: 0.7.2
+pip install cooler==0.7.2
 
 
 ## SOFTWARE: pairsqc
@@ -60,3 +60,9 @@ chmod +x CPU/* CPU/common/*
 ln -s CPU scripts
 cd ..
 
+
+## SOFTWARE: hic2cool
+## VERSION: 0.3.3
+wget https://github.com/4dn-dcic/hic2cool/archive/0.3.3.tar.gz
+tar -xzf 0.3.3.tar.gz
+ln -s hic2cool-0.3.3 hic2cool
