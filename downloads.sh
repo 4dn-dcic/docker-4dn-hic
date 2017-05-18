@@ -57,6 +57,6 @@ git clone https://github.com/theaidenlab/juicer
 cd juicer
 git checkout 855e6291c6926371aeeab3d5f96b3895c0cdb171
 chmod +x CPU/* CPU/common/*
+ln -s CPU scripts
 cd ..
-
 
