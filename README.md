@@ -183,11 +183,12 @@ Runs juicebox pre and addNorm on a pairs file and creates a hic file.
 #### Usage
 Run the following in the container
 ```
-run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res>
+run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res> <higlass-compatible>
 # input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2), preferably containing frag information.
 # chromsize_file : a chromsize file
 # output prefix: prefix of the output hic file
 # min_res : minimum resolution for whole-genome normalization (e.g. 5000)
+# higlass-compatible : if 1, zoom levels are set in a Hi-Glass compatible way, if 0 default juicebox zoom levels.
 ```
 
 
