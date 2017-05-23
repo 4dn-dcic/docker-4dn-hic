@@ -1,7 +1,8 @@
 ### v9
 * run-juicer.sh is now included.
 * hic2cool is now included.
-* pairix 0.1.6 and cooler 0.7.2 (updated version) are now used.
+* pairix 0.1.6 and cooler 0.7.3 (updated version) are now used.
+* run-juicebox-pre.sh now has an option to include HiGlass-compatible resolution set
 
 ### v8
 * juicer and juicer_tools installed.
