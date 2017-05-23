@@ -15,8 +15,8 @@ fi
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cool2multirescool.sh /d/test.cool 2 /e/test
 du -s tmp_out/test.multires.cool |cut -f1 > mcool.log1
 du -s tests/test.multires.cool |cut -f1 > mcool.log2
-python3 -c 'import cooler; print(cooler.io.ls("tmp_out/test.multires.cool"))' >> mcool.log1
-python3 -c 'import cooler; print(cooler.io.ls("tests/test.multires.cool"))' >> mcool.log2
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("tmp_out/test.multires.cool"))' >> mcool.log1
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("tests/test.multires.cool"))' >> mcool.log2
 if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
   return 1;
 fi
