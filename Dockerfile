@@ -34,7 +34,6 @@ ENV PATH=/usr/local/bin/pairix/bin/:$PATH
 ENV PATH=/usr/local/bin/pairix/util/bam2pairs/:$PATH
 ENV PATH=/usr/local/bin/pairsqc/:$PATH
 ENV PATH=/usr/local/bin/juicer/CPU/:/usr/local/bin/juicer/CPU/common:$PATH
-ENV PATH=/usr/local/bin/hic2cool/:$PATH
 
 # wrapper
 COPY scripts/ .

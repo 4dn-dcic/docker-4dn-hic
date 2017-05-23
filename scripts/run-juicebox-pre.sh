@@ -11,12 +11,7 @@ java -jar juicer_tools  pre -n $input_pairs $output_prefix.hic $chromsizefile
 # normalization
 if (( $higlass == 1 ))
 then
-    reslist=$res
-    while (( $res < $((genomesize / 256)) ))
-    do 
-        res=$((res * 2))
-        reslist=$reslist,$res
-    done
+    reslist=$(python3 -c "from cooler.contrib import higlass; higlass.print_zoom_resolutions('$CHROMSIZES_FILE', $BASE_RES)")
     java -jar juicer_tools addNorm -w $reslist -d -F $output_prefix.hic
 elif
 then

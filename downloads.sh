@@ -34,8 +34,8 @@ ln -s pairix-0.1.6 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.7.2
-pip install cooler==0.7.2
+## VERSION: 0.7.3
+pip install cooler==0.7.3
 
 
 ## SOFTWARE: pairsqc
@@ -63,6 +63,4 @@ cd ..
 
 ## SOFTWARE: hic2cool
 ## VERSION: 0.3.3
-wget https://github.com/4dn-dcic/hic2cool/archive/0.3.3.tar.gz
-tar -xzf 0.3.3.tar.gz
-ln -s hic2cool-0.3.3 hic2cool
+pip install hic2cool==0.3.3
