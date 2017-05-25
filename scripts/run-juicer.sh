@@ -20,7 +20,7 @@ then
   gunzip $fasta
   fasta=${fasta/%\.gz/}
 fi
-mv $fasta .
+mv $fasta ./$index.fa
 
 # unzip fastq files
 if [[ $fastq1 =~ \.gz$ ]]

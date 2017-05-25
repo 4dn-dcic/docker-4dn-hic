@@ -202,7 +202,7 @@ Run the following in the container
 run-juicer.sh <input_fastq1> <input_fastq2> <bwaIndex> <reference_genome_fasta> <chromsize_file> <restriction_enzyme_site_file> 
 # input_fastq1, input_fastq2 : input fastq files, either gzipped or not
 # bwaIndex : tarball for bwa index, .tgz.
-# reference_genome_fasta : fasta file for reference genome with the same prefix as the contents of bwaIndex
+# reference_genome_fasta : fasta file for reference genome matching the bwaIndex
 # chromsize_file : a chromsize file
 # restriction_enzyme_site_file : juicer-formatted restriction enzyme site file, each line containing a chromosome name followed by all the positions of the specific restriction enzyme sites on that chromosome, space-delimited.
 ```
