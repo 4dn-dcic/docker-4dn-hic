@@ -6,7 +6,7 @@ index_file=$3
 fasta=$4
 chromsize_file=$5
 restriction_file=$6
-
+outdir=$7
 
 # unzip index
 tar -xzf $index_file
@@ -38,6 +38,7 @@ fi
 
 juicer_dir=/usr/local/bin/juicer/
 mkdir -p data_dir/fastq
-mv $fastq1 $fastq2 data_dir/fastq/
-juicer.sh -z $index -d /usr/local/bindata_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early
-mv data_dir/fastq data_dir/splits data_dir/aligned/merged_nodups.txt .
+mv $fastq1 data_dir/fastq/data_R1.fastq
+mv $fastq2 data_dir/fastq/data_R2.fastq
+juicer.sh -z $index -d /usr/local/bin/data_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early
+mv data_dir/fastq data_dir/splits data_dir/aligned/merged_nodups.txt $outdir
