@@ -34,8 +34,8 @@ ln -s pairix-0.1.6 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.7.3
-pip install cooler==0.7.3
+## VERSION: 0.7.4
+pip install cooler==0.7.4
 
 
 ## SOFTWARE: pairsqc
