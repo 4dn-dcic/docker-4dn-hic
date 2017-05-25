@@ -40,4 +40,4 @@ juicer_dir=/usr/local/bin/juicer/
 mkdir -p data_dir/fastq
 mv $fastq1 $fastq2 data_dir/fastq/
 juicer.sh -z $index -d /usr/local/bindata_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early
-#mv data_dir/fastq data_dir/splits data_dir/aligned/merged_nodups.txt .
+mv data_dir/fastq data_dir/splits data_dir/aligned/merged_nodups.txt .
