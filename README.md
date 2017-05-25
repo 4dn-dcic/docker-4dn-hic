@@ -191,4 +191,20 @@ run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res> <hi
 # higlass-compatible : if 1, zoom levels are set in a Hi-Glass compatible way, if 0 default juicebox zoom levels.
 ```
 
+### run-juicer.sh
+Runs juicer to create a merged_nodups file.
+* Input: a pair of fastq files, bwa Index (tgz), reference genome sequence, chrom size file and a (juicer-formatted) restriction enzyme site file.
+* Output: a merged_nodups file.
+
+#### Usage
+Run the following in the container
+```
+run-juicer.sh <input_fastq1> <input_fastq2> <bwaIndex> <reference_genome_fasta> <chromsize_file> <restriction_enzyme_site_file> 
+# input_fastq1, input_fastq2 : input fastq files, either gzipped or not
+# bwaIndex : tarball for bwa index, .tgz.
+# reference_genome_fasta : fasta file for reference genome with the same prefix as the contents of bwaIndex
+# chromsize_file : a chromsize file
+# restriction_enzyme_site_file : juicer-formatted restriction enzyme site file, each line containing a chromosome name followed by all the positions of the specific restriction enzyme sites on that chromosome, space-delimited.
+```
+
 
