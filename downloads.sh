@@ -24,18 +24,18 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.1.1
-wget https://github.com/4dn-dcic/pairix/archive/0.1.1.tar.gz
-tar -xzf 0.1.1.tar.gz
-cd pairix-0.1.1
+## VERSION: 0.1.6
+wget https://github.com/4dn-dcic/pairix/archive/0.1.6.tar.gz
+tar -xzf 0.1.6.tar.gz
+cd pairix-0.1.6
 make
 cd ..
-ln -s pairix-0.1.1 pairix
+ln -s pairix-0.1.6 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.6.6
-pip install cooler==0.6.6
+## VERSION: 0.7.3
+pip install cooler==0.7.3
 
 
 ## SOFTWARE: pairsqc
@@ -57,6 +57,10 @@ git clone https://github.com/theaidenlab/juicer
 cd juicer
 git checkout 855e6291c6926371aeeab3d5f96b3895c0cdb171
 chmod +x CPU/* CPU/common/*
+ln -s CPU scripts
 cd ..
 
 
+## SOFTWARE: hic2cool
+## VERSION: 0.3.3
+pip install hic2cool==0.3.3
