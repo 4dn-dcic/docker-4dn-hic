@@ -1,8 +1,13 @@
+### v10
+* cooler version 0.7.4
+* run-cool2multirescool.sh now uses zoomify --balance
+
 ### v9
 * run-juicer.sh is now included.
 * hic2cool is now included.
 * pairix 0.1.6 and cooler 0.7.3 (updated version) are now used.
 * run-juicebox-pre.sh now has an option to include HiGlass-compatible resolution set
+* run-cool2multirescool.sh now uses zoomify instead of coarsegrain
 
 ### v8
 * juicer and juicer_tools installed.
