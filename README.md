@@ -18,7 +18,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-pairsqc-single.sh](#run-pairsqc-singlesh)
   * [run-addfrag2pairs.sh](#run-addfrag2pairssh)
   * [run-juicebox-pre.sh](#run-juicebox-presh)
-
+  * [run-juicer.sh](#run-juicersh)
 
 ## Cloning the repo
 ```
