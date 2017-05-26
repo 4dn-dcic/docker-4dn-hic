@@ -1,50 +1,82 @@
 {
-    "sbg:image_url": null,
-    "requirements": [],
-    "successCodes": [],
-    "sbg:cmdPreview": "run.sh",
-    "description": "",
-    "sbg:revision": 2,
-    "stdin": "",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "sbg:sbgMaintained": false,
+    "cwlVersion": "sbg:draft-2",
     "label": "sha256",
-    "hints": [
+    "sbg:createdBy": "duplexa",
+    "sbg:revision": 2,
+    "arguments": [],
+    "sbg:projectName": "Dev",
+    "sbg:project": "4dn-dcic/dev",
+    "inputs": [
         {
-            "class": "sbg:CPURequirement",
-            "value": 1
-        },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 1000
-        },
-        {
-            "class": "DockerRequirement",
-            "dockerImageId": "",
-            "dockerPull": "duplexa/sha256:v1"
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 1,
+                "sbg:cmdInclude": true
+            }
         }
     ],
-    "sbg:createdOn": 1486182682,
+    "sbg:cmdPreview": "run.sh",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "hints": [
+        {
+            "value": 1,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 1000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerImageId": "",
+            "dockerPull": "duplexa/sha256:v1",
+            "class": "DockerRequirement"
+        }
+    ],
+    "sbg:id": "4dn-dcic/dev/sha256/2",
+    "sbg:latestRevision": 2,
     "sbg:revisionsInfo": [
         {
             "sbg:modifiedBy": "duplexa",
+            "sbg:revision": 0,
             "sbg:modifiedOn": 1486182682,
-            "sbg:revisionNotes": null,
-            "sbg:revision": 0
+            "sbg:revisionNotes": null
         },
         {
             "sbg:modifiedBy": "duplexa",
+            "sbg:revision": 1,
             "sbg:modifiedOn": 1486182872,
-            "sbg:revisionNotes": null,
-            "sbg:revision": 1
+            "sbg:revisionNotes": null
         },
         {
             "sbg:modifiedBy": "duplexa",
+            "sbg:revision": 2,
             "sbg:modifiedOn": 1486183166,
-            "sbg:revisionNotes": null,
-            "sbg:revision": 2
+            "sbg:revisionNotes": null
         }
     ],
+    "temporaryFailCodes": [],
+    "stdin": "",
+    "stdout": "",
+    "class": "CommandLineTool",
+    "sbg:modifiedOn": 1486183166,
+    "sbg:validationErrors": [],
     "sbg:modifiedBy": "duplexa",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "sbg:createdOn": 1486182682,
     "sbg:job": {
         "allocatedResources": {
             "cpu": 1,
@@ -52,56 +84,28 @@
         },
         "inputs": {
             "input_file": {
-                "class": "File",
                 "path": "/path/to/input.ext",
-                "size": 0,
-                "secondaryFiles": []
+                "secondaryFiles": [],
+                "class": "File",
+                "size": 0
             }
         }
     },
-    "sbg:validationErrors": [],
-    "sbg:modifiedOn": 1486183166,
-    "cwlVersion": "sbg:draft-2",
-    "sbg:id": "4dn-dcic/dev/sha256/2",
-    "sbg:sbgMaintained": false,
-    "arguments": [],
-    "sbg:latestRevision": 2,
+    "description": "",
+    "requirements": [],
+    "sbg:image_url": null,
     "outputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
+            "id": "#report",
             "outputBinding": {
-                "loadContents": true,
-                "glob": "\"report\""
+                "glob": "\"report\"",
+                "loadContents": true
             },
-            "id": "#report"
-        }
-    ],
-    "inputs": [
-        {
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_file",
-            "inputBinding": {
-                "position": 1,
-                "separate": true,
-                "sbg:cmdInclude": true
-            }
+            ]
         }
     ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "sbg:project": "4dn-dcic/dev",
-    "class": "CommandLineTool",
-    "sbg:createdBy": "duplexa",
-    "stdout": "",
-    "temporaryFailCodes": []
+    "successCodes": []
 }
