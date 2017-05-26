@@ -1,3 +1,7 @@
+### v13
+* run-juicer.sh now working properly.
+* run-juicer.sh has an additional outdir argument.
+
 ### v10
 * cooler version 0.7.4
 * run-cool2multirescool.sh now uses zoomify --balance
