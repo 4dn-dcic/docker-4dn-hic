@@ -37,8 +37,10 @@ fi
 
 
 juicer_dir=/usr/local/bin/juicer/
-mkdir -p data_dir/fastq
-mv $fastq1 data_dir/fastq/data_R1.fastq
-mv $fastq2 data_dir/fastq/data_R2.fastq
-juicer.sh -z $index -d /usr/local/bin/data_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early 1>&2
-mv data_dir/fastq data_dir/splits data_dir/aligned/merged_nodups.txt $outdir
+cwd=$(pwd)
+echo $cwd 1>&2
+mkdir -p $cwd/data_dir/fastq 1>&2
+mv $fastq1 $cwd/data_dir/fastq/data_R1.fastq 1>&2
+mv $fastq2 $cwd/data_dir/fastq/data_R2.fastq 1>&2
+juicer.sh -z $index -d $cwd/data_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early 1>&2
+mv $cwd/data_dir/fastq $cwd/data_dir/splits $cwd/data_dir/aligned/merged_nodups.txt $outdir
