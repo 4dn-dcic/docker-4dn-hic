@@ -1,6 +1,8 @@
 ### v13
 * run-juicer.sh now working properly.
 * run-juicer.sh has an additional outdir argument.
+* pairix/util is added to PATH, so merged_nodup2pairs.pl now works without full path.
+* run-juicer.sh now prints out juicer stdout log to stderr.
 
 ### v10
 * cooler version 0.7.4
