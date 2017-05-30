@@ -1,3 +1,6 @@
+### v17
+* hic2cool now installed from repo
+
 ### v16
 * run-cooler.sh now does not do balancing.
 * A new script run-cooler-balance.sh does matrix balancing.
