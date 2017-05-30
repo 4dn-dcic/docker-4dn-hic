@@ -22,6 +22,10 @@ RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-
 RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' # plotosaurus
 RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
+# installing gawk for juicer
+RUN apt-get update -y && apt-get install -y gawk
+RUN echo 'alias awk=gawk' >> ~/.bashrc
+
 # download tools
 WORKDIR /usr/local/bin
 COPY downloads.sh .
@@ -30,7 +34,7 @@ RUN . downloads.sh
 # set path
 ENV PATH=/usr/local/bin/bwa/:$PATH
 ENV PATH=/usr/local/bin/samtools/:$PATH
-ENV PATH=/usr/local/bin/pairix/bin/:$PATH
+ENV PATH=/usr/local/bin/pairix/bin/:/usr/local/bin/pairix/util/:$PATH
 ENV PATH=/usr/local/bin/pairix/util/bam2pairs/:$PATH
 ENV PATH=/usr/local/bin/pairsqc/:$PATH
 ENV PATH=/usr/local/bin/juicer/CPU/:/usr/local/bin/juicer/CPU/common:$PATH
