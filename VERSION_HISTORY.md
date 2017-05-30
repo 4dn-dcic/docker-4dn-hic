@@ -1,3 +1,6 @@
+### v15
+* juicer_tools for juicebox alias is not juicer_tool.jar to avoid conflict with juicer_tool in juicer directory
+
 ### v14
 * run-merge-pairs.sh now handles headers.
 
