@@ -2,10 +2,11 @@
 
 image_name=docker-4dn-hic_local  # local image name for testing
 
-## run-cooler test
+## run-cooler & run-cooler-balance test
 cwd=$(pwd)
 mkdir -p tmp_out
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 5000 2 /e/test
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 2 /e/test0
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler-balance.sh /d/test0.cool 5000 /e/test
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool > tmp_out/test.cooldump
 if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
   return 1;
