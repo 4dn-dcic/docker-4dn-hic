@@ -1,3 +1,6 @@
+### v14
+* run-merge-pairs.sh now handles headers.
+
 ### v13
 * run-juicer.sh now working properly.
 * run-juicer.sh has an additional outdir argument.
