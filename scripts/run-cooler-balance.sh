@@ -4,6 +4,6 @@ max_iter=$2
 out_prefix=$3
 
 # matrix balancing
-cp $coolfile $out_prefix.cool
+cp $cool_file $out_prefix.cool
 cooler balance --max-iters $max_iter $out_prefix.cool
 
