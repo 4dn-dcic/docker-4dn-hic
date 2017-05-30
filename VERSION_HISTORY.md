@@ -1,3 +1,7 @@
+### v16
+* run-cooler.sh now does not do balancing.
+* A new script run-cooler-balance.sh does matrix balancing.
+
 ### v15
 * juicer_tools for juicebox alias is not juicer_tool.jar to avoid conflict with juicer_tool in juicer directory
 
