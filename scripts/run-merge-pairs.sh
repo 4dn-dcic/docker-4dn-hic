@@ -24,7 +24,7 @@ done
 sort -m -k2,2 -k4,4 -k3,3g -k5,5g $arg | bgzip -c >> $outprefix.pairs.gz
 
 # indexing
-pairix -f -s2 -b3 -e3 -d4 -u5 $outprefix.pairs.gz
+pairix -f $outprefix.pairs.gz
 
 # clean up
 k=1

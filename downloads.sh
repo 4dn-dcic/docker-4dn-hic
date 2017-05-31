@@ -63,9 +63,9 @@ cd ..
 
 ## SOFTWARE: hic2cool
 ## VERSION: 0.3.3
-wget https://github.com/4dn-dcic/hic2cool/archive/0.3.3.tar.gz
-tar -xzf 0.3.3.tar.gz
-cd hic2cool-0.3.3
+wget https://github.com/4dn-dcic/hic2cool/archive/0.3.4.tar.gz
+tar -xzf 0.3.4.tar.gz
+cd hic2cool-0.3.4
 pip install -r requirements.txt
 cd ..
-ln -s hic2cool-0.3.3 hic2cool
+ln -s hic2cool-0.3.4 hic2cool
