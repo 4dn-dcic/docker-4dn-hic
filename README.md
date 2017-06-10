@@ -1,6 +1,6 @@
 # Docker-4dn-hic
 
-This repo contains the source files for a docker image stored in duplexa/4dn-hic:v14. (we will change the docker hub account soon)
+This repo contains the source files for a docker image stored in duplexa/4dn-hic:v17. (we will change the docker hub account soon)
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
@@ -14,6 +14,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-bam2pairs.sh](#run-bam2pairssh)
   * [run-merge-pairs.sh](#run-merge-pairssh)
   * [run-cooler.sh](#run-coolersh) 
+  * [run-cooler-balance.sh](#run-cooler-balancesh) 
   * [run-cool2multirescool.sh](#run-cool2multirescoolsh)
   * [run-pairsqc-single.sh](#run-pairsqc-singlesh)
   * [run-addfrag2pairs.sh](#run-addfrag2pairssh)
@@ -31,12 +32,12 @@ Major software tools used inside the docker container are downloaded by the scri
 The `downloads.sh` file also contains comment lines that specifies the name and version of individual software tools.
 
 ## Building docker image
-You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v14 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v14.
+You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v17 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v17.
 ```
-docker build -t duplexa/4dn-hic:v14 .
-docker push duplexa/4dn-hic:v14
+docker build -t duplexa/4dn-hic:v17 .
+docker push duplexa/4dn-hic:v17
 ```
-You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v14). The command 'docker run' (below) automatically pulls the image from docker hub.
+You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v17). The command 'docker run' (below) automatically pulls the image from docker hub.
 
 
 ## Sample data
@@ -48,13 +49,13 @@ Tool wrappers are under the `scripts` directory and follow naming conventions `r
 
 ```
 # default
-docker run duplexa/4dn-hic:v14
+docker run duplexa/4dn-hic:v17
 
 # specific run command
-docker run duplexa/4dn-hic:v14 <run-xx.sh> <arg1> <arg2> ...
+docker run duplexa/4dn-hic:v17 <run-xx.sh> <arg1> <arg2> ...
 
 # may need -v option to mount data file/folder if they are used as arguments.
-docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v14 <run-xx.sh> /d1/file1 /d2/file2 ...
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v17 <run-xx.sh> /d1/file1 /d2/file2 ...
 ```
 
 ### run-list.sh
@@ -115,19 +116,32 @@ run-merge-pairs.sh <output_prefix> <pairs1> <pairs2> [<pairs3> [...]]
 ```
 
 ### run-cooler.sh
-Runs cooler to create a matrix .cool file, taking in a (4dn-style) pairs file
+Runs cooler to create an unnormalized matrix .cool file, taking in a (4dn-style) pairs file
 * Input : a pairs file (.gz, along with .px2), chrom.size file
 * Output : a contact matrix file (.cool)
 
 #### Usage
 Run the following in the container.
 ```
-run-cooler.sh <input_pairs> <chromsize> <binsize> <max_iter> <ncores> <output_prefix>
+run-cooler.sh <input_pairs> <chromsize> <binsize> <ncores> <output_prefix>
 # input_pairs : a pairs file
 # chromsize : a chromsize file
 # binsize : binsize in bp
-# max_iter : max number of iteration (default is 200)
 # ncores : number of cores to use
+# output_prefix : prefix of the output cool file
+```
+
+### run-cooler-balance.sh
+Runs cooler to create a normalized matrix file, taking in an unnormalized .cool file
+* Input: a cool file (.cool)
+* Output : a cool file (.cool)
+
+#### Usage
+Run the following in the container.
+```
+run-cooler-balance.sh <input_cool> <max_iter> <output_prefix>
+# input_cool : a cool file (without normalization vector)
+# max_iter : maximum number of iterations
 # output_prefix : prefix of the output cool file
 ```
 

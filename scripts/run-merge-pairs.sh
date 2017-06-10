@@ -14,17 +14,20 @@ let "k++"
 done
 
 # header
-gunzip -c $1 | grep "^#" | grep -v '^#command:' | bgzip -c > $outprefix.pairs.gz
+gunzip -c $1 | grep "^#" | grep -v '^#command:'  > $outprefix.pairs
 for f in $@
 do
-  gunzip -c $f | grep '^#command:' | bgzip -c >> $outprefix.pairs.gz
+  gunzip -c $f | grep '^#command:' >> $outprefix.pairs
 done
 
 # merging 
-sort -m -k2,2 -k4,4 -k3,3g -k5,5g $arg | bgzip -c >> $outprefix.pairs.gz
+sort -m -k2,2 -k4,4 -k3,3g -k5,5g $arg >> $outprefix.pairs
+
+# compressing
+bgzip -f $outprefix.pairs
 
 # indexing
-pairix -f -s2 -b3 -e3 -d4 -u5 $outprefix.pairs.gz
+pairix -f $outprefix.pairs.gz
 
 # clean up
 k=1

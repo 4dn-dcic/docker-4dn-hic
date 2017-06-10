@@ -48,7 +48,7 @@ ln -s pairsqc-0.2.0 pairsqc
 ## SOFTWARE: juicebox
 ## VERSION: 1.6.2-cuda8
 wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.6.2_linux_jcuda.0.8.jar
-ln -s juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools
+ln -s /usr/local/bin/juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools.jar
 
 
 ## SOFTWARE: juicer
@@ -63,4 +63,9 @@ cd ..
 
 ## SOFTWARE: hic2cool
 ## VERSION: 0.3.3
-pip install hic2cool==0.3.3
+wget https://github.com/4dn-dcic/hic2cool/archive/0.3.4.tar.gz
+tar -xzf 0.3.4.tar.gz
+cd hic2cool-0.3.4
+pip install -r requirements.txt
+cd ..
+ln -s hic2cool-0.3.4 hic2cool

@@ -1,3 +1,13 @@
+### v17
+* hic2cool now installed from repo
+
+### v16
+* run-cooler.sh now does not do balancing.
+* A new script run-cooler-balance.sh does matrix balancing.
+
+### v15
+* juicer_tools for juicebox alias is not juicer_tool.jar to avoid conflict with juicer_tool in juicer directory
+
 ### v14
 * run-merge-pairs.sh now handles headers.
 
