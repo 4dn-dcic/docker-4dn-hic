@@ -1,3 +1,6 @@
+### v18
+* run-juicer.sh now copies the align directory (instead of just merged_nodups.txt file in the align directory) to output directory
+
 ### v17
 * hic2cool now installed from repo
 
