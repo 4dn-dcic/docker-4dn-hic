@@ -8,6 +8,8 @@ chromsize_file=$5
 restriction_file=$6
 outdir=$7
 
+cd $outdir
+
 # unzip index
 tar -xzf $index_file
 index=`ls -1 *.bwt | head -1 | sed 's/\.bwt//g'`
@@ -20,7 +22,7 @@ then
   gunzip $fasta
   fasta=${fasta/%\.gz/}
 fi
-mv $fasta ./$index
+cp $fasta ./$index
 
 # unzip fastq files
 if [[ $fastq1 =~ \.gz$ ]]
@@ -40,7 +42,7 @@ juicer_dir=/usr/local/bin/juicer/
 cwd=$(pwd)
 echo $cwd 1>&2
 mkdir -p $cwd/data_dir/fastq 1>&2
-mv $fastq1 $cwd/data_dir/fastq/data_R1.fastq 1>&2
-mv $fastq2 $cwd/data_dir/fastq/data_R2.fastq 1>&2
+cp $fastq1 $cwd/data_dir/fastq/data_R1.fastq 1>&2
+cp $fastq2 $cwd/data_dir/fastq/data_R2.fastq 1>&2
 juicer.sh -z $index -d $cwd/data_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early 1>&2
-mv $cwd/data_dir/fastq $cwd/data_dir/splits $cwd/data_dir/aligned/ $outdir
+#mv $cwd/data_dir/fastq $cwd/data_dir/splits $cwd/data_dir/aligned/ $outdir
