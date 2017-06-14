@@ -1,3 +1,6 @@
+### v19
+* run-juicer.sh now copies (instead of moving) input files to the output directory (instead of to an internal directory) and directly uses the output directory to run juicer (instead of running it internally and copying the output files later to the output directory)
+
 ### v18
 * run-juicer.sh now copies the align directory (instead of just merged_nodups.txt file in the align directory) to output directory
 
