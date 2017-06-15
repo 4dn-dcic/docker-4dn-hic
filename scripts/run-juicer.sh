@@ -44,7 +44,7 @@ echo $cwd 1>&2
 mkdir -p $cwd/data_dir/fastq 1>&2
 #cp $fastq1 $cwd/data_dir/fastq/data_R1.fastq 1>&2
 #cp $fastq2 $cwd/data_dir/fastq/data_R2.fastq 1>&2
-sed 's/\.1 / /g' $fastq1 > $cwd/data_dir/fastq/data_R1.fastq 1>&2
-sed 's/\.2 / /g' $fastq2 > $cwd/data_dir/fastq/data_R2.fastq 1>&2
+sed 's/\.1 / /g' $fastq1 > $cwd/data_dir/fastq/data_R1.fastq
+sed 's/\.2 / /g' $fastq2 > $cwd/data_dir/fastq/data_R2.fastq
 juicer.sh -z $index -d $cwd/data_dir -p $chromsize_file -y $restriction_file -D $juicer_dir -S early 1>&2
 #mv $cwd/data_dir/fastq $cwd/data_dir/splits $cwd/data_dir/aligned/ $outdir
