@@ -1,6 +1,6 @@
 # Docker-4dn-hic
 
-This repo contains the source files for a docker image stored in duplexa/4dn-hic:v18. (we will change the docker hub account soon)
+This repo contains the source files for a docker image stored in duplexa/4dn-hic:v19. (we will change the docker hub account soon)
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
@@ -32,12 +32,12 @@ Major software tools used inside the docker container are downloaded by the scri
 The `downloads.sh` file also contains comment lines that specifies the name and version of individual software tools.
 
 ## Building docker image
-You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v18 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v18.
+You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v19 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v19.
 ```
-docker build -t duplexa/4dn-hic:v18 .
-docker push duplexa/4dn-hic:v18
+docker build -t duplexa/4dn-hic:v19 .
+docker push duplexa/4dn-hic:v19
 ```
-You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v18). The command 'docker run' (below) automatically pulls the image from docker hub.
+You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v19). The command 'docker run' (below) automatically pulls the image from docker hub.
 
 
 ## Sample data
@@ -49,13 +49,13 @@ Tool wrappers are under the `scripts` directory and follow naming conventions `r
 
 ```
 # default
-docker run duplexa/4dn-hic:v18
+docker run duplexa/4dn-hic:v19
 
 # specific run command
-docker run duplexa/4dn-hic:v18 <run-xx.sh> <arg1> <arg2> ...
+docker run duplexa/4dn-hic:v19 <run-xx.sh> <arg1> <arg2> ...
 
 # may need -v option to mount data file/folder if they are used as arguments.
-docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v18 <run-xx.sh> /d1/file1 /d2/file2 ...
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v19 <run-xx.sh> /d1/file1 /d2/file2 ...
 ```
 
 ### run-list.sh
@@ -219,7 +219,7 @@ run-juicer.sh <input_fastq1> <input_fastq2> <bwaIndex> <reference_genome_fasta> 
 # reference_genome_fasta : fasta file for reference genome matching the bwaIndex
 # chromsize_file : a chromsize file
 # restriction_enzyme_site_file : juicer-formatted restriction enzyme site file, each line containing a chromosome name followed by all the positions of the specific restriction enzyme sites on that chromosome, space-delimited.
-# outdir : output directory (e.g. '.')
+# outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
 ```
 
 
