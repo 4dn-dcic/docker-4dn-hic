@@ -1,3 +1,6 @@
+### v20
+* Now juicer 1.5.5 is used. A problem of exiting with error code 100 when -S early option is used is now fixed.
+
 ### v19
 * run-juicer.sh now copies (instead of moving) input files to the output directory (instead of to an internal directory) and directly uses the output directory to run juicer (instead of running it internally and copying the output files later to the output directory)
 * run-juicer.sh now can deal with read name difference between mates in SRA-downloaded fastq files (by removing .1 and .2 before feeding to juicer)
