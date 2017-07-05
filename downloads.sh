@@ -52,14 +52,12 @@ ln -s /usr/local/bin/juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools.jar
 
 
 ## SOFTWARE: juicer
-## COMMIT: 855e6291c6926371aeeab3d5f96b3895c0cdb171
-wget https://github.com/theaidenlab/juicer/archive/1.5.5.tar.gz
-tar -xzf 1.5.5.tar.gz
-cd juicer-1.5.5
+## COMMIT: e6d60097e589878bdf277fba6d88075430041273
+git clone https://github.com/SooLee/juicer.git
+cd juicer
 chmod +x CPU/* CPU/common/*
 ln -s CPU scripts
 cd ..
-ln -s juicer-1.5.5 juicer
 
 
 ## SOFTWARE: hic2cool
