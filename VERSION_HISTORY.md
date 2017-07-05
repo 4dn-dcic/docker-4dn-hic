@@ -1,3 +1,6 @@
+### v21
+* Now run-juicer.sh has number of cores as an argument.
+
 ### v20
 * Now juicer 1.5.5 is used. A problem of exiting with error code 100 when -S early option is used is now fixed.
 
