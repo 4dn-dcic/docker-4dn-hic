@@ -1,3 +1,9 @@
+### v23
+* In this version, a forked version of hic2cool (derived from v0.3.5) is used that fixed a problem.
+
+### v22.5
+* In this version a forked version of juicer with parallel sorting option is used.
+
 ### v21
 * Now run-juicer.sh has number of cores as an argument.
 
