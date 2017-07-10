@@ -1,3 +1,7 @@
+### v24
+* Tentative mcool2hic is included.
+* hic2cool with a script extracting only normvector from hic to add to mcool is added.
+
 ### v23
 * In this version, a forked version of hic2cool (derived from v0.3.5) is used that fixed a problem.
 
