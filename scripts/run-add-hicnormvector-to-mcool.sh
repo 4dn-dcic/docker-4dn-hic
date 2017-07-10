@@ -2,7 +2,7 @@
 
 input_hic=$1
 input_mcool=$2
-$outdir=$3
+outdir=$3
 
 cp $input_mcool $outdir 
 output_mcool=$outdir/
