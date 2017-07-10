@@ -61,8 +61,18 @@ cd ..
 
 
 ## SOFTWARE: hic2cool
-## COMMIT: f9a38465cc56b227ecf50ed7a97967841948a081
+## COMMIT: 2a052ae375992f4019c130808cf5c4c617527118
 git clone https://github.com/SooLee/hic2cool.git
 cd hic2cool
+git checkout 2a052ae375992f4019c130808cf5c4c617527118
 pip install -r requirements.txt
 cd ..
+
+
+## SOFTWARE: mcool2hic
+## COMMIT: ef24b02df0b1b8eb507c74b384e816dc231cd2f3
+git clone https://github.com/SooLee/mcool2hic.git
+cd mcool2hic
+get checkout ef24b02df0b1b8eb507c74b384e816dc231cd2f3
+cd ..
+ 
