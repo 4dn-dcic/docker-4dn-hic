@@ -1,0 +1,4 @@
+input_size(GB)	merge_pairs	cooler	pairs2hic(juicebox pre)	hic2mcool
+small	2.4	703	750	1334	4979
+medium	4.7	1151	924	2653	7913
+large	7.2	1965	1105	3836	11618
