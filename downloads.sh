@@ -70,9 +70,9 @@ cd ..
 
 
 ## SOFTWARE: mcool2hic
-## COMMIT: ef24b02df0b1b8eb507c74b384e816dc231cd2f3
+## COMMIT: 34b5430e8b9cfd8f01203e0821b68efe4897b18f 
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
-get checkout ef24b02df0b1b8eb507c74b384e816dc231cd2f3
+get checkout 34b5430e8b9cfd8f01203e0821b68efe4897b18f
 cd ..
  
