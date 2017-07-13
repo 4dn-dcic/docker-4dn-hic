@@ -1,3 +1,6 @@
+### v25
+* pairix 0.1.9 instead of 0.1.8, which allows mapq filtering for `merged_nodups2pais.pl`.
+
 ### v24
 * Tentative mcool2hic is included.
 * hic2cool with a script extracting only normvector from hic to add to mcool is added.
