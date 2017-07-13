@@ -1,3 +1,6 @@
+### v26
+* pairix 0.2.0 instead of 0.1.9, which fixed split_sort option not working.
+
 ### v25
 * pairix 0.1.9 instead of 0.1.8, which allows mapq filtering for `merged_nodups2pais.pl`.
 
