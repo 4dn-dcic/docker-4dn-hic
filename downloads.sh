@@ -27,6 +27,7 @@ ln -s samtools-1.2 samtools
 ## VERSION: 0.2.0
 wget https://github.com/4dn-dcic/pairix/archive/0.2.0.tar.gz
 tar -xzf 0.2.0.tar.gz
+rm 0.2.0.tar.gz
 cd pairix-0.2.0
 make
 cd ..
@@ -42,6 +43,7 @@ pip install cooler==0.7.4
 ## VERSION: 0.2.0
 wget https://github.com/4dn-dcic/pairsqc/archive/0.2.0.tar.gz
 tar -xzf 0.2.0.tar.gz
+rm 0.2.0.tar.gz
 ln -s pairsqc-0.2.0 pairsqc
 
 
