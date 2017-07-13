@@ -75,6 +75,6 @@ cd ..
 ## COMMIT: 34b5430e8b9cfd8f01203e0821b68efe4897b18f 
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
-get checkout 34b5430e8b9cfd8f01203e0821b68efe4897b18f
+git checkout 34b5430e8b9cfd8f01203e0821b68efe4897b18f
 cd ..
  
