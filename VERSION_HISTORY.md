@@ -1,3 +1,6 @@
+### v27
+* pairsamtools is now installed.
+
 ### v26
 * pairix 0.2.0 instead of 0.1.9, which fixed split_sort option not working.
 
