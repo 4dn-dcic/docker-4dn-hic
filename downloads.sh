@@ -36,7 +36,7 @@ ln -s pairix-0.2.0 pairix
 
 ## SOFTWARE: cooler
 ## VERSION: 0.7.4
-pip install cooler==0.7.4
+pip3 install cooler==0.7.4
 
 
 ## SOFTWARE: pairsqc
@@ -77,4 +77,14 @@ git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
 git checkout 34b5430e8b9cfd8f01203e0821b68efe4897b18f
 cd ..
- 
+
+
+## SOFTWARE: pairsamtools
+## COMMIT: 537a604d8f7b0467b5700946d7656937e0eb4c85
+pip3 install numpy Cython click
+conda config --add channels conda-forge
+conda config --add channels bioconda
+conda install -y pbgzip
+conda install -y coreutils
+pip3 install git+https://github.com/mirnylab/pairsamtools.git@537a604d8f7b0467b5700946d7656937e0eb4c85
+
