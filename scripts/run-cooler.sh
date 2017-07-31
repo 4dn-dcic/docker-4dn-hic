@@ -4,7 +4,7 @@ chrsize_file=$2
 bin_size=$3
 ncores=$4 # (default 8)
 out_prefix=$5
-max_split=$6 (default 2)
+max_split=$6 # (default 2)
 
 cp $chrsize_file ./tmpchrsize
 
