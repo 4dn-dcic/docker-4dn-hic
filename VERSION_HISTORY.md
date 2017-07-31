@@ -1,3 +1,9 @@
+### v29
+* added max_split to run-cooler.sh
+
+### v28
+* added java maxmem to run-juiceboxpre.sh
+
 ### v27
 * pairsamtools is now installed.
 
