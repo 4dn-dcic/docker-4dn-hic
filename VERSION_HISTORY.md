@@ -1,3 +1,6 @@
+### v30
+* added chunksize to run-cooler-balance.sh and run-cool2multirescool.sh
+
 ### v29
 * added max_split to run-cooler.sh
 

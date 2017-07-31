@@ -1,6 +1,6 @@
 # Docker-4dn-hic
 
-This repo contains the source files for a docker image stored in duplexa/4dn-hic:v29. (we will change the docker hub account soon)
+This repo contains the source files for a docker image stored in duplexa/4dn-hic:v30. (we will change the docker hub account soon)
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
@@ -32,12 +32,12 @@ Major software tools used inside the docker container are downloaded by the scri
 The `downloads.sh` file also contains comment lines that specifies the name and version of individual software tools.
 
 ## Building docker image
-You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v29 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v29.
+You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v30 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v30.
 ```
-docker build -t duplexa/4dn-hic:v29 .
-docker push duplexa/4dn-hic:v29
+docker build -t duplexa/4dn-hic:v30 .
+docker push duplexa/4dn-hic:v30
 ```
-You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v29). The command 'docker run' (below) automatically pulls the image from docker hub.
+You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v30). The command 'docker run' (below) automatically pulls the image from docker hub.
 
 
 ## Sample data
@@ -49,13 +49,13 @@ Tool wrappers are under the `scripts` directory and follow naming conventions `r
 
 ```
 # default
-docker run duplexa/4dn-hic:v29
+docker run duplexa/4dn-hic:v30
 
 # specific run command
-docker run duplexa/4dn-hic:v29 <run-xx.sh> <arg1> <arg2> ...
+docker run duplexa/4dn-hic:v30 <run-xx.sh> <arg1> <arg2> ...
 
 # may need -v option to mount data file/folder if they are used as arguments.
-docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v29 <run-xx.sh> /d1/file1 /d2/file2 ...
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v30 <run-xx.sh> /d1/file1 /d2/file2 ...
 ```
 
 ### run-list.sh
@@ -123,12 +123,13 @@ Runs cooler to create an unnormalized matrix .cool file, taking in a (4dn-style)
 #### Usage
 Run the following in the container.
 ```
-run-cooler.sh <input_pairs> <chromsize> <binsize> <ncores> <output_prefix>
+run-cooler.sh <input_pairs> <chromsize> <binsize> <ncores> <output_prefix> <max_split>
 # input_pairs : a pairs file
 # chromsize : a chromsize file
 # binsize : binsize in bp
 # ncores : number of cores to use
 # output_prefix : prefix of the output cool file
+# max_split : max_split argument for cooler (e.g. 2 which is default for cooler) 
 ```
 
 ### run-cooler-balance.sh
@@ -139,10 +140,11 @@ Runs cooler to create a normalized matrix file, taking in an unnormalized .cool 
 #### Usage
 Run the following in the container.
 ```
-run-cooler-balance.sh <input_cool> <max_iter> <output_prefix>
+run-cooler-balance.sh <input_cool> <max_iter> <output_prefix> <chunksize>
 # input_cool : a cool file (without normalization vector)
 # max_iter : maximum number of iterations
 # output_prefix : prefix of the output cool file
+# chunksize : chunksize argument for cooler (e.g. 10000000 which is default for cooler)
 ```
 
 ### run-cool2multirescool.sh
@@ -153,10 +155,11 @@ Runs cooler coarsegrain to create multi-res cool file from a .cool file.
 #### Usage
 Run the following in the container.
 ```
-run-cool2multirescool.sh <input_cool> <ncores> <output_prefix>
+run-cool2multirescool.sh <input_cool> <ncores> <output_prefix> <chunksize>
 # input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
 # ncores: number of cores to use
 # output_prefix: prefix of the output multires.cool file
+# chunksize : chunksize argument of cooler (e.g. 10000000 which is default for cooler)
 ```
 
 ### run-pairsqc-single.sh
@@ -197,12 +200,13 @@ Runs juicebox pre and addNorm on a pairs file and creates a hic file.
 #### Usage
 Run the following in the container
 ```
-run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res> <higlass-compatible>
+run-juicebox-pre.sh <input_pairs> <chromsize_file> <output_prefix> <min_res> <higlass-compatible> <maxmem>
 # input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2), preferably containing frag information.
 # chromsize_file : a chromsize file
 # output prefix: prefix of the output hic file
 # min_res : minimum resolution for whole-genome normalization (e.g. 5000)
 # higlass-compatible : if 1, zoom levels are set in a Hi-Glass compatible way, if 0 default juicebox zoom levels.
+# maxmem : java max mem (e.g. 14g)
 ```
 
 ### run-juicer.sh
