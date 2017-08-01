@@ -67,7 +67,7 @@ cd ..
 git clone https://github.com/SooLee/hic2cool.git
 cd hic2cool
 git checkout 1aee5e744d36a4a44c8b7dd13bab4563d7f56a09
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 cd ..
 
 
