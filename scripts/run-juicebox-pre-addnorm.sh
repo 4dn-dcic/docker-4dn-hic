@@ -7,6 +7,6 @@ maxmem=$4   # e.g. 64g
 cp $input_hic $output_prefix.hic
 
 # normalization
-java -Xmx$maxmem -Xms2g -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $output_prefix.hic
+java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $output_prefix.hic
 
 
