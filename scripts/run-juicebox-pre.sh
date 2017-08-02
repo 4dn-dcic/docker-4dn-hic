@@ -16,5 +16,6 @@ else
 fi
 
 # normalization
-java -Xmx$maxmem -Xms2g -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $outpu
+java -Xmx$maxmem -Xms2g -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $output_prefix.hic
+
 
