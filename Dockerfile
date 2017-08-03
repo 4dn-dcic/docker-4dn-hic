@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 MAINTAINER Soo Lee (duplexa@gmail.com)
 
 # 1. general updates & installing necessary Linux components
-RUN apt-get update -y && apt-get install -y wget unzip less vim bzip2 make gcc zlib1g-dev libncurses-dev git
+RUN apt-get update -y && apt-get install -y wget unzip less vim bzip2 make gcc zlib1g-dev libncurses-dev git time
 
 # installing python3.5 & pip
 RUN apt-get update -y && apt-get install -y python3.5-dev python3-setuptools

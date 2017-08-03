@@ -1,3 +1,7 @@
+### v31
+* pairix 0.2.2 (fixed old_merged_nodup2pairs.pl -s option)
+* `time` is installed (`/usr/bin/time` can be used to benchmark runtime and maxmem)
+
 ### v30
 * added chunksize to run-cooler-balance.sh and run-cool2multirescool.sh
 
