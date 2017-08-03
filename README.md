@@ -6,6 +6,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
 * [Cloning the repo](#cloning-the-repo)
 * [Tool specifications](#tool-specifications)
 * [Building docker image](#building-docker-image)
+* [Benchmarking tools](#benchmarking-tools)
 * [Sample data](#sample-data)
 * [Tool wrappers](#tool-wrappers)
   * [run-list.sh](#run-listsh)
@@ -38,6 +39,21 @@ docker build -t duplexa/4dn-hic:v31 .
 docker push duplexa/4dn-hic:v31
 ```
 You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v31). The command 'docker run' (below) automatically pulls the image from docker hub.
+
+
+## Benchmarking tools
+To obtain run time and max mem stats, use `usr/bin/time` that is installed in the docker container. For example, run the following to benchmark `du`.
+```
+docker run duplexa/4dn-hic:v31 /usr/bin/time du 2> log
+cat log
+```
+The output looks as follows:
+```
+0.02user 0.82system 0:00.87elapsed 96%CPU (0avgtext+0avgdata 2024maxresident)k
+0inputs+0outputs (0major+103minor)pagefaults 0swaps
+```
+The benchmarking result goes to STDERR, which can be collected by a file by redirecting with `2>`.
+Maxmem is 2024KB in this case ('maxresident'). Run time is 0.87 second. ('elapsed')
 
 
 ## Sample data
