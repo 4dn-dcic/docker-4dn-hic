@@ -16,6 +16,8 @@ def filter(input_json, key, input_json0):
                 if subkey == 'sbg:toolDefaultValue':
                     input_json[key][i]['default'] = copy.deepcopy(input_json[key][i][subkey])
                     del input_json[key][i][subkey]
+                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) and len(input_json0[key][i][subkey])==1:
+                    input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
@@ -50,7 +52,7 @@ def filter(input_json, key, input_json0):
 
     if key == 'cwlVersion':
         input_json[key] = 'draft-3'
-    
+
     return(copy.deepcopy(input_json))
 
 

@@ -1,99 +1,99 @@
 {
+    "requirements": [],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_pairs",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chromsizes_file",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
+        },
+        {
+            "default": "out",
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#output_prefix",
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            }
+        },
+        {
+            "default": "5000",
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#min_res",
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            }
+        },
+        {
+            "default": "1",
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#higlass",
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            }
+        },
+        {
+            "default": "14g",
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#maxmem",
+            "inputBinding": {
+                "position": 6,
+                "separate": true
+            }
+        }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v30",
+            "class": "DockerRequirement"
+        }
+    ],
     "class": "CommandLineTool",
+    "arguments": [],
     "outputs": [
         {
             "outputBinding": {
                 "glob": "*.hic"
             },
-            "id": "#output_hic",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_hic"
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#chromsizes_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
-            "id": "#output_prefix",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out"
-        },
-        {
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "id": "#min_res",
-            "type": [
-                "null",
-                "int"
-            ],
-            "default": "5000"
-        },
-        {
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
-            "id": "#higlass",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "1"
-        },
-        {
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "id": "#maxmem",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "14g"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [],
-    "arguments": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
-    ]
+    ],
+    "cwlVersion": "draft-3"
 }
