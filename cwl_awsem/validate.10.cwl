@@ -1,51 +1,64 @@
 {
-    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
+        }
+    ],
+    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#report"
+        }
+    ],
     "baseCommand": [
         "run.sh",
         ""
     ],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
         }
     ],
-    "outputs": [
-        {
-            "id": "#report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            }
-        }
-    ],
-    "arguments": [],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "inputs": [
         {
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
-            "id": "#input_file",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#input_file"
         },
         {
+            "default": "fastq",
             "inputBinding": {
                 "separate": true,
+                "position": 2,
                 "valueFrom": {
-                    "class": "Expression",
                     "script": "\"fastq\"",
+                    "class": "Expression",
                     "engine": "#cwl-js-engine"
-                },
-                "position": 2
+                }
             },
-            "id": "#type",
             "type": [
                 "null",
                 {
@@ -58,20 +71,7 @@
                     "name": "type"
                 }
             ],
-            "default": "fastq"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ]
+            "id": "#type"
         }
     ]
 }

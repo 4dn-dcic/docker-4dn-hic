@@ -1,67 +1,28 @@
 {
-    "hints": [
+    "requirements": [
         {
-            "dockerPull": "duplexa/hictool-fastq2bam:v3",
-            "class": "DockerRequirement"
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ],
+            "id": "#cwl-js-engine"
         }
     ],
-    "inputs": [
-        {
-            "id": "#input_fastq1",
-            "inputBinding": {
-                "separate": false,
-                "position": 2
-            },
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#input_fastq2",
-            "inputBinding": {
-                "separate": false,
-                "position": 3
-            },
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#output_dir",
-            "default": ".",
-            "inputBinding": {
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression"
-                },
-                "separate": false,
-                "position": 4
-            },
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "id": "#bowtie_index",
-            "inputBinding": {
-                "separate": false,
-                "position": 1
-            },
-            "type": [
-                "null",
-                "File"
-            ]
-        }
+    "baseCommand": [
+        "preprocessing.sh"
     ],
+    "arguments": [],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
                 "glob": {
+                    "engine": "#cwl-js-engine",
                     "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "class": "Expression"
                 }
             },
             "id": "#sorted_bam_pe",
@@ -73,9 +34,9 @@
         {
             "outputBinding": {
                 "glob": {
+                    "engine": "#cwl-js-engine",
                     "script": "$job.inputs.output_dir + '/out_pair1.bam'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "class": "Expression"
                 }
             },
             "id": "#split_bam1",
@@ -87,9 +48,9 @@
         {
             "outputBinding": {
                 "glob": {
+                    "engine": "#cwl-js-engine",
                     "script": "$job.inputs.output_dir + '/out_pair2.bam'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "class": "Expression"
                 }
             },
             "id": "#split_bam2",
@@ -99,22 +60,61 @@
             ]
         }
     ],
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "requirements": [
+    "hints": [
         {
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "preprocessing.sh"
-    ]
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 2
+            },
+            "id": "#input_fastq1",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 3
+            },
+            "id": "#input_fastq2",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression"
+                },
+                "separate": false,
+                "position": 4
+            },
+            "id": "#output_dir",
+            "default": ".",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 1
+            },
+            "id": "#bowtie_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

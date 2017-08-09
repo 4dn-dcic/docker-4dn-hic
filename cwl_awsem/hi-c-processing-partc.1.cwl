@@ -1,4 +1,34 @@
 {
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": "#cool2mcool.output_mcool",
+            "id": "#output_mcool"
+        }
+    ],
+    "class": "Workflow",
+    "requirements": [],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_cool"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": "4",
+            "id": "#ncores"
+        }
+    ],
+    "cwlVersion": "draft-3",
     "steps": [
         {
             "run": "coolerbalance.2.cwl",
@@ -43,35 +73,5 @@
                 }
             ]
         }
-    ],
-    "class": "Workflow",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#cool2mcool.output_mcool",
-            "id": "#output_mcool"
-        }
-    ],
-    "requirements": [],
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_cool"
-        },
-        {
-            "default": "4",
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#ncores"
-        }
-    ],
-    "cwlVersion": "draft-3"
+    ]
 }

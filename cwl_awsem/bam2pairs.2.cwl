@@ -1,48 +1,55 @@
 {
     "inputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_bam",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#input_bam",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            }
         },
         {
             "inputBinding": {
-                "position": 2,
-                "separate": true
+                "separate": true,
+                "position": 2
             },
-            "id": "#out_prefix",
             "type": [
                 "null",
                 "string"
             ],
+            "id": "#out_prefix",
             "default": "out"
         }
     ],
+    "class": "CommandLineTool",
     "outputs": [
         {
-            "id": "#out_pairs",
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_pairs",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz"
             }
         },
         {
-            "id": "#out_pairs_index",
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_pairs_index",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz.px2"
             }
+        }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/bam2pairs:v1",
+            "class": "DockerRequirement"
         }
     ],
     "arguments": [],
@@ -50,12 +57,5 @@
         "run.sh"
     ],
     "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "class": "DockerRequirement"
-        }
-    ],
-    "requirements": [],
-    "class": "CommandLineTool"
+    "requirements": []
 }

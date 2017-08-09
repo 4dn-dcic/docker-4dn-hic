@@ -1,85 +1,85 @@
 {
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "requirements": [
         {
+            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
                     "class": "DockerRequirement",
                     "dockerPull": "rabix/js-engine"
                 }
             ],
-            "class": "ExpressionEngineRequirement",
             "id": "#cwl-js-engine"
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v26"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.outprefix + '.pairs.gz'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#output_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#output_pairs_index"
-        }
-    ],
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
+            "id": "#outprefix",
+            "default": "out",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
             "type": [
                 "null",
                 "string"
-            ],
-            "default": "out",
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#outprefix"
+            ]
         },
         {
+            "inputBinding": {
+                "position": 2,
+                "itemSeparator": " ",
+                "separate": true
+            },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
                     "items": "File",
                     "type": "array"
                 }
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 2,
-                "itemSeparator": " "
+            ]
+        }
+    ],
+    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": {
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz'",
+                    "engine": "#cwl-js-engine"
+                }
             },
-            "id": "#input_pairs"
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": {
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
+                    "engine": "#cwl-js-engine"
+                }
+            },
+            "id": "#output_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v26"
         }
     ]
 }

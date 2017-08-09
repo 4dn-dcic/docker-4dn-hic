@@ -1,24 +1,4 @@
 {
-    "requirements": [],
-    "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "source": "#juicer2pairs.out_pairs",
-            "id": "#out_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "source": "#juicer2pairs.out_pairs_px",
-            "id": "#out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
     "inputs": [
         {
             "id": "#fastq1",
@@ -60,73 +40,73 @@
             ]
         },
         {
-            "default": "100",
             "id": "#nsplit",
+            "default": "100",
             "type": [
                 "null",
                 "int"
             ]
         }
     ],
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "source": "#juicer2pairs.out_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#out_pairs_index",
+            "source": "#juicer2pairs.out_pairs_px",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3",
     "steps": [
         {
+            "outputs": [
+                {
+                    "id": "#juicer.merged_nodups"
+                }
+            ],
+            "run": "juicer.6.cwl",
             "inputs": [
                 {
-                    "source": "#restriction_file",
-                    "id": "#juicer.restriction_file"
+                    "id": "#juicer.restriction_file",
+                    "source": "#restriction_file"
                 },
                 {
-                    "source": "#reference_fasta",
-                    "id": "#juicer.reference_fasta"
+                    "id": "#juicer.reference_fasta",
+                    "source": "#reference_fasta"
                 },
                 {
                     "id": "#juicer.outdir"
                 },
                 {
-                    "source": "#fastq2",
-                    "id": "#juicer.input_fastq2"
+                    "id": "#juicer.input_fastq2",
+                    "source": "#fastq2"
                 },
                 {
-                    "source": "#fastq1",
-                    "id": "#juicer.input_fastq1"
+                    "id": "#juicer.input_fastq1",
+                    "source": "#fastq1"
                 },
                 {
-                    "source": "#chrsizes",
-                    "id": "#juicer.chromsizes_file"
+                    "id": "#juicer.chromsizes_file",
+                    "source": "#chrsizes"
                 },
                 {
-                    "source": "#bwa_index",
-                    "id": "#juicer.bwaIndex"
+                    "id": "#juicer.bwaIndex",
+                    "source": "#bwa_index"
                 }
             ],
-            "id": "#juicer",
-            "run": "juicer.6.cwl",
-            "outputs": [
-                {
-                    "id": "#juicer.merged_nodups"
-                }
-            ]
+            "id": "#juicer"
         },
         {
-            "inputs": [
-                {
-                    "id": "#juicer2pairs.outprefix"
-                },
-                {
-                    "source": "#nsplit",
-                    "id": "#juicer2pairs.nsplit"
-                },
-                {
-                    "source": "#juicer.merged_nodups",
-                    "id": "#juicer2pairs.input_merged_nodups"
-                },
-                {
-                    "source": "#chrsizes",
-                    "id": "#juicer2pairs.chromsize"
-                }
-            ],
-            "id": "#juicer2pairs",
-            "run": "juicer2pairs.1.cwl",
             "outputs": [
                 {
                     "id": "#juicer2pairs.out_pairs_px"
@@ -134,8 +114,28 @@
                 {
                     "id": "#juicer2pairs.out_pairs"
                 }
-            ]
+            ],
+            "run": "juicer2pairs.1.cwl",
+            "inputs": [
+                {
+                    "id": "#juicer2pairs.outprefix"
+                },
+                {
+                    "id": "#juicer2pairs.nsplit",
+                    "source": "#nsplit"
+                },
+                {
+                    "id": "#juicer2pairs.input_merged_nodups",
+                    "source": "#juicer.merged_nodups"
+                },
+                {
+                    "id": "#juicer2pairs.chromsize",
+                    "source": "#chrsizes"
+                }
+            ],
+            "id": "#juicer2pairs"
         }
     ],
-    "class": "Workflow"
+    "class": "Workflow",
+    "requirements": []
 }
