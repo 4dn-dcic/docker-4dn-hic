@@ -1,11 +1,18 @@
 {
-    "class": "CommandLineTool",
-    "hints": [
+    "cwlVersion": "draft-3",
+    "outputs": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.hic"
+            }
         }
     ],
+    "class": "CommandLineTool",
     "inputs": [
         {
             "id": "#input_pairs",
@@ -14,8 +21,8 @@
                 "File"
             ],
             "inputBinding": {
-                "position": 1,
-                "separate": true
+                "separate": true,
+                "position": 1
             }
         },
         {
@@ -25,8 +32,8 @@
                 "File"
             ],
             "inputBinding": {
-                "position": 2,
-                "separate": true
+                "separate": true,
+                "position": 2
             }
         },
         {
@@ -36,8 +43,8 @@
                 "string"
             ],
             "inputBinding": {
-                "position": 3,
-                "separate": true
+                "separate": true,
+                "position": 3
             }
         },
         {
@@ -47,8 +54,8 @@
                 "int"
             ],
             "inputBinding": {
-                "position": 4,
-                "separate": true
+                "separate": true,
+                "position": 4
             }
         },
         {
@@ -58,8 +65,8 @@
                 "string"
             ],
             "inputBinding": {
-                "position": 5,
-                "separate": true
+                "separate": true,
+                "position": 5
             }
         },
         {
@@ -69,27 +76,20 @@
                 "string"
             ],
             "inputBinding": {
-                "position": 6,
-                "separate": true
+                "separate": true,
+                "position": 6
             }
         }
     ],
-    "outputs": [
+    "hints": [
         {
-            "id": "#output_hic",
-            "outputBinding": {
-                "glob": "*.hic"
-            },
-            "type": [
-                "null",
-                "File"
-            ]
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v30"
         }
     ],
-    "cwlVersion": "draft3",
-    "arguments": [],
+    "requirements": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
     ],
-    "requirements": []
+    "arguments": []
 }

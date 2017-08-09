@@ -7,22 +7,21 @@
     ],
     "outputs": [
         {
-            "id": "#report",
+            "type": [
+                "null",
+                "File"
+            ],
             "outputBinding": {
                 "glob": "\"report\"",
                 "loadContents": true
             },
-            "type": [
-                "null",
-                "File"
-            ]
+            "id": "#report"
         }
     ],
     "class": "CommandLineTool",
-    "arguments": [],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#input_file",
             "type": [
                 "null",
                 "File"
@@ -30,11 +29,12 @@
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            }
+            },
+            "id": "#input_file"
         }
     ],
     "requirements": [],
-    "cwlVersion": "draft3",
+    "arguments": [],
     "baseCommand": [
         "run.sh"
     ]

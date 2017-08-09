@@ -1,56 +1,48 @@
 {
-    "inputs": [
+    "cwlVersion": "draft-3",
+    "outputs": [
         {
-            "id": "#input_fastq1",
-            "inputBinding": {
-                "position": 2,
-                "separate": false
-            },
+            "id": "#sorted_bam_pe",
             "type": [
+                "null",
                 "File"
-            ]
-        },
-        {
-            "id": "#input_fastq2",
-            "inputBinding": {
-                "position": 3,
-                "separate": false
-            },
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#output_dir",
-            "inputBinding": {
-                "position": 4,
-                "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
+            ],
+            "outputBinding": {
+                "glob": {
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                },
-                "separate": false
-            },
-            "type": [
-                "null",
-                "string"
-            ]
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'"
+                }
+            }
         },
         {
-            "id": "#bowtie_index",
-            "inputBinding": {
-                "position": 1,
-                "separate": false
-            },
+            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/out_pair1.bam'"
+                }
+            }
+        },
+        {
+            "id": "#split_bam2",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/out_pair2.bam'"
+                }
+            }
         }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "preprocessing.sh"
     ],
     "hints": [
         {
@@ -58,62 +50,70 @@
             "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ],
-    "arguments": [],
-    "cwlVersion": "draft3",
     "requirements": [
         {
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
                     "class": "DockerRequirement",
                     "dockerPull": "rabix/js-engine"
                 }
-            ]
+            ],
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
         }
     ],
-    "outputs": [
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
+    "inputs": [
         {
-            "id": "#sorted_bam_pe",
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
+            "id": "#input_fastq1",
             "type": [
-                "null",
                 "File"
-            ]
+            ],
+            "inputBinding": {
+                "position": 2,
+                "separate": false
+            }
         },
         {
-            "id": "#split_bam1",
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/out_pair1.bam'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
+            "id": "#input_fastq2",
             "type": [
-                "null",
                 "File"
-            ]
+            ],
+            "inputBinding": {
+                "position": 3,
+                "separate": false
+            }
         },
         {
-            "id": "#split_bam2",
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/out_pair2.bam'",
+            "id": "#output_dir",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 4,
+                "valueFrom": {
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir || '.'"
+                },
+                "separate": false
+            }
+        },
+        {
+            "id": "#bowtie_index",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": false
+            }
         }
-    ]
+    ],
+    "arguments": []
 }

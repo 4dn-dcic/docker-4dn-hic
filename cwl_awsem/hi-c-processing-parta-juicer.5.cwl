@@ -1,7 +1,14 @@
 {
-    "cwlVersion": "draft3",
+    "requirements": [],
+    "class": "Workflow",
     "steps": [
         {
+            "outputs": [
+                {
+                    "id": "#juicer.merged_nodups"
+                }
+            ],
+            "run": "juicer.6.cwl",
             "inputs": [
                 {
                     "source": [
@@ -43,15 +50,18 @@
                     ],
                     "id": "#juicer.bwaIndex"
                 }
-            ],
-            "run": "juicer.6.cwl",
-            "outputs": [
-                {
-                    "id": "#juicer.merged_nodups"
-                }
             ]
         },
         {
+            "outputs": [
+                {
+                    "id": "#juicer2pairs.out_pairs_px"
+                },
+                {
+                    "id": "#juicer2pairs.out_pairs"
+                }
+            ],
+            "run": "juicer2pairs.1.cwl",
             "inputs": [
                 {
                     "default": "out",
@@ -75,99 +85,89 @@
                     ],
                     "id": "#juicer2pairs.chromsize"
                 }
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "source": [
+                "#juicer2pairs.out_pairs"
             ],
-            "run": "juicer2pairs.1.cwl",
-            "outputs": [
-                {
-                    "id": "#juicer2pairs.out_pairs_px"
-                },
-                {
-                    "id": "#juicer2pairs.out_pairs"
-                }
+            "id": "#out_pairs",
+            "label": "out_pairs",
+            "required": false,
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "source": [
+                "#juicer2pairs.out_pairs_px"
+            ],
+            "id": "#out_pairs_index",
+            "label": "out_pairs_index",
+            "required": false,
+            "type": [
+                "null",
+                "File"
             ]
         }
     ],
     "inputs": [
         {
-            "type": [
-                "File"
-            ],
+            "id": "#fastq1",
             "label": "fastq1",
-            "id": "#fastq1"
-        },
-        {
             "type": [
                 "File"
-            ],
+            ]
+        },
+        {
+            "id": "#fastq2",
             "label": "fastq2",
-            "id": "#fastq2"
-        },
-        {
             "type": [
                 "File"
-            ],
+            ]
+        },
+        {
+            "id": "#bwa_index",
             "label": "bwa_index",
-            "id": "#bwa_index"
+            "type": [
+                "File"
+            ]
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
+            "id": "#chrsizes",
             "label": "chrsizes",
-            "id": "#chrsizes"
-        },
-        {
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        },
+        {
+            "id": "#reference_fasta",
             "label": "reference_fasta",
-            "id": "#reference_fasta"
-        },
-        {
             "type": [
                 "null",
                 "File"
-            ],
-            "label": "restriction_file",
-            "id": "#restriction_file"
+            ]
         },
         {
+            "id": "#restriction_file",
+            "label": "restriction_file",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#nsplit",
+            "required": false,
             "type": [
                 "null",
                 "int"
-            ],
-            "required": false,
-            "id": "#nsplit"
+            ]
         }
     ],
-    "class": "Workflow",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "required": false,
-            "source": [
-                "#juicer2pairs.out_pairs"
-            ],
-            "id": "#out_pairs",
-            "label": "out_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "required": false,
-            "source": [
-                "#juicer2pairs.out_pairs_px"
-            ],
-            "id": "#out_pairs_index",
-            "label": "out_pairs_index"
-        }
-    ],
-    "requirements": []
+    "cwlVersion": "draft-3"
 }

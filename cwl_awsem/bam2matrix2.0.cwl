@@ -1,13 +1,25 @@
 {
-    "class": "CommandLineTool",
-    "cwlVersion": "draft3",
+    "cwlVersion": "draft-3",
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2"
+        }
+    ],
     "baseCommand": [
         "run.sh"
     ],
-    "hints": [
+    "class": "CommandLineTool",
+    "requirements": [
         {
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
-            "class": "DockerRequirement"
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ],
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
         }
     ],
     "outputs": [
@@ -19,11 +31,11 @@
                     "engine": "#cwl-js-engine"
                 }
             },
+            "id": "#observed_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#observed_contact_matrix"
+            ]
         },
         {
             "outputBinding": {
@@ -33,11 +45,11 @@
                     "engine": "#cwl-js-engine"
                 }
             },
+            "id": "#normalized_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#normalized_fend_contact_matrix"
+            ]
         },
         {
             "outputBinding": {
@@ -47,11 +59,11 @@
                     "engine": "#cwl-js-engine"
                 }
             },
+            "id": "#normalized_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#normalized_enrich_contact_matrix"
+            ]
         },
         {
             "outputBinding": {
@@ -61,11 +73,11 @@
                     "engine": "#cwl-js-engine"
                 }
             },
+            "id": "#expected_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#expected_fend_contact_matrix"
+            ]
         },
         {
             "outputBinding": {
@@ -75,23 +87,23 @@
                     "engine": "#cwl-js-engine"
                 }
             },
+            "id": "#expected_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#expected_enrich_contact_matrix"
+            ]
         }
     ],
     "inputs": [
         {
+            "id": "#HiC_norm_binning_hdf5",
+            "inputBinding": {
+                "separate": false,
+                "position": 1
+            },
             "type": [
                 "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": false
-            },
-            "id": "#HiC_norm_binning_hdf5"
+            ]
         },
         {
             "type": [
@@ -108,64 +120,52 @@
             "id": "#fend_object_hdf5"
         },
         {
+            "id": "#chromosome",
+            "inputBinding": {
+                "separate": false,
+                "position": 2
+            },
             "type": [
                 "string"
-            ],
-            "inputBinding": {
-                "position": 2,
-                "separate": false
-            },
-            "id": "#chromosome"
+            ]
         },
         {
+            "id": "#contact_matrix_binsize",
+            "inputBinding": {
+                "separate": false,
+                "position": 3
+            },
             "type": [
                 "int"
-            ],
-            "inputBinding": {
-                "position": 3,
-                "separate": false
-            },
-            "id": "#contact_matrix_binsize"
+            ]
         },
         {
-            "type": [
-                "null",
-                "string"
-            ],
+            "id": "#output_dir",
             "inputBinding": {
-                "position": 5,
-                "separate": false,
                 "valueFrom": {
                     "script": "$job.inputs.output_dir || '.'",
                     "class": "Expression",
                     "engine": "#cwl-js-engine"
-                }
+                },
+                "separate": false,
+                "position": 5
             },
-            "id": "#output_dir"
+            "type": [
+                "null",
+                "string"
+            ]
         },
         {
+            "id": "#chrlen_file",
+            "inputBinding": {
+                "separate": false,
+                "position": 4
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "inputBinding": {
-                "position": 4,
-                "separate": false
-            },
-            "id": "#chrlen_file"
+            ]
         }
     ],
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "id": "#cwl-js-engine"
-        }
-    ]
+    "arguments": []
 }

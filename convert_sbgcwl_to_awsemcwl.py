@@ -36,7 +36,7 @@ def filter(input_json, key, input_json0):
                 input_json[key] = [{'dockerPull': item['dockerPull'], 'class': item['class']}]
 
     if key == 'cwlVersion':
-        input_json[key] = 'draft3'
+        input_json[key] = 'draft-3'
     
     return(copy.deepcopy(input_json))
 

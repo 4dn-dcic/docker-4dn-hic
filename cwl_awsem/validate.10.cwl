@@ -1,41 +1,44 @@
 {
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh",
-        ""
-    ],
-    "cwlVersion": "draft3",
     "outputs": [
         {
             "id": "#report",
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            }
+            ]
         }
     ],
+    "class": "CommandLineTool",
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/validatefiles:v1"
+        }
+    ],
+    "arguments": [],
     "inputs": [
         {
             "id": "#input_file",
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
                 "position": 1,
                 "separate": true
-            }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
         },
         {
+            "id": "#type",
             "inputBinding": {
                 "position": 2,
                 "separate": true,
                 "valueFrom": {
-                    "script": "\"fastq\"",
                     "class": "Expression",
+                    "script": "\"fastq\"",
                     "engine": "#cwl-js-engine"
                 }
             },
@@ -43,16 +46,19 @@
                 "null",
                 {
                     "name": "type",
-                    "type": "enum",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
-                    ]
+                    ],
+                    "type": "enum"
                 }
-            ],
-            "id": "#type"
+            ]
         }
+    ],
+    "baseCommand": [
+        "run.sh",
+        ""
     ],
     "requirements": [
         {
@@ -66,11 +72,5 @@
             ]
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
-        }
-    ],
-    "arguments": []
+    "cwlVersion": "draft-3"
 }
