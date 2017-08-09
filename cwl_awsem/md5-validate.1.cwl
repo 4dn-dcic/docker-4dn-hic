@@ -1,6 +1,4 @@
 {
-    "class": "Workflow",
-    "cwlVersion": "draft3",
     "steps": [
         {
             "outputs": [
@@ -38,39 +36,41 @@
             ]
         }
     ],
-    "requirements": [],
-    "outputs": [
+    "inputs": [
         {
-            "id": "#validatefiles_report",
-            "label": "validate_report",
+            "label": "input_file",
+            "id": "#input_file",
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#validatefiles.report"
-            ]
-        },
-        {
-            "id": "#md5_report",
-            "label": "md5_report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": [
-                "#md5.report"
             ]
         }
     ],
-    "inputs": [
+    "cwlVersion": "draft3",
+    "outputs": [
         {
-            "id": "#input_file",
-            "label": "input_file",
+            "label": "validate_report",
+            "id": "#validatefiles_report",
+            "source": [
+                "#validatefiles.report"
+            ],
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "label": "md5_report",
+            "id": "#md5_report",
+            "source": [
+                "#md5.report"
+            ],
             "type": [
                 "null",
                 "File"
             ]
         }
-    ]
+    ],
+    "class": "Workflow",
+    "requirements": []
 }

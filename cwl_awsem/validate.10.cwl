@@ -1,4 +1,10 @@
 {
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "cwlVersion": "draft3",
     "outputs": [
         {
             "id": "#report",
@@ -11,11 +17,43 @@
             }
         }
     ],
-    "baseCommand": [
-        "run.sh",
-        ""
+    "inputs": [
+        {
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
+        },
+        {
+            "inputBinding": {
+                "position": 2,
+                "separate": true,
+                "valueFrom": {
+                    "script": "\"fastq\"",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                }
+            },
+            "type": [
+                "null",
+                {
+                    "name": "type",
+                    "type": "enum",
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ]
+                }
+            ],
+            "id": "#type"
+        }
     ],
-    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "ExpressionEngineRequirement",
@@ -28,49 +66,11 @@
             ]
         }
     ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "valueFrom": {
-                    "script": "\"fastq\"",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                },
-                "position": 2,
-                "separate": true
-            },
-            "type": [
-                "null",
-                {
-                    "symbols": [
-                        "fastq",
-                        "fasta",
-                        "bam"
-                    ],
-                    "type": "enum",
-                    "name": "type"
-                }
-            ],
-            "id": "#type"
-        }
-    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
-    "arguments": [],
-    "cwlVersion": "draft3"
+    "arguments": []
 }
