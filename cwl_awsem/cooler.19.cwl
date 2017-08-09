@@ -1,10 +1,6 @@
 {
     "inputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
             "id": "#pairs",
             "type": [
                 "null",
@@ -19,10 +15,6 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
             "id": "#chrsizes",
             "type": [
                 "null",
@@ -30,10 +22,6 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            },
             "id": "#binsize",
             "type": [
                 "null",
@@ -41,10 +29,6 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            },
             "id": "#outprefix",
             "type": [
                 "null",
@@ -52,10 +36,6 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            },
             "id": "#ncores",
             "type": [
                 "null",
@@ -63,10 +43,6 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 6
-            },
             "id": "#max_split",
             "type": [
                 "null",
@@ -74,29 +50,26 @@
             ]
         }
     ],
-    "arguments": [],
     "outputs": [
         {
             "id": "#out_cool",
-            "outputBinding": {
-                "glob": "*.cool"
-            },
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "cwlVersion": "draft-3",
-    "requirements": [],
     "class": "CommandLineTool",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v31"
-        }
-    ],
+    "arguments": [],
     "baseCommand": [
         "run-cooler.sh"
-    ]
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v31",
+            "class": "DockerRequirement"
+        }
+    ],
+    "requirements": [],
+    "cwlVersion": "draft-3"
 }

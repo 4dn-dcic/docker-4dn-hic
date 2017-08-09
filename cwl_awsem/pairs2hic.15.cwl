@@ -1,95 +1,68 @@
 {
-    "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
-            "id": "#chromsizes_file",
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
-        },
-        {
-            "id": "#output_prefix",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            }
-        },
-        {
-            "id": "#min_res",
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            }
-        },
-        {
-            "id": "#higlass",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            }
-        },
-        {
-            "id": "#maxmem",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            }
-        }
+    "baseCommand": [
+        "run-juicebox-pre.sh"
     ],
+    "requirements": [],
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "*.hic"
-            },
-            "id": "#output_hic",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_hic"
         }
     ],
-    "class": "CommandLineTool",
+    "arguments": [],
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v30",
             "class": "DockerRequirement"
         }
     ],
-    "requirements": [],
-    "arguments": [],
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ]
+    "cwlVersion": "draft-3",
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_pairs"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chromsizes_file"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#output_prefix"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#min_res"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#higlass"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#maxmem"
+        }
+    ],
+    "class": "CommandLineTool"
 }

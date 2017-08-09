@@ -1,41 +1,38 @@
 {
+    "requirements": [],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "source": [
                 "#cool2mcool.output_mcool"
             ],
-            "id": "#output_mcool",
-            "label": "output_mcool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_mcool"
         }
     ],
     "inputs": [
         {
-            "id": "#input_cool",
-            "label": "input_cool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#input_cool"
         },
         {
-            "id": "#ncores",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         }
     ],
+    "class": "Workflow",
     "steps": [
         {
-            "outputs": [
-                {
-                    "id": "#coolerbalance.out_cool"
-                }
-            ],
+            "run": "coolerbalance.2.cwl",
             "inputs": [
                 {
                     "source": [
@@ -44,22 +41,20 @@
                     "id": "#coolerbalance.input_cool"
                 },
                 {
-                    "id": "#coolerbalance.max_iter",
-                    "default": 5000
+                    "id": "#coolerbalance.max_iter"
                 },
                 {
-                    "id": "#coolerbalance.outprefix",
-                    "default": "out"
+                    "id": "#coolerbalance.outprefix"
                 }
             ],
-            "run": "coolerbalance.2.cwl"
-        },
-        {
             "outputs": [
                 {
-                    "id": "#cool2mcool.output_mcool"
+                    "id": "#coolerbalance.out_cool"
                 }
-            ],
+            ]
+        },
+        {
+            "run": "cool2mcool.2.cwl",
             "inputs": [
                 {
                     "source": [
@@ -74,14 +69,14 @@
                     "id": "#cool2mcool.ncores"
                 },
                 {
-                    "id": "#cool2mcool.outprefix",
-                    "default": "out"
+                    "id": "#cool2mcool.outprefix"
                 }
             ],
-            "run": "cool2mcool.2.cwl"
+            "outputs": [
+                {
+                    "id": "#cool2mcool.output_mcool"
+                }
+            ]
         }
-    ],
-    "requirements": [],
-    "cwlVersion": "draft-3",
-    "class": "Workflow"
+    ]
 }

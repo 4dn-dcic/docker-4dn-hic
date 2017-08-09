@@ -1,28 +1,6 @@
 {
-    "outputs": [
-        {
-            "label": "validate_report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": [
-                "#validatefiles.report"
-            ],
-            "id": "#validatefiles_report"
-        },
-        {
-            "label": "md5_report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": [
-                "#md5.report"
-            ],
-            "id": "#md5_report"
-        }
-    ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
     "steps": [
         {
             "outputs": [
@@ -60,17 +38,36 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
-    "requirements": [],
-    "class": "Workflow",
-    "inputs": [
+    "outputs": [
         {
-            "label": "input_file",
+            "id": "#validatefiles_report",
+            "source": [
+                "#validatefiles.report"
+            ],
             "type": [
                 "null",
                 "File"
+            ]
+        },
+        {
+            "id": "#md5_report",
+            "source": [
+                "#md5.report"
             ],
-            "id": "#input_file"
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "class": "Workflow",
+    "inputs": [
+        {
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ]
 }
