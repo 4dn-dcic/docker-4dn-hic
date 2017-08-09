@@ -1,4 +1,5 @@
 {
+    "arguments": [],
     "outputs": [
         {
             "id": "#report",
@@ -12,7 +13,6 @@
             }
         }
     ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
             "id": "#input_file",
@@ -26,15 +26,15 @@
             }
         }
     ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
     "hints": [
         {
             "dockerPull": "duplexa/sha256:v1",
             "class": "DockerRequirement"
         }
     ],
-    "arguments": [],
     "class": "CommandLineTool",
-    "requirements": [],
     "baseCommand": [
         "run.sh"
     ]

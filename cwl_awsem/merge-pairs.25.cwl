@@ -1,71 +1,71 @@
 {
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ],
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
+        }
+    ],
     "class": "CommandLineTool",
     "outputs": [
         {
-            "id": "#output_pairs",
             "outputBinding": {
                 "glob": {
-                    "script": "$job.inputs.outprefix + '.pairs.gz'",
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz'"
                 }
             },
+            "id": "#output_pairs",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
-            "id": "#output_pairs_index",
             "outputBinding": {
                 "glob": {
-                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
                 }
             },
+            "id": "#output_pairs_index",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ]
-        }
-    ],
     "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "arguments": [],
     "inputs": [
         {
-            "id": "#outprefix",
+            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "id": "#input_pairs",
             "inputBinding": {
-                "separate": true,
+                "itemSeparator": " ",
                 "position": 2,
-                "itemSeparator": " "
+                "separate": true
             },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
@@ -80,5 +80,6 @@
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v26"
         }
-    ]
+    ],
+    "arguments": []
 }

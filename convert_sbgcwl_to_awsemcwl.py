@@ -2,7 +2,7 @@ import json
 import copy
 
 VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs', 'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
-INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description', 'inputBinding', 'outputBinding']
+INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description', 'inputBinding', 'outputBinding', 'sbg:toolDefaultValue']
 STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
 def filter(input_json, key, input_json0):
@@ -12,6 +12,9 @@ def filter(input_json, key, input_json0):
         for i, item in enumerate(input_json[key]):
             for subkey in list(item.keys())[:]:
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
+                    del input_json[key][i][subkey]
+                if subkey == 'sbg:toolDefaultValue':
+                    input_json[key][i]['default'] = copy.deepcopy(input_json[key][i][subkey])
                     del input_json[key][i][subkey]
 
     # delete any sub-field that contains 'sbg:'

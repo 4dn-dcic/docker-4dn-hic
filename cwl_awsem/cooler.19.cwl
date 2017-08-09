@@ -1,102 +1,105 @@
 {
-    "class": "CommandLineTool",
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v31",
+            "class": "DockerRequirement"
+        }
+    ],
+    "arguments": [],
     "outputs": [
         {
+            "id": "#out_cool",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#out_cool",
             "outputBinding": {
                 "glob": "*.cool"
             }
         }
     ],
-    "arguments": [],
     "inputs": [
         {
+            "id": "#pairs",
+            "type": [
+                "null",
+                "File"
+            ],
             "inputBinding": {
                 "position": 1,
                 "separate": true
-            },
+            }
+        },
+        {
+            "id": "#pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#chrsizes",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#pairs_index"
-        },
-        {
             "inputBinding": {
                 "position": 2,
                 "separate": true
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#chrsizes"
+            }
         },
         {
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
+            "id": "#binsize",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#binsize"
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            }
         },
         {
             "inputBinding": {
                 "position": 5,
                 "separate": true
             },
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#outprefix"
+            "default": "out"
         },
         {
             "inputBinding": {
                 "position": 4,
                 "separate": true
             },
+            "id": "#ncores",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#ncores"
+            "default": "8"
         },
         {
             "inputBinding": {
                 "position": 6,
                 "separate": true
             },
+            "id": "#max_split",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#max_split"
-        }
-    ],
-    "requirements": [],
-    "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v31"
+            "default": "2"
         }
     ],
     "baseCommand": [
         "run-cooler.sh"
-    ]
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
+    "class": "CommandLineTool"
 }
