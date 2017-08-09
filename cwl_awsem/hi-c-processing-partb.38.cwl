@@ -1,116 +1,46 @@
 {
-    "requirements": [],
-    "steps": [
+    "inputs": [
         {
-            "id": "#merge_pairs",
-            "outputs": [
-                {
-                    "id": "#merge_pairs.output_pairs_index"
-                },
-                {
-                    "id": "#merge_pairs.output_pairs"
-                }
+            "type": [
+                "null",
+                "File"
             ],
-            "inputs": [
-                {
-                    "id": "#merge_pairs.outprefix"
-                },
-                {
-                    "source": [
-                        "#input_pairs"
-                    ],
-                    "id": "#merge_pairs.input_pairs"
-                }
-            ],
-            "run": "merge-pairs.25.cwl"
+            "id": "#chrsizes"
         },
         {
-            "id": "#pairs2hic",
-            "outputs": [
+            "type": [
+                "null",
                 {
-                    "id": "#pairs2hic.output_hic"
+                    "items": "File",
+                    "type": "array"
                 }
             ],
-            "inputs": [
-                {
-                    "id": "#pairs2hic.output_prefix"
-                },
-                {
-                    "source": [
-                        "#min_res"
-                    ],
-                    "id": "#pairs2hic.min_res"
-                },
-                {
-                    "id": "#pairs2hic.maxmem"
-                },
-                {
-                    "source": [
-                        "#merge_pairs.output_pairs"
-                    ],
-                    "id": "#pairs2hic.input_pairs"
-                },
-                {
-                    "id": "#pairs2hic.higlass"
-                },
-                {
-                    "source": [
-                        "#chrsizes"
-                    ],
-                    "id": "#pairs2hic.chromsizes_file"
-                }
-            ],
-            "run": "pairs2hic.15.cwl"
+            "id": "#input_pairs"
         },
         {
-            "id": "#cooler",
-            "outputs": [
-                {
-                    "id": "#cooler.out_cool"
-                }
+            "type": [
+                "null",
+                "int"
             ],
-            "inputs": [
-                {
-                    "source": [
-                        "#merge_pairs.output_pairs"
-                    ],
-                    "id": "#cooler.pairs"
-                },
-                {
-                    "source": [
-                        "#merge_pairs.output_pairs_index"
-                    ],
-                    "id": "#cooler.pairs_index"
-                },
-                {
-                    "source": [
-                        "#chrsizes"
-                    ],
-                    "id": "#cooler.chrsizes"
-                },
-                {
-                    "source": [
-                        "#binsize"
-                    ],
-                    "id": "#cooler.binsize"
-                },
-                {
-                    "id": "#cooler.outprefix"
-                },
-                {
-                    "source": [
-                        "#ncores"
-                    ],
-                    "id": "#cooler.ncores"
-                },
-                {
-                    "id": "#cooler.max_split"
-                }
+            "id": "#min_res",
+            "default": "5000"
+        },
+        {
+            "type": [
+                "null",
+                "int"
             ],
-            "run": "cooler.19.cwl"
+            "id": "#ncores",
+            "default": "8"
+        },
+        {
+            "id": "#binsize",
+            "type": [
+                "null",
+                "int"
+            ]
         }
     ],
-    "cwlVersion": "draft-3",
     "outputs": [
         {
             "source": [
@@ -153,47 +83,117 @@
             ]
         }
     ],
-    "inputs": [
+    "steps": [
         {
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
+            "inputs": [
                 {
-                    "type": "array",
-                    "items": "File"
+                    "id": "#merge_pairs.outprefix"
+                },
+                {
+                    "source": [
+                        "#input_pairs"
+                    ],
+                    "id": "#merge_pairs.input_pairs"
                 }
-            ]
-        },
-        {
-            "id": "#min_res",
-            "type": [
-                "null",
-                "int"
             ],
-            "default": "5000"
-        },
-        {
-            "id": "#ncores",
-            "type": [
-                "null",
-                "int"
+            "outputs": [
+                {
+                    "id": "#merge_pairs.output_pairs_index"
+                },
+                {
+                    "id": "#merge_pairs.output_pairs"
+                }
             ],
-            "default": "8"
+            "run": "merge-pairs.25.cwl",
+            "id": "#merge_pairs"
         },
         {
-            "id": "#binsize",
-            "type": [
-                "null",
-                "int"
-            ]
+            "inputs": [
+                {
+                    "id": "#pairs2hic.output_prefix"
+                },
+                {
+                    "source": [
+                        "#min_res"
+                    ],
+                    "id": "#pairs2hic.min_res"
+                },
+                {
+                    "id": "#pairs2hic.maxmem"
+                },
+                {
+                    "source": [
+                        "#merge_pairs.output_pairs"
+                    ],
+                    "id": "#pairs2hic.input_pairs"
+                },
+                {
+                    "id": "#pairs2hic.higlass"
+                },
+                {
+                    "source": [
+                        "#chrsizes"
+                    ],
+                    "id": "#pairs2hic.chromsizes_file"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#pairs2hic.output_hic"
+                }
+            ],
+            "run": "pairs2hic.15.cwl",
+            "id": "#pairs2hic"
+        },
+        {
+            "inputs": [
+                {
+                    "source": [
+                        "#merge_pairs.output_pairs"
+                    ],
+                    "id": "#cooler.pairs"
+                },
+                {
+                    "source": [
+                        "#merge_pairs.output_pairs_index"
+                    ],
+                    "id": "#cooler.pairs_index"
+                },
+                {
+                    "source": [
+                        "#chrsizes"
+                    ],
+                    "id": "#cooler.chrsizes"
+                },
+                {
+                    "source": [
+                        "#binsize"
+                    ],
+                    "id": "#cooler.binsize"
+                },
+                {
+                    "id": "#cooler.outprefix"
+                },
+                {
+                    "source": [
+                        "#ncores"
+                    ],
+                    "id": "#cooler.ncores"
+                },
+                {
+                    "id": "#cooler.max_split"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#cooler.out_cool"
+                }
+            ],
+            "run": "cooler.19.cwl",
+            "id": "#cooler"
         }
     ],
-    "class": "Workflow"
+    "class": "Workflow",
+    "cwlVersion": "draft-3",
+    "requirements": []
 }

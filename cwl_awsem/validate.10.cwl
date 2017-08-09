@@ -1,25 +1,9 @@
 {
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#report",
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            }
-        }
-    ],
     "hints": [
         {
             "dockerPull": "duplexa/validatefiles:v1",
             "class": "DockerRequirement"
         }
-    ],
-    "baseCommand": [
-        "run.sh",
-        ""
     ],
     "inputs": [
         {
@@ -51,8 +35,8 @@
                 "separate": true,
                 "valueFrom": {
                     "engine": "#cwl-js-engine",
-                    "script": "\"fastq\"",
-                    "class": "Expression"
+                    "class": "Expression",
+                    "script": "\"fastq\""
                 },
                 "position": 2
             },
@@ -60,18 +44,34 @@
         }
     ],
     "cwlVersion": "draft-3",
-    "arguments": [],
     "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "arguments": [],
     "requirements": [
         {
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
                     "dockerPull": "rabix/js-engine",
                     "class": "DockerRequirement"
                 }
-            ]
+            ],
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
+        }
+    ],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#report",
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            }
         }
     ]
 }

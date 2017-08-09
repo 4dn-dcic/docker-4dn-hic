@@ -1,18 +1,5 @@
 {
-    "arguments": [],
-    "outputs": [
-        {
-            "id": "#report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "loadContents": true,
-                "glob": "\"report\""
-            }
-        }
-    ],
+    "class": "CommandLineTool",
     "inputs": [
         {
             "id": "#input_file",
@@ -26,15 +13,28 @@
             }
         }
     ],
+    "outputs": [
+        {
+            "id": "#report",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "\"report\"",
+                "loadContents": true
+            }
+        }
+    ],
     "cwlVersion": "draft-3",
+    "arguments": [],
     "requirements": [],
     "hints": [
         {
-            "dockerPull": "duplexa/sha256:v1",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/sha256:v1"
         }
     ],
-    "class": "CommandLineTool",
     "baseCommand": [
         "run.sh"
     ]

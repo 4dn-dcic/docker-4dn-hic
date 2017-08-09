@@ -1,61 +1,61 @@
 {
+    "class": "CommandLineTool",
+    "inputs": [
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#input_bam",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#out_prefix",
+            "default": "out",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
+        }
+    ],
     "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            }
+        },
+        {
+            "id": "#out_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            }
+        }
+    ],
+    "requirements": [],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
-    ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam"
-        },
-        {
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#out_prefix",
-            "default": "out"
-        }
-    ],
-    "arguments": [],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs"
-        },
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index"
-        }
-    ],
-    "requirements": []
+    "arguments": []
 }

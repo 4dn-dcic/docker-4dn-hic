@@ -2,19 +2,37 @@
     "baseCommand": [
         "run-merge-pairs.sh"
     ],
-    "requirements": [
+    "arguments": [],
+    "class": "CommandLineTool",
+    "inputs": [
         {
-            "requirements": [
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "default": "out",
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#outprefix"
+        },
+        {
+            "inputBinding": {
+                "itemSeparator": " ",
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
                 {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
+                    "items": "File",
+                    "type": "array"
                 }
             ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
+            "id": "#input_pairs"
         }
     ],
-    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
@@ -24,11 +42,11 @@
                     "script": "$job.inputs.outprefix + '.pairs.gz'"
                 }
             },
-            "id": "#output_pairs",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_pairs"
         },
         {
             "outputBinding": {
@@ -38,48 +56,30 @@
                     "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
                 }
             },
-            "id": "#output_pairs_index",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_pairs_index"
+        }
+    ],
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine"
         }
     ],
     "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "default": "out",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#outprefix",
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "inputBinding": {
-                "itemSeparator": " ",
-                "position": 2,
-                "separate": true
-            },
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                {
-                    "items": "File",
-                    "type": "array"
-                }
-            ]
-        }
-    ],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v26"
+            "dockerPull": "duplexa/4dn-hic:v26",
+            "class": "DockerRequirement"
         }
-    ],
-    "arguments": []
+    ]
 }

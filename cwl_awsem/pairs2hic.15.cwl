@@ -1,23 +1,28 @@
 {
     "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
     "outputs": [
         {
             "outputBinding": {
                 "glob": "*.hic"
             },
+            "id": "#output_hic",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#output_hic"
+            ]
+        }
+    ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v30"
         }
     ],
     "inputs": [
         {
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
             "id": "#input_pairs",
             "type": [
@@ -27,8 +32,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
             "id": "#chromsizes_file",
             "type": [
@@ -38,8 +43,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             },
             "id": "#output_prefix",
             "type": [
@@ -50,8 +55,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 4
+                "position": 4,
+                "separate": true
             },
             "id": "#min_res",
             "type": [
@@ -62,8 +67,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 5
+                "position": 5,
+                "separate": true
             },
             "id": "#higlass",
             "type": [
@@ -74,8 +79,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 6,
+                "separate": true
             },
             "id": "#maxmem",
             "type": [
@@ -85,15 +90,10 @@
             "default": "14g"
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
+    "arguments": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
-    ],
-    "arguments": [],
-    "requirements": []
+    ]
 }

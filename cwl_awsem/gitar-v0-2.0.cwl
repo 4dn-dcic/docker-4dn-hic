@@ -1,5 +1,4 @@
 {
-    "cwlVersion": "draft-3",
     "requirements": [],
     "outputs": [
         {
@@ -133,11 +132,59 @@
             ]
         }
     ],
-    "class": "Workflow",
+    "inputs": [
+        {
+            "id": "#input_fastq2",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "id": "#input_fastq1",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "id": "#bowtie_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#RE_bed",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#chrlen_file",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#contact_matrix_binsize",
+            "type": [
+                "int"
+            ]
+        },
+        {
+            "id": "#chromosome",
+            "type": [
+                {
+                    "items": "string",
+                    "type": "array"
+                }
+            ]
+        }
+    ],
     "steps": [
         {
             "run": "fastq2bam.14.cwl",
-            "id": "#hictool_fastq2bam",
             "outputs": [
                 {
                     "id": "#hictool_fastq2bam.split_bam2"
@@ -171,11 +218,11 @@
                         "#bowtie_index"
                     ]
                 }
-            ]
+            ],
+            "id": "#hictool_fastq2bam"
         },
         {
             "run": "bam2hdf5.4.cwl",
-            "id": "#hictool_bam2hdf5",
             "outputs": [
                 {
                     "id": "#hictool_bam2hdf5.fend_object_hdf5"
@@ -215,12 +262,11 @@
                         "#RE_bed"
                     ]
                 }
-            ]
+            ],
+            "id": "#hictool_bam2hdf5"
         },
         {
             "run": "bam2matrix2.7.cwl",
-            "id": "#hictool_hdf52matrix",
-            "scatter": "#hictool_hdf52matrix.chromosome",
             "outputs": [
                 {
                     "id": "#hictool_hdf52matrix.observed_contact_matrix"
@@ -278,57 +324,11 @@
                         "#hictool_bam2hdf5.HiC_data_object_hdf5"
                     ]
                 }
-            ]
+            ],
+            "scatter": "#hictool_hdf52matrix.chromosome",
+            "id": "#hictool_hdf52matrix"
         }
     ],
-    "inputs": [
-        {
-            "id": "#input_fastq2",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#input_fastq1",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#bowtie_index",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#RE_bed",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#chrlen_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#contact_matrix_binsize",
-            "type": [
-                "int"
-            ]
-        },
-        {
-            "id": "#chromosome",
-            "type": [
-                {
-                    "type": "array",
-                    "items": "string"
-                }
-            ]
-        }
-    ]
+    "cwlVersion": "draft-3",
+    "class": "Workflow"
 }

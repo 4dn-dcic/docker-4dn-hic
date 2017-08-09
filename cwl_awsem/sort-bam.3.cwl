@@ -1,8 +1,4 @@
 {
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh"
-    ],
     "inputs": [
         {
             "inputBinding": {
@@ -16,6 +12,7 @@
             "id": "#input_bam"
         },
         {
+            "default": "out",
             "inputBinding": {
                 "separate": true,
                 "position": 2
@@ -24,31 +21,32 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
-            "default": "out"
+            "id": "#prefix"
         }
     ],
-    "arguments": [],
-    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
     "outputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "outputBinding": {
                 "glob": "*.sorted.bam"
             },
-            "id": "#out_sorted_bam"
-        },
-        {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_sorted_bam"
+        },
+        {
             "outputBinding": {
                 "glob": "*.sorted.bam.bai"
             },
+            "type": [
+                "null",
+                "File"
+            ],
             "id": "#out_sorted_bam_index"
         }
     ],
@@ -58,5 +56,7 @@
             "class": "DockerRequirement",
             "dockerPull": "duplexa/sort-bam:v1"
         }
-    ]
+    ],
+    "arguments": [],
+    "class": "CommandLineTool"
 }
