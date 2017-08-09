@@ -1,18 +1,5 @@
 {
     "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "id": "#output_hic",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.hic"
-            }
-        }
-    ],
-    "class": "CommandLineTool",
     "inputs": [
         {
             "id": "#input_pairs",
@@ -21,8 +8,8 @@
                 "File"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             }
         },
         {
@@ -32,8 +19,8 @@
                 "File"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             }
         },
         {
@@ -43,8 +30,8 @@
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             }
         },
         {
@@ -54,8 +41,8 @@
                 "int"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 4
+                "position": 4,
+                "separate": true
             }
         },
         {
@@ -65,8 +52,8 @@
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 5
+                "position": 5,
+                "separate": true
             }
         },
         {
@@ -76,20 +63,33 @@
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 6,
+                "separate": true
             }
         }
     ],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*.hic"
+            },
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "class": "CommandLineTool",
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
+            "dockerPull": "duplexa/4dn-hic:v30",
+            "class": "DockerRequirement"
         }
     ],
     "requirements": [],
+    "arguments": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
-    ],
-    "arguments": []
+    ]
 }

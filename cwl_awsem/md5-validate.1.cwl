@@ -23,7 +23,6 @@
             "id": "#md5_report"
         }
     ],
-    "requirements": [],
     "steps": [
         {
             "outputs": [
@@ -31,15 +30,15 @@
                     "id": "#md5.report"
                 }
             ],
+            "run": "md5.1.cwl",
             "inputs": [
                 {
+                    "id": "#md5.input_file",
                     "source": [
                         "#input_file"
-                    ],
-                    "id": "#md5.input_file"
+                    ]
                 }
-            ],
-            "run": "md5.1.cwl"
+            ]
         },
         {
             "outputs": [
@@ -47,30 +46,31 @@
                     "id": "#validatefiles.report"
                 }
             ],
+            "run": "validate.10.cwl",
             "inputs": [
                 {
+                    "id": "#validatefiles.input_file",
                     "source": [
                         "#input_file"
-                    ],
-                    "id": "#validatefiles.input_file"
+                    ]
                 },
                 {
                     "id": "#validatefiles.type"
                 }
-            ],
-            "run": "validate.10.cwl"
-        }
-    ],
-    "inputs": [
-        {
-            "label": "input_file",
-            "id": "#input_file",
-            "type": [
-                "null",
-                "File"
             ]
         }
     ],
     "cwlVersion": "draft-3",
-    "class": "Workflow"
+    "requirements": [],
+    "class": "Workflow",
+    "inputs": [
+        {
+            "label": "input_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_file"
+        }
+    ]
 }

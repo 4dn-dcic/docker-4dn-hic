@@ -13,6 +13,7 @@ python get_cwl.py -a cooler -r 19 -t $SBG_TOKEN
 python get_cwl.py -a bam2pairs -r 2 -t $SBG_TOKEN
 python get_cwl.py -a sort-bam -r 3 -t $SBG_TOKEN
 python get_cwl.py -a fastqc-0-11-4-1 -r 3 -t $SBG_TOKEN
+python get_cwl.py -a fastqc-0-11-4 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a bam2matrix2 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a bam2hdf5 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a fastq2bam -r 0 -t $SBG_TOKEN

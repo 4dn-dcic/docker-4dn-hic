@@ -1,16 +1,10 @@
 {
     "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "class": "DockerRequirement"
-        }
-    ],
     "inputs": [
         {
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
             "type": [
                 "File"
@@ -19,8 +13,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
             "type": [
                 "null",
@@ -29,9 +23,7 @@
             "id": "#out_prefix"
         }
     ],
-    "requirements": [],
     "arguments": [],
-    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
@@ -54,6 +46,14 @@
             "id": "#out_pairs_index"
         }
     ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/bam2pairs:v1",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "requirements": [],
     "baseCommand": [
         "run.sh"
     ]

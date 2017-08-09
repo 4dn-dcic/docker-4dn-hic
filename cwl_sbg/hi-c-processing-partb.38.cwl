@@ -1,331 +1,391 @@
 {
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#merge_pairs.output_pairs_index"
+            ],
+            "sbg:includeInPorts": true,
+            "required": false,
+            "sbg:y": -0.7171201026670033,
+            "sbg:x": 578.2857636043005,
+            "label": "output_pairs_index",
+            "sbg:fileTypes": "PX2",
+            "id": "#output_pairs_index"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#merge_pairs.output_pairs"
+            ],
+            "sbg:includeInPorts": true,
+            "required": false,
+            "sbg:y": 139.7114601133321,
+            "sbg:x": 814.5714787074501,
+            "label": "output_pairs",
+            "sbg:fileTypes": "PAIRS.GZ",
+            "id": "#output_pairs"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#cooler.out_cool"
+            ],
+            "sbg:includeInPorts": true,
+            "required": false,
+            "sbg:y": 294.56866071643174,
+            "label": "out_cool",
+            "sbg:x": 787.2858953184084,
+            "id": "#out_cool"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#pairs2hic.output_hic"
+            ],
+            "sbg:includeInPorts": true,
+            "required": false,
+            "sbg:y": 524.2816587756744,
+            "label": "output_hic",
+            "sbg:x": 910.0000171272096,
+            "id": "#output_hic"
+        }
+    ],
+    "sbg:revision": 38,
+    "sbg:canvas_y": 43,
+    "class": "Workflow",
     "sbg:revisionsInfo": [
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479144431,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144431,
             "sbg:revision": 0
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479144466,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144466,
             "sbg:revision": 1
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479146390,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479146390,
             "sbg:revision": 2
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479149385,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479149385,
             "sbg:revision": 3
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479149442,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479149442,
             "sbg:revision": 4
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1479150047,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479150047,
             "sbg:revision": 5
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1479241950,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479241950,
             "sbg:revision": 6
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488530005,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488530005,
             "sbg:revision": 7
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488530109,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488530109,
             "sbg:revision": 8
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488530281,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488530281,
             "sbg:revision": 9
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488530836,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488530836,
             "sbg:revision": 10
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488530872,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488530872,
             "sbg:revision": 11
         },
         {
             "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488531567,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1488531567,
             "sbg:revision": 12
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496181927,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496181927,
             "sbg:revision": 13
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496181955,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496181955,
             "sbg:revision": 14
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496182121,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496182121,
             "sbg:revision": 15
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496188521,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496188521,
             "sbg:revision": 16
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496188582,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496188582,
             "sbg:revision": 17
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496188729,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496188729,
             "sbg:revision": 18
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496190149,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496190149,
             "sbg:revision": 19
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499355043,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499355043,
             "sbg:revision": 20
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499356869,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499356869,
             "sbg:revision": 21
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499363602,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499363602,
             "sbg:revision": 22
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499370019,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499370019,
             "sbg:revision": 23
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499460260,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499460260,
             "sbg:revision": 24
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499529552,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499529552,
             "sbg:revision": 25
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499625173,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499625173,
             "sbg:revision": 26
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499627303,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499627303,
             "sbg:revision": 27
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500331892,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1500331892,
             "sbg:revision": 28
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501513539,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501513539,
             "sbg:revision": 29
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501514350,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501514350,
             "sbg:revision": 30
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501514405,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501514405,
             "sbg:revision": 31
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501689712,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501689712,
             "sbg:revision": 32
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501689823,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501689823,
             "sbg:revision": 33
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501707297,
             "sbg:revisionNotes": "15G mem for pairs2hic",
+            "sbg:modifiedOn": 1501707297,
             "sbg:revision": 34
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501765060,
             "sbg:revisionNotes": "r3.8xlarge for cooler",
+            "sbg:modifiedOn": 1501765060,
             "sbg:revision": 35
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501780788,
             "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1501780788,
             "sbg:revision": 36
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501780943,
             "sbg:revisionNotes": "workflow pairs2hic maxmem set up 56g",
+            "sbg:modifiedOn": 1501780943,
             "sbg:revision": 37
         },
         {
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1501908603,
             "sbg:revisionNotes": "cooler 16G mem max_split parameter included as a default 2 (not modifiable)",
+            "sbg:modifiedOn": 1501908603,
             "sbg:revision": 38
         }
     ],
-    "requirements": [],
-    "sbg:projectName": "Dev",
-    "class": "Workflow",
-    "sbg:revision": 38,
-    "sbg:sbgMaintained": false,
-    "sbg:id": "4dn-dcic/dev/hi-c-processing-partb/38",
-    "label": "Hi-C_processing_partB",
-    "hints": [],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:modifiedOn": 1501908603,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-partb/38/raw/",
     "description": "",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:canvas_zoom": 0.6999999999999997,
+    "sbg:createdOn": 1479144431,
     "sbg:createdBy": "duplexa",
-    "sbg:revisionNotes": "cooler 16G mem max_split parameter included as a default 2 (not modifiable)",
-    "outputs": [
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-partb/38/raw/",
+    "sbg:validationErrors": [],
+    "inputs": [
         {
-            "sbg:x": 578.2857636043005,
-            "label": "output_pairs_index",
-            "sbg:y": -0.7171201026670033,
-            "sbg:fileTypes": "PX2",
-            "id": "#output_pairs_index",
             "type": [
                 "null",
                 "File"
             ],
-            "required": false,
-            "sbg:includeInPorts": true,
-            "source": [
-                "#merge_pairs.output_pairs_index"
-            ]
+            "sbg:y": 365.8544025321941,
+            "sbg:fileTypes": ".CHROM.SIZES",
+            "label": "chrsizes",
+            "sbg:x": -44.285710918659674,
+            "id": "#chrsizes"
         },
         {
-            "sbg:x": 814.5714787074501,
-            "label": "output_pairs",
-            "sbg:y": 139.7114601133321,
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "File"
+                }
+            ],
+            "sbg:y": 138.56737856934552,
             "sbg:fileTypes": "PAIRS.GZ",
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "required": false,
-            "sbg:includeInPorts": true,
-            "source": [
-                "#merge_pairs.output_pairs"
-            ]
+            "label": "input_pairs",
+            "sbg:x": -32.85716799814047,
+            "id": "#input_pairs"
         },
         {
-            "sbg:x": 787.2858953184084,
-            "label": "out_cool",
-            "sbg:y": 294.56866071643174,
-            "id": "#out_cool",
             "type": [
                 "null",
-                "File"
+                "int"
             ],
-            "required": false,
-            "sbg:includeInPorts": true,
-            "source": [
-                "#cooler.out_cool"
-            ]
+            "id": "#min_res",
+            "sbg:toolDefaultValue": "5000",
+            "sbg:stageInput": null
         },
         {
-            "sbg:x": 910.0000171272096,
-            "label": "output_hic",
-            "sbg:y": 524.2816587756744,
-            "id": "#output_hic",
             "type": [
                 "null",
-                "File"
+                "int"
             ],
             "required": false,
-            "sbg:includeInPorts": true,
-            "source": [
-                "#pairs2hic.output_hic"
-            ]
+            "sbg:toolDefaultValue": "8",
+            "id": "#ncores"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "sbg:includeInPorts": false,
+            "required": false,
+            "sbg:stageInput": null,
+            "id": "#binsize"
         }
     ],
+    "sbg:canvas_x": 108,
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:id": "4dn-dcic/dev/hi-c-processing-partb/38",
+    "sbg:projectName": "Dev",
+    "requirements": [],
+    "label": "Hi-C_processing_partB",
+    "sbg:sbgMaintained": false,
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:modifiedOn": 1501908603,
+    "sbg:latestRevision": 38,
+    "hints": [],
+    "sbg:revisionNotes": "cooler 16G mem max_split parameter included as a default 2 (not modifiable)",
     "sbg:contributors": [
         "duplexa",
         "4dn-dcic"
     ],
-    "sbg:canvas_y": 43,
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "cwlVersion": "sbg:draft-2",
+    "sbg:canvas_zoom": 0.6999999999999997,
+    "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-partb/38.png",
     "steps": [
         {
-            "sbg:x": 385.57145629610346,
             "outputs": [
                 {
                     "id": "#merge_pairs.output_pairs_index"
@@ -334,282 +394,273 @@
                     "id": "#merge_pairs.output_pairs"
                 }
             ],
-            "sbg:y": 192.94197236852995,
             "inputs": [
                 {
-                    "id": "#merge_pairs.outprefix",
-                    "default": "out"
+                    "default": "out",
+                    "id": "#merge_pairs.outprefix"
                 },
                 {
-                    "id": "#merge_pairs.input_pairs",
                     "source": [
                         "#input_pairs"
-                    ]
+                    ],
+                    "id": "#merge_pairs.input_pairs"
                 }
             ],
+            "sbg:y": 192.94197236852995,
             "run": {
-                "sbg:cmdPreview": "run-merge-pairs.sh",
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "description": "",
-                "sbg:links": [],
-                "requirements": [
+                "outputs": [
                     {
-                        "requirements": [
-                            {
-                                "class": "DockerRequirement",
-                                "dockerPull": "rabix/js-engine"
-                            }
+                        "type": [
+                            "null",
+                            "File"
                         ],
-                        "id": "#cwl-js-engine",
-                        "class": "ExpressionEngineRequirement"
+                        "outputBinding": {
+                            "glob": {
+                                "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
+                                "engine": "#cwl-js-engine",
+                                "class": "Expression"
+                            }
+                        },
+                        "sbg:fileTypes": "PX2",
+                        "id": "#output_pairs_index"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "outputBinding": {
+                            "glob": {
+                                "script": "$job.inputs.outprefix + '.pairs.gz'",
+                                "engine": "#cwl-js-engine",
+                                "class": "Expression"
+                            }
+                        },
+                        "sbg:fileTypes": "PAIRS.GZ",
+                        "id": "#output_pairs"
                     }
                 ],
-                "sbg:projectName": "Dev",
+                "stdout": "",
                 "class": "CommandLineTool",
-                "y": 192.94197236852995,
-                "sbg:sbgMaintained": false,
-                "sbg:id": "4dn-dcic/dev/merge-pairs/25",
-                "label": "merge-pairs",
-                "sbg:latestRevision": 25,
+                "description": "",
                 "sbg:revision": 25,
+                "label": "merge-pairs",
                 "appUrl": "/u/4dn-dcic/dev/apps/#4dn-dcic/dev/merge-pairs/25",
-                "id": "4dn-dcic/dev/merge-pairs/25",
+                "stdin": "",
+                "sbg:cmdPreview": "run-merge-pairs.sh",
+                "sbg:job": {
+                    "inputs": {
+                        "input_pairs": [
+                            {
+                                "secondaryFiles": [],
+                                "class": "File",
+                                "path": "/path/to/input_pairs-1.ext",
+                                "size": 0
+                            },
+                            {
+                                "secondaryFiles": [],
+                                "class": "File",
+                                "path": "/path/to/input_pairs-2.ext",
+                                "size": 0
+                            }
+                        ],
+                        "outprefix": "outprefix-string-value"
+                    },
+                    "allocatedResources": {
+                        "mem": 4000,
+                        "cpu": 1
+                    }
+                },
                 "sbg:revisionsInfo": [
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479143121,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479143121,
                         "sbg:revision": 0
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479143406,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479143406,
                         "sbg:revision": 1
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479143659,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479143659,
                         "sbg:revision": 2
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479143834,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479143834,
                         "sbg:revision": 3
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479143945,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479143945,
                         "sbg:revision": 4
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479144065,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479144065,
                         "sbg:revision": 5
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479144200,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479144200,
                         "sbg:revision": 6
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479144240,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479144240,
                         "sbg:revision": 7
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479144301,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479144301,
                         "sbg:revision": 8
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479149340,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479149340,
                         "sbg:revision": 9
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479149428,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479149428,
                         "sbg:revision": 10
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479149963,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479149963,
                         "sbg:revision": 11
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1479155094,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479155094,
                         "sbg:revision": 12
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1479241188,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1479241188,
                         "sbg:revision": 13
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488524515,
                         "sbg:revisionNotes": "now using 4dn-hic docker image",
+                        "sbg:modifiedOn": 1488524515,
                         "sbg:revision": 14
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488524641,
                         "sbg:revisionNotes": "pairs and index are copied not links, so that they go together.",
+                        "sbg:modifiedOn": 1488524641,
                         "sbg:revision": 15
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488524868,
                         "sbg:revisionNotes": "removed blank secondary file requirement",
+                        "sbg:modifiedOn": 1488524868,
                         "sbg:revision": 16
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488525221,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488525221,
                         "sbg:revision": 17
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488529667,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488529667,
                         "sbg:revision": 18
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488531529,
                         "sbg:revisionNotes": "removed outdir in the output glob",
+                        "sbg:modifiedOn": 1488531529,
                         "sbg:revision": 19
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488567441,
                         "sbg:revisionNotes": "fixed output file name",
+                        "sbg:modifiedOn": 1488567441,
                         "sbg:revision": 20
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1490716980,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1490716980,
                         "sbg:revision": 21
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496166568,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496166568,
                         "sbg:revision": 22
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496188642,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496188642,
                         "sbg:revision": 23
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499356728,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1499356728,
                         "sbg:revision": 24
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1500331813,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1500331813,
                         "sbg:revision": 25
                     }
                 ],
-                "sbg:createdBy": "duplexa",
-                "x": 385.57145629610346,
-                "cwlVersion": "sbg:draft-2",
-                "sbg:modifiedBy": "4dn-dcic",
-                "sbg:modifiedOn": 1500331813,
                 "successCodes": [],
-                "stdin": "",
-                "sbg:contributors": [
-                    "duplexa",
-                    "4dn-dcic"
-                ],
+                "sbg:createdOn": 1479143121,
+                "y": 192.94197236852995,
                 "baseCommand": [
                     "run-merge-pairs.sh"
                 ],
-                "temporaryFailCodes": [],
-                "sbg:createdOn": 1479143121,
+                "id": "4dn-dcic/dev/merge-pairs/25",
                 "sbg:validationErrors": [],
-                "stdout": "",
-                "inputs": [
+                "sbg:createdBy": "duplexa",
+                "sbg:appVersion": [
+                    "sbg:draft-2"
+                ],
+                "sbg:id": "4dn-dcic/dev/merge-pairs/25",
+                "sbg:projectName": "Dev",
+                "requirements": [
                     {
-                        "sbg:toolDefaultValue": "out",
-                        "inputBinding": {
-                            "position": 1,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "string"
-                        ],
-                        "required": false,
-                        "id": "#outprefix"
-                    },
-                    {
-                        "inputBinding": {
-                            "itemSeparator": " ",
-                            "position": 2,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "sbg:stageInput": "copy",
-                        "sbg:fileTypes": "PAIRS.GZ",
-                        "id": "#input_pairs",
-                        "type": [
-                            "null",
+                        "requirements": [
                             {
-                                "type": "array",
-                                "items": "File"
+                                "dockerPull": "rabix/js-engine",
+                                "class": "DockerRequirement"
                             }
                         ],
-                        "required": false
+                        "class": "ExpressionEngineRequirement",
+                        "id": "#cwl-js-engine"
                     }
                 ],
-                "sbg:job": {
-                    "allocatedResources": {
-                        "cpu": 1,
-                        "mem": 4000
-                    },
-                    "inputs": {
-                        "outprefix": "outprefix-string-value",
-                        "input_pairs": [
-                            {
-                                "path": "/path/to/input_pairs-1.ext",
-                                "class": "File",
-                                "size": 0,
-                                "secondaryFiles": []
-                            },
-                            {
-                                "path": "/path/to/input_pairs-2.ext",
-                                "class": "File",
-                                "size": 0,
-                                "secondaryFiles": []
-                            }
-                        ]
-                    }
-                },
+                "cwlVersion": "sbg:draft-2",
+                "sbg:sbgMaintained": false,
+                "sbg:project": "4dn-dcic/dev",
+                "sbg:modifiedOn": 1500331813,
+                "temporaryFailCodes": [],
+                "x": 385.57145629610346,
                 "hints": [
                     {
                         "class": "sbg:CPURequirement",
@@ -620,8 +671,8 @@
                         "value": 4000
                     },
                     {
-                        "class": "DockerRequirement",
                         "dockerPull": "duplexa/4dn-hic:v26",
+                        "class": "DockerRequirement",
                         "dockerImageId": ""
                     },
                     {
@@ -629,615 +680,707 @@
                         "value": ""
                     }
                 ],
-                "sbg:project": "4dn-dcic/dev",
-                "sbg:image_url": null,
-                "outputs": [
+                "inputs": [
                     {
-                        "outputBinding": {
-                            "glob": {
-                                "class": "Expression",
-                                "engine": "#cwl-js-engine",
-                                "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
-                            }
-                        },
-                        "id": "#output_pairs_index",
                         "type": [
                             "null",
-                            "File"
+                            "string"
                         ],
-                        "sbg:fileTypes": "PX2"
+                        "required": false,
+                        "sbg:toolDefaultValue": "out",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 1,
+                            "separate": true
+                        },
+                        "id": "#outprefix"
                     },
                     {
-                        "outputBinding": {
-                            "glob": {
-                                "class": "Expression",
-                                "engine": "#cwl-js-engine",
-                                "script": "$job.inputs.outprefix + '.pairs.gz'"
-                            }
-                        },
-                        "id": "#output_pairs",
                         "type": [
                             "null",
-                            "File"
+                            {
+                                "type": "array",
+                                "items": "File"
+                            }
                         ],
-                        "sbg:fileTypes": "PAIRS.GZ"
+                        "required": false,
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "itemSeparator": " ",
+                            "position": 2,
+                            "separate": true
+                        },
+                        "sbg:stageInput": "copy",
+                        "sbg:fileTypes": "PAIRS.GZ",
+                        "id": "#input_pairs"
                     }
                 ],
-                "arguments": []
+                "arguments": [],
+                "sbg:latestRevision": 25,
+                "sbg:image_url": null,
+                "sbg:contributors": [
+                    "duplexa",
+                    "4dn-dcic"
+                ],
+                "sbg:links": [],
+                "sbg:modifiedBy": "4dn-dcic"
             },
+            "sbg:x": 385.57145629610346,
             "id": "#merge_pairs"
         },
         {
-            "sbg:x": 698.5716418246949,
             "outputs": [
                 {
                     "id": "#pairs2hic.output_hic"
                 }
             ],
-            "sbg:y": 440.9375780899948,
             "inputs": [
                 {
-                    "id": "#pairs2hic.output_prefix",
-                    "default": "out"
+                    "default": "out",
+                    "id": "#pairs2hic.output_prefix"
                 },
                 {
-                    "id": "#pairs2hic.min_res",
                     "source": [
                         "#min_res"
-                    ]
+                    ],
+                    "id": "#pairs2hic.min_res"
                 },
                 {
-                    "id": "#pairs2hic.maxmem",
-                    "default": "56g"
+                    "default": "56g",
+                    "id": "#pairs2hic.maxmem"
                 },
                 {
-                    "id": "#pairs2hic.input_pairs",
                     "source": [
                         "#merge_pairs.output_pairs"
-                    ]
+                    ],
+                    "id": "#pairs2hic.input_pairs"
                 },
                 {
-                    "id": "#pairs2hic.higlass",
-                    "default": "1"
+                    "default": "1",
+                    "id": "#pairs2hic.higlass"
                 },
                 {
-                    "id": "#pairs2hic.chromsizes_file",
                     "source": [
                         "#chrsizes"
-                    ]
+                    ],
+                    "id": "#pairs2hic.chromsizes_file"
                 }
             ],
+            "sbg:y": 440.9375780899948,
             "run": {
-                "sbg:cmdPreview": "run-juicebox-pre.sh",
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "description": "",
                 "outputs": [
                     {
-                        "outputBinding": {
-                            "glob": "*.hic"
-                        },
-                        "id": "#output_hic",
                         "type": [
                             "null",
                             "File"
-                        ]
+                        ],
+                        "outputBinding": {
+                            "glob": "*.hic"
+                        },
+                        "id": "#output_hic"
                     }
                 ],
-                "requirements": [],
-                "sbg:projectName": "Dev",
+                "stdout": "",
+                "stdin": "",
+                "description": "",
                 "class": "CommandLineTool",
-                "y": 440.9375780899948,
-                "sbg:sbgMaintained": false,
-                "sbg:id": "4dn-dcic/dev/pairs2hic/15",
-                "label": "pairs2hic",
-                "sbg:latestRevision": 15,
                 "sbg:revision": 15,
+                "label": "pairs2hic",
                 "appUrl": "/u/4dn-dcic/dev/apps/#4dn-dcic/dev/pairs2hic/15",
-                "id": "4dn-dcic/dev/pairs2hic/15",
+                "sbg:cmdPreview": "run-juicebox-pre.sh",
+                "sbg:job": {
+                    "inputs": {
+                        "higlass": "higlass-string-value",
+                        "output_prefix": "output_prefix-string-value",
+                        "chromsizes_file": {
+                            "secondaryFiles": [],
+                            "class": "File",
+                            "path": "/path/to/chromsizes_file.ext",
+                            "size": 0
+                        },
+                        "min_res": 4,
+                        "maxmem": "maxmem-string-value",
+                        "input_pairs": {
+                            "secondaryFiles": [],
+                            "class": "File",
+                            "path": "/path/to/input_pairs.ext",
+                            "size": 0
+                        }
+                    },
+                    "allocatedResources": {
+                        "mem": 58000,
+                        "cpu": 1
+                    }
+                },
                 "sbg:revisionsInfo": [
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496168605,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496168605,
                         "sbg:revision": 0
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496168842,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496168842,
                         "sbg:revision": 1
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496168924,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496168924,
                         "sbg:revision": 2
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496172319,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496172319,
                         "sbg:revision": 3
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496176108,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496176108,
                         "sbg:revision": 4
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496178546,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496178546,
                         "sbg:revision": 5
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1500331857,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1500331857,
                         "sbg:revision": 6
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501513062,
                         "sbg:revisionNotes": "added java maxmem as parameter",
+                        "sbg:modifiedOn": 1501513062,
                         "sbg:revision": 7
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501595773,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501595773,
                         "sbg:revision": 8
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501605274,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501605274,
                         "sbg:revision": 9
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501637382,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501637382,
                         "sbg:revision": 10
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501689608,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501689608,
                         "sbg:revision": 11
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501689663,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501689663,
                         "sbg:revision": 12
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501689805,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1501689805,
                         "sbg:revision": 13
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501707253,
                         "sbg:revisionNotes": "15GB mem",
+                        "sbg:modifiedOn": 1501707253,
                         "sbg:revision": 14
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501780759,
                         "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+                        "sbg:modifiedOn": 1501780759,
                         "sbg:revision": 15
                     }
                 ],
-                "sbg:createdBy": "4dn-dcic",
-                "x": 698.5716418246949,
-                "cwlVersion": "sbg:draft-2",
-                "sbg:modifiedBy": "4dn-dcic",
-                "sbg:modifiedOn": 1501780759,
                 "successCodes": [],
-                "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
-                "stdin": "",
-                "sbg:contributors": [
-                    "4dn-dcic"
-                ],
+                "sbg:createdOn": 1496168605,
+                "y": 440.9375780899948,
                 "baseCommand": [
                     "run-juicebox-pre.sh"
                 ],
-                "temporaryFailCodes": [],
-                "sbg:createdOn": 1496168605,
+                "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+                "id": "4dn-dcic/dev/pairs2hic/15",
                 "sbg:validationErrors": [],
-                "stdout": "",
+                "sbg:createdBy": "4dn-dcic",
+                "sbg:modifiedBy": "4dn-dcic",
+                "sbg:id": "4dn-dcic/dev/pairs2hic/15",
+                "sbg:projectName": "Dev",
+                "requirements": [],
+                "cwlVersion": "sbg:draft-2",
+                "sbg:sbgMaintained": false,
+                "sbg:project": "4dn-dcic/dev",
+                "sbg:modifiedOn": 1501780759,
+                "temporaryFailCodes": [],
+                "x": 698.5716418246949,
+                "hints": [
+                    {
+                        "class": "sbg:CPURequirement",
+                        "value": 1,
+                        "diskSize": null
+                    },
+                    {
+                        "class": "sbg:MemRequirement",
+                        "value": 58000,
+                        "diskSize": null
+                    },
+                    {
+                        "dockerImageId": "",
+                        "dockerPull": "duplexa/4dn-hic:v30",
+                        "class": "DockerRequirement",
+                        "diskSize": null
+                    }
+                ],
                 "inputs": [
                     {
-                        "sbg:toolDefaultValue": "out",
-                        "inputBinding": {
-                            "position": 3,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
                         "type": [
                             "null",
                             "string"
                         ],
                         "required": false,
+                        "sbg:toolDefaultValue": "out",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 3,
+                            "separate": true
+                        },
                         "id": "#output_prefix"
                     },
                     {
-                        "sbg:toolDefaultValue": "5000",
-                        "inputBinding": {
-                            "position": 4,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "sbg:stageInput": null,
-                        "id": "#min_res",
                         "type": [
                             "null",
                             "int"
                         ],
-                        "required": false
+                        "required": false,
+                        "id": "#min_res",
+                        "sbg:toolDefaultValue": "5000",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 4,
+                            "separate": true
+                        },
+                        "sbg:stageInput": null
                     },
                     {
-                        "sbg:toolDefaultValue": "14g",
-                        "inputBinding": {
-                            "position": 6,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
                         "type": [
                             "null",
                             "string"
                         ],
                         "required": false,
+                        "sbg:toolDefaultValue": "14g",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 6,
+                            "separate": true
+                        },
                         "id": "#maxmem"
                     },
                     {
-                        "inputBinding": {
-                            "position": 1,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#input_pairs",
                         "type": [
                             "null",
                             "File"
                         ],
                         "required": false,
-                        "sbg:fileTypes": ".PAIRS.GZ"
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 1,
+                            "separate": true
+                        },
+                        "sbg:fileTypes": ".PAIRS.GZ",
+                        "id": "#input_pairs"
                     },
                     {
-                        "sbg:toolDefaultValue": "1",
-                        "inputBinding": {
-                            "position": 5,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "sbg:stageInput": null,
-                        "id": "#higlass",
                         "type": [
                             "null",
                             "string"
                         ],
-                        "required": false
+                        "required": false,
+                        "id": "#higlass",
+                        "sbg:toolDefaultValue": "1",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 5,
+                            "separate": true
+                        },
+                        "sbg:stageInput": null
                     },
                     {
-                        "inputBinding": {
-                            "position": 2,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#chromsizes_file",
                         "type": [
                             "null",
                             "File"
                         ],
                         "required": false,
-                        "sbg:fileTypes": ".CHROM.SIZES"
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 2,
+                            "separate": true
+                        },
+                        "sbg:fileTypes": ".CHROM.SIZES",
+                        "id": "#chromsizes_file"
                     }
                 ],
-                "sbg:job": {
-                    "allocatedResources": {
-                        "cpu": 1,
-                        "mem": 58000
-                    },
-                    "inputs": {
-                        "output_prefix": "output_prefix-string-value",
-                        "chromsizes_file": {
-                            "path": "/path/to/chromsizes_file.ext",
-                            "class": "File",
-                            "size": 0,
-                            "secondaryFiles": []
-                        },
-                        "input_pairs": {
-                            "path": "/path/to/input_pairs.ext",
-                            "class": "File",
-                            "size": 0,
-                            "secondaryFiles": []
-                        },
-                        "higlass": "higlass-string-value",
-                        "maxmem": "maxmem-string-value",
-                        "min_res": 4
-                    }
-                },
-                "hints": [
-                    {
-                        "class": "sbg:CPURequirement",
-                        "diskSize": null,
-                        "value": 1
-                    },
-                    {
-                        "class": "sbg:MemRequirement",
-                        "diskSize": null,
-                        "value": 58000
-                    },
-                    {
-                        "dockerPull": "duplexa/4dn-hic:v30",
-                        "class": "DockerRequirement",
-                        "diskSize": null,
-                        "dockerImageId": ""
-                    }
+                "arguments": [],
+                "sbg:appVersion": [
+                    "sbg:draft-2"
                 ],
-                "sbg:project": "4dn-dcic/dev",
                 "sbg:image_url": null,
-                "arguments": []
+                "sbg:contributors": [
+                    "4dn-dcic"
+                ],
+                "sbg:latestRevision": 15
             },
+            "sbg:x": 698.5716418246949,
             "id": "#pairs2hic"
         },
         {
-            "sbg:x": 658.4286107335774,
             "outputs": [
                 {
                     "id": "#cooler.out_cool"
                 }
             ],
-            "sbg:y": 238.94198231399068,
             "inputs": [
                 {
-                    "id": "#cooler.pairs",
                     "source": [
                         "#merge_pairs.output_pairs"
-                    ]
+                    ],
+                    "id": "#cooler.pairs"
                 },
                 {
-                    "id": "#cooler.pairs_index",
                     "source": [
                         "#merge_pairs.output_pairs_index"
-                    ]
+                    ],
+                    "id": "#cooler.pairs_index"
                 },
                 {
-                    "id": "#cooler.chrsizes",
                     "source": [
                         "#chrsizes"
-                    ]
+                    ],
+                    "id": "#cooler.chrsizes"
                 },
                 {
-                    "id": "#cooler.binsize",
                     "source": [
                         "#binsize"
-                    ]
+                    ],
+                    "id": "#cooler.binsize"
                 },
                 {
-                    "id": "#cooler.outprefix",
-                    "default": "out"
+                    "default": "out",
+                    "id": "#cooler.outprefix"
                 },
                 {
-                    "id": "#cooler.ncores",
                     "source": [
                         "#ncores"
-                    ]
+                    ],
+                    "id": "#cooler.ncores"
                 },
                 {
-                    "id": "#cooler.max_split",
-                    "default": 2
+                    "default": 2,
+                    "id": "#cooler.max_split"
                 }
             ],
+            "sbg:y": 238.94198231399068,
             "run": {
-                "sbg:cmdPreview": "run-cooler.sh",
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "description": "",
                 "outputs": [
                     {
-                        "outputBinding": {
-                            "glob": "*.cool"
-                        },
-                        "id": "#out_cool",
                         "type": [
                             "null",
                             "File"
-                        ]
+                        ],
+                        "outputBinding": {
+                            "glob": "*.cool"
+                        },
+                        "id": "#out_cool"
                     }
                 ],
-                "requirements": [],
-                "sbg:projectName": "Dev",
-                "cwlVersion": "sbg:draft-2",
+                "stdout": "",
+                "stdin": "",
+                "description": "",
                 "sbg:revision": 19,
+                "label": "cooler",
+                "class": "CommandLineTool",
+                "baseCommand": [
+                    "run-cooler.sh"
+                ],
+                "sbg:cmdPreview": "run-cooler.sh",
                 "sbg:job": {
-                    "allocatedResources": {
-                        "cpu": 2,
-                        "mem": 16000
-                    },
                     "inputs": {
-                        "chrsizes": {
-                            "path": "/path/to/chrsize.ext",
-                            "class": "File",
-                            "size": 0,
-                            "secondaryFiles": []
-                        },
-                        "outprefix": "outprefix-string-value",
                         "pairs": {
-                            "path": "/path/to/pairs.ext",
-                            "class": "File",
-                            "size": 0,
                             "secondaryFiles": [
                                 {
                                     "path": "$job.inputs.pairs + '.px2'"
                                 }
-                            ]
+                            ],
+                            "class": "File",
+                            "path": "/path/to/pairs.ext",
+                            "size": 0
                         },
-                        "max_split": 0,
+                        "binsize": 4,
+                        "chrsizes": {
+                            "secondaryFiles": [],
+                            "class": "File",
+                            "path": "/path/to/chrsize.ext",
+                            "size": 0
+                        },
                         "ncores": 5,
                         "pairs_index": {
-                            "path": "/path/to/pairs_index.ext",
+                            "secondaryFiles": [],
                             "class": "File",
-                            "size": 0,
-                            "secondaryFiles": []
+                            "path": "/path/to/pairs_index.ext",
+                            "size": 0
                         },
-                        "binsize": 4
+                        "max_split": 0,
+                        "outprefix": "outprefix-string-value"
+                    },
+                    "allocatedResources": {
+                        "mem": 16000,
+                        "cpu": 2
                     }
                 },
-                "sbg:id": "4dn-dcic/dev/cooler/19",
-                "label": "cooler",
-                "sbg:modifiedBy": "4dn-dcic",
-                "sbg:latestRevision": 19,
-                "arguments": [],
-                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cooler/19/raw/",
                 "sbg:revisionsInfo": [
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488495202,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488495202,
                         "sbg:revision": 0
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488495392,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488495392,
                         "sbg:revision": 1
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488495453,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488495453,
                         "sbg:revision": 2
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488499764,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488499764,
                         "sbg:revision": 3
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488511643,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488511643,
                         "sbg:revision": 4
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488511809,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488511809,
                         "sbg:revision": 5
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488525294,
                         "sbg:revisionNotes": "now using 4dn-hic docker image",
+                        "sbg:modifiedOn": 1488525294,
                         "sbg:revision": 6
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1488529899,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1488529899,
                         "sbg:revision": 7
                     },
                     {
                         "sbg:modifiedBy": "duplexa",
-                        "sbg:modifiedOn": 1490716960,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1490716960,
                         "sbg:revision": 8
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496167357,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496167357,
                         "sbg:revision": 9
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496168048,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496168048,
                         "sbg:revision": 10
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496175693,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496175693,
                         "sbg:revision": 11
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1496175978,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496175978,
                         "sbg:revision": 12
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499354982,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1499354982,
                         "sbg:revision": 13
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499625090,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1499625090,
                         "sbg:revision": 14
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499625139,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1499625139,
                         "sbg:revision": 15
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499627281,
                         "sbg:revisionNotes": "Mem 960GB",
+                        "sbg:modifiedOn": 1499627281,
                         "sbg:revision": 16
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1499690249,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1499690249,
                         "sbg:revision": 17
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1500331793,
                         "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1500331793,
                         "sbg:revision": 18
                     },
                     {
                         "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1501908398,
                         "sbg:revisionNotes": "docker duplexa/4dn-hic:v31, added max_split as 6th parameter. Mem requirement 16GB, CPU 2. No instance requirement.",
+                        "sbg:modifiedOn": 1501908398,
                         "sbg:revision": 19
                     }
                 ],
-                "sbg:sbgMaintained": false,
-                "class": "CommandLineTool",
                 "successCodes": [],
-                "sbg:modifiedOn": 1501908398,
+                "sbg:createdOn": 1488495202,
                 "sbg:createdBy": "duplexa",
                 "sbg:revisionNotes": "docker duplexa/4dn-hic:v31, added max_split as 6th parameter. Mem requirement 16GB, CPU 2. No instance requirement.",
-                "temporaryFailCodes": [],
-                "sbg:contributors": [
-                    "duplexa",
-                    "4dn-dcic"
-                ],
-                "baseCommand": [
-                    "run-cooler.sh"
-                ],
-                "sbg:createdOn": 1488495202,
+                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cooler/19/raw/",
                 "sbg:validationErrors": [],
-                "stdout": "",
-                "stdin": "",
+                "inputs": [
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "id": "#pairs",
+                        "sbg:stageInput": "copy",
+                        "sbg:fileTypes": "PAIRS.GZ",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 1,
+                            "separate": true
+                        }
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:stageInput": "copy",
+                        "sbg:fileTypes": "PX2",
+                        "id": "#pairs_index"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 2,
+                            "separate": true
+                        },
+                        "sbg:fileTypes": "SIZES",
+                        "id": "#chrsizes"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "int"
+                        ],
+                        "sbg:stageInput": null,
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 3,
+                            "separate": true
+                        },
+                        "id": "#binsize"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "sbg:toolDefaultValue": "out",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 5,
+                            "separate": true
+                        },
+                        "id": "#outprefix"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "int"
+                        ],
+                        "sbg:toolDefaultValue": "8",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 4,
+                            "separate": true
+                        },
+                        "id": "#ncores"
+                    },
+                    {
+                        "type": [
+                            "null",
+                            "int"
+                        ],
+                        "id": "#max_split",
+                        "sbg:toolDefaultValue": "2",
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 6,
+                            "separate": true
+                        },
+                        "sbg:stageInput": null
+                    }
+                ],
+                "sbg:modifiedBy": "4dn-dcic",
+                "sbg:id": "4dn-dcic/dev/cooler/19",
+                "sbg:projectName": "Dev",
+                "requirements": [],
+                "cwlVersion": "sbg:draft-2",
+                "sbg:sbgMaintained": false,
+                "sbg:project": "4dn-dcic/dev",
+                "sbg:modifiedOn": 1501908398,
+                "temporaryFailCodes": [],
                 "hints": [
                     {
                         "class": "sbg:CPURequirement",
@@ -1248,167 +1391,24 @@
                         "value": 16000
                     },
                     {
-                        "class": "DockerRequirement",
                         "dockerPull": "duplexa/4dn-hic:v31",
+                        "class": "DockerRequirement",
                         "dockerImageId": ""
                     }
                 ],
-                "sbg:project": "4dn-dcic/dev",
+                "arguments": [],
+                "sbg:appVersion": [
+                    "sbg:draft-2"
+                ],
                 "sbg:image_url": null,
-                "inputs": [
-                    {
-                        "inputBinding": {
-                            "position": 1,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#pairs",
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:stageInput": "copy",
-                        "sbg:fileTypes": "PAIRS.GZ"
-                    },
-                    {
-                        "id": "#pairs_index",
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:stageInput": "copy",
-                        "sbg:fileTypes": "PX2"
-                    },
-                    {
-                        "inputBinding": {
-                            "position": 2,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#chrsizes",
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:fileTypes": "SIZES"
-                    },
-                    {
-                        "inputBinding": {
-                            "position": 3,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#binsize",
-                        "type": [
-                            "null",
-                            "int"
-                        ],
-                        "sbg:stageInput": null
-                    },
-                    {
-                        "sbg:toolDefaultValue": "out",
-                        "inputBinding": {
-                            "position": 5,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "string"
-                        ],
-                        "id": "#outprefix"
-                    },
-                    {
-                        "sbg:toolDefaultValue": "8",
-                        "inputBinding": {
-                            "position": 4,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "int"
-                        ],
-                        "id": "#ncores"
-                    },
-                    {
-                        "sbg:toolDefaultValue": "2",
-                        "inputBinding": {
-                            "position": 6,
-                            "separate": true,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "int"
-                        ],
-                        "sbg:stageInput": null,
-                        "id": "#max_split"
-                    }
-                ]
+                "sbg:contributors": [
+                    "duplexa",
+                    "4dn-dcic"
+                ],
+                "sbg:latestRevision": 19
             },
+            "sbg:x": 658.4286107335774,
             "id": "#cooler"
         }
-    ],
-    "sbg:createdOn": 1479144431,
-    "sbg:validationErrors": [],
-    "inputs": [
-        {
-            "sbg:x": -44.285710918659674,
-            "label": "chrsizes",
-            "sbg:y": 365.8544025321941,
-            "sbg:fileTypes": ".CHROM.SIZES",
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "sbg:x": -32.85716799814047,
-            "label": "input_pairs",
-            "sbg:y": 138.56737856934552,
-            "sbg:fileTypes": "PAIRS.GZ",
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                {
-                    "type": "array",
-                    "items": "File"
-                }
-            ]
-        },
-        {
-            "sbg:toolDefaultValue": "5000",
-            "id": "#min_res",
-            "type": [
-                "null",
-                "int"
-            ],
-            "sbg:stageInput": null
-        },
-        {
-            "sbg:toolDefaultValue": "8",
-            "id": "#ncores",
-            "type": [
-                "null",
-                "int"
-            ],
-            "required": false
-        },
-        {
-            "id": "#binsize",
-            "sbg:stageInput": null,
-            "type": [
-                "null",
-                "int"
-            ],
-            "required": false,
-            "sbg:includeInPorts": false
-        }
-    ],
-    "sbg:latestRevision": 38,
-    "sbg:canvas_x": 108,
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-partb/38.png"
+    ]
 }

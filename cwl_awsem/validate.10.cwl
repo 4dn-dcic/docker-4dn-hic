@@ -1,76 +1,76 @@
 {
-    "outputs": [
+    "inputs": [
         {
-            "id": "#report",
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            },
             "type": [
                 "null",
                 "File"
-            ]
-        }
-    ],
-    "class": "CommandLineTool",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
-        }
-    ],
-    "arguments": [],
-    "inputs": [
-        {
-            "id": "#input_file",
+            ],
             "inputBinding": {
                 "position": 1,
                 "separate": true
             },
-            "type": [
-                "null",
-                "File"
-            ]
+            "id": "#input_file"
         },
         {
-            "id": "#type",
-            "inputBinding": {
-                "position": 2,
-                "separate": true,
-                "valueFrom": {
-                    "class": "Expression",
-                    "script": "\"fastq\"",
-                    "engine": "#cwl-js-engine"
-                }
-            },
             "type": [
                 "null",
                 {
-                    "name": "type",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
                     ],
-                    "type": "enum"
+                    "type": "enum",
+                    "name": "type"
                 }
-            ]
+            ],
+            "inputBinding": {
+                "position": 2,
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "\"fastq\""
+                },
+                "separate": true
+            },
+            "id": "#type"
         }
     ],
     "baseCommand": [
         "run.sh",
         ""
     ],
-    "requirements": [
+    "hints": [
         {
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ]
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
         }
     ],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#report",
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            }
+        }
+    ],
+    "arguments": [],
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
+        }
+    ],
+    "class": "CommandLineTool",
     "cwlVersion": "draft-3"
 }
