@@ -1,94 +1,94 @@
 {
-    "outputs": [
-        {
-            "id": "#output_hic",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.hic"
-            }
-        }
-    ],
+    "cwlVersion": "draft3",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v30"
         }
     ],
+    "arguments": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
     ],
-    "class": "CommandLineTool",
     "requirements": [],
-    "arguments": [],
-    "cwlVersion": "draft3",
-    "inputs": [
+    "class": "CommandLineTool",
+    "outputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#output_hic",
+            "outputBinding": {
+                "glob": "*.hic"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "id": "#input_pairs"
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
             "id": "#chromsizes_file"
         },
         {
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
             "type": [
                 "null",
                 "string"
             ],
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
             "id": "#output_prefix"
         },
         {
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "id": "#min_res",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 4
+            },
+            "id": "#min_res"
         },
         {
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
-            "id": "#higlass",
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
             "type": [
                 "null",
                 "string"
             ],
+            "inputBinding": {
+                "separate": true,
+                "position": 5
+            },
+            "id": "#higlass"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 6
+            },
             "id": "#maxmem"
         }
     ]

@@ -1,43 +1,55 @@
 {
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v26",
-            "class": "DockerRequirement"
-        }
-    ],
-    "arguments": [],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft3",
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
     "inputs": [
         {
             "type": [
                 "null",
                 "string"
             ],
+            "id": "#outprefix",
             "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#outprefix"
+                "position": 1,
+                "separate": true
+            }
         },
         {
             "type": [
                 "null",
                 {
-                    "items": "File",
-                    "type": "array"
+                    "type": "array",
+                    "items": "File"
                 }
             ],
+            "id": "#input_pairs",
             "inputBinding": {
-                "separate": true,
+                "itemSeparator": " ",
                 "position": 2,
-                "itemSeparator": " "
-            },
-            "id": "#input_pairs"
+                "separate": true
+            }
         }
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft3",
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v26",
+            "class": "DockerRequirement"
+        }
+    ],
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine"
+        }
+    ],
+    "baseCommand": [
+        "run-merge-pairs.sh"
     ],
     "outputs": [
         {
@@ -67,18 +79,6 @@
                     "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
                 }
             }
-        }
-    ],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ]
         }
     ]
 }

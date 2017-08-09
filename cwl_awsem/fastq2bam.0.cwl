@@ -1,119 +1,119 @@
 {
+    "arguments": [],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
     "outputs": [
         {
-            "id": "#sorted_bam_pe",
             "outputBinding": {
                 "glob": {
-                    "class": "Expression",
                     "engine": "#cwl-js-engine",
+                    "class": "Expression",
                     "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'"
                 }
             },
+            "id": "#sorted_bam_pe",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
-            "id": "#split_bam1",
             "outputBinding": {
                 "glob": {
-                    "class": "Expression",
                     "engine": "#cwl-js-engine",
+                    "class": "Expression",
                     "script": "$job.inputs.output_dir + '/out_pair1.bam'"
                 }
             },
+            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
-            "id": "#split_bam2",
             "outputBinding": {
                 "glob": {
-                    "class": "Expression",
                     "engine": "#cwl-js-engine",
+                    "class": "Expression",
                     "script": "$job.inputs.output_dir + '/out_pair2.bam'"
                 }
             },
+            "id": "#split_bam2",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "cwlVersion": "draft3",
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
     "requirements": [
         {
             "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine",
             "requirements": [
                 {
                     "dockerPull": "rabix/js-engine",
                     "class": "DockerRequirement"
                 }
-            ]
+            ],
+            "id": "#cwl-js-engine"
         }
     ],
     "inputs": [
         {
+            "inputBinding": {
+                "position": 2,
+                "separate": false
+            },
             "id": "#input_fastq1",
-            "inputBinding": {
-                "separate": false,
-                "position": 2
-            },
             "type": [
                 "File"
             ]
         },
         {
+            "inputBinding": {
+                "position": 3,
+                "separate": false
+            },
             "id": "#input_fastq2",
-            "inputBinding": {
-                "separate": false,
-                "position": 3
-            },
             "type": [
                 "File"
             ]
         },
         {
-            "id": "#output_dir",
             "inputBinding": {
                 "valueFrom": {
-                    "class": "Expression",
                     "engine": "#cwl-js-engine",
+                    "class": "Expression",
                     "script": "$job.inputs.output_dir || '.'"
                 },
-                "separate": false,
-                "position": 4
+                "position": 4,
+                "separate": false
             },
+            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "id": "#bowtie_index",
             "inputBinding": {
-                "separate": false,
-                "position": 1
+                "position": 1,
+                "separate": false
             },
+            "id": "#bowtie_index",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "class": "CommandLineTool",
-    "arguments": [],
     "hints": [
         {
             "dockerPull": "duplexa/hictool-fastq2bam:v3",
             "class": "DockerRequirement"
         }
-    ]
+    ],
+    "cwlVersion": "draft3"
 }

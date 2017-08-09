@@ -57,19 +57,18 @@ def run_convert(input_cwl, output_cwl):
         input_json = filter(input_json, key, input_json0)
         if key == 'steps':
             del input_json[key]
-            for subkey in VALID_KEY_LIST:
-                if subkey not in input_json0[key]:
-                    continue
-                input_json[key][subkey] = copy.deepcopy(input_json0[key][subkey])
-                input_json[key] = filter(input_json[key], subkey, input_json0[key])
+            input_json[key] = [{} for i in range(len(input_json0[key]))]
+            for i, item in enumerate(input_json0[key]):
+                for subkey in VALID_KEY_LIST:
+                    if subkey not in item:
+                        continue
+                    input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey])
+                    input_json[key][i] = filter(input_json[key][i], subkey, input_json0[key][i])
 
-                if subkey == 'run':
-                    del input_json[key][subkey]
-                    for subsubkey in VALID_KEY_LIST:
-                        if subsubkey not in input_json0[key][subkey]:
-                            continue
-                        input_json[key][subkey][subsubkey] = copy.deepcopy(input_json0[key][subkey][subsubkey])
-                        input_json[key][subkey] = filter(input_json[key][subkey], subsubkey, input_json0[key][subkey])
+                if 'run' in item:
+                    app = input_json0[key][i]['run']['sbg:id'].split('/')[2:4]
+                    app.extend(["cwl"])
+                    input_json[key][i]['run'] = '.'.join(app)
 
 
     with open(output_cwl, 'w') as fo:

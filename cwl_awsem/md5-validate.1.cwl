@@ -1,29 +1,68 @@
 {
-    "outputs": [
+    "class": "Workflow",
+    "cwlVersion": "draft3",
+    "steps": [
         {
-            "source": [
-                "#validatefiles.report"
+            "outputs": [
+                {
+                    "id": "#md5.report"
+                }
             ],
-            "label": "validate_report",
-            "id": "#validatefiles_report",
-            "type": [
-                "null",
-                "File"
+            "run": "md5.1.cwl",
+            "inputs": [
+                {
+                    "id": "#md5.input_file",
+                    "source": [
+                        "#input_file"
+                    ]
+                }
             ]
         },
         {
-            "source": [
-                "#md5.report"
+            "outputs": [
+                {
+                    "id": "#validatefiles.report"
+                }
             ],
-            "label": "md5_report",
-            "id": "#md5_report",
-            "type": [
-                "null",
-                "File"
+            "run": "validate.10.cwl",
+            "inputs": [
+                {
+                    "id": "#validatefiles.input_file",
+                    "source": [
+                        "#input_file"
+                    ]
+                },
+                {
+                    "id": "#validatefiles.type"
+                }
             ]
         }
     ],
-    "cwlVersion": "draft3",
+    "requirements": [],
+    "outputs": [
+        {
+            "id": "#validatefiles_report",
+            "label": "validate_report",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#validatefiles.report"
+            ]
+        },
+        {
+            "id": "#md5_report",
+            "label": "md5_report",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#md5.report"
+            ]
+        }
+    ],
     "inputs": [
         {
             "id": "#input_file",
@@ -33,7 +72,5 @@
                 "File"
             ]
         }
-    ],
-    "requirements": [],
-    "class": "Workflow"
+    ]
 }

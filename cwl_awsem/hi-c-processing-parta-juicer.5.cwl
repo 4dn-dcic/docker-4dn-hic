@@ -1,86 +1,173 @@
 {
-    "cwlVersion": "draft3",
-    "outputs": [
-        {
-            "label": "out_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs",
-            "required": false,
-            "source": [
-                "#juicer2pairs.out_pairs"
-            ]
-        },
-        {
-            "label": "out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index",
-            "required": false,
-            "source": [
-                "#juicer2pairs.out_pairs_px"
-            ]
-        }
-    ],
-    "requirements": [],
     "inputs": [
         {
-            "label": "fastq1",
+            "id": "#fastq1",
             "type": [
                 "File"
             ],
-            "id": "#fastq1"
+            "label": "fastq1"
         },
         {
-            "label": "fastq2",
+            "id": "#fastq2",
             "type": [
                 "File"
             ],
-            "id": "#fastq2"
+            "label": "fastq2"
         },
         {
-            "label": "bwa_index",
+            "id": "#bwa_index",
             "type": [
                 "File"
             ],
-            "id": "#bwa_index"
+            "label": "bwa_index"
         },
         {
-            "label": "chrsizes",
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#chrsizes"
-        },
-        {
-            "label": "reference_fasta",
+            "id": "#chrsizes",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#reference_fasta"
+            "label": "chrsizes"
         },
         {
-            "label": "restriction_file",
+            "id": "#reference_fasta",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#restriction_file"
+            "label": "reference_fasta"
         },
         {
+            "id": "#restriction_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "label": "restriction_file"
+        },
+        {
+            "id": "#nsplit",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#nsplit",
             "required": false
         }
     ],
-    "class": "Workflow"
+    "class": "Workflow",
+    "requirements": [],
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "label": "out_pairs",
+            "source": [
+                "#juicer2pairs.out_pairs"
+            ],
+            "required": false
+        },
+        {
+            "id": "#out_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "label": "out_pairs_index",
+            "source": [
+                "#juicer2pairs.out_pairs_px"
+            ],
+            "required": false
+        }
+    ],
+    "cwlVersion": "draft3",
+    "steps": [
+        {
+            "inputs": [
+                {
+                    "id": "#juicer.restriction_file",
+                    "source": [
+                        "#restriction_file"
+                    ]
+                },
+                {
+                    "id": "#juicer.reference_fasta",
+                    "source": [
+                        "#reference_fasta"
+                    ]
+                },
+                {
+                    "id": "#juicer.outdir",
+                    "default": "."
+                },
+                {
+                    "id": "#juicer.input_fastq2",
+                    "source": [
+                        "#fastq2"
+                    ]
+                },
+                {
+                    "id": "#juicer.input_fastq1",
+                    "source": [
+                        "#fastq1"
+                    ]
+                },
+                {
+                    "id": "#juicer.chromsizes_file",
+                    "source": [
+                        "#chrsizes"
+                    ]
+                },
+                {
+                    "id": "#juicer.bwaIndex",
+                    "source": [
+                        "#bwa_index"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#juicer.merged_nodups"
+                }
+            ],
+            "run": "juicer.6.cwl"
+        },
+        {
+            "inputs": [
+                {
+                    "id": "#juicer2pairs.outprefix",
+                    "default": "out"
+                },
+                {
+                    "id": "#juicer2pairs.nsplit",
+                    "source": [
+                        "#nsplit"
+                    ]
+                },
+                {
+                    "id": "#juicer2pairs.input_merged_nodups",
+                    "source": [
+                        "#juicer.merged_nodups"
+                    ]
+                },
+                {
+                    "id": "#juicer2pairs.chromsize",
+                    "source": [
+                        "#chrsizes"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#juicer2pairs.out_pairs_px"
+                },
+                {
+                    "id": "#juicer2pairs.out_pairs"
+                }
+            ],
+            "run": "juicer2pairs.1.cwl"
+        }
+    ]
 }

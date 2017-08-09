@@ -1,69 +1,68 @@
 {
-    "inputs": [
+    "outputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
+            "id": "#report",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_file"
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "valueFrom": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "\"fastq\""
-                },
-                "separate": true
-            },
-            "type": [
-                "null",
-                {
-                    "name": "type",
-                    "type": "enum",
-                    "symbols": [
-                        "fastq",
-                        "fasta",
-                        "bam"
-                    ]
-                }
-            ],
-            "id": "#type"
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "id": "#cwl-js-engine"
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            }
         }
     ],
     "baseCommand": [
         "run.sh",
         ""
     ],
-    "outputs": [
+    "class": "CommandLineTool",
+    "requirements": [
         {
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
             },
+            "id": "#input_file",
             "type": [
                 "null",
                 "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "valueFrom": {
+                    "script": "\"fastq\"",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                },
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
+                {
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ],
+                    "type": "enum",
+                    "name": "type"
+                }
             ],
-            "id": "#report"
+            "id": "#type"
         }
     ],
     "hints": [
@@ -72,5 +71,6 @@
             "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
+    "arguments": [],
     "cwlVersion": "draft3"
 }

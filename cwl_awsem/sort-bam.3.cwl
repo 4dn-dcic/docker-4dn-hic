@@ -1,40 +1,31 @@
 {
-    "requirements": [],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sort-bam:v1"
-        }
-    ],
+    "cwlVersion": "draft3",
+    "arguments": [],
     "outputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "outputBinding": {
                 "glob": "*.sorted.bam"
             },
-            "id": "#out_sorted_bam"
-        },
-        {
+            "id": "#out_sorted_bam",
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        },
+        {
             "outputBinding": {
                 "glob": "*.sorted.bam.bai"
             },
-            "id": "#out_sorted_bam_index"
+            "id": "#out_sorted_bam_index",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "class": "CommandLineTool",
     "inputs": [
         {
+            "id": "#input_bam",
             "type": [
                 "null",
                 "File"
@@ -42,10 +33,10 @@
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            },
-            "id": "#input_bam"
+            }
         },
         {
+            "id": "#prefix",
             "type": [
                 "null",
                 "string"
@@ -53,9 +44,18 @@
             "inputBinding": {
                 "separate": true,
                 "position": 2
-            },
-            "id": "#prefix"
+            }
         }
     ],
-    "cwlVersion": "draft3"
+    "requirements": [],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "class": "CommandLineTool",
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/sort-bam:v1"
+        }
+    ]
 }
