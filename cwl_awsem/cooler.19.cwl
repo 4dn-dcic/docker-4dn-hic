@@ -1,68 +1,69 @@
 {
+    "baseCommand": [
+        "run-cooler.sh"
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_cool"
+        }
+    ],
+    "arguments": [],
     "inputs": [
         {
-            "id": "#pairs",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#pairs"
         },
         {
-            "id": "#pairs_index",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#pairs_index"
         },
         {
-            "id": "#chrsizes",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#chrsizes"
         },
         {
-            "id": "#binsize",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#binsize"
         },
         {
-            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#outprefix"
         },
         {
-            "id": "#ncores",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         },
         {
-            "id": "#max_split",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#max_split"
         }
-    ],
-    "outputs": [
-        {
-            "id": "#out_cool",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "baseCommand": [
-        "run-cooler.sh"
     ],
     "hints": [
         {
@@ -70,6 +71,5 @@
             "class": "DockerRequirement"
         }
     ],
-    "requirements": [],
-    "cwlVersion": "draft-3"
+    "class": "CommandLineTool"
 }

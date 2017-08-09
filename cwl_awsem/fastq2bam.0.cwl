@@ -1,25 +1,69 @@
 {
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
     "outputs": [
         {
+            "id": "#sorted_bam_pe",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#sorted_bam_pe"
+            ]
         },
         {
+            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#split_bam1"
+            ]
         },
         {
+            "id": "#split_bam2",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#split_bam2"
+            ]
+        }
+    ],
+    "arguments": [],
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "#input_fastq1",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "id": "#input_fastq2",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "id": "#output_dir",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "id": "#bowtie_index",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
     "hints": [
@@ -28,50 +72,6 @@
             "class": "DockerRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_fastq1"
-        },
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_fastq2"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#output_dir"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#bowtie_index"
-        }
-    ],
     "class": "CommandLineTool",
-    "arguments": []
+    "cwlVersion": "draft-3"
 }

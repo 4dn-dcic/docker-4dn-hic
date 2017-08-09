@@ -1,22 +1,16 @@
 {
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file"
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
+    "cwlVersion": "draft-3",
     "hints": [
         {
             "dockerPull": "duplexa/md5:v1",
             "class": "DockerRequirement"
         }
     ],
+    "requirements": [],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "type": [
@@ -26,8 +20,14 @@
             "id": "#report"
         }
     ],
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
-    "requirements": []
+    "inputs": [
+        {
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "arguments": []
 }

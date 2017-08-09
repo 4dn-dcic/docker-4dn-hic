@@ -2,137 +2,135 @@
     "outputs": [
         {
             "id": "#sorted_bam_pe",
+            "source": [
+                "#hictool_fastq2bam.sorted_bam_pe"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_fastq2bam.sorted_bam_pe"
             ]
         },
         {
             "id": "#HiC_project_object_hdf5",
+            "source": [
+                "#hictool_bam2hdf5.HiC_project_object_hdf5"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_bam2hdf5.HiC_project_object_hdf5"
             ]
         },
         {
             "id": "#HiC_distance_function_hdf5",
+            "source": [
+                "#hictool_bam2hdf5.HiC_distance_function_hdf5"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_bam2hdf5.HiC_distance_function_hdf5"
             ]
         },
         {
             "id": "#normalized_fend_contact_matrix",
+            "source": [
+                "#hictool_hdf52matrix.normalized_fend_contact_matrix"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_hdf52matrix.normalized_fend_contact_matrix"
             ]
         },
         {
             "id": "#normalized_enrich_contact_matrix",
+            "source": [
+                "#hictool_hdf52matrix.normalized_enrich_contact_matrix"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_hdf52matrix.normalized_enrich_contact_matrix"
             ]
         },
         {
             "id": "#expected_enrich_contact_matrix",
+            "source": [
+                "#hictool_hdf52matrix.expected_enrich_contact_matrix"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_hdf52matrix.expected_enrich_contact_matrix"
             ]
         },
         {
             "id": "#split_bam2",
+            "source": [
+                "#hictool_fastq2bam.split_bam2"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_fastq2bam.split_bam2"
             ]
         },
         {
             "id": "#split_bam1",
+            "source": [
+                "#hictool_fastq2bam.split_bam1"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_fastq2bam.split_bam1"
             ]
         },
         {
             "id": "#fend_object_hdf5",
+            "source": [
+                "#hictool_bam2hdf5.fend_object_hdf5"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_bam2hdf5.fend_object_hdf5"
             ]
         },
         {
             "id": "#HiC_norm_binning_hdf5",
+            "source": [
+                "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
             ]
         },
         {
             "id": "#HiC_data_object_hdf5",
+            "source": [
+                "#hictool_bam2hdf5.HiC_data_object_hdf5"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_bam2hdf5.HiC_data_object_hdf5"
             ]
         },
         {
             "id": "#observed_contact_matrix",
+            "source": [
+                "#hictool_hdf52matrix.observed_contact_matrix"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_hdf52matrix.observed_contact_matrix"
             ]
         },
         {
             "id": "#expected_fend_contact_matrix",
+            "source": [
+                "#hictool_hdf52matrix.expected_fend_contact_matrix"
+            ],
             "type": [
                 "null",
                 "File"
-            ],
-            "source": [
-                "#hictool_hdf52matrix.expected_fend_contact_matrix"
             ]
         }
     ],
-    "requirements": [],
-    "cwlVersion": "draft-3",
     "steps": [
         {
             "outputs": [
@@ -146,6 +144,8 @@
                     "id": "#hictool_fastq2bam.sorted_bam_pe"
                 }
             ],
+            "id": "#hictool_fastq2bam",
+            "run": "fastq2bam.14.cwl",
             "inputs": [
                 {
                     "id": "#hictool_fastq2bam.output_dir"
@@ -168,8 +168,7 @@
                         "#bowtie_index"
                     ]
                 }
-            ],
-            "run": "fastq2bam.14.cwl"
+            ]
         },
         {
             "outputs": [
@@ -189,6 +188,8 @@
                     "id": "#hictool_bam2hdf5.HiC_data_object_hdf5"
                 }
             ],
+            "id": "#hictool_bam2hdf5",
+            "run": "bam2hdf5.4.cwl",
             "inputs": [
                 {
                     "id": "#hictool_bam2hdf5.output_dir"
@@ -211,8 +212,7 @@
                         "#RE_bed"
                     ]
                 }
-            ],
-            "run": "bam2hdf5.4.cwl"
+            ]
         },
         {
             "outputs": [
@@ -232,6 +232,9 @@
                     "id": "#hictool_hdf52matrix.expected_enrich_contact_matrix"
                 }
             ],
+            "id": "#hictool_hdf52matrix",
+            "scatter": "#hictool_hdf52matrix.chromosome",
+            "run": "bam2matrix2.7.cwl",
             "inputs": [
                 {
                     "id": "#hictool_hdf52matrix.output_dir"
@@ -272,10 +275,12 @@
                         "#hictool_bam2hdf5.HiC_data_object_hdf5"
                     ]
                 }
-            ],
-            "run": "bam2matrix2.7.cwl"
+            ]
         }
     ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
+    "class": "Workflow",
     "inputs": [
         {
             "id": "#input_fastq2",
@@ -325,6 +330,5 @@
                 }
             ]
         }
-    ],
-    "class": "Workflow"
+    ]
 }

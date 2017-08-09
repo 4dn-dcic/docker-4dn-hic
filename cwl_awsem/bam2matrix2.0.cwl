@@ -1,53 +1,53 @@
 {
-    "class": "CommandLineTool",
     "inputs": [
         {
-            "id": "#HiC_norm_binning_hdf5",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#HiC_norm_binning_hdf5"
         },
         {
-            "id": "#HiC_data_object_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#fend_object_hdf5",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#HiC_data_object_hdf5"
         },
         {
-            "id": "#chromosome",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#fend_object_hdf5"
+        },
+        {
             "type": [
                 "string"
-            ]
+            ],
+            "id": "#chromosome"
         },
         {
-            "id": "#contact_matrix_binsize",
             "type": [
                 "int"
-            ]
+            ],
+            "id": "#contact_matrix_binsize"
         },
         {
-            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#output_dir"
         },
         {
-            "id": "#chrlen_file",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#chrlen_file"
         }
     ],
+    "class": "CommandLineTool",
     "hints": [
         {
             "dockerPull": "duplexa/hictool-hdf52matrix:v2",
@@ -58,54 +58,54 @@
         "run.sh"
     ],
     "cwlVersion": "draft-3",
+    "arguments": [],
     "requirements": [
         {
+            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
                 }
             ],
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement"
+            "id": "#cwl-js-engine"
         }
     ],
-    "arguments": [],
     "outputs": [
         {
-            "id": "#observed_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#observed_contact_matrix"
         },
         {
-            "id": "#normalized_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#normalized_fend_contact_matrix"
         },
         {
-            "id": "#normalized_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#normalized_enrich_contact_matrix"
         },
         {
-            "id": "#expected_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#expected_fend_contact_matrix"
         },
         {
-            "id": "#expected_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#expected_enrich_contact_matrix"
         }
     ]
 }

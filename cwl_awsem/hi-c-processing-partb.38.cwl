@@ -1,89 +1,55 @@
 {
-    "class": "Workflow",
     "inputs": [
         {
+            "id": "#chrsizes",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#chrsizes"
+            ]
         },
         {
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "type": "array",
-                    "items": "File"
+                    "items": "File",
+                    "type": "array"
                 }
-            ],
-            "id": "#input_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#min_res"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#ncores"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#binsize"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_pairs_index",
-            "source": [
-                "#merge_pairs.output_pairs_index"
             ]
         },
         {
+            "id": "#min_res",
             "type": [
                 "null",
-                "File"
-            ],
-            "id": "#output_pairs",
-            "source": [
-                "#merge_pairs.output_pairs"
+                "int"
             ]
         },
         {
+            "id": "#ncores",
             "type": [
                 "null",
-                "File"
-            ],
-            "id": "#out_cool",
-            "source": [
-                "#cooler.out_cool"
+                "int"
             ]
         },
         {
+            "id": "#binsize",
             "type": [
                 "null",
-                "File"
-            ],
-            "id": "#output_hic",
-            "source": [
-                "#pairs2hic.output_hic"
+                "int"
             ]
         }
     ],
+    "cwlVersion": "draft-3",
     "steps": [
         {
+            "outputs": [
+                {
+                    "id": "#merge_pairs.output_pairs_index"
+                },
+                {
+                    "id": "#merge_pairs.output_pairs"
+                }
+            ],
             "inputs": [
                 {
                     "id": "#merge_pairs.outprefix"
@@ -96,16 +62,14 @@
                 }
             ],
             "run": "merge-pairs.25.cwl",
-            "outputs": [
-                {
-                    "id": "#merge_pairs.output_pairs_index"
-                },
-                {
-                    "id": "#merge_pairs.output_pairs"
-                }
-            ]
+            "id": "#merge_pairs"
         },
         {
+            "outputs": [
+                {
+                    "id": "#pairs2hic.output_hic"
+                }
+            ],
             "inputs": [
                 {
                     "id": "#pairs2hic.output_prefix"
@@ -136,13 +100,14 @@
                 }
             ],
             "run": "pairs2hic.15.cwl",
-            "outputs": [
-                {
-                    "id": "#pairs2hic.output_hic"
-                }
-            ]
+            "id": "#pairs2hic"
         },
         {
+            "outputs": [
+                {
+                    "id": "#cooler.out_cool"
+                }
+            ],
             "inputs": [
                 {
                     "id": "#cooler.pairs",
@@ -182,13 +147,51 @@
                 }
             ],
             "run": "cooler.19.cwl",
-            "outputs": [
-                {
-                    "id": "#cooler.out_cool"
-                }
+            "id": "#cooler"
+        }
+    ],
+    "class": "Workflow",
+    "outputs": [
+        {
+            "id": "#output_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#merge_pairs.output_pairs_index"
+            ]
+        },
+        {
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#merge_pairs.output_pairs"
+            ]
+        },
+        {
+            "id": "#out_cool",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#cooler.out_cool"
+            ]
+        },
+        {
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#pairs2hic.output_hic"
             ]
         }
     ],
-    "requirements": [],
-    "cwlVersion": "draft-3"
+    "requirements": []
 }

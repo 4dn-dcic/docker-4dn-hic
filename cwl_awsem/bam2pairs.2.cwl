@@ -1,5 +1,22 @@
 {
-    "arguments": [],
+    "class": "CommandLineTool",
+    "requirements": [],
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#out_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
     "cwlVersion": "draft-3",
     "hints": [
         {
@@ -10,37 +27,20 @@
     "baseCommand": [
         "run.sh"
     ],
-    "requirements": [],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index"
-        }
-    ],
+    "arguments": [],
     "inputs": [
         {
+            "id": "#input_bam",
             "type": [
                 "File"
-            ],
-            "id": "#input_bam"
+            ]
         },
         {
+            "id": "#out_prefix",
             "type": [
                 "null",
                 "string"
-            ],
-            "id": "#out_prefix"
+            ]
         }
-    ],
-    "class": "CommandLineTool"
+    ]
 }

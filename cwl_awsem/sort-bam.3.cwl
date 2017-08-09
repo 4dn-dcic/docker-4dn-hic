@@ -1,5 +1,5 @@
 {
-    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#out_sorted_bam",
@@ -15,11 +15,6 @@
                 "File"
             ]
         }
-    ],
-    "requirements": [],
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
     ],
     "inputs": [
         {
@@ -37,11 +32,16 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
+    "arguments": [],
+    "requirements": [],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/sort-bam:v1"
         }
+    ],
+    "baseCommand": [
+        "run.sh"
     ]
 }

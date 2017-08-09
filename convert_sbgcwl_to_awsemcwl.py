@@ -3,7 +3,7 @@ import copy
 
 VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs', 'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
 INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description']
-
+STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
 def filter(input_json, key, input_json0):
 
@@ -66,11 +66,12 @@ def run_convert(input_cwl, output_cwl):
         input_json[key] = copy.deepcopy(input_json0[key])
         input_json = filter(input_json, key, input_json0)
         if key == 'steps':
-            del input_json[key]
-            input_json[key] = [{} for i in range(len(input_json0[key]))]
+            # del input_json[key]
+            # input_json[key] = [{} for i in range(len(input_json0[key]))]
             for i, item in enumerate(input_json0[key]):
-                for subkey in VALID_KEY_LIST:
+                for subkey in STEPS_VALID_KEY_LIST:
                     if subkey not in item:
+                        del input_json[key][i][subkey]
                         continue
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey])
                     input_json[key][i] = filter(input_json[key][i], subkey, input_json0[key][i])

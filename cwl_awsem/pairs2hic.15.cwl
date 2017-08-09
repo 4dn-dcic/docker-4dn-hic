@@ -1,8 +1,4 @@
 {
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ],
-    "requirements": [],
     "outputs": [
         {
             "type": [
@@ -12,14 +8,6 @@
             "id": "#output_hic"
         }
     ],
-    "arguments": [],
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v30",
-            "class": "DockerRequirement"
-        }
-    ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
             "type": [
@@ -64,5 +52,17 @@
             "id": "#maxmem"
         }
     ],
-    "class": "CommandLineTool"
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v30"
+        }
+    ],
+    "requirements": [],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ]
 }

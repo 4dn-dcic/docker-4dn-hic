@@ -1,43 +1,49 @@
 {
-    "arguments": [],
-    "class": "CommandLineTool",
-    "inputs": [
-        {
-            "id": "#outprefix",
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                {
-                    "items": "File",
-                    "type": "array"
-                }
-            ]
-        }
-    ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
-            "id": "#output_pairs",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_pairs"
         },
         {
-            "id": "#output_pairs_index",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_pairs_index"
+        }
+    ],
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v26",
+            "class": "DockerRequirement"
         }
     ],
     "baseCommand": [
         "run-merge-pairs.sh"
+    ],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#outprefix"
+        },
+        {
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "File"
+                }
+            ],
+            "id": "#input_pairs"
+        }
     ],
     "requirements": [
         {
@@ -51,11 +57,5 @@
             "class": "ExpressionEngineRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v26",
-            "class": "DockerRequirement"
-        }
-    ]
+    "class": "CommandLineTool"
 }

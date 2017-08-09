@@ -1,4 +1,12 @@
 {
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-bam2hdf5:v2",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#fend_object_hdf5",
@@ -36,11 +44,17 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
-    "hints": [
+    "arguments": [],
+    "requirements": [
         {
-            "dockerPull": "duplexa/hictool-bam2hdf5:v2",
-            "class": "DockerRequirement"
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine"
         }
     ],
     "inputs": [
@@ -71,20 +85,6 @@
             ]
         }
     ],
-    "arguments": [],
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "class": "CommandLineTool",
     "baseCommand": [
         "run.sh"
     ]
