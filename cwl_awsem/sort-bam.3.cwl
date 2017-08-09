@@ -1,27 +1,7 @@
 {
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#input_bam"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
-            "id": "#prefix"
-        }
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh"
     ],
     "hints": [
         {
@@ -29,33 +9,53 @@
             "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "arguments": [],
     "cwlVersion": "draft-3",
     "requirements": [],
-    "class": "CommandLineTool",
-    "outputs": [
+    "inputs": [
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_bam",
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "id": "#prefix",
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    ],
+    "arguments": [],
+    "outputs": [
+        {
+            "id": "#out_sorted_bam",
             "outputBinding": {
                 "glob": "*.sorted.bam"
             },
-            "id": "#out_sorted_bam"
-        },
-        {
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        },
+        {
+            "id": "#out_sorted_bam_index",
             "outputBinding": {
                 "glob": "*.sorted.bam.bai"
             },
-            "id": "#out_sorted_bam_index"
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ]
 }

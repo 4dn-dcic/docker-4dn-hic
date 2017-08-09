@@ -1,42 +1,39 @@
 {
-    "cwlVersion": "draft-3",
     "requirements": [],
-    "class": "Workflow",
+    "inputs": [
+        {
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
     "outputs": [
         {
             "source": [
                 "#validatefiles.report"
             ],
+            "id": "#validatefiles_report",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#validatefiles_report"
+            ]
         },
         {
             "source": [
                 "#md5.report"
             ],
+            "id": "#md5_report",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#md5_report"
+            ]
         }
     ],
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file"
-        }
-    ],
+    "class": "Workflow",
     "steps": [
         {
-            "run": "md5.1.cwl",
-            "id": "#md5",
             "outputs": [
                 {
                     "id": "#md5.report"
@@ -49,11 +46,11 @@
                     ],
                     "id": "#md5.input_file"
                 }
-            ]
+            ],
+            "id": "#md5",
+            "run": "md5.1.cwl"
         },
         {
-            "run": "validate.10.cwl",
-            "id": "#validatefiles",
             "outputs": [
                 {
                     "id": "#validatefiles.report"
@@ -69,7 +66,10 @@
                 {
                     "id": "#validatefiles.type"
                 }
-            ]
+            ],
+            "id": "#validatefiles",
+            "run": "validate.10.cwl"
         }
-    ]
+    ],
+    "cwlVersion": "draft-3"
 }

@@ -1,12 +1,13 @@
 {
+    "class": "CommandLineTool",
     "outputs": [
         {
             "id": "#output_pairs",
             "outputBinding": {
                 "glob": {
                     "script": "$job.inputs.outprefix + '.pairs.gz'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
                 }
             },
             "type": [
@@ -19,8 +20,8 @@
             "outputBinding": {
                 "glob": {
                     "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
                 }
             },
             "type": [
@@ -29,34 +30,42 @@
             ]
         }
     ],
-    "arguments": [],
-    "class": "CommandLineTool",
-    "hints": [
+    "requirements": [
         {
-            "dockerPull": "duplexa/4dn-hic:v26",
-            "class": "DockerRequirement"
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ]
         }
     ],
     "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "arguments": [],
     "inputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "id": "#outprefix",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "itemSeparator": " ",
-                "separate": true
-            },
             "id": "#input_pairs",
+            "inputBinding": {
+                "separate": true,
+                "position": 2,
+                "itemSeparator": " "
+            },
             "type": [
                 "null",
                 {
@@ -66,19 +75,10 @@
             ]
         }
     ],
-    "requirements": [
+    "hints": [
         {
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v26"
         }
-    ],
-    "baseCommand": [
-        "run-merge-pairs.sh"
     ]
 }

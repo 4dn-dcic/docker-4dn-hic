@@ -1,36 +1,6 @@
 {
-    "baseCommand": [
-        "run.sh"
-    ],
+    "requirements": [],
     "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/bam2pairs:v1"
-        }
-    ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs"
-        },
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index"
-        }
-    ],
     "inputs": [
         {
             "inputBinding": {
@@ -54,7 +24,37 @@
             "id": "#out_prefix"
         }
     ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
+        }
+    ],
     "arguments": [],
     "class": "CommandLineTool",
-    "requirements": []
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs_index",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            }
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ]
 }

@@ -1,85 +1,31 @@
 {
-    "requirements": [],
     "outputs": [
         {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs",
             "source": [
                 "#juicer2pairs.out_pairs"
-            ],
+            ]
+        },
+        {
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#out_pairs"
-        },
-        {
+            "id": "#out_pairs_index",
             "source": [
                 "#juicer2pairs.out_pairs_px"
-            ],
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index"
-        }
-    ],
-    "inputs": [
-        {
-            "id": "#fastq1",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#fastq2",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#bwa_index",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#reference_fasta",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#restriction_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#nsplit",
-            "type": [
-                "null",
-                "int"
             ]
         }
     ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
     "class": "Workflow",
     "steps": [
         {
-            "outputs": [
-                {
-                    "id": "#juicer.merged_nodups"
-                }
-            ],
-            "id": "#juicer",
-            "run": "juicer.6.cwl",
             "inputs": [
                 {
                     "id": "#juicer.restriction_file",
@@ -120,19 +66,16 @@
                         "#bwa_index"
                     ]
                 }
-            ]
-        },
-        {
+            ],
             "outputs": [
                 {
-                    "id": "#juicer2pairs.out_pairs_px"
-                },
-                {
-                    "id": "#juicer2pairs.out_pairs"
+                    "id": "#juicer.merged_nodups"
                 }
             ],
-            "id": "#juicer2pairs",
-            "run": "juicer2pairs.1.cwl",
+            "run": "juicer.6.cwl",
+            "id": "#juicer"
+        },
+        {
             "inputs": [
                 {
                     "id": "#juicer2pairs.outprefix"
@@ -155,8 +98,65 @@
                         "#chrsizes"
                     ]
                 }
-            ]
+            ],
+            "outputs": [
+                {
+                    "id": "#juicer2pairs.out_pairs_px"
+                },
+                {
+                    "id": "#juicer2pairs.out_pairs"
+                }
+            ],
+            "run": "juicer2pairs.1.cwl",
+            "id": "#juicer2pairs"
         }
     ],
-    "cwlVersion": "draft-3"
+    "inputs": [
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#fastq1"
+        },
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#fastq2"
+        },
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#bwa_index"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrsizes"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#reference_fasta"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#restriction_file"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#nsplit"
+        }
+    ]
 }

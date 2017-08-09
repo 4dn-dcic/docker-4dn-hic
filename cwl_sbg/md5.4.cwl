@@ -1,122 +1,122 @@
 {
+    "sbg:createdOn": 1480978938,
+    "stdin": "",
+    "sbg:sbgMaintained": false,
+    "requirements": [],
+    "sbg:modifiedBy": "duplexa",
+    "stdout": "",
+    "sbg:image_url": null,
     "temporaryFailCodes": [],
-    "label": "md5",
-    "cwlVersion": "sbg:draft-2",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/4/raw/",
+    "sbg:job": {
+        "inputs": {
+            "input_file": {
+                "path": "/path/to/input_file.ext",
+                "class": "File",
+                "size": 0,
+                "secondaryFiles": []
+            }
+        },
+        "allocatedResources": {
+            "mem": 500,
+            "cpu": 1
+        }
+    },
+    "sbg:latestRevision": 4,
+    "sbg:projectName": "Dev",
+    "sbg:modifiedOn": 1494536730,
+    "sbg:createdBy": "duplexa",
+    "successCodes": [],
+    "baseCommand": [
+        "run.sh"
+    ],
     "sbg:revisionsInfo": [
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1480978938,
-            "sbg:revision": 0
+            "sbg:revision": 0,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1480978992,
-            "sbg:revision": 1
+            "sbg:revision": 1,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1494438192,
-            "sbg:revision": 2
+            "sbg:revision": 2,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1494438281,
-            "sbg:revision": 3
+            "sbg:revision": 3,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1494536730,
-            "sbg:revision": 4
+            "sbg:revision": 4,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
+        }
+    ],
+    "sbg:validationErrors": [],
+    "sbg:cmdPreview": "run.sh",
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "sbg:revision": 4,
+    "sbg:project": "4dn-dcic/dev",
+    "arguments": [],
+    "cwlVersion": "sbg:draft-2",
+    "description": "",
+    "label": "md5",
+    "class": "CommandLineTool",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "outputs": [
+        {
+            "id": "#report",
+            "outputBinding": {
+                "glob": "\"report\""
+            },
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
     "hints": [
         {
-            "class": "sbg:CPURequirement",
-            "value": 1
+            "value": 1,
+            "class": "sbg:CPURequirement"
         },
         {
-            "class": "sbg:MemRequirement",
-            "value": 500
+            "value": 500,
+            "class": "sbg:MemRequirement"
         },
         {
-            "dockerImageId": "",
+            "dockerPull": "duplexa/md5:v1",
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/md5:v1"
+            "dockerImageId": ""
         }
-    ],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:latestRevision": 4,
-    "successCodes": [],
-    "stdout": "",
-    "arguments": [],
-    "sbg:revision": 4,
-    "sbg:id": "4dn-dcic/dev/md5/4",
-    "sbg:modifiedOn": 1494536730,
-    "sbg:project": "4dn-dcic/dev",
-    "requirements": [],
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 500
-        },
-        "inputs": {
-            "input_file": {
-                "size": 0,
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/input_file.ext"
-            }
-        }
-    },
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/4/raw/",
-    "baseCommand": [
-        "run.sh"
     ],
     "inputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "id": "#input_file",
             "inputBinding": {
                 "separate": true,
                 "position": 1,
                 "sbg:cmdInclude": true
-            }
-        }
-    ],
-    "sbg:projectName": "Dev",
-    "stdin": "",
-    "sbg:createdOn": 1480978938,
-    "class": "CommandLineTool",
-    "sbg:image_url": null,
-    "sbg:createdBy": "duplexa",
-    "description": "",
-    "sbg:sbgMaintained": false,
-    "sbg:cmdPreview": "run.sh",
-    "sbg:modifiedBy": "duplexa",
-    "outputs": [
-        {
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#report",
-            "outputBinding": {
-                "glob": "\"report\""
-            }
+            ]
         }
     ],
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "sbg:validationErrors": []
+    "sbg:id": "4dn-dcic/dev/md5/4"
 }
