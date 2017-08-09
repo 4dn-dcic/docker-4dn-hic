@@ -2,7 +2,7 @@ import json
 import copy
 
 VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs', 'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
-INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description']
+INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description', 'inputBinding', 'outputBinding']
 STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
 def filter(input_json, key, input_json0):

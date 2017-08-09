@@ -1,9 +1,107 @@
 {
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' "
+                }
+            },
+            "id": "#observed_contact_matrix"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' "
+                }
+            },
+            "id": "#normalized_fend_contact_matrix"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' "
+                }
+            },
+            "id": "#normalized_enrich_contact_matrix"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' "
+                }
+            },
+            "id": "#expected_fend_contact_matrix"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt'"
+                }
+            },
+            "id": "#expected_enrich_contact_matrix"
+        }
+    ],
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
+        }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh"
+    ],
     "inputs": [
         {
             "type": [
                 "File"
             ],
+            "inputBinding": {
+                "separate": false,
+                "position": 1
+            },
             "id": "#HiC_norm_binning_hdf5"
         },
         {
@@ -24,12 +122,20 @@
             "type": [
                 "string"
             ],
+            "inputBinding": {
+                "separate": false,
+                "position": 2
+            },
             "id": "#chromosome"
         },
         {
             "type": [
                 "int"
             ],
+            "inputBinding": {
+                "separate": false,
+                "position": 3
+            },
             "id": "#contact_matrix_binsize"
         },
         {
@@ -37,6 +143,15 @@
                 "null",
                 "string"
             ],
+            "inputBinding": {
+                "separate": false,
+                "position": 5,
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir || '.'"
+                }
+            },
             "id": "#output_dir"
         },
         {
@@ -44,68 +159,13 @@
                 "null",
                 "File"
             ],
+            "inputBinding": {
+                "separate": false,
+                "position": 4
+            },
             "id": "#chrlen_file"
         }
     ],
-    "class": "CommandLineTool",
-    "hints": [
-        {
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
-            "class": "DockerRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
     "cwlVersion": "draft-3",
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#observed_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#normalized_fend_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#normalized_enrich_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#expected_fend_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#expected_enrich_contact_matrix"
-        }
-    ]
+    "arguments": []
 }

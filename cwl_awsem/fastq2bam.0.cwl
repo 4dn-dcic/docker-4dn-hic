@@ -1,77 +1,119 @@
 {
+    "cwlVersion": "draft-3",
     "baseCommand": [
         "preprocessing.sh"
     ],
-    "outputs": [
+    "hints": [
         {
-            "id": "#sorted_bam_pe",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#split_bam1",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#split_bam2",
-            "type": [
-                "null",
-                "File"
-            ]
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ],
-    "arguments": [],
+    "class": "CommandLineTool",
     "requirements": [
         {
-            "class": "ExpressionEngineRequirement",
             "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
                 }
             ]
         }
     ],
     "inputs": [
         {
+            "type": [
+                "File"
+            ],
             "id": "#input_fastq1",
-            "type": [
-                "File"
-            ]
+            "inputBinding": {
+                "position": 2,
+                "separate": false
+            }
         },
         {
+            "type": [
+                "File"
+            ],
             "id": "#input_fastq2",
-            "type": [
-                "File"
-            ]
+            "inputBinding": {
+                "position": 3,
+                "separate": false
+            }
         },
         {
-            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#output_dir",
+            "inputBinding": {
+                "position": 4,
+                "separate": false,
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression"
+                }
+            }
         },
         {
-            "id": "#bowtie_index",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#bowtie_index",
+            "inputBinding": {
+                "position": 1,
+                "separate": false
+            }
         }
     ],
-    "hints": [
+    "outputs": [
         {
-            "dockerPull": "duplexa/hictool-fastq2bam:v3",
-            "class": "DockerRequirement"
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#sorted_bam_pe",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#split_bam1",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_pair1.bam'",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#split_bam2",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_pair2.bam'",
+                    "class": "Expression"
+                }
+            }
         }
     ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3"
+    "arguments": []
 }

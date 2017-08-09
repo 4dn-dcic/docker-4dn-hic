@@ -1,4 +1,7 @@
 {
+    "baseCommand": [
+        "run.sh"
+    ],
     "hints": [
         {
             "dockerPull": "duplexa/hictool-bam2hdf5:v2",
@@ -7,85 +10,138 @@
     ],
     "class": "CommandLineTool",
     "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "id": "#fend_object_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#HiC_data_object_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#HiC_distance_function_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#HiC_norm_binning_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#HiC_project_object_hdf5",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "arguments": [],
     "requirements": [
         {
-            "class": "ExpressionEngineRequirement",
             "requirements": [
                 {
                     "dockerPull": "rabix/js-engine",
                     "class": "DockerRequirement"
                 }
             ],
-            "id": "#cwl-js-engine"
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
         }
     ],
     "inputs": [
         {
+            "type": [
+                "File"
+            ],
             "id": "#input_bam1",
-            "type": [
-                "File"
-            ]
+            "inputBinding": {
+                "position": 1,
+                "separate": false
+            }
         },
         {
+            "type": [
+                "File"
+            ],
             "id": "#input_bam2",
-            "type": [
-                "File"
-            ]
+            "inputBinding": {
+                "position": 2,
+                "separate": false
+            }
         },
         {
-            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#output_dir",
+            "inputBinding": {
+                "position": 4,
+                "separate": false,
+                "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
         },
         {
-            "id": "#RE_bed",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#RE_bed",
+            "inputBinding": {
+                "position": 3,
+                "separate": false
+            }
         }
     ],
-    "baseCommand": [
-        "run.sh"
+    "arguments": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#fend_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/fend_object.hdf5'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#HiC_data_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiC_data_object.hdf5'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#HiC_distance_function_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiC_distance_function.hdf5'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#HiC_norm_binning_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiC_norm_binning.hdf5'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#HiC_project_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiC_project_object.hdf5' ",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        }
     ]
 }

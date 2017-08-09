@@ -1,4 +1,5 @@
 {
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "id": "#chrsizes",
@@ -12,36 +13,37 @@
             "type": [
                 "null",
                 {
-                    "items": "File",
-                    "type": "array"
+                    "type": "array",
+                    "items": "File"
                 }
             ]
         },
         {
-            "id": "#min_res",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#min_res"
         },
         {
-            "id": "#ncores",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         },
         {
-            "id": "#binsize",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#binsize"
         }
     ],
-    "cwlVersion": "draft-3",
+    "requirements": [],
     "steps": [
         {
+            "id": "#merge_pairs",
             "outputs": [
                 {
                     "id": "#merge_pairs.output_pairs_index"
@@ -61,10 +63,10 @@
                     ]
                 }
             ],
-            "run": "merge-pairs.25.cwl",
-            "id": "#merge_pairs"
+            "run": "merge-pairs.25.cwl"
         },
         {
+            "id": "#pairs2hic",
             "outputs": [
                 {
                     "id": "#pairs2hic.output_hic"
@@ -99,10 +101,10 @@
                     ]
                 }
             ],
-            "run": "pairs2hic.15.cwl",
-            "id": "#pairs2hic"
+            "run": "pairs2hic.15.cwl"
         },
         {
+            "id": "#cooler",
             "outputs": [
                 {
                     "id": "#cooler.out_cool"
@@ -146,11 +148,9 @@
                     "id": "#cooler.max_split"
                 }
             ],
-            "run": "cooler.19.cwl",
-            "id": "#cooler"
+            "run": "cooler.19.cwl"
         }
     ],
-    "class": "Workflow",
     "outputs": [
         {
             "id": "#output_pairs_index",
@@ -193,5 +193,5 @@
             ]
         }
     ],
-    "requirements": []
+    "class": "Workflow"
 }

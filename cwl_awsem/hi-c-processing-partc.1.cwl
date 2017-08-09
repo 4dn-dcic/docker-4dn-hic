@@ -1,13 +1,27 @@
 {
-    "class": "Workflow",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_mcool",
+            "source": [
+                "#cool2mcool.output_mcool"
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [],
     "steps": [
         {
-            "id": "#coolerbalance",
             "outputs": [
                 {
                     "id": "#coolerbalance.out_cool"
                 }
             ],
+            "run": "coolerbalance.2.cwl",
+            "id": "#coolerbalance",
             "inputs": [
                 {
                     "id": "#coolerbalance.input_cool",
@@ -21,16 +35,16 @@
                 {
                     "id": "#coolerbalance.outprefix"
                 }
-            ],
-            "run": "coolerbalance.2.cwl"
+            ]
         },
         {
-            "id": "#cool2mcool",
             "outputs": [
                 {
                     "id": "#cool2mcool.output_mcool"
                 }
             ],
+            "run": "cool2mcool.2.cwl",
+            "id": "#cool2mcool",
             "inputs": [
                 {
                     "id": "#cool2mcool.input_cool",
@@ -47,38 +61,24 @@
                 {
                     "id": "#cool2mcool.outprefix"
                 }
-            ],
-            "run": "cool2mcool.2.cwl"
-        }
-    ],
-    "requirements": [],
-    "outputs": [
-        {
-            "id": "#output_mcool",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": [
-                "#cool2mcool.output_mcool"
             ]
         }
     ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#input_cool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#input_cool"
         },
         {
-            "id": "#ncores",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         }
-    ]
+    ],
+    "class": "Workflow"
 }

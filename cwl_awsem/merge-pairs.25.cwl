@@ -1,48 +1,69 @@
 {
-    "cwlVersion": "draft-3",
     "outputs": [
         {
+            "id": "#output_pairs",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.outprefix + '.pairs.gz'",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                }
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#output_pairs"
+            ]
         },
         {
+            "id": "#output_pairs_index",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                }
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#output_pairs_index"
+            ]
         }
     ],
     "arguments": [],
+    "class": "CommandLineTool",
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v26",
             "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
-            ],
-            "id": "#outprefix"
+            ]
         },
         {
+            "inputBinding": {
+                "position": 2,
+                "itemSeparator": " ",
+                "separate": true
+            },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "type": "array",
-                    "items": "File"
+                    "items": "File",
+                    "type": "array"
                 }
-            ],
-            "id": "#input_pairs"
+            ]
         }
     ],
     "requirements": [
@@ -57,5 +78,7 @@
             "class": "ExpressionEngineRequirement"
         }
     ],
-    "class": "CommandLineTool"
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ]
 }

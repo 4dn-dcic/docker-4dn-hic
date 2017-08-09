@@ -1,16 +1,13 @@
 {
-    "cwlVersion": "draft-3",
-    "requirements": [],
     "steps": [
         {
-            "scatter": "#FastQC.input_fastq",
+            "id": "#FastQC",
             "outputs": [
                 {
                     "id": "#FastQC.report_zip"
                 }
             ],
             "run": "fastqc-0-11-4.0.cwl",
-            "id": "#FastQC",
             "inputs": [
                 {
                     "id": "#FastQC.threads",
@@ -60,60 +57,63 @@
                         "#adapters_file"
                     ]
                 }
-            ]
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
             ],
-            "id": "#report_zip",
-            "source": [
-                "#FastQC.report_zip"
-            ]
+            "scatter": "#FastQC.input_fastq"
         }
     ],
-    "class": "Workflow",
     "inputs": [
         {
+            "id": "#limits_file",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#limits_file"
+            ]
         },
         {
+            "id": "#contaminants_file",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#contaminants_file"
+            ]
         },
         {
+            "id": "#adapters_file",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#adapters_file"
+            ]
         },
         {
+            "id": "#input_fastq",
             "type": [
                 {
                     "type": "array",
                     "items": "File"
                 }
-            ],
-            "id": "#input_fastq"
+            ]
         },
         {
+            "id": "#threads",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#threads",
             "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine."
         }
-    ]
+    ],
+    "requirements": [],
+    "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "id": "#report_zip",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#FastQC.report_zip"
+            ]
+        }
+    ],
+    "class": "Workflow"
 }
