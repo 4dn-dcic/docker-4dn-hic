@@ -6,7 +6,7 @@ outdir=$3
 
 mkdir -p $outdir
 
-if [[ $fastq1 =~ \.gz$ ]]
+if [[ $inputfile =~ \.gz$ ]]
 then
   cp $inputfile $outdir/data.fastq.gz
   fastqc -t $nthread $outdir/data.fastq.gz
