@@ -1,42 +1,35 @@
 {
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#cool2mcool.output_mcool",
-            "id": "#output_mcool"
-        }
-    ],
-    "class": "Workflow",
-    "requirements": [],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
+            "id": "#input_cool",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_cool"
+            ]
         },
         {
+            "id": "#ncores",
             "type": [
                 "null",
                 "int"
             ],
-            "default": "4",
-            "id": "#ncores"
+            "default": "4"
         }
     ],
-    "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "source": "#cool2mcool.output_mcool",
+            "id": "#output_mcool",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "class": "Workflow",
     "steps": [
         {
-            "run": "coolerbalance.2.cwl",
-            "outputs": [
-                {
-                    "id": "#coolerbalance.out_cool"
-                }
-            ],
             "id": "#coolerbalance",
             "inputs": [
                 {
@@ -49,15 +42,15 @@
                 {
                     "id": "#coolerbalance.outprefix"
                 }
-            ]
-        },
-        {
-            "run": "cool2mcool.2.cwl",
+            ],
             "outputs": [
                 {
-                    "id": "#cool2mcool.output_mcool"
+                    "id": "#coolerbalance.out_cool"
                 }
             ],
+            "run": "coolerbalance.2.cwl"
+        },
+        {
             "id": "#cool2mcool",
             "inputs": [
                 {
@@ -71,7 +64,14 @@
                 {
                     "id": "#cool2mcool.outprefix"
                 }
-            ]
+            ],
+            "outputs": [
+                {
+                    "id": "#cool2mcool.output_mcool"
+                }
+            ],
+            "run": "cool2mcool.2.cwl"
         }
-    ]
+    ],
+    "requirements": []
 }

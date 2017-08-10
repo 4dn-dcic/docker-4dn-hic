@@ -1,37 +1,18 @@
 {
-    "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#outprefix",
             "default": "out",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "itemSeparator": " ",
-                "separate": true
-            },
             "id": "#input_pairs",
             "type": [
                 "null",
@@ -39,40 +20,15 @@
                     "items": "File",
                     "type": "array"
                 }
-            ]
+            ],
+            "inputBinding": {
+                "position": 2,
+                "separate": true,
+                "itemSeparator": " "
+            }
         }
     ],
-    "arguments": [],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": {
-                    "class": "Expression",
-                    "script": "$job.inputs.outprefix + '.pairs.gz'",
-                    "engine": "#cwl-js-engine"
-                }
-            },
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "outputBinding": {
-                "glob": {
-                    "class": "Expression",
-                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
-                    "engine": "#cwl-js-engine"
-                }
-            },
-            "id": "#output_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
+    "class": "CommandLineTool",
     "baseCommand": [
         "run-merge-pairs.sh"
     ],
@@ -81,5 +37,49 @@
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v26"
         }
-    ]
+    ],
+    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_pairs"
+        },
+        {
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_pairs_index"
+        }
+    ],
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

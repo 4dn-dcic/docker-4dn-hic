@@ -1,77 +1,51 @@
 {
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 4
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:job": {
+        "allocatedResources": {
+            "cpu": 4,
+            "mem": 24000
         },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 24000
-        },
-        {
-            "dockerImageId": "",
-            "dockerPull": "duplexa/hictool-bam2hdf5:v2",
-            "class": "DockerRequirement"
+        "inputs": {
+            "input_bam2": {
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/input_bam2.bam",
+                "secondaryFiles": []
+            },
+            "RE_bed": {
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/RE_bed.ext",
+                "secondaryFiles": []
+            },
+            "output_dir": "output_dir",
+            "input_bam1": {
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/input_bam1.bam",
+                "secondaryFiles": []
+            }
         }
+    },
+    "class": "CommandLineTool",
+    "cwlVersion": "sbg:draft-2",
+    "stdin": "",
+    "sbg:projectName": "Dev",
+    "successCodes": [],
+    "sbg:latestRevision": 0,
+    "temporaryFailCodes": [],
+    "sbg:modifiedBy": "duplexa",
+    "sbg:modifiedOn": 1473274836,
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2hdf5/0/raw/",
+    "description": "",
+    "sbg:validationErrors": [],
+    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
+    "sbg:sbgMaintained": false,
+    "sbg:appVersion": [
+        "sbg:draft-2"
     ],
     "arguments": [],
-    "sbg:latestRevision": 0,
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": false,
-                "sbg:cmdInclude": true
-            },
-            "sbg:fileTypes": "BAM",
-            "id": "#input_bam1"
-        },
-        {
-            "type": [
-                "File"
-            ],
-            "inputBinding": {
-                "position": 2,
-                "separate": false,
-                "sbg:cmdInclude": true
-            },
-            "sbg:fileTypes": "BAM",
-            "id": "#input_bam2"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 4,
-                "separate": false,
-                "sbg:cmdInclude": true,
-                "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#output_dir"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 3,
-                "separate": false,
-                "sbg:cmdInclude": true
-            },
-            "sbg:fileTypes": "BED",
-            "id": "#RE_bed"
-        }
-    ],
+    "sbg:image_url": null,
     "outputs": [
         {
             "type": [
@@ -144,83 +118,109 @@
             }
         }
     ],
-    "sbg:image_url": null,
     "sbg:id": "4dn-dcic/dev/bam2hdf5/0",
-    "sbg:cmdPreview": "run.sh /path/to/input_bam1.bam /path/to/input_bam2.bam",
-    "stdin": "",
-    "sbg:copyOf": "gaurav/4dn/bam2hdf5/4",
+    "sbg:createdOn": 1473274836,
     "sbg:contributors": [
         "duplexa"
     ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2hdf5/0/raw/",
-    "temporaryFailCodes": [],
+    "label": "hictool-bam2hdf5",
+    "sbg:revision": 0,
+    "stdout": "",
     "sbg:revisionsInfo": [
         {
-            "sbg:modifiedBy": "duplexa",
+            "sbg:revision": 0,
             "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
             "sbg:modifiedOn": 1473274836,
-            "sbg:revision": 0
+            "sbg:modifiedBy": "duplexa"
         }
     ],
-    "cwlVersion": "sbg:draft-2",
-    "stdout": "",
-    "sbg:createdOn": 1473274836,
-    "successCodes": [],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "class": "CommandLineTool",
-    "sbg:projectName": "Dev",
-    "label": "hictool-bam2hdf5",
     "requirements": [
         {
             "class": "ExpressionEngineRequirement",
             "id": "#cwl-js-engine",
             "requirements": [
                 {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
                 }
             ]
         }
     ],
-    "sbg:validationErrors": [],
     "sbg:createdBy": "duplexa",
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 4,
-            "mem": 24000
+    "sbg:cmdPreview": "run.sh /path/to/input_bam1.bam /path/to/input_bam2.bam",
+    "sbg:copyOf": "gaurav/4dn/bam2hdf5/4",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "hints": [
+        {
+            "value": 4,
+            "class": "sbg:CPURequirement"
         },
-        "inputs": {
-            "input_bam2": {
-                "secondaryFiles": [],
-                "path": "/path/to/input_bam2.bam",
-                "class": "File",
-                "size": 0
-            },
-            "input_bam1": {
-                "secondaryFiles": [],
-                "path": "/path/to/input_bam1.bam",
-                "class": "File",
-                "size": 0
-            },
-            "output_dir": "output_dir",
-            "RE_bed": {
-                "secondaryFiles": [],
-                "path": "/path/to/RE_bed.ext",
-                "class": "File",
-                "size": 0
-            }
+        {
+            "value": 24000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerImageId": "",
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-bam2hdf5:v2"
         }
-    },
-    "sbg:modifiedOn": 1473274836,
-    "sbg:modifiedBy": "duplexa",
-    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
-    "sbg:sbgMaintained": false,
-    "description": "",
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:revision": 0
+    ],
+    "inputs": [
+        {
+            "id": "#input_bam1",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "position": 1,
+                "sbg:cmdInclude": true,
+                "separate": false
+            },
+            "sbg:fileTypes": "BAM"
+        },
+        {
+            "id": "#input_bam2",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "position": 2,
+                "sbg:cmdInclude": true,
+                "separate": false
+            },
+            "sbg:fileTypes": "BAM"
+        },
+        {
+            "id": "#output_dir",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                },
+                "position": 4,
+                "sbg:cmdInclude": true,
+                "separate": false
+            }
+        },
+        {
+            "id": "#RE_bed",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 3,
+                "sbg:cmdInclude": true,
+                "separate": false
+            },
+            "sbg:fileTypes": "BED"
+        }
+    ]
 }

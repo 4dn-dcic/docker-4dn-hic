@@ -1,32 +1,21 @@
 {
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
-        }
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh",
+        ""
     ],
-    "arguments": [],
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            },
             "type": [
                 "null",
                 "File"
             ],
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            },
             "id": "#report"
         }
-    ],
-    "baseCommand": [
-        "run.sh",
-        ""
     ],
     "hints": [
         {
@@ -34,8 +23,18 @@
             "class": "DockerRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine"
+        }
+    ],
     "inputs": [
         {
             "inputBinding": {
@@ -49,29 +48,30 @@
             "id": "#input_file"
         },
         {
-            "default": "fastq",
             "inputBinding": {
                 "separate": true,
-                "position": 2,
                 "valueFrom": {
+                    "engine": "#cwl-js-engine",
                     "script": "\"fastq\"",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                }
+                    "class": "Expression"
+                },
+                "position": 2
             },
             "type": [
                 "null",
                 {
+                    "name": "type",
+                    "type": "enum",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
-                    ],
-                    "type": "enum",
-                    "name": "type"
+                    ]
                 }
             ],
+            "default": "fastq",
             "id": "#type"
         }
-    ]
+    ],
+    "arguments": []
 }

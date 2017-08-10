@@ -1,313 +1,313 @@
 {
-    "class": "CommandLineTool",
-    "sbg:links": [],
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:latestRevision": 25,
-    "sbg:modifiedOn": 1500331813,
     "hints": [
         {
-            "class": "sbg:CPURequirement",
-            "value": 1
+            "value": 1,
+            "class": "sbg:CPURequirement"
         },
         {
-            "class": "sbg:MemRequirement",
-            "value": 4000
+            "value": 4000,
+            "class": "sbg:MemRequirement"
         },
         {
-            "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v26",
-            "dockerImageId": ""
+            "dockerImageId": "",
+            "class": "DockerRequirement"
         },
         {
-            "class": "ExpressionEngineRequirement",
-            "value": ""
+            "value": "",
+            "class": "ExpressionEngineRequirement"
         }
     ],
     "sbg:validationErrors": [],
-    "sbg:id": "4dn-dcic/dev/merge-pairs/25",
-    "inputs": [
-        {
-            "sbg:toolDefaultValue": "out",
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#outprefix",
-            "inputBinding": {
-                "position": 1,
-                "sbg:cmdInclude": true,
-                "separate": true
-            }
-        },
-        {
-            "sbg:fileTypes": "PAIRS.GZ",
-            "type": [
-                "null",
-                {
-                    "type": "array",
-                    "items": "File"
-                }
-            ],
-            "id": "#input_pairs",
-            "sbg:stageInput": "copy",
-            "inputBinding": {
-                "position": 2,
-                "sbg:cmdInclude": true,
-                "itemSeparator": " ",
-                "separate": true
-            }
-        }
-    ],
-    "description": "",
-    "sbg:createdBy": "duplexa",
-    "arguments": [],
-    "sbg:projectName": "Dev",
-    "cwlVersion": "sbg:draft-2",
-    "stdout": "",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/merge-pairs/25/raw/",
-    "sbg:createdOn": 1479143121,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
     "sbg:job": {
         "allocatedResources": {
-            "mem": 4000,
-            "cpu": 1
+            "cpu": 1,
+            "mem": 4000
         },
         "inputs": {
-            "outprefix": "outprefix-string-value",
             "input_pairs": [
                 {
-                    "size": 0,
                     "class": "File",
+                    "size": 0,
                     "secondaryFiles": [],
                     "path": "/path/to/input_pairs-1.ext"
                 },
                 {
-                    "size": 0,
                     "class": "File",
+                    "size": 0,
                     "secondaryFiles": [],
                     "path": "/path/to/input_pairs-2.ext"
                 }
-            ]
+            ],
+            "outprefix": "outprefix-string-value"
         }
     },
-    "sbg:cmdPreview": "run-merge-pairs.sh",
-    "label": "merge-pairs",
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:contributors": [
-        "duplexa",
-        "4dn-dcic"
-    ],
-    "stdin": "",
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "successCodes": [],
-    "sbg:sbgMaintained": false,
+    "sbg:createdOn": 1479143121,
+    "sbg:links": [],
+    "cwlVersion": "sbg:draft-2",
     "outputs": [
         {
+            "id": "#output_pairs",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.outprefix + '.pairs.gz'",
+                    "class": "Expression"
+                }
+            },
             "sbg:fileTypes": "PAIRS.GZ",
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        },
+        {
+            "id": "#output_pairs_index",
             "outputBinding": {
                 "glob": {
                     "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "$job.inputs.outprefix + '.pairs.gz'"
+                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'",
+                    "class": "Expression"
                 }
             },
-            "id": "#output_pairs"
-        },
-        {
             "sbg:fileTypes": "PX2",
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
-                }
-            },
-            "id": "#output_pairs_index"
+            ]
         }
     ],
+    "temporaryFailCodes": [],
+    "stdin": "",
+    "sbg:contributors": [
+        "duplexa",
+        "4dn-dcic"
+    ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "stdout": "",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/merge-pairs/25/raw/",
     "sbg:revisionsInfo": [
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 0,
-            "sbg:modifiedOn": 1479143121
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479143121,
+            "sbg:revision": 0
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 1,
-            "sbg:modifiedOn": 1479143406
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479143406,
+            "sbg:revision": 1
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 2,
-            "sbg:modifiedOn": 1479143659
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479143659,
+            "sbg:revision": 2
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 3,
-            "sbg:modifiedOn": 1479143834
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479143834,
+            "sbg:revision": 3
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 4,
-            "sbg:modifiedOn": 1479143945
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479143945,
+            "sbg:revision": 4
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 5,
-            "sbg:modifiedOn": 1479144065
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144065,
+            "sbg:revision": 5
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 6,
-            "sbg:modifiedOn": 1479144200
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144200,
+            "sbg:revision": 6
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 7,
-            "sbg:modifiedOn": 1479144240
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144240,
+            "sbg:revision": 7
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 8,
-            "sbg:modifiedOn": 1479144301
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479144301,
+            "sbg:revision": 8
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 9,
-            "sbg:modifiedOn": 1479149340
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479149340,
+            "sbg:revision": 9
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 10,
-            "sbg:modifiedOn": 1479149428
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479149428,
+            "sbg:revision": 10
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 11,
-            "sbg:modifiedOn": 1479149963
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479149963,
+            "sbg:revision": 11
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 12,
-            "sbg:modifiedOn": 1479155094
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479155094,
+            "sbg:revision": 12
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 13,
-            "sbg:modifiedOn": 1479241188
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479241188,
+            "sbg:revision": 13
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "now using 4dn-hic docker image",
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 14,
-            "sbg:modifiedOn": 1488524515
+            "sbg:modifiedOn": 1488524515,
+            "sbg:revision": 14
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "pairs and index are copied not links, so that they go together.",
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 15,
-            "sbg:modifiedOn": 1488524641
+            "sbg:modifiedOn": 1488524641,
+            "sbg:revision": 15
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "removed blank secondary file requirement",
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 16,
-            "sbg:modifiedOn": 1488524868
+            "sbg:modifiedOn": 1488524868,
+            "sbg:revision": 16
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 17,
-            "sbg:modifiedOn": 1488525221
+            "sbg:modifiedOn": 1488525221,
+            "sbg:revision": 17
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 18,
-            "sbg:modifiedOn": 1488529667
+            "sbg:modifiedOn": 1488529667,
+            "sbg:revision": 18
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "removed outdir in the output glob",
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 19,
-            "sbg:modifiedOn": 1488531529
+            "sbg:modifiedOn": 1488531529,
+            "sbg:revision": 19
         },
         {
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "fixed output file name",
+            "sbg:modifiedOn": 1488567441,
+            "sbg:revision": 20
+        },
+        {
             "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 20,
-            "sbg:modifiedOn": 1488567441
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1490716980,
+            "sbg:revision": 21
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 21,
-            "sbg:modifiedOn": 1490716980
-        },
-        {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 22,
-            "sbg:modifiedOn": 1496166568
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496166568,
+            "sbg:revision": 22
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 23,
-            "sbg:modifiedOn": 1496188642
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496188642,
+            "sbg:revision": 23
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 24,
-            "sbg:modifiedOn": 1499356728
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1499356728,
+            "sbg:revision": 24
         },
         {
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 25,
-            "sbg:modifiedOn": 1500331813
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1500331813,
+            "sbg:revision": 25
         }
     ],
+    "label": "merge-pairs",
+    "description": "",
+    "inputs": [
+        {
+            "sbg:toolDefaultValue": "out",
+            "inputBinding": {
+                "separate": true,
+                "sbg:cmdInclude": true,
+                "position": 1
+            },
+            "id": "#outprefix",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "id": "#input_pairs",
+            "sbg:stageInput": "copy",
+            "inputBinding": {
+                "separate": true,
+                "itemSeparator": " ",
+                "sbg:cmdInclude": true,
+                "position": 2
+            },
+            "sbg:fileTypes": "PAIRS.GZ",
+            "type": [
+                "null",
+                {
+                    "items": "File",
+                    "type": "array"
+                }
+            ]
+        }
+    ],
+    "sbg:createdBy": "duplexa",
+    "sbg:modifiedOn": 1500331813,
+    "sbg:projectName": "Dev",
+    "successCodes": [],
+    "sbg:sbgMaintained": false,
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
+        }
+    ],
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "sbg:id": "4dn-dcic/dev/merge-pairs/25",
     "sbg:image_url": null,
+    "sbg:revision": 25,
     "baseCommand": [
         "run-merge-pairs.sh"
     ],
-    "temporaryFailCodes": [],
-    "sbg:revision": 25
+    "sbg:cmdPreview": "run-merge-pairs.sh",
+    "sbg:latestRevision": 25,
+    "sbg:project": "4dn-dcic/dev"
 }

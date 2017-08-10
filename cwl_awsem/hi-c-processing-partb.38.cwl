@@ -1,85 +1,7 @@
 {
-    "class": "Workflow",
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#chrsizes"
-        },
-        {
-            "type": [
-                "null",
-                {
-                    "type": "array",
-                    "items": "File"
-                }
-            ],
-            "id": "#input_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "default": "5000",
-            "id": "#min_res"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "default": "8",
-            "id": "#ncores"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#binsize"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#merge_pairs.output_pairs_index",
-            "id": "#output_pairs_index"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#merge_pairs.output_pairs",
-            "id": "#output_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#cooler.out_cool",
-            "id": "#out_cool"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#pairs2hic.output_hic",
-            "id": "#output_hic"
-        }
-    ],
-    "requirements": [],
     "steps": [
         {
+            "run": "merge-pairs.25.cwl",
             "outputs": [
                 {
                     "id": "#merge_pairs.output_pairs_index"
@@ -88,7 +10,6 @@
                     "id": "#merge_pairs.output_pairs"
                 }
             ],
-            "id": "#merge_pairs",
             "inputs": [
                 {
                     "id": "#merge_pairs.outprefix"
@@ -98,15 +19,15 @@
                     "id": "#merge_pairs.input_pairs"
                 }
             ],
-            "run": "merge-pairs.25.cwl"
+            "id": "#merge_pairs"
         },
         {
+            "run": "pairs2hic.15.cwl",
             "outputs": [
                 {
                     "id": "#pairs2hic.output_hic"
                 }
             ],
-            "id": "#pairs2hic",
             "inputs": [
                 {
                     "id": "#pairs2hic.output_prefix"
@@ -130,15 +51,15 @@
                     "id": "#pairs2hic.chromsizes_file"
                 }
             ],
-            "run": "pairs2hic.15.cwl"
+            "id": "#pairs2hic"
         },
         {
+            "run": "cooler.19.cwl",
             "outputs": [
                 {
                     "id": "#cooler.out_cool"
                 }
             ],
-            "id": "#cooler",
             "inputs": [
                 {
                     "source": "#merge_pairs.output_pairs",
@@ -167,7 +88,86 @@
                     "id": "#cooler.max_split"
                 }
             ],
-            "run": "cooler.19.cwl"
+            "id": "#cooler"
         }
-    ]
+    ],
+    "outputs": [
+        {
+            "source": "#merge_pairs.output_pairs_index",
+            "id": "#output_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "source": "#merge_pairs.output_pairs",
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "source": "#cooler.out_cool",
+            "id": "#out_cool",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "source": "#pairs2hic.output_hic",
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "#chrsizes",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#input_pairs",
+            "type": [
+                "null",
+                {
+                    "items": "File",
+                    "type": "array"
+                }
+            ]
+        },
+        {
+            "id": "#min_res",
+            "default": "5000",
+            "type": [
+                "null",
+                "int"
+            ]
+        },
+        {
+            "id": "#ncores",
+            "default": "8",
+            "type": [
+                "null",
+                "int"
+            ]
+        },
+        {
+            "id": "#binsize",
+            "type": [
+                "null",
+                "int"
+            ]
+        }
+    ],
+    "class": "Workflow",
+    "cwlVersion": "draft-3",
+    "requirements": []
 }

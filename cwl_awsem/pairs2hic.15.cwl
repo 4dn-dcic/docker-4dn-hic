@@ -1,5 +1,15 @@
 {
+    "class": "CommandLineTool",
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v30",
+            "class": "DockerRequirement"
+        }
+    ],
     "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
     "inputs": [
         {
             "type": [
@@ -24,55 +34,54 @@
             }
         },
         {
+            "default": "out",
             "type": [
                 "null",
                 "string"
             ],
             "id": "#output_prefix",
-            "default": "out",
             "inputBinding": {
                 "separate": true,
                 "position": 3
             }
         },
         {
+            "default": "5000",
             "type": [
                 "null",
                 "int"
             ],
             "id": "#min_res",
-            "default": "5000",
             "inputBinding": {
                 "separate": true,
                 "position": 4
             }
         },
         {
+            "default": "1",
             "type": [
                 "null",
                 "string"
             ],
             "id": "#higlass",
-            "default": "1",
             "inputBinding": {
                 "separate": true,
                 "position": 5
             }
         },
         {
+            "default": "14g",
             "type": [
                 "null",
                 "string"
             ],
             "id": "#maxmem",
-            "default": "14g",
             "inputBinding": {
                 "separate": true,
                 "position": 6
             }
         }
     ],
-    "arguments": [],
     "requirements": [],
     "outputs": [
         {
@@ -80,20 +89,11 @@
                 "null",
                 "File"
             ],
-            "id": "#output_hic",
             "outputBinding": {
                 "glob": "*.hic"
-            }
+            },
+            "id": "#output_hic"
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ]
+    "arguments": []
 }
