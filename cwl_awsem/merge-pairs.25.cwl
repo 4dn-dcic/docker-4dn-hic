@@ -1,85 +1,70 @@
 {
+    "arguments": [],
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v26"
         }
     ],
-    "arguments": [],
+    "class": "CommandLineTool",
     "requirements": [
         {
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "class": "ExpressionEngineRequirement"
+            "class": "InlineJavascriptRequirement"
         }
-    ],
-    "class": "CommandLineTool",
-    "outputs": [
-        {
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.outprefix + '.pairs.gz'"
-                }
-            }
-        },
-        {
-            "id": "#output_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.outprefix + '.pairs.gz.px2'"
-                }
-            }
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-merge-pairs.sh"
     ],
     "inputs": [
         {
+            "default": "out",
             "id": "#outprefix",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "string"
-            ],
-            "default": "out",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
+            ]
         },
         {
             "id": "#input_pairs",
+            "inputBinding": {
+                "separate": true,
+                "position": 2,
+                "itemSeparator": " "
+            },
             "type": [
                 "null",
                 {
                     "items": "File",
                     "type": "array"
                 }
-            ],
-            "inputBinding": {
-                "position": 2,
-                "separate": true,
-                "itemSeparator": " "
-            }
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            },
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
+            },
+            "id": "#output_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ]
 }

@@ -1,5 +1,40 @@
 {
-    "class": "Workflow",
+    "requirements": [],
+    "steps": [
+        {
+            "id": "#md5",
+            "outputs": [
+                {
+                    "id": "#md5.report"
+                }
+            ],
+            "run": "md5.1.cwl",
+            "inputs": [
+                {
+                    "source": "#input_file",
+                    "id": "#md5.input_file"
+                }
+            ]
+        },
+        {
+            "id": "#validatefiles",
+            "outputs": [
+                {
+                    "id": "#validatefiles.report"
+                }
+            ],
+            "run": "validate.10.cwl",
+            "inputs": [
+                {
+                    "source": "#input_file",
+                    "id": "#validatefiles.input_file"
+                },
+                {
+                    "id": "#validatefiles.type"
+                }
+            ]
+        }
+    ],
     "inputs": [
         {
             "id": "#input_file",
@@ -9,59 +44,24 @@
             ]
         }
     ],
-    "steps": [
-        {
-            "id": "#md5",
-            "inputs": [
-                {
-                    "id": "#md5.input_file",
-                    "source": "#input_file"
-                }
-            ],
-            "run": "md5.1.cwl",
-            "outputs": [
-                {
-                    "id": "#md5.report"
-                }
-            ]
-        },
-        {
-            "id": "#validatefiles",
-            "inputs": [
-                {
-                    "id": "#validatefiles.input_file",
-                    "source": "#input_file"
-                },
-                {
-                    "id": "#validatefiles.type"
-                }
-            ],
-            "run": "validate.10.cwl",
-            "outputs": [
-                {
-                    "id": "#validatefiles.report"
-                }
-            ]
-        }
-    ],
-    "requirements": [],
     "outputs": [
         {
-            "id": "#validatefiles_report",
             "source": "#validatefiles.report",
+            "id": "#validatefiles_report",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
-            "id": "#md5_report",
             "source": "#md5.report",
+            "id": "#md5_report",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
+    "class": "Workflow",
     "cwlVersion": "draft-3"
 }

@@ -1,33 +1,10 @@
 {
-    "class": "CommandLineTool",
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "requirements": [],
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_bam"
-        },
-        {
-            "id": "#prefix",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out"
-        }
+    "baseCommand": [
+        "run.sh"
     ],
+    "cwlVersion": "draft-3",
+    "arguments": [],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "id": "#out_sorted_bam",
@@ -56,7 +33,30 @@
             "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run.sh"
+    "requirements": [],
+    "inputs": [
+        {
+            "id": "#input_bam",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#prefix",
+            "default": "out",
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "string"
+            ]
+        }
     ]
 }

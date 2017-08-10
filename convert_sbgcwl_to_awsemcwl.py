@@ -21,6 +21,8 @@ def filter(input_json, key, input_json0):
                     del input_json[key][i][subkey]
                 if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) and len(input_json0[key][i][subkey])==1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
+                if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey] and 'script' in input_json0[key][i][subkey]['glob']:
+                    input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
@@ -55,6 +57,11 @@ def filter(input_json, key, input_json0):
 
     if key == 'cwlVersion':
         input_json[key] = 'draft-3'
+
+    if key == 'requirements':
+        for i, item in enumerate(input_json0[key]):
+            if 'class' in item and item['class']=="ExpressionEngineRequirement":
+                input_json[key][i] = { 'class': 'InlineJavascriptRequirement' }
 
     return(copy.deepcopy(input_json))
 
