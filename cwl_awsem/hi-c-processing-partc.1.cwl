@@ -1,36 +1,23 @@
 {
-    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#input_cool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#input_cool"
         },
         {
-            "id": "#ncores",
+            "default": 4,
             "type": [
                 "null",
                 "int"
             ],
-            "default": "4"
+            "id": "#ncores"
         }
     ],
-    "outputs": [
-        {
-            "source": "#cool2mcool.output_mcool",
-            "id": "#output_mcool",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "class": "Workflow",
     "steps": [
         {
-            "id": "#coolerbalance",
             "inputs": [
                 {
                     "source": "#input_cool",
@@ -48,10 +35,10 @@
                     "id": "#coolerbalance.out_cool"
                 }
             ],
+            "id": "#coolerbalance",
             "run": "coolerbalance.2.cwl"
         },
         {
-            "id": "#cool2mcool",
             "inputs": [
                 {
                     "source": "#coolerbalance.out_cool",
@@ -70,7 +57,20 @@
                     "id": "#cool2mcool.output_mcool"
                 }
             ],
+            "id": "#cool2mcool",
             "run": "cool2mcool.2.cwl"
+        }
+    ],
+    "class": "Workflow",
+    "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "source": "#cool2mcool.output_mcool",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_mcool"
         }
     ],
     "requirements": []

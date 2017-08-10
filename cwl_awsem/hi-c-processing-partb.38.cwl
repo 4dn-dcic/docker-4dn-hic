@@ -1,15 +1,10 @@
 {
+    "requirements": [],
+    "class": "Workflow",
     "steps": [
         {
             "run": "merge-pairs.25.cwl",
-            "outputs": [
-                {
-                    "id": "#merge_pairs.output_pairs_index"
-                },
-                {
-                    "id": "#merge_pairs.output_pairs"
-                }
-            ],
+            "id": "#merge_pairs",
             "inputs": [
                 {
                     "id": "#merge_pairs.outprefix"
@@ -19,15 +14,18 @@
                     "id": "#merge_pairs.input_pairs"
                 }
             ],
-            "id": "#merge_pairs"
+            "outputs": [
+                {
+                    "id": "#merge_pairs.output_pairs_index"
+                },
+                {
+                    "id": "#merge_pairs.output_pairs"
+                }
+            ]
         },
         {
             "run": "pairs2hic.15.cwl",
-            "outputs": [
-                {
-                    "id": "#pairs2hic.output_hic"
-                }
-            ],
+            "id": "#pairs2hic",
             "inputs": [
                 {
                     "id": "#pairs2hic.output_prefix"
@@ -51,15 +49,15 @@
                     "id": "#pairs2hic.chromsizes_file"
                 }
             ],
-            "id": "#pairs2hic"
+            "outputs": [
+                {
+                    "id": "#pairs2hic.output_hic"
+                }
+            ]
         },
         {
             "run": "cooler.19.cwl",
-            "outputs": [
-                {
-                    "id": "#cooler.out_cool"
-                }
-            ],
+            "id": "#cooler",
             "inputs": [
                 {
                     "source": "#merge_pairs.output_pairs",
@@ -88,9 +86,56 @@
                     "id": "#cooler.max_split"
                 }
             ],
-            "id": "#cooler"
+            "outputs": [
+                {
+                    "id": "#cooler.out_cool"
+                }
+            ]
         }
     ],
+    "inputs": [
+        {
+            "id": "#chrsizes",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#input_pairs",
+            "type": [
+                "null",
+                {
+                    "items": "File",
+                    "type": "array"
+                }
+            ]
+        },
+        {
+            "default": 5000,
+            "id": "#min_res",
+            "type": [
+                "null",
+                "int"
+            ]
+        },
+        {
+            "default": 8,
+            "id": "#ncores",
+            "type": [
+                "null",
+                "int"
+            ]
+        },
+        {
+            "id": "#binsize",
+            "type": [
+                "null",
+                "int"
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "source": "#merge_pairs.output_pairs_index",
@@ -124,50 +169,5 @@
                 "File"
             ]
         }
-    ],
-    "inputs": [
-        {
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                {
-                    "items": "File",
-                    "type": "array"
-                }
-            ]
-        },
-        {
-            "id": "#min_res",
-            "default": "5000",
-            "type": [
-                "null",
-                "int"
-            ]
-        },
-        {
-            "id": "#ncores",
-            "default": "8",
-            "type": [
-                "null",
-                "int"
-            ]
-        },
-        {
-            "id": "#binsize",
-            "type": [
-                "null",
-                "int"
-            ]
-        }
-    ],
-    "class": "Workflow",
-    "cwlVersion": "draft-3",
-    "requirements": []
+    ]
 }

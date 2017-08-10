@@ -1,41 +1,41 @@
 {
+    "arguments": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#report",
+            "outputBinding": {
+                "glob": "\"report\"",
+                "loadContents": true
+            }
+        }
+    ],
     "baseCommand": [
         "run.sh"
     ],
-    "arguments": [],
-    "requirements": [],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "inputs": [
         {
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file"
-        }
-    ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "loadContents": true,
-                "glob": "\"report\""
-            },
-            "id": "#report",
+            "id": "#input_file",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sha256:v1"
+            "dockerPull": "duplexa/sha256:v1",
+            "class": "DockerRequirement"
         }
-    ]
+    ],
+    "requirements": []
 }

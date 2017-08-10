@@ -14,7 +14,10 @@ def filter(input_json, key, input_json0):
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
                     del input_json[key][i][subkey]
                 if subkey == 'sbg:toolDefaultValue':
-                    input_json[key][i]['default'] = copy.deepcopy(input_json[key][i][subkey])
+                    if input_json0[key][i][subkey].isdigit() and 'type' in input_json0[key][i] and 'int' in input_json0[key][i]['type']:  # convert to int
+                        input_json[key][i]['default'] = int(input_json0[key][i][subkey])
+                    else:
+                        input_json[key][i]['default'] = input_json0[key][i][subkey]
                     del input_json[key][i][subkey]
                 if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) and len(input_json0[key][i][subkey])==1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])

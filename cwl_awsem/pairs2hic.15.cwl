@@ -1,99 +1,99 @@
 {
-    "class": "CommandLineTool",
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v30",
             "class": "DockerRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
+    "arguments": [],
+    "requirements": [],
     "baseCommand": [
         "run-juicebox-pre.sh"
     ],
+    "class": "CommandLineTool",
     "inputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "id": "#input_pairs",
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            }
-        },
-        {
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#chromsizes_file",
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 1,
+                "separate": true
             }
         },
         {
-            "default": "out",
+            "id": "#chromsizes_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
+        },
+        {
+            "id": "#output_prefix",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#output_prefix",
+            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             }
         },
         {
-            "default": "5000",
+            "id": "#min_res",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#min_res",
+            "default": 5000,
             "inputBinding": {
-                "separate": true,
-                "position": 4
+                "position": 4,
+                "separate": true
             }
         },
         {
-            "default": "1",
-            "type": [
-                "null",
-                "string"
-            ],
             "id": "#higlass",
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            }
-        },
-        {
-            "default": "14g",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#maxmem",
+            "default": "1",
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 5,
+                "separate": true
+            }
+        },
+        {
+            "id": "#maxmem",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "14g",
+            "inputBinding": {
+                "position": 6,
+                "separate": true
             }
         }
     ],
-    "requirements": [],
     "outputs": [
         {
+            "id": "#output_hic",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "*.hic"
-            },
-            "id": "#output_hic"
+            }
         }
     ],
-    "arguments": []
+    "cwlVersion": "draft-3"
 }

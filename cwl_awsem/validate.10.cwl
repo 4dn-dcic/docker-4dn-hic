@@ -1,9 +1,66 @@
 {
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
     "baseCommand": [
         "run.sh",
         ""
+    ],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
+        }
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_file"
+        },
+        {
+            "inputBinding": {
+                "position": 2,
+                "separate": true,
+                "valueFrom": {
+                    "class": "Expression",
+                    "script": "\"fastq\"",
+                    "engine": "#cwl-js-engine"
+                }
+            },
+            "type": [
+                "null",
+                {
+                    "type": "enum",
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ],
+                    "name": "type"
+                }
+            ],
+            "default": "fastq",
+            "id": "#type"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ]
+        }
     ],
     "outputs": [
         {
@@ -16,62 +73,5 @@
             },
             "id": "#report"
         }
-    ],
-    "hints": [
-        {
-            "dockerPull": "duplexa/validatefiles:v1",
-            "class": "DockerRequirement"
-        }
-    ],
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file"
-        },
-        {
-            "inputBinding": {
-                "separate": true,
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "\"fastq\"",
-                    "class": "Expression"
-                },
-                "position": 2
-            },
-            "type": [
-                "null",
-                {
-                    "name": "type",
-                    "type": "enum",
-                    "symbols": [
-                        "fastq",
-                        "fasta",
-                        "bam"
-                    ]
-                }
-            ],
-            "default": "fastq",
-            "id": "#type"
-        }
-    ],
-    "arguments": []
+    ]
 }

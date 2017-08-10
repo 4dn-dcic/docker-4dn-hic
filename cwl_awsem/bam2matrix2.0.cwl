@@ -1,5 +1,7 @@
 {
-    "arguments": [],
+    "baseCommand": [
+        "run.sh"
+    ],
     "inputs": [
         {
             "id": "#HiC_norm_binning_hdf5",
@@ -7,8 +9,8 @@
                 "File"
             ],
             "inputBinding": {
-                "separate": false,
-                "position": 1
+                "position": 1,
+                "separate": false
             }
         },
         {
@@ -31,8 +33,8 @@
                 "string"
             ],
             "inputBinding": {
-                "separate": false,
-                "position": 2
+                "position": 2,
+                "separate": false
             }
         },
         {
@@ -40,11 +42,11 @@
             "type": [
                 "int"
             ],
+            "default": 50000,
             "inputBinding": {
-                "separate": false,
-                "position": 3
-            },
-            "default": "50000"
+                "position": 3,
+                "separate": false
+            }
         },
         {
             "id": "#output_dir",
@@ -53,13 +55,13 @@
                 "string"
             ],
             "inputBinding": {
-                "separate": false,
+                "position": 5,
                 "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
                     "class": "Expression",
+                    "script": "$job.inputs.output_dir || '.'",
                     "engine": "#cwl-js-engine"
                 },
-                "position": 5
+                "separate": false
             }
         },
         {
@@ -69,34 +71,12 @@
                 "File"
             ],
             "inputBinding": {
-                "separate": false,
-                "position": 4
+                "position": 4,
+                "separate": false
             }
         }
     ],
-    "class": "CommandLineTool",
-    "hints": [
-        {
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
-            "class": "DockerRequirement"
-        }
-    ],
     "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh"
-    ],
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement"
-        }
-    ],
     "outputs": [
         {
             "id": "#observed_contact_matrix",
@@ -167,6 +147,26 @@
                     "engine": "#cwl-js-engine"
                 }
             }
+        }
+    ],
+    "requirements": [
+        {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
         }
     ]
 }

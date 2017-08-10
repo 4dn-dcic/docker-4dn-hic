@@ -1,15 +1,15 @@
 {
     "inputs": [
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#pairs",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
+            "id": "#pairs"
         },
         {
             "type": [
@@ -19,73 +19,65 @@
             "id": "#pairs_index"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#chrsizes",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
+            "id": "#chrsizes"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#binsize",
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            }
+            "id": "#binsize"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 5
+            },
             "type": [
                 "null",
                 "string"
             ],
             "id": "#outprefix",
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
             "default": "out"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 4
+            },
             "type": [
                 "null",
                 "int"
             ],
             "id": "#ncores",
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "default": "8"
+            "default": 8
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 6
+            },
             "type": [
                 "null",
                 "int"
             ],
             "id": "#max_split",
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "default": "2"
+            "default": 2
         }
     ],
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v31"
-        }
-    ],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "type": [
@@ -98,8 +90,16 @@
             }
         }
     ],
+    "baseCommand": [
+        "run-cooler.sh"
+    ],
+    "arguments": [],
     "requirements": [],
     "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
-    "arguments": []
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v31"
+        }
+    ]
 }
