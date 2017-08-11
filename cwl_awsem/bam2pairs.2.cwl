@@ -1,61 +1,61 @@
 {
-    "outputs": [
-        {
-            "id": "#out_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            }
-        },
-        {
-            "id": "#out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            }
-        }
-    ],
-    "requirements": [],
     "inputs": [
         {
-            "id": "#input_bam",
             "type": [
                 "File"
             ],
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            }
+            },
+            "id": "#input_bam"
         },
         {
-            "id": "#out_prefix",
             "type": [
                 "null",
                 "string"
             ],
+            "default": "out",
             "inputBinding": {
                 "separate": true,
                 "position": 2
             },
-            "default": "out"
+            "id": "#out_prefix"
         }
     ],
-    "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs_index",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            }
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": [],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "arguments": [],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
-    ]
+    "cwlVersion": "draft-3",
+    "requirements": []
 }

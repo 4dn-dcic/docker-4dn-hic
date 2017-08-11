@@ -1,114 +1,42 @@
 {
+    "hints": [],
+    "description": "",
+    "sbg:latestRevision": 3,
+    "sbg:canvas_zoom": 1,
+    "sbg:sbgMaintained": false,
+    "sbg:createdOn": 1496182175,
     "sbg:appVersion": [
         "sbg:draft-2"
     ],
-    "sbg:id": "4dn-dcic/dev/hi-c-processing-partc/1",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:canvas_x": 0,
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:createdOn": 1496182175,
-    "sbg:validationErrors": [],
-    "sbg:sbgMaintained": false,
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:canvas_zoom": 1,
-    "class": "Workflow",
-    "hints": [],
-    "label": "Hi-C_processing_partC",
-    "sbg:canvas_y": 0,
-    "sbg:revision": 1,
-    "sbg:createdBy": "4dn-dcic",
-    "sbg:latestRevision": 3,
-    "sbg:contributors": [
-        "4dn-dcic"
-    ],
-    "description": "",
-    "requirements": [],
-    "sbg:projectName": "Dev",
     "outputs": [
         {
+            "id": "#output_mcool",
+            "sbg:x": 738,
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#output_mcool",
             "sbg:includeInPorts": true,
-            "sbg:x": 738,
+            "label": "output_mcool",
+            "sbg:y": 188.99716186523438,
             "source": [
                 "#cool2mcool.output_mcool"
-            ],
-            "label": "output_mcool",
-            "sbg:y": 188.99716186523438
+            ]
         }
     ],
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revision": 0,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1496182175,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revision": 1,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1496182242,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revision": 2,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1496190458,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revision": 3,
-            "sbg:revisionNotes": "r3.8xlarge (244GB mem, 32 cores)",
-            "sbg:modifiedOn": 1499683283,
-            "sbg:modifiedBy": "4dn-dcic"
-        }
-    ],
+    "sbg:canvas_x": 0,
+    "sbg:validationErrors": [],
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:createdBy": "4dn-dcic",
+    "sbg:canvas_y": 0,
+    "cwlVersion": "sbg:draft-2",
+    "sbg:projectName": "Dev",
+    "sbg:project": "4dn-dcic/dev",
     "steps": [
         {
-            "outputs": [
-                {
-                    "id": "#coolerbalance.out_cool"
-                }
-            ],
             "id": "#coolerbalance",
             "sbg:x": 270,
             "run": {
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "sbg:id": "4dn-dcic/dev/coolerbalance/2",
-                "successCodes": [],
-                "cwlVersion": "sbg:draft-2",
-                "label": "coolerbalance",
-                "sbg:modifiedBy": "4dn-dcic",
-                "sbg:createdOn": 1496180027,
-                "sbg:validationErrors": [],
-                "sbg:sbgMaintained": false,
-                "sbg:project": "4dn-dcic/dev",
-                "stdout": "",
-                "outputs": [
-                    {
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "id": "#out_cool",
-                        "outputBinding": {
-                            "glob": {
-                                "class": "Expression",
-                                "script": "$job.inputs.outprefix",
-                                "engine": "#cwl-js-engine"
-                            }
-                        }
-                    }
-                ],
-                "class": "CommandLineTool",
-                "sbg:createdBy": "4dn-dcic",
-                "arguments": [],
-                "sbg:revision": 2,
                 "hints": [
                     {
                         "class": "sbg:MemRequirement",
@@ -124,101 +52,140 @@
                         "value": 8
                     }
                 ],
-                "sbg:latestRevision": 2,
-                "baseCommand": [
-                    "run-cooler-balance.sh"
-                ],
-                "sbg:contributors": [
-                    "4dn-dcic"
-                ],
-                "sbg:projectName": "Dev",
-                "stdin": "",
-                "requirements": [],
-                "sbg:job": {
-                    "inputs": {
-                        "max_iter": 4,
-                        "input_cool": {
-                            "secondaryFiles": [],
-                            "path": "/path/to/input_cool.ext",
-                            "class": "File",
-                            "size": 0
-                        },
-                        "outprefix": "outprefix-string-value"
-                    },
-                    "allocatedResources": {
-                        "mem": 8000,
-                        "cpu": 8
-                    }
-                },
                 "description": "",
-                "sbg:cmdPreview": "run-cooler-balance.sh",
-                "sbg:revisionsInfo": [
-                    {
-                        "sbg:revision": 0,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496180027,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    },
-                    {
-                        "sbg:revision": 1,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496180123,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    },
-                    {
-                        "sbg:revision": 2,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496180208,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    }
-                ],
-                "temporaryFailCodes": [],
                 "sbg:image_url": null,
-                "inputs": [
+                "sbg:latestRevision": 2,
+                "sbg:sbgMaintained": false,
+                "sbg:cmdPreview": "run-cooler-balance.sh",
+                "sbg:appVersion": [
+                    "sbg:draft-2"
+                ],
+                "outputs": [
                     {
-                        "sbg:fileTypes": ".COOL",
                         "type": [
                             "null",
                             "File"
                         ],
-                        "id": "#input_cool",
-                        "inputBinding": {
-                            "separate": true,
-                            "sbg:cmdInclude": true,
-                            "position": 1
-                        }
+                        "outputBinding": {
+                            "glob": {
+                                "engine": "#cwl-js-engine",
+                                "class": "Expression",
+                                "script": "$job.inputs.outprefix"
+                            }
+                        },
+                        "id": "#out_cool"
+                    }
+                ],
+                "stdin": "",
+                "sbg:validationErrors": [],
+                "sbg:modifiedBy": "4dn-dcic",
+                "sbg:job": {
+                    "allocatedResources": {
+                        "mem": 8000,
+                        "cpu": 8
+                    },
+                    "inputs": {
+                        "outprefix": "outprefix-string-value",
+                        "input_cool": {
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "size": 0,
+                            "path": "/path/to/input_cool.ext"
+                        },
+                        "max_iter": 4
+                    }
+                },
+                "successCodes": [],
+                "stdout": "",
+                "sbg:revisionsInfo": [
+                    {
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 0,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496180027
                     },
                     {
-                        "sbg:stageInput": null,
-                        "sbg:toolDefaultValue": "5000",
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 1,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496180123
+                    },
+                    {
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 2,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496180208
+                    }
+                ],
+                "sbg:project": "4dn-dcic/dev",
+                "baseCommand": [
+                    "run-cooler-balance.sh"
+                ],
+                "sbg:createdBy": "4dn-dcic",
+                "sbg:modifiedOn": 1496180208,
+                "sbg:contributors": [
+                    "4dn-dcic"
+                ],
+                "requirements": [],
+                "sbg:revision": 2,
+                "arguments": [],
+                "sbg:id": "4dn-dcic/dev/coolerbalance/2",
+                "sbg:projectName": "Dev",
+                "sbg:createdOn": 1496180027,
+                "class": "CommandLineTool",
+                "temporaryFailCodes": [],
+                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/coolerbalance/2/raw/",
+                "label": "coolerbalance",
+                "cwlVersion": "sbg:draft-2",
+                "inputs": [
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 1,
+                            "separate": true
+                        },
+                        "sbg:fileTypes": ".COOL",
+                        "id": "#input_cool"
+                    },
+                    {
                         "type": [
                             "null",
                             "int"
                         ],
-                        "id": "#max_iter",
                         "inputBinding": {
-                            "separate": true,
                             "sbg:cmdInclude": true,
-                            "position": 2
-                        }
+                            "position": 2,
+                            "separate": true
+                        },
+                        "id": "#max_iter",
+                        "sbg:toolDefaultValue": "5000",
+                        "sbg:stageInput": null
                     },
                     {
-                        "sbg:toolDefaultValue": "out",
                         "type": [
                             "null",
                             "string"
                         ],
-                        "id": "#outprefix",
                         "inputBinding": {
-                            "separate": true,
                             "sbg:cmdInclude": true,
-                            "position": 3
-                        }
+                            "position": 3,
+                            "separate": true
+                        },
+                        "id": "#outprefix",
+                        "sbg:toolDefaultValue": "out"
                     }
-                ],
-                "sbg:modifiedOn": 1496180208,
-                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/coolerbalance/2/raw/"
+                ]
             },
+            "outputs": [
+                {
+                    "id": "#coolerbalance.out_cool"
+                }
+            ],
+            "sbg:y": 197.65625,
             "inputs": [
                 {
                     "source": [
@@ -227,55 +194,19 @@
                     "id": "#coolerbalance.input_cool"
                 },
                 {
-                    "id": "#coolerbalance.max_iter",
-                    "default": 5000
+                    "default": 5000,
+                    "id": "#coolerbalance.max_iter"
                 },
                 {
-                    "id": "#coolerbalance.outprefix",
-                    "default": "out"
+                    "default": "out",
+                    "id": "#coolerbalance.outprefix"
                 }
-            ],
-            "sbg:y": 197.65625
+            ]
         },
         {
-            "outputs": [
-                {
-                    "id": "#cool2mcool.output_mcool"
-                }
-            ],
             "id": "#cool2mcool",
             "sbg:x": 542,
             "run": {
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "sbg:id": "4dn-dcic/dev/cool2mcool/2",
-                "successCodes": [],
-                "cwlVersion": "sbg:draft-2",
-                "label": "cool2mcool",
-                "sbg:modifiedBy": "4dn-dcic",
-                "sbg:createdOn": 1496166920,
-                "sbg:validationErrors": [],
-                "sbg:sbgMaintained": false,
-                "sbg:project": "4dn-dcic/dev",
-                "stdout": "",
-                "outputs": [
-                    {
-                        "sbg:fileTypes": ".COOL",
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "id": "#output_mcool",
-                        "outputBinding": {
-                            "glob": "*.multires.cool"
-                        }
-                    }
-                ],
-                "class": "CommandLineTool",
-                "sbg:createdBy": "4dn-dcic",
-                "arguments": [],
-                "sbg:revision": 2,
                 "hints": [
                     {
                         "class": "sbg:CPURequirement",
@@ -291,101 +222,137 @@
                         "dockerPull": "duplexa/4dn-hic:v17"
                     }
                 ],
-                "sbg:latestRevision": 2,
-                "baseCommand": [
-                    "run-cool2multirescool.sh"
-                ],
-                "sbg:contributors": [
-                    "4dn-dcic"
-                ],
-                "sbg:projectName": "Dev",
-                "stdin": "",
-                "requirements": [],
-                "sbg:job": {
-                    "inputs": {
-                        "ncores": 9,
-                        "input_cool": {
-                            "secondaryFiles": [],
-                            "path": "/path/to/input_cool.ext",
-                            "class": "File",
-                            "size": 0
-                        },
-                        "outprefix": "outprefix-string-value"
-                    },
-                    "allocatedResources": {
-                        "mem": 1000,
-                        "cpu": 1
-                    }
-                },
                 "description": "",
-                "sbg:cmdPreview": "run-cool2multirescool.sh",
-                "sbg:revisionsInfo": [
-                    {
-                        "sbg:revision": 0,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496166920,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    },
-                    {
-                        "sbg:revision": 1,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496167248,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    },
-                    {
-                        "sbg:revision": 2,
-                        "sbg:revisionNotes": null,
-                        "sbg:modifiedOn": 1496181675,
-                        "sbg:modifiedBy": "4dn-dcic"
-                    }
-                ],
-                "temporaryFailCodes": [],
                 "sbg:image_url": null,
-                "inputs": [
+                "sbg:latestRevision": 2,
+                "sbg:sbgMaintained": false,
+                "sbg:cmdPreview": "run-cool2multirescool.sh",
+                "sbg:appVersion": [
+                    "sbg:draft-2"
+                ],
+                "outputs": [
                     {
-                        "sbg:fileTypes": ".COOL",
                         "type": [
                             "null",
                             "File"
                         ],
-                        "id": "#input_cool",
-                        "inputBinding": {
-                            "separate": true,
-                            "sbg:cmdInclude": true,
-                            "position": 1
+                        "sbg:fileTypes": ".COOL",
+                        "outputBinding": {
+                            "glob": "*.multires.cool"
+                        },
+                        "id": "#output_mcool"
+                    }
+                ],
+                "stdin": "",
+                "sbg:validationErrors": [],
+                "sbg:modifiedBy": "4dn-dcic",
+                "sbg:job": {
+                    "allocatedResources": {
+                        "mem": 1000,
+                        "cpu": 1
+                    },
+                    "inputs": {
+                        "outprefix": "outprefix-string-value",
+                        "ncores": 9,
+                        "input_cool": {
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "size": 0,
+                            "path": "/path/to/input_cool.ext"
                         }
+                    }
+                },
+                "successCodes": [],
+                "stdout": "",
+                "sbg:revisionsInfo": [
+                    {
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 0,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496166920
                     },
                     {
-                        "sbg:stageInput": null,
-                        "sbg:toolDefaultValue": "4",
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 1,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496167248
+                    },
+                    {
+                        "sbg:modifiedBy": "4dn-dcic",
+                        "sbg:revision": 2,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedOn": 1496181675
+                    }
+                ],
+                "sbg:project": "4dn-dcic/dev",
+                "baseCommand": [
+                    "run-cool2multirescool.sh"
+                ],
+                "sbg:createdBy": "4dn-dcic",
+                "sbg:modifiedOn": 1496181675,
+                "sbg:contributors": [
+                    "4dn-dcic"
+                ],
+                "requirements": [],
+                "sbg:revision": 2,
+                "arguments": [],
+                "sbg:id": "4dn-dcic/dev/cool2mcool/2",
+                "sbg:projectName": "Dev",
+                "sbg:createdOn": 1496166920,
+                "class": "CommandLineTool",
+                "temporaryFailCodes": [],
+                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cool2mcool/2/raw/",
+                "label": "cool2mcool",
+                "cwlVersion": "sbg:draft-2",
+                "inputs": [
+                    {
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "inputBinding": {
+                            "sbg:cmdInclude": true,
+                            "position": 1,
+                            "separate": true
+                        },
+                        "sbg:fileTypes": ".COOL",
+                        "id": "#input_cool"
+                    },
+                    {
                         "type": [
                             "null",
                             "int"
                         ],
-                        "id": "#ncores",
                         "inputBinding": {
-                            "separate": true,
                             "sbg:cmdInclude": true,
-                            "position": 2
-                        }
+                            "position": 2,
+                            "separate": true
+                        },
+                        "id": "#ncores",
+                        "sbg:toolDefaultValue": "4",
+                        "sbg:stageInput": null
                     },
                     {
-                        "sbg:toolDefaultValue": "out",
                         "type": [
                             "null",
                             "string"
                         ],
-                        "id": "#outprefix",
                         "inputBinding": {
-                            "separate": true,
                             "sbg:cmdInclude": true,
-                            "position": 3
-                        }
+                            "position": 3,
+                            "separate": true
+                        },
+                        "id": "#outprefix",
+                        "sbg:toolDefaultValue": "out"
                     }
-                ],
-                "sbg:modifiedOn": 1496181675,
-                "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cool2mcool/2/raw/"
+                ]
             },
+            "outputs": [
+                {
+                    "id": "#cool2mcool.output_mcool"
+                }
+            ],
+            "sbg:y": 205.65625,
             "inputs": [
                 {
                     "source": [
@@ -400,36 +367,69 @@
                     "id": "#cool2mcool.ncores"
                 },
                 {
-                    "id": "#cool2mcool.outprefix",
-                    "default": "out"
+                    "default": "out",
+                    "id": "#cool2mcool.outprefix"
                 }
-            ],
-            "sbg:y": 205.65625
+            ]
         }
     ],
+    "sbg:modifiedOn": 1496182242,
+    "sbg:contributors": [
+        "4dn-dcic"
+    ],
+    "sbg:revision": 1,
     "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-partc/1.png",
+    "sbg:id": "4dn-dcic/dev/hi-c-processing-partc/1",
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 0,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496182175
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 1,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496182242
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 2,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1496190458
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 3,
+            "sbg:revisionNotes": "r3.8xlarge (244GB mem, 32 cores)",
+            "sbg:modifiedOn": 1499683283
+        }
+    ],
+    "requirements": [],
+    "class": "Workflow",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-partc/1/raw/",
+    "label": "Hi-C_processing_partC",
     "inputs": [
         {
             "sbg:fileTypes": ".COOL",
+            "id": "#input_cool",
+            "sbg:x": 87,
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_cool",
-            "sbg:x": 87,
             "label": "input_cool",
             "sbg:y": 182.99716186523438
         },
         {
-            "sbg:stageInput": null,
-            "sbg:toolDefaultValue": "4",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#ncores"
+            "id": "#ncores",
+            "sbg:toolDefaultValue": "4",
+            "sbg:stageInput": null
         }
-    ],
-    "sbg:modifiedOn": 1496182242,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-partc/1/raw/"
+    ]
 }

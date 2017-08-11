@@ -1,8 +1,28 @@
 {
-    "arguments": [],
-    "cwlVersion": "draft-3",
     "baseCommand": [
         "run-merge-pairs.sh"
+    ],
+    "outputs": [
+        {
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            }
+        },
+        {
+            "id": "#output_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
+            }
+        }
     ],
     "hints": [
         {
@@ -10,32 +30,26 @@
             "dockerPull": "duplexa/4dn-hic:v26"
         }
     ],
-    "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "inputs": [
         {
-            "default": "out",
-            "id": "#outprefix",
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
+            "id": "#outprefix",
+            "default": "out",
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "id": "#input_pairs",
             "inputBinding": {
+                "itemSeparator": " ",
                 "separate": true,
-                "position": 2,
-                "itemSeparator": " "
+                "position": 2
             },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
@@ -45,26 +59,12 @@
             ]
         }
     ],
-    "outputs": [
+    "arguments": [],
+    "requirements": [
         {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
-            },
-            "id": "#output_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ]
+            "class": "InlineJavascriptRequirement"
         }
-    ]
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3"
 }

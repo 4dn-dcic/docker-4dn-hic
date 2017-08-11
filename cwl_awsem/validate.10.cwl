@@ -1,4 +1,53 @@
 {
+    "inputs": [
+        {
+            "id": "#input_file",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#type",
+            "default": "fastq",
+            "inputBinding": {
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "script": "\"fastq\"",
+                    "class": "Expression"
+                },
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
+                {
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ],
+                    "type": "enum",
+                    "name": "type"
+                }
+            ]
+        }
+    ],
+    "arguments": [],
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
     "cwlVersion": "draft-3",
     "hints": [
         {
@@ -8,63 +57,14 @@
     ],
     "outputs": [
         {
+            "id": "#report",
             "outputBinding": {
                 "glob": "\"report_validatefiles\""
             },
-            "id": "#report",
             "type": [
                 "null",
                 "File"
             ]
         }
-    ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": true,
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "\"fastq\""
-                }
-            },
-            "default": "fastq",
-            "id": "#type",
-            "type": [
-                "null",
-                {
-                    "name": "type",
-                    "symbols": [
-                        "fastq",
-                        "fasta",
-                        "bam"
-                    ],
-                    "type": "enum"
-                }
-            ]
-        }
-    ],
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh",
-        ""
     ]
 }

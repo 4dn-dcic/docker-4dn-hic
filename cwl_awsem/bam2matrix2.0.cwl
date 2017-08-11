@@ -1,77 +1,72 @@
 {
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
     ],
     "outputs": [
         {
-            "id": "#observed_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' )"
-            }
+            },
+            "id": "#observed_contact_matrix"
         },
         {
-            "id": "#normalized_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' )"
-            }
+            },
+            "id": "#normalized_fend_contact_matrix"
         },
         {
-            "id": "#normalized_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' )"
-            }
+            },
+            "id": "#normalized_enrich_contact_matrix"
         },
         {
-            "id": "#expected_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' )"
-            }
+            },
+            "id": "#expected_fend_contact_matrix"
         },
         {
-            "id": "#expected_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt')"
-            }
+            },
+            "id": "#expected_enrich_contact_matrix"
         }
     ],
     "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2"
-        }
-    ],
-    "arguments": [],
+    "class": "CommandLineTool",
     "inputs": [
         {
+            "type": [
+                "File"
+            ],
             "inputBinding": {
                 "position": 1,
                 "separate": false
             },
-            "type": [
-                "File"
-            ],
             "id": "#HiC_norm_binning_hdf5"
         },
         {
@@ -89,57 +84,62 @@
             "id": "#fend_object_hdf5"
         },
         {
+            "type": [
+                "string"
+            ],
             "inputBinding": {
                 "position": 2,
                 "separate": false
             },
-            "type": [
-                "string"
-            ],
             "id": "#chromosome"
         },
         {
-            "default": 50000,
+            "type": [
+                "int"
+            ],
             "inputBinding": {
                 "position": 3,
                 "separate": false
             },
-            "type": [
-                "int"
-            ],
+            "default": 50000,
             "id": "#contact_matrix_binsize"
         },
         {
-            "inputBinding": {
-                "position": 5,
-                "separate": false,
-                "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                }
-            },
             "type": [
                 "null",
                 "string"
             ],
+            "inputBinding": {
+                "position": 5,
+                "separate": false,
+                "valueFrom": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir || '.'"
+                }
+            },
             "id": "#output_dir"
         },
         {
-            "inputBinding": {
-                "position": 4,
-                "separate": false
-            },
             "type": [
                 "null",
                 "File"
             ],
+            "inputBinding": {
+                "position": 4,
+                "separate": false
+            },
             "id": "#chrlen_file"
         }
     ],
-    "requirements": [
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": [],
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
         }
     ]
 }

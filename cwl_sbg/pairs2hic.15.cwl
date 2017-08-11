@@ -1,270 +1,270 @@
 {
-    "class": "CommandLineTool",
-    "sbg:createdBy": "4dn-dcic",
-    "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
-    "sbg:latestRevision": 15,
-    "sbg:revision": 15,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/pairs2hic/15/raw/",
-    "sbg:project": "4dn-dcic/dev",
-    "successCodes": [],
-    "sbg:id": "4dn-dcic/dev/pairs2hic/15",
-    "stdout": "",
-    "sbg:contributors": [
-        "4dn-dcic"
-    ],
-    "sbg:modifiedBy": "4dn-dcic",
-    "temporaryFailCodes": [],
-    "label": "pairs2hic",
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:cmdPreview": "run-juicebox-pre.sh",
+    "description": "",
     "baseCommand": [
         "run-juicebox-pre.sh"
     ],
-    "cwlVersion": "sbg:draft-2",
-    "sbg:projectName": "Dev",
-    "sbg:image_url": null,
+    "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+    "stdin": "",
+    "sbg:createdOn": 1496168605,
     "sbg:revisionsInfo": [
         {
-            "sbg:modifiedOn": 1496168605,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 0,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496168605
         },
         {
-            "sbg:modifiedOn": 1496168842,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 1,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496168842
         },
         {
-            "sbg:modifiedOn": 1496168924,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 2,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496168924
         },
         {
-            "sbg:modifiedOn": 1496172319,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 3,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496172319
         },
         {
-            "sbg:modifiedOn": 1496176108,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 4,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496176108
         },
         {
-            "sbg:modifiedOn": 1496178546,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 5,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1496178546
         },
         {
-            "sbg:modifiedOn": 1500331857,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 6,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1500331857
         },
         {
-            "sbg:modifiedOn": 1501513062,
             "sbg:revisionNotes": "added java maxmem as parameter",
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 7,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501513062
         },
         {
-            "sbg:modifiedOn": 1501595773,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 8,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501595773
         },
         {
-            "sbg:modifiedOn": 1501605274,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 9,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501605274
         },
         {
-            "sbg:modifiedOn": 1501637382,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 10,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501637382
         },
         {
-            "sbg:modifiedOn": 1501689608,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 11,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501689608
         },
         {
-            "sbg:modifiedOn": 1501689663,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 12,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501689663
         },
         {
-            "sbg:modifiedOn": 1501689805,
             "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 13,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501689805
         },
         {
-            "sbg:modifiedOn": 1501707253,
             "sbg:revisionNotes": "15GB mem",
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 14,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501707253
         },
         {
-            "sbg:modifiedOn": 1501780759,
             "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+            "sbg:modifiedBy": "4dn-dcic",
             "sbg:revision": 15,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:modifiedOn": 1501780759
         }
     ],
-    "sbg:sbgMaintained": false,
-    "inputs": [
-        {
-            "sbg:fileTypes": ".PAIRS.GZ",
-            "id": "#input_pairs",
-            "inputBinding": {
-                "position": 1,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "sbg:fileTypes": ".CHROM.SIZES",
-            "id": "#chromsizes_file",
-            "inputBinding": {
-                "position": 2,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "sbg:toolDefaultValue": "out",
-            "id": "#output_prefix",
-            "inputBinding": {
-                "position": 3,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "id": "#min_res",
-            "sbg:toolDefaultValue": "5000",
-            "sbg:stageInput": null,
-            "inputBinding": {
-                "position": 4,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "int"
-            ]
-        },
-        {
-            "id": "#higlass",
-            "sbg:toolDefaultValue": "1",
-            "sbg:stageInput": null,
-            "inputBinding": {
-                "position": 5,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "sbg:toolDefaultValue": "14g",
-            "id": "#maxmem",
-            "inputBinding": {
-                "position": 6,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "string"
-            ]
-        }
-    ],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/pairs2hic/15/raw/",
+    "sbg:validationErrors": [],
+    "stdout": "",
+    "sbg:revision": 15,
+    "arguments": [],
+    "successCodes": [],
+    "requirements": [],
+    "sbg:projectName": "Dev",
     "hints": [
         {
-            "class": "sbg:CPURequirement",
+            "value": 1,
             "diskSize": null,
-            "value": 1
+            "class": "sbg:CPURequirement"
         },
         {
-            "class": "sbg:MemRequirement",
+            "value": 58000,
             "diskSize": null,
-            "value": 58000
+            "class": "sbg:MemRequirement"
         },
         {
-            "class": "DockerRequirement",
             "dockerImageId": "",
+            "class": "DockerRequirement",
             "diskSize": null,
             "dockerPull": "duplexa/4dn-hic:v30"
         }
     ],
-    "sbg:modifiedOn": 1501780759,
-    "stdin": "",
-    "sbg:validationErrors": [],
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:image_url": null,
     "outputs": [
         {
-            "id": "#output_hic",
             "outputBinding": {
                 "glob": "*.hic"
             },
             "type": [
                 "null",
                 "File"
+            ],
+            "id": "#output_hic"
+        }
+    ],
+    "sbg:contributors": [
+        "4dn-dcic"
+    ],
+    "sbg:project": "4dn-dcic/dev",
+    "inputs": [
+        {
+            "sbg:fileTypes": ".PAIRS.GZ",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 1,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_pairs"
+        },
+        {
+            "sbg:fileTypes": ".CHROM.SIZES",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chromsizes_file"
+        },
+        {
+            "sbg:toolDefaultValue": "out",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 3,
+                "separate": true
+            },
+            "id": "#output_prefix",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 4,
+                "separate": true
+            },
+            "sbg:toolDefaultValue": "5000",
+            "type": [
+                "null",
+                "int"
+            ],
+            "sbg:stageInput": null,
+            "id": "#min_res"
+        },
+        {
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 5,
+                "separate": true
+            },
+            "sbg:toolDefaultValue": "1",
+            "type": [
+                "null",
+                "string"
+            ],
+            "sbg:stageInput": null,
+            "id": "#higlass"
+        },
+        {
+            "sbg:toolDefaultValue": "14g",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 6,
+                "separate": true
+            },
+            "id": "#maxmem",
+            "type": [
+                "null",
+                "string"
             ]
         }
     ],
-    "description": "",
-    "sbg:createdOn": 1496168605,
+    "sbg:id": "4dn-dcic/dev/pairs2hic/15",
+    "label": "pairs2hic",
+    "sbg:modifiedOn": 1501780759,
+    "sbg:sbgMaintained": false,
     "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 58000
-        },
         "inputs": {
-            "min_res": 4,
-            "higlass": "higlass-string-value",
             "chromsizes_file": {
-                "size": 0,
-                "class": "File",
+                "path": "/path/to/chromsizes_file.ext",
                 "secondaryFiles": [],
-                "path": "/path/to/chromsizes_file.ext"
+                "size": 0,
+                "class": "File"
             },
-            "maxmem": "maxmem-string-value",
+            "output_prefix": "output_prefix-string-value",
+            "higlass": "higlass-string-value",
             "input_pairs": {
-                "size": 0,
-                "class": "File",
+                "path": "/path/to/input_pairs.ext",
                 "secondaryFiles": [],
-                "path": "/path/to/input_pairs.ext"
+                "size": 0,
+                "class": "File"
             },
-            "output_prefix": "output_prefix-string-value"
+            "min_res": 4,
+            "maxmem": "maxmem-string-value"
+        },
+        "allocatedResources": {
+            "mem": 58000,
+            "cpu": 1
         }
     },
-    "requirements": [],
-    "arguments": []
+    "temporaryFailCodes": [],
+    "cwlVersion": "sbg:draft-2",
+    "sbg:cmdPreview": "run-juicebox-pre.sh",
+    "sbg:createdBy": "4dn-dcic",
+    "class": "CommandLineTool",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:latestRevision": 15
 }

@@ -1,67 +1,67 @@
 {
+    "arguments": [],
     "baseCommand": [
         "run-fastqc.sh"
     ],
     "requirements": [],
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v32",
-            "class": "DockerRequirement"
-        }
-    ],
     "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
     "inputs": [
         {
             "type": [
                 "File"
             ],
-            "description": "Input file.",
             "inputBinding": {
                 "separate": true,
-                "position": 1,
-                "itemSeparator": null
+                "itemSeparator": null,
+                "position": 1
             },
-            "id": "#input_fastq"
+            "id": "#input_fastq",
+            "description": "Input file."
         },
         {
             "type": [
                 "null",
                 "int"
             ],
-            "default": 1,
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
             "inputBinding": {
                 "separate": true,
                 "position": 2
             },
-            "id": "#threads"
+            "id": "#threads",
+            "default": 1,
+            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine."
         },
         {
             "type": [
                 "null",
                 "string"
             ],
-            "default": ".",
-            "id": "#outdir",
             "inputBinding": {
                 "separate": true,
                 "position": 3
-            }
+            },
+            "id": "#outdir",
+            "default": "."
         }
     ],
-    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v32",
+            "class": "DockerRequirement"
+        }
+    ],
     "outputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
-            "description": "Zip archive of the report.",
-            "id": "#report_zip",
             "outputBinding": {
                 "glob": "*_fastqc.zip"
-            }
+            },
+            "id": "#report_zip",
+            "description": "Zip archive of the report."
         }
-    ]
+    ],
+    "class": "CommandLineTool"
 }
