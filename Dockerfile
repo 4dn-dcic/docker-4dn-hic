@@ -46,6 +46,7 @@ ENV PATH=/usr/local/bin/pairsqc/:$PATH
 ENV PATH=/usr/local/bin/juicer/CPU/:/usr/local/bin/juicer/CPU/common:$PATH
 ENV PATH=/usr/local/bin/hic2cool/:$PATH
 ENV PATH=/usr/local/bin/mcool2hic/:$PATH
+ENV PATH=/usr/local/bin/FastQC/:$PATH
 
 # supporting UTF-8
 ENV LC_ALL=C.UTF-8
