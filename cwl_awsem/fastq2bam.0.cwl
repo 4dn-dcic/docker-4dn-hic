@@ -1,93 +1,95 @@
 {
+    "arguments": [],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#input_fastq1",
             "type": [
                 "File"
             ],
             "inputBinding": {
-                "position": 2,
-                "separate": false
-            }
+                "separate": false,
+                "position": 2
+            },
+            "id": "#input_fastq1"
         },
         {
-            "id": "#input_fastq2",
             "type": [
                 "File"
             ],
             "inputBinding": {
-                "position": 3,
-                "separate": false
-            }
+                "separate": false,
+                "position": 3
+            },
+            "id": "#input_fastq2"
         },
         {
-            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
             ],
-            "default": ".",
+            "id": "#output_dir",
             "inputBinding": {
-                "position": 4,
-                "separate": false,
                 "valueFrom": {
-                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
                     "script": "$job.inputs.output_dir || '.'",
-                    "engine": "#cwl-js-engine"
-                }
-            }
+                    "class": "Expression"
+                },
+                "separate": false,
+                "position": 4
+            },
+            "default": "."
         },
         {
-            "id": "#bowtie_index",
             "type": [
                 "null",
                 "File"
             ],
             "inputBinding": {
-                "position": 1,
-                "separate": false
-            }
+                "separate": false,
+                "position": 1
+            },
+            "id": "#bowtie_index"
         }
+    ],
+    "baseCommand": [
+        "preprocessing.sh"
     ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
     "outputs": [
         {
-            "id": "#sorted_bam_pe",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
-            }
+            },
+            "id": "#sorted_bam_pe"
         },
         {
-            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair1.bam')"
-            }
+            },
+            "id": "#split_bam1"
         },
         {
-            "id": "#split_bam2",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair2.bam')"
-            }
+            },
+            "id": "#split_bam2"
         }
     ],
     "hints": [
@@ -95,7 +97,5 @@
             "dockerPull": "duplexa/hictool-fastq2bam:v3",
             "class": "DockerRequirement"
         }
-    ],
-    "class": "CommandLineTool",
-    "arguments": []
+    ]
 }

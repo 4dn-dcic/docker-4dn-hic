@@ -1,26 +1,12 @@
 {
-    "class": "CommandLineTool",
-    "arguments": [],
     "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-cooler.sh"
+    ],
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v31",
             "class": "DockerRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_cool",
-            "outputBinding": {
-                "glob": "*.cool"
-            }
         }
     ],
     "inputs": [
@@ -29,11 +15,11 @@
                 "null",
                 "File"
             ],
-            "id": "#pairs",
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            }
+            },
+            "id": "#pairs"
         },
         {
             "type": [
@@ -47,22 +33,22 @@
                 "null",
                 "File"
             ],
-            "id": "#chrsizes",
             "inputBinding": {
                 "separate": true,
                 "position": 2
-            }
+            },
+            "id": "#chrsizes"
         },
         {
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#binsize",
             "inputBinding": {
                 "separate": true,
                 "position": 3
-            }
+            },
+            "id": "#binsize"
         },
         {
             "type": [
@@ -70,11 +56,11 @@
                 "string"
             ],
             "default": "out",
-            "id": "#outprefix",
             "inputBinding": {
                 "separate": true,
                 "position": 5
-            }
+            },
+            "id": "#outprefix"
         },
         {
             "type": [
@@ -82,11 +68,11 @@
                 "int"
             ],
             "default": 8,
-            "id": "#ncores",
             "inputBinding": {
                 "separate": true,
                 "position": 4
-            }
+            },
+            "id": "#ncores"
         },
         {
             "type": [
@@ -94,12 +80,26 @@
                 "int"
             ],
             "default": 2,
-            "id": "#max_split",
             "inputBinding": {
                 "separate": true,
                 "position": 6
-            }
+            },
+            "id": "#max_split"
         }
     ],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.cool"
+            },
+            "id": "#out_cool"
+        }
+    ],
+    "class": "CommandLineTool",
+    "arguments": [],
     "requirements": []
 }

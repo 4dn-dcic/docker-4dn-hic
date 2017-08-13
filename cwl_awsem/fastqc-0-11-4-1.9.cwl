@@ -1,7 +1,8 @@
 {
-    "requirements": [],
     "steps": [
         {
+            "run": "fastqc-0-11-4.6.cwl",
+            "id": "#FastQC",
             "inputs": [
                 {
                     "source": "#threads",
@@ -15,8 +16,6 @@
                     "id": "#FastQC.input_fastq"
                 }
             ],
-            "run": "fastqc-0-11-4.6.cwl",
-            "id": "#FastQC",
             "outputs": [
                 {
                     "id": "#FastQC.report_zip"
@@ -32,8 +31,8 @@
                 "null",
                 "File"
             ],
-            "source": "#FastQC.report_zip",
-            "id": "#report_zip"
+            "id": "#report_zip",
+            "source": "#FastQC.report_zip"
         }
     ],
     "inputs": [
@@ -52,5 +51,6 @@
             "default": 1,
             "id": "#threads"
         }
-    ]
+    ],
+    "requirements": []
 }

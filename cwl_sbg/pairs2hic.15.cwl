@@ -1,270 +1,270 @@
 {
-    "description": "",
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ],
-    "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
-    "stdin": "",
-    "sbg:createdOn": 1496168605,
     "sbg:revisionsInfo": [
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496168605,
             "sbg:revision": 0,
-            "sbg:modifiedOn": 1496168605
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496168842,
             "sbg:revision": 1,
-            "sbg:modifiedOn": 1496168842
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496168924,
             "sbg:revision": 2,
-            "sbg:modifiedOn": 1496168924
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496172319,
             "sbg:revision": 3,
-            "sbg:modifiedOn": 1496172319
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496176108,
             "sbg:revision": 4,
-            "sbg:modifiedOn": 1496176108
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1496178546,
             "sbg:revision": 5,
-            "sbg:modifiedOn": 1496178546
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1500331857,
             "sbg:revision": 6,
-            "sbg:modifiedOn": 1500331857
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": "added java maxmem as parameter",
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501513062,
             "sbg:revision": 7,
-            "sbg:modifiedOn": 1501513062
+            "sbg:revisionNotes": "added java maxmem as parameter",
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501595773,
             "sbg:revision": 8,
-            "sbg:modifiedOn": 1501595773
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501605274,
             "sbg:revision": 9,
-            "sbg:modifiedOn": 1501605274
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501637382,
             "sbg:revision": 10,
-            "sbg:modifiedOn": 1501637382
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501689608,
             "sbg:revision": 11,
-            "sbg:modifiedOn": 1501689608
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501689663,
             "sbg:revision": 12,
-            "sbg:modifiedOn": 1501689663
-        },
-        {
             "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1501689805,
             "sbg:revision": 13,
-            "sbg:modifiedOn": 1501689805
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": "15GB mem",
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501707253,
             "sbg:revision": 14,
-            "sbg:modifiedOn": 1501707253
+            "sbg:revisionNotes": "15GB mem",
+            "sbg:modifiedBy": "4dn-dcic"
         },
         {
-            "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
-            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1501780759,
             "sbg:revision": 15,
-            "sbg:modifiedOn": 1501780759
+            "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+            "sbg:modifiedBy": "4dn-dcic"
         }
     ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/pairs2hic/15/raw/",
-    "sbg:validationErrors": [],
-    "stdout": "",
     "sbg:revision": 15,
-    "arguments": [],
-    "successCodes": [],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/pairs2hic/15/raw/",
     "requirements": [],
+    "sbg:validationErrors": [],
+    "class": "CommandLineTool",
     "sbg:projectName": "Dev",
-    "hints": [
-        {
-            "value": 1,
-            "diskSize": null,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 58000,
-            "diskSize": null,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "dockerImageId": "",
-            "class": "DockerRequirement",
-            "diskSize": null,
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:image_url": null,
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.hic"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_hic"
-        }
-    ],
-    "sbg:contributors": [
-        "4dn-dcic"
-    ],
-    "sbg:project": "4dn-dcic/dev",
+    "description": "",
+    "stdout": "",
+    "cwlVersion": "sbg:draft-2",
     "inputs": [
         {
             "sbg:fileTypes": ".PAIRS.GZ",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 1,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_pairs"
+            "id": "#input_pairs",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 1
+            }
         },
         {
             "sbg:fileTypes": ".CHROM.SIZES",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 2,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#chromsizes_file"
-        },
-        {
-            "sbg:toolDefaultValue": "out",
+            "id": "#chromsizes_file",
             "inputBinding": {
                 "sbg:cmdInclude": true,
-                "position": 3,
-                "separate": true
-            },
+                "separate": true,
+                "position": 2
+            }
+        },
+        {
             "id": "#output_prefix",
             "type": [
                 "null",
                 "string"
-            ]
-        },
-        {
+            ],
+            "sbg:toolDefaultValue": "out",
             "inputBinding": {
                 "sbg:cmdInclude": true,
-                "position": 4,
-                "separate": true
-            },
-            "sbg:toolDefaultValue": "5000",
+                "separate": true,
+                "position": 3
+            }
+        },
+        {
+            "id": "#min_res",
             "type": [
                 "null",
                 "int"
             ],
             "sbg:stageInput": null,
-            "id": "#min_res"
-        },
-        {
             "inputBinding": {
                 "sbg:cmdInclude": true,
-                "position": 5,
-                "separate": true
+                "separate": true,
+                "position": 4
             },
-            "sbg:toolDefaultValue": "1",
+            "sbg:toolDefaultValue": "5000"
+        },
+        {
+            "id": "#higlass",
             "type": [
                 "null",
                 "string"
             ],
             "sbg:stageInput": null,
-            "id": "#higlass"
-        },
-        {
-            "sbg:toolDefaultValue": "14g",
             "inputBinding": {
                 "sbg:cmdInclude": true,
-                "position": 6,
-                "separate": true
+                "separate": true,
+                "position": 5
             },
+            "sbg:toolDefaultValue": "1"
+        },
+        {
             "id": "#maxmem",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "sbg:toolDefaultValue": "14g",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 6
+            }
         }
     ],
-    "sbg:id": "4dn-dcic/dev/pairs2hic/15",
-    "label": "pairs2hic",
-    "sbg:modifiedOn": 1501780759,
-    "sbg:sbgMaintained": false,
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "temporaryFailCodes": [],
+    "sbg:revisionNotes": "modified from rev13. resource requirement : mem 58G, instance type requirement removed.",
+    "sbg:createdBy": "4dn-dcic",
+    "sbg:createdOn": 1496168605,
     "sbg:job": {
         "inputs": {
-            "chromsizes_file": {
-                "path": "/path/to/chromsizes_file.ext",
-                "secondaryFiles": [],
-                "size": 0,
-                "class": "File"
-            },
             "output_prefix": "output_prefix-string-value",
-            "higlass": "higlass-string-value",
-            "input_pairs": {
-                "path": "/path/to/input_pairs.ext",
+            "maxmem": "maxmem-string-value",
+            "chromsizes_file": {
                 "secondaryFiles": [],
-                "size": 0,
-                "class": "File"
+                "path": "/path/to/chromsizes_file.ext",
+                "class": "File",
+                "size": 0
             },
-            "min_res": 4,
-            "maxmem": "maxmem-string-value"
+            "input_pairs": {
+                "secondaryFiles": [],
+                "path": "/path/to/input_pairs.ext",
+                "class": "File",
+                "size": 0
+            },
+            "higlass": "higlass-string-value",
+            "min_res": 4
         },
         "allocatedResources": {
             "mem": 58000,
             "cpu": 1
         }
     },
-    "temporaryFailCodes": [],
-    "cwlVersion": "sbg:draft-2",
-    "sbg:cmdPreview": "run-juicebox-pre.sh",
-    "sbg:createdBy": "4dn-dcic",
-    "class": "CommandLineTool",
-    "sbg:appVersion": [
-        "sbg:draft-2"
+    "stdin": "",
+    "label": "pairs2hic",
+    "hints": [
+        {
+            "class": "sbg:CPURequirement",
+            "value": 1,
+            "diskSize": null
+        },
+        {
+            "class": "sbg:MemRequirement",
+            "value": 58000,
+            "diskSize": null
+        },
+        {
+            "dockerImageId": "",
+            "dockerPull": "duplexa/4dn-hic:v30",
+            "class": "DockerRequirement",
+            "diskSize": null
+        }
     ],
-    "sbg:latestRevision": 15
+    "sbg:cmdPreview": "run-juicebox-pre.sh",
+    "sbg:latestRevision": 15,
+    "sbg:modifiedOn": 1501780759,
+    "sbg:image_url": null,
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.hic"
+            },
+            "id": "#output_hic"
+        }
+    ],
+    "successCodes": [],
+    "sbg:contributors": [
+        "4dn-dcic"
+    ],
+    "sbg:id": "4dn-dcic/dev/pairs2hic/15",
+    "sbg:sbgMaintained": false,
+    "sbg:project": "4dn-dcic/dev",
+    "arguments": []
 }

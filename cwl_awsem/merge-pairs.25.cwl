@@ -1,70 +1,70 @@
 {
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "outputs": [
-        {
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            }
-        },
-        {
-            "id": "#output_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
-            }
-        }
-    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v26"
         }
     ],
+    "arguments": [],
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "inputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#outprefix",
-            "default": "out",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#outprefix",
+            "default": "out",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
         },
         {
-            "inputBinding": {
-                "itemSeparator": " ",
-                "separate": true,
-                "position": 2
-            },
-            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "items": "File",
-                    "type": "array"
+                    "type": "array",
+                    "items": "File"
                 }
-            ]
+            ],
+            "id": "#input_pairs",
+            "inputBinding": {
+                "itemSeparator": " ",
+                "position": 2,
+                "separate": true
+            }
         }
     ],
-    "arguments": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_pairs",
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_pairs_index",
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
+            }
+        }
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
-    ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3"
+    ]
 }

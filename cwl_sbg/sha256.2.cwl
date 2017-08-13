@@ -1,52 +1,38 @@
 {
-    "baseCommand": [
-        "run.sh"
-    ],
-    "sbg:sbgMaintained": false,
-    "sbg:projectName": "Dev",
+    "label": "sha256",
     "sbg:contributors": [
         "duplexa"
+    ],
+    "sbg:id": "4dn-dcic/dev/sha256/2",
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:createdOn": 1486182682,
+    "sbg:modifiedOn": 1486183166,
+    "sbg:projectName": "Dev",
+    "stdout": "",
+    "hints": [
+        {
+            "value": 1,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 1000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerPull": "duplexa/sha256:v1",
+            "dockerImageId": "",
+            "class": "DockerRequirement"
+        }
     ],
     "sbg:appVersion": [
         "sbg:draft-2"
     ],
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revision": 0,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1486182682,
-            "sbg:revisionNotes": null
-        },
-        {
-            "sbg:revision": 1,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1486182872,
-            "sbg:revisionNotes": null
-        },
-        {
-            "sbg:revision": 2,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1486183166,
-            "sbg:revisionNotes": null
-        }
-    ],
-    "sbg:image_url": null,
-    "sbg:id": "4dn-dcic/dev/sha256/2",
-    "arguments": [],
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file",
-            "inputBinding": {
-                "separate": true,
-                "sbg:cmdInclude": true,
-                "position": 1
-            }
-        }
-    ],
+    "temporaryFailCodes": [],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
+    "sbg:sbgMaintained": false,
+    "successCodes": [],
+    "description": "",
+    "cwlVersion": "sbg:draft-2",
     "outputs": [
         {
             "type": [
@@ -60,52 +46,66 @@
             }
         }
     ],
-    "sbg:job": {
-        "inputs": {
-            "input_file": {
-                "path": "/path/to/input.ext",
-                "class": "File",
-                "size": 0,
-                "secondaryFiles": []
-            }
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedOn": 1486182682,
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0
         },
+        {
+            "sbg:modifiedOn": 1486182872,
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1
+        },
+        {
+            "sbg:modifiedOn": 1486183166,
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2
+        }
+    ],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": true,
+                "sbg:cmdInclude": true
+            },
+            "id": "#input_file"
+        }
+    ],
+    "sbg:job": {
         "allocatedResources": {
             "mem": 1000,
             "cpu": 1
+        },
+        "inputs": {
+            "input_file": {
+                "secondaryFiles": [],
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/input.ext"
+            }
         }
     },
-    "cwlVersion": "sbg:draft-2",
-    "sbg:modifiedOn": 1486183166,
-    "label": "sha256",
-    "temporaryFailCodes": [],
-    "sbg:revision": 2,
-    "sbg:latestRevision": 2,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
-    "successCodes": [],
-    "sbg:createdOn": 1486182682,
-    "sbg:modifiedBy": "duplexa",
-    "requirements": [],
+    "sbg:image_url": null,
     "sbg:validationErrors": [],
-    "sbg:cmdPreview": "run.sh",
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 1
-        },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 1000
-        },
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sha256:v1",
-            "dockerImageId": ""
-        }
-    ],
+    "requirements": [],
+    "sbg:modifiedBy": "duplexa",
     "class": "CommandLineTool",
-    "description": "",
-    "sbg:project": "4dn-dcic/dev",
-    "stdout": "",
     "sbg:createdBy": "duplexa",
-    "stdin": ""
+    "stdin": "",
+    "arguments": [],
+    "sbg:cmdPreview": "run.sh",
+    "sbg:latestRevision": 2,
+    "baseCommand": [
+        "run.sh"
+    ],
+    "sbg:revision": 2
 }
