@@ -1,3 +1,9 @@
+### v33
+* run-add-hicnormvector-to-mcool.sh can take other file extensions than .mcool for input.
+
+### v32
+* fastqc 0.11.5 is added
+
 ### v31
 * pairix 0.2.2 (fixed old_merged_nodup2pairs.pl -s option)
 * `time` is installed (`/usr/bin/time` can be used to benchmark runtime and maxmem)
