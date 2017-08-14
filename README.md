@@ -21,6 +21,8 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-addfrag2pairs.sh](#run-addfrag2pairssh)
   * [run-juicebox-pre.sh](#run-juicebox-presh)
   * [run-juicer.sh](#run-juicersh)
+  * [run-add-hicnormvector-to-mcool.sh](#run-add-hicnormvector-to-mcoolsh)
+  * [run-fastqc.sh](#run-fastqcsh)
 
 ## Cloning the repo
 ```
@@ -240,6 +242,34 @@ run-juicer.sh <input_fastq1> <input_fastq2> <bwaIndex> <reference_genome_fasta> 
 # chromsize_file : a chromsize file
 # restriction_enzyme_site_file : juicer-formatted restriction enzyme site file, each line containing a chromosome name followed by all the positions of the specific restriction enzyme sites on that chromosome, space-delimited.
 # ncores : number of threads to use
+# outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
+```
+
+### run-add-hicnormvector-to-mcool.sh
+Adds a normalization vector from a hic file to an mcool file.
+* Input: a .hic file and an .mcool file
+* Output: an .mcool file that contains an additional normalization vector.
+
+#### Usage
+Run the following in the container
+```
+run-add-hicnormvector-to-mcool.sh <input_hic> <input_mcool> <outdir>
+# input_hic : a hic file
+# input_mcool : an mcool file
+# outdir : output directory
+```
+
+### run-fastqc.sh
+Runs fastqc on a given fastq(.gz) file and produces a fastqc report.
+* Input: a fastq file (either gzipped or not)
+* Output: a fastqc report (data_report.zip)
+
+#### Usage
+Run the following in the container
+```
+run-fastqc.sh <input_fastq> <nthread> <outdir>
+# input_fastq : an input fastq file, either gzipped or not.
+# nthread : number of threads to use
 # outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
 ```
 
