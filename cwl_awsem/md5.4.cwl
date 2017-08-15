@@ -1,9 +1,31 @@
 {
+    "class": "CommandLineTool",
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "id": "#input_file"
+        }
+    ],
+    "arguments": [],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/md5:v1"
+            "dockerPull": "duplexa/md5:v1",
+            "class": "DockerRequirement"
         }
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": {
+        "class": "InlineJavascriptRequirement"
+    },
+    "baseCommand": [
+        "run.sh"
     ],
     "outputs": [
         {
@@ -16,27 +38,5 @@
                 "glob": "\"report\""
             }
         }
-    ],
-    "class": "CommandLineTool",
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
-    "cwlVersion": "draft-3",
-    "arguments": []
+    ]
 }

@@ -1,35 +1,45 @@
 {
     "outputs": [
         {
-            "id": "#sorted_bam_pe",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
             },
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#sorted_bam_pe"
         },
         {
-            "id": "#split_bam1",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair1.bam')"
             },
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#split_bam1"
         },
         {
-            "id": "#split_bam2",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair2.bam')"
             },
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#split_bam2"
         }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "preprocessing.sh"
     ],
     "inputs": [
         {
@@ -53,21 +63,21 @@
             }
         },
         {
+            "default": ".",
             "type": [
                 "null",
                 "string"
             ],
+            "id": "#output_dir",
             "inputBinding": {
-                "separate": false,
                 "valueFrom": {
-                    "engine": "#cwl-js-engine",
                     "class": "Expression",
+                    "engine": "#cwl-js-engine",
                     "script": "$job.inputs.output_dir || '.'"
                 },
+                "separate": false,
                 "position": 4
-            },
-            "id": "#output_dir",
-            "default": "."
+            }
         },
         {
             "type": [
@@ -81,21 +91,11 @@
             }
         }
     ],
-    "class": "CommandLineTool",
     "arguments": [],
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "hints": [
         {
-            "dockerPull": "duplexa/hictool-fastq2bam:v3",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ]
 }

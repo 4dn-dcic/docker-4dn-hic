@@ -1,4 +1,11 @@
 {
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2"
+        }
+    ],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "inputBinding": {
@@ -39,20 +46,20 @@
                 "position": 3,
                 "separate": false
             },
+            "default": 50000,
             "id": "#contact_matrix_binsize",
             "type": [
                 "int"
-            ],
-            "default": 50000
+            ]
         },
         {
             "inputBinding": {
-                "position": 5,
                 "separate": false,
+                "position": 5,
                 "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
                     "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'"
+                    "engine": "#cwl-js-engine"
                 }
             },
             "id": "#output_dir",
@@ -73,16 +80,6 @@
             ]
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2"
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "arguments": [],
     "outputs": [
         {
             "id": "#observed_contact_matrix",
@@ -135,11 +132,14 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool"
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": []
 }

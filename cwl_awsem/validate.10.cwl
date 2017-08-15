@@ -1,5 +1,11 @@
 {
+    "cwlVersion": "draft-3",
     "arguments": [],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "inputs": [
         {
             "type": [
@@ -16,37 +22,26 @@
             "type": [
                 "null",
                 {
-                    "name": "type",
+                    "type": "enum",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
                     ],
-                    "type": "enum"
+                    "name": "type"
                 }
             ],
+            "default": "fastq",
             "id": "#type",
             "inputBinding": {
+                "position": 2,
                 "valueFrom": {
                     "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "\"fastq\""
+                    "script": "\"fastq\"",
+                    "class": "Expression"
                 },
-                "position": 2,
                 "separate": true
-            },
-            "default": "fastq"
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh",
-        ""
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
+            }
         }
     ],
     "outputs": [
@@ -55,16 +50,21 @@
                 "null",
                 "File"
             ],
-            "id": "#report",
             "outputBinding": {
                 "glob": "\"report_validatefiles\""
-            }
+            },
+            "id": "#report"
         }
     ],
-    "cwlVersion": "draft-3",
-    "requirements": [
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
         }
-    ]
+    ],
+    "class": "CommandLineTool"
 }

@@ -1,20 +1,20 @@
 {
-    "cwlVersion": "draft-3",
     "class": "CommandLineTool",
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
+    "arguments": [],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "arguments": [],
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
+    ],
+    "baseCommand": [
+        "run-cooler.sh"
     ],
     "outputs": [
         {
@@ -33,20 +33,20 @@
             "secondaryFiles": [
                 "$(self.path + '.px2')"
             ],
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#pairs",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
+            "id": "#pairs"
         },
         {
             "inputBinding": {
-                "position": 2,
-                "separate": true
+                "separate": true,
+                "position": 2
             },
             "type": [
                 "null",
@@ -56,8 +56,8 @@
         },
         {
             "inputBinding": {
-                "position": 3,
-                "separate": true
+                "separate": true,
+                "position": 3
             },
             "type": [
                 "null",
@@ -68,8 +68,8 @@
         {
             "default": "out",
             "inputBinding": {
-                "position": 5,
-                "separate": true
+                "separate": true,
+                "position": 5
             },
             "type": [
                 "null",
@@ -80,8 +80,8 @@
         {
             "default": 8,
             "inputBinding": {
-                "position": 4,
-                "separate": true
+                "separate": true,
+                "position": 4
             },
             "type": [
                 "null",
@@ -92,8 +92,8 @@
         {
             "default": 2,
             "inputBinding": {
-                "position": 6,
-                "separate": true
+                "separate": true,
+                "position": 6
             },
             "type": [
                 "null",

@@ -1,7 +1,7 @@
 #!/bin/bash
 #python get_cwl.py -a hi-c-processing-parta -r 9 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-parta-juicer -r 5 -t $SBG_TOKEN
-python get_cwl.py -a hi-c-processing-partb -r 39 -t $SBG_TOKEN
+python get_cwl.py -a hi-c-processing-partb -r 40 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partc -r 6 -t $SBG_TOKEN
 python get_cwl.py -a sha256 -r 2 -t $SBG_TOKEN
 python get_cwl.py -a md5-validate -r 1 -t $SBG_TOKEN

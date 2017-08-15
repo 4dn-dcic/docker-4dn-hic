@@ -5,59 +5,59 @@
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "outputs": [
-        {
-            "id": "#output_pairs",
-            "secondaryFiles": [
-                ".px2"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
     "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "arguments": [],
     "inputs": [
         {
+            "default": "out",
             "id": "#outprefix",
             "inputBinding": {
-                "position": 1,
-                "separate": true
+                "separate": true,
+                "position": 1
             },
-            "default": "out",
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "id": "#input_pairs",
-            "inputBinding": {
-                "separate": true,
-                "itemSeparator": " ",
-                "position": 2
-            },
             "type": [
                 "null",
                 {
                     "items": "File",
                     "type": "array"
                 }
-            ]
+            ],
+            "inputBinding": {
+                "separate": true,
+                "itemSeparator": " ",
+                "position": 2
+            },
+            "id": "#input_pairs"
         }
-    ]
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            },
+            "secondaryFiles": [
+                ".px2"
+            ],
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_pairs"
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

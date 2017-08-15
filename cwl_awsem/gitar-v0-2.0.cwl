@@ -1,238 +1,110 @@
 {
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
-    "steps": [
-        {
-            "outputs": [
-                {
-                    "id": "#hictool_fastq2bam.split_bam2"
-                },
-                {
-                    "id": "#hictool_fastq2bam.split_bam1"
-                },
-                {
-                    "id": "#hictool_fastq2bam.sorted_bam_pe"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#hictool_fastq2bam.output_dir"
-                },
-                {
-                    "id": "#hictool_fastq2bam.input_fastq2",
-                    "source": "#input_fastq2"
-                },
-                {
-                    "id": "#hictool_fastq2bam.input_fastq1",
-                    "source": "#input_fastq1"
-                },
-                {
-                    "id": "#hictool_fastq2bam.bowtie_index",
-                    "source": "#bowtie_index"
-                }
-            ],
-            "id": "#hictool_fastq2bam",
-            "run": "fastq2bam.14.cwl"
-        },
-        {
-            "outputs": [
-                {
-                    "id": "#hictool_bam2hdf5.fend_object_hdf5"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.HiC_project_object_hdf5"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.HiC_distance_function_hdf5"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.HiC_data_object_hdf5"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#hictool_bam2hdf5.output_dir"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.input_bam2",
-                    "source": "#hictool_fastq2bam.split_bam2"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.input_bam1",
-                    "source": "#hictool_fastq2bam.split_bam1"
-                },
-                {
-                    "id": "#hictool_bam2hdf5.RE_bed",
-                    "source": "#RE_bed"
-                }
-            ],
-            "id": "#hictool_bam2hdf5",
-            "run": "bam2hdf5.4.cwl"
-        },
-        {
-            "outputs": [
-                {
-                    "id": "#hictool_hdf52matrix.observed_contact_matrix"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.normalized_fend_contact_matrix"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.normalized_enrich_contact_matrix"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.expected_fend_contact_matrix"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.expected_enrich_contact_matrix"
-                }
-            ],
-            "scatter": "#hictool_hdf52matrix.chromosome",
-            "inputs": [
-                {
-                    "id": "#hictool_hdf52matrix.output_dir"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.fend_object_hdf5",
-                    "source": "#hictool_bam2hdf5.fend_object_hdf5"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.contact_matrix_binsize",
-                    "source": "#contact_matrix_binsize"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.chromosome",
-                    "source": "#chromosome"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.chrlen_file",
-                    "source": "#chrlen_file"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.HiC_norm_binning_hdf5",
-                    "source": "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
-                },
-                {
-                    "id": "#hictool_hdf52matrix.HiC_data_object_hdf5",
-                    "source": "#hictool_bam2hdf5.HiC_data_object_hdf5"
-                }
-            ],
-            "id": "#hictool_hdf52matrix",
-            "run": "bam2matrix2.7.cwl"
-        }
-    ],
     "outputs": [
         {
+            "id": "#sorted_bam_pe",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#sorted_bam_pe",
             "source": "#hictool_fastq2bam.sorted_bam_pe"
         },
         {
+            "id": "#HiC_project_object_hdf5",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#HiC_project_object_hdf5",
             "source": "#hictool_bam2hdf5.HiC_project_object_hdf5"
         },
         {
+            "id": "#HiC_distance_function_hdf5",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#HiC_distance_function_hdf5",
             "source": "#hictool_bam2hdf5.HiC_distance_function_hdf5"
         },
         {
+            "id": "#normalized_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#normalized_fend_contact_matrix",
             "source": "#hictool_hdf52matrix.normalized_fend_contact_matrix"
         },
         {
+            "id": "#normalized_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#normalized_enrich_contact_matrix",
             "source": "#hictool_hdf52matrix.normalized_enrich_contact_matrix"
         },
         {
+            "id": "#expected_enrich_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#expected_enrich_contact_matrix",
             "source": "#hictool_hdf52matrix.expected_enrich_contact_matrix"
         },
         {
+            "id": "#split_bam2",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#split_bam2",
             "source": "#hictool_fastq2bam.split_bam2"
         },
         {
+            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#split_bam1",
             "source": "#hictool_fastq2bam.split_bam1"
         },
         {
+            "id": "#fend_object_hdf5",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#fend_object_hdf5",
             "source": "#hictool_bam2hdf5.fend_object_hdf5"
         },
         {
+            "id": "#HiC_norm_binning_hdf5",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#HiC_norm_binning_hdf5",
             "source": "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
         },
         {
+            "id": "#HiC_data_object_hdf5",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#HiC_data_object_hdf5",
             "source": "#hictool_bam2hdf5.HiC_data_object_hdf5"
         },
         {
+            "id": "#observed_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#observed_contact_matrix",
             "source": "#hictool_hdf52matrix.observed_contact_matrix"
         },
         {
+            "id": "#expected_fend_contact_matrix",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#expected_fend_contact_matrix",
             "source": "#hictool_hdf52matrix.expected_fend_contact_matrix"
         }
     ],
-    "class": "Workflow",
-    "cwlVersion": "draft-3",
     "inputs": [
         {
             "id": "#input_fastq2",
@@ -277,10 +149,138 @@
             "id": "#chromosome",
             "type": [
                 {
-                    "items": "string",
-                    "type": "array"
+                    "type": "array",
+                    "items": "string"
                 }
             ]
         }
-    ]
+    ],
+    "cwlVersion": "draft-3",
+    "steps": [
+        {
+            "id": "#hictool_fastq2bam",
+            "outputs": [
+                {
+                    "id": "#hictool_fastq2bam.split_bam2"
+                },
+                {
+                    "id": "#hictool_fastq2bam.split_bam1"
+                },
+                {
+                    "id": "#hictool_fastq2bam.sorted_bam_pe"
+                }
+            ],
+            "run": "fastq2bam.14.cwl",
+            "inputs": [
+                {
+                    "id": "#hictool_fastq2bam.output_dir"
+                },
+                {
+                    "id": "#hictool_fastq2bam.input_fastq2",
+                    "source": "#input_fastq2"
+                },
+                {
+                    "id": "#hictool_fastq2bam.input_fastq1",
+                    "source": "#input_fastq1"
+                },
+                {
+                    "id": "#hictool_fastq2bam.bowtie_index",
+                    "source": "#bowtie_index"
+                }
+            ]
+        },
+        {
+            "id": "#hictool_bam2hdf5",
+            "outputs": [
+                {
+                    "id": "#hictool_bam2hdf5.fend_object_hdf5"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.HiC_project_object_hdf5"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.HiC_distance_function_hdf5"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.HiC_data_object_hdf5"
+                }
+            ],
+            "run": "bam2hdf5.4.cwl",
+            "inputs": [
+                {
+                    "id": "#hictool_bam2hdf5.output_dir"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.input_bam2",
+                    "source": "#hictool_fastq2bam.split_bam2"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.input_bam1",
+                    "source": "#hictool_fastq2bam.split_bam1"
+                },
+                {
+                    "id": "#hictool_bam2hdf5.RE_bed",
+                    "source": "#RE_bed"
+                }
+            ]
+        },
+        {
+            "id": "#hictool_hdf52matrix",
+            "scatter": "#hictool_hdf52matrix.chromosome",
+            "outputs": [
+                {
+                    "id": "#hictool_hdf52matrix.observed_contact_matrix"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.normalized_fend_contact_matrix"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.normalized_enrich_contact_matrix"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.expected_fend_contact_matrix"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.expected_enrich_contact_matrix"
+                }
+            ],
+            "run": "bam2matrix2.7.cwl",
+            "inputs": [
+                {
+                    "id": "#hictool_hdf52matrix.output_dir"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.fend_object_hdf5",
+                    "source": "#hictool_bam2hdf5.fend_object_hdf5"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.contact_matrix_binsize",
+                    "source": "#contact_matrix_binsize"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.chromosome",
+                    "source": "#chromosome"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.chrlen_file",
+                    "source": "#chrlen_file"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.HiC_norm_binning_hdf5",
+                    "source": "#hictool_bam2hdf5.HiC_norm_binning_hdf5"
+                },
+                {
+                    "id": "#hictool_hdf52matrix.HiC_data_object_hdf5",
+                    "source": "#hictool_bam2hdf5.HiC_data_object_hdf5"
+                }
+            ]
+        }
+    ],
+    "class": "Workflow",
+    "requirements": {
+        "class": "InlineJavascriptRequirement"
+    }
 }
