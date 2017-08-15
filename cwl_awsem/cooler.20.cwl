@@ -1,14 +1,13 @@
 {
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
+    "requirements": [],
+    "class": "CommandLineTool",
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v31",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
+    "arguments": [],
     "inputs": [
         {
             "type": [
@@ -16,8 +15,11 @@
                 "File"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "secondaryFiles": [
+                    "$(inputs.pairs + '.px2')"
+                ],
+                "position": 1,
+                "separate": true
             },
             "id": "#pairs"
         },
@@ -26,16 +28,9 @@
                 "null",
                 "File"
             ],
-            "id": "#pairs_index"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
             "id": "#chrsizes"
         },
@@ -45,44 +40,44 @@
                 "int"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             },
             "id": "#binsize"
         },
         {
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            },
             "type": [
                 "null",
                 "string"
             ],
             "default": "out",
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            },
             "id": "#outprefix"
         },
         {
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
             "type": [
                 "null",
                 "int"
             ],
             "default": 8,
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            },
             "id": "#ncores"
         },
         {
+            "default": 2,
             "type": [
                 "null",
                 "int"
             ],
-            "default": 2,
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 6,
+                "separate": true
             },
             "id": "#max_split"
         }
@@ -99,7 +94,8 @@
             "id": "#out_cool"
         }
     ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "requirements": []
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run-cooler.sh"
+    ]
 }

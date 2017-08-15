@@ -1,78 +1,7 @@
 {
-    "class": "Workflow",
-    "cwlVersion": "draft-3",
     "requirements": [],
-    "inputs": [
-        {
-            "id": "#fastq1",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#fastq2",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#bwa_index",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#reference_fasta",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#restriction_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "default": 100,
-            "id": "#nsplit",
-            "type": [
-                "null",
-                "int"
-            ]
-        }
-    ],
-    "outputs": [
-        {
-            "id": "#out_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#juicer2pairs.out_pairs"
-        },
-        {
-            "id": "#out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#juicer2pairs.out_pairs_px"
-        }
-    ],
     "steps": [
         {
-            "id": "#juicer",
-            "run": "juicer.6.cwl",
             "inputs": [
                 {
                     "source": "#restriction_file",
@@ -106,11 +35,11 @@
                 {
                     "id": "#juicer.merged_nodups"
                 }
-            ]
+            ],
+            "run": "juicer.6.cwl",
+            "id": "#juicer"
         },
         {
-            "id": "#juicer2pairs",
-            "run": "juicer2pairs.1.cwl",
             "inputs": [
                 {
                     "id": "#juicer2pairs.outprefix"
@@ -135,6 +64,77 @@
                 {
                     "id": "#juicer2pairs.out_pairs"
                 }
+            ],
+            "run": "juicer2pairs.1.cwl",
+            "id": "#juicer2pairs"
+        }
+    ],
+    "outputs": [
+        {
+            "source": "#juicer2pairs.out_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs"
+        },
+        {
+            "source": "#juicer2pairs.out_pairs_px",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs_index"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "class": "Workflow",
+    "inputs": [
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#fastq1"
+        },
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#fastq2"
+        },
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#bwa_index"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrsizes"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#reference_fasta"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#restriction_file"
+        },
+        {
+            "default": 100,
+            "id": "#nsplit",
+            "type": [
+                "null",
+                "int"
             ]
         }
     ]

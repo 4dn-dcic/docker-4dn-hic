@@ -2,69 +2,62 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v26"
+            "dockerPull": "duplexa/4dn-hic:v33"
         }
-    ],
-    "arguments": [],
-    "baseCommand": [
-        "run-merge-pairs.sh"
     ],
     "inputs": [
         {
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#outprefix",
-            "default": "out",
             "inputBinding": {
                 "position": 1,
                 "separate": true
-            }
+            },
+            "default": "out"
         },
         {
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "type": "array",
-                    "items": "File"
+                    "items": "File",
+                    "type": "array"
                 }
             ],
-            "id": "#input_pairs",
             "inputBinding": {
-                "itemSeparator": " ",
                 "position": 2,
+                "itemSeparator": " ",
                 "separate": true
             }
         }
     ],
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "outputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_pairs",
             "outputBinding": {
+                "secondaryFiles": [
+                    "$job.inputs.outprefix + '.pairs.gz.px2'"
+                ],
                 "glob": "$(inputs.outprefix + '.pairs.gz')"
-            }
-        },
-        {
+            },
+            "id": "#output_pairs",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#output_pairs_index",
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz.px2')"
-            }
+            ]
         }
     ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
-    ]
+    ],
+    "cwlVersion": "draft-3",
+    "arguments": [],
+    "class": "CommandLineTool"
 }

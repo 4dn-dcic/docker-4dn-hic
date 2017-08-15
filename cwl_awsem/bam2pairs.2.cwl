@@ -5,35 +5,11 @@
             "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "class": "CommandLineTool",
     "baseCommand": [
         "run.sh"
     ],
-    "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "id": "#input_bam",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "id": "#out_prefix",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "default": "out",
-            "type": [
-                "null",
-                "string"
-            ]
-        }
-    ],
+    "arguments": [],
+    "requirements": [],
     "outputs": [
         {
             "outputBinding": {
@@ -56,6 +32,30 @@
             ]
         }
     ],
-    "arguments": [],
-    "requirements": []
+    "inputs": [
+        {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "type": [
+                "File"
+            ],
+            "id": "#input_bam"
+        },
+        {
+            "default": "out",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#out_prefix"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool"
 }

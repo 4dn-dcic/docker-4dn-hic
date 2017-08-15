@@ -23,6 +23,10 @@ def filter(input_json, key, input_json0):
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
                 if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey] and 'script' in input_json0[key][i][subkey]['glob']:
                     input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
+                if subkey == 'inputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
+                    for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
+                        if 'script' in scFl:
+                            input_json[key][i][subkey]['secondaryFiles'][j] = "$(" + scFl['script'].replace("$job.", "") + ")"
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
