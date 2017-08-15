@@ -1,29 +1,24 @@
 {
-    "cwlVersion": "draft-3",
-    "outputs": [
+    "class": "Workflow",
+    "inputs": [
         {
-            "id": "#report_zip",
-            "source": "#FastQC.report_zip",
+            "type": [
+                "File"
+            ],
+            "id": "#input_fastq"
+        },
+        {
             "type": [
                 "null",
-                "File"
-            ]
+                "int"
+            ],
+            "default": 1,
+            "id": "#threads",
+            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine."
         }
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "Workflow",
     "steps": [
         {
-            "id": "#FastQC",
-            "outputs": [
-                {
-                    "id": "#FastQC.report_zip"
-                }
-            ],
             "run": "fastqc-0-11-4.6.cwl",
             "inputs": [
                 {
@@ -37,24 +32,29 @@
                     "id": "#FastQC.input_fastq",
                     "source": "#input_fastq"
                 }
-            ]
+            ],
+            "outputs": [
+                {
+                    "id": "#FastQC.report_zip"
+                }
+            ],
+            "id": "#FastQC"
         }
     ],
-    "inputs": [
+    "cwlVersion": "draft-3",
+    "requirements": [
         {
-            "id": "#input_fastq",
-            "type": [
-                "File"
-            ]
-        },
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "outputs": [
         {
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
-            "id": "#threads",
-            "default": 1,
             "type": [
                 "null",
-                "int"
-            ]
+                "File"
+            ],
+            "id": "#report_zip",
+            "source": "#FastQC.report_zip"
         }
     ]
 }

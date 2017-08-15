@@ -1,118 +1,111 @@
 {
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#fastq1",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#fastq1"
         },
         {
-            "id": "#fastq2",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#fastq2"
         },
         {
-            "id": "#bwa_index",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#bwa_index"
         },
         {
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "id": "#reference_fasta",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#chrsizes"
         },
         {
-            "id": "#restriction_file",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#reference_fasta"
         },
         {
-            "default": 100,
-            "id": "#nsplit",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#restriction_file"
+        },
+        {
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "default": 100,
+            "id": "#nsplit"
         }
     ],
     "steps": [
         {
-            "id": "#juicer",
-            "run": "juicer.6.cwl",
             "inputs": [
                 {
-                    "id": "#juicer.restriction_file",
-                    "source": "#restriction_file"
+                    "source": "#restriction_file",
+                    "id": "#juicer.restriction_file"
                 },
                 {
-                    "id": "#juicer.reference_fasta",
-                    "source": "#reference_fasta"
+                    "source": "#reference_fasta",
+                    "id": "#juicer.reference_fasta"
                 },
                 {
                     "id": "#juicer.outdir"
                 },
                 {
-                    "id": "#juicer.input_fastq2",
-                    "source": "#fastq2"
+                    "source": "#fastq2",
+                    "id": "#juicer.input_fastq2"
                 },
                 {
-                    "id": "#juicer.input_fastq1",
-                    "source": "#fastq1"
+                    "source": "#fastq1",
+                    "id": "#juicer.input_fastq1"
                 },
                 {
-                    "id": "#juicer.chromsizes_file",
-                    "source": "#chrsizes"
+                    "source": "#chrsizes",
+                    "id": "#juicer.chromsizes_file"
                 },
                 {
-                    "id": "#juicer.bwaIndex",
-                    "source": "#bwa_index"
+                    "source": "#bwa_index",
+                    "id": "#juicer.bwaIndex"
                 }
             ],
+            "run": "juicer.6.cwl",
             "outputs": [
                 {
                     "id": "#juicer.merged_nodups"
                 }
-            ]
+            ],
+            "id": "#juicer"
         },
         {
-            "id": "#juicer2pairs",
-            "run": "juicer2pairs.1.cwl",
             "inputs": [
                 {
                     "id": "#juicer2pairs.outprefix"
                 },
                 {
-                    "id": "#juicer2pairs.nsplit",
-                    "source": "#nsplit"
+                    "source": "#nsplit",
+                    "id": "#juicer2pairs.nsplit"
                 },
                 {
-                    "id": "#juicer2pairs.input_merged_nodups",
-                    "source": "#juicer.merged_nodups"
+                    "source": "#juicer.merged_nodups",
+                    "id": "#juicer2pairs.input_merged_nodups"
                 },
                 {
-                    "id": "#juicer2pairs.chromsize",
-                    "source": "#chrsizes"
+                    "source": "#chrsizes",
+                    "id": "#juicer2pairs.chromsize"
                 }
             ],
+            "run": "juicer2pairs.1.cwl",
             "outputs": [
                 {
                     "id": "#juicer2pairs.out_pairs_px"
@@ -120,26 +113,33 @@
                 {
                     "id": "#juicer2pairs.out_pairs"
                 }
-            ]
+            ],
+            "id": "#juicer2pairs"
         }
     ],
     "class": "Workflow",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "outputs": [
         {
-            "id": "#out_pairs",
             "type": [
                 "null",
                 "File"
             ],
-            "source": "#juicer2pairs.out_pairs"
+            "source": "#juicer2pairs.out_pairs",
+            "id": "#out_pairs"
         },
         {
-            "id": "#out_pairs_index",
             "type": [
                 "null",
                 "File"
             ],
-            "source": "#juicer2pairs.out_pairs_px"
+            "source": "#juicer2pairs.out_pairs_px",
+            "id": "#out_pairs_index"
         }
-    ]
+    ],
+    "cwlVersion": "draft-3"
 }

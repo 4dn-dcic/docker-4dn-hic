@@ -1,10 +1,12 @@
 {
-    "cwlVersion": "draft-3",
-    "hints": [
+    "class": "CommandLineTool",
+    "requirements": [
         {
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
-            "class": "DockerRequirement"
+            "class": "InlineJavascriptRequirement"
         }
+    ],
+    "baseCommand": [
+        "run.sh"
     ],
     "outputs": [
         {
@@ -58,18 +60,16 @@
             "id": "#expected_enrich_contact_matrix"
         }
     ],
-    "baseCommand": [
-        "run.sh"
-    ],
+    "arguments": [],
     "inputs": [
         {
-            "type": [
-                "File"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 1
             },
+            "type": [
+                "File"
+            ],
             "id": "#HiC_norm_binning_hdf5"
         },
         {
@@ -87,59 +87,59 @@
             "id": "#fend_object_hdf5"
         },
         {
-            "type": [
-                "string"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 2
             },
+            "type": [
+                "string"
+            ],
             "id": "#chromosome"
         },
         {
-            "type": [
-                "int"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 3
             },
-            "id": "#contact_matrix_binsize",
-            "default": 50000
+            "type": [
+                "int"
+            ],
+            "default": 50000,
+            "id": "#contact_matrix_binsize"
         },
         {
+            "inputBinding": {
+                "separate": false,
+                "position": 5,
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir || '.'"
+                }
+            },
             "type": [
                 "null",
                 "string"
             ],
-            "inputBinding": {
-                "separate": false,
-                "valueFrom": {
-                    "class": "Expression",
-                    "script": "$job.inputs.output_dir || '.'",
-                    "engine": "#cwl-js-engine"
-                },
-                "position": 5
-            },
             "id": "#output_dir"
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 4
             },
+            "type": [
+                "null",
+                "File"
+            ],
             "id": "#chrlen_file"
         }
     ],
-    "class": "CommandLineTool",
-    "requirements": [
+    "cwlVersion": "draft-3",
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
         }
-    ],
-    "arguments": []
+    ]
 }

@@ -1,65 +1,65 @@
 {
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#input_bam"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out",
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
-            "id": "#out_prefix"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs",
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_pairs_index",
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            }
-        }
-    ],
     "arguments": [],
+    "class": "CommandLineTool",
     "hints": [
         {
             "dockerPull": "duplexa/bam2pairs:v1",
             "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run.sh"
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#out_pairs_index",
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        }
     ],
     "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_bam",
+            "type": [
+                "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#out_prefix",
+            "default": "out"
         }
     ]
 }

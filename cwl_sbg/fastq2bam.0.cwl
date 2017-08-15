@@ -1,203 +1,203 @@
 {
-    "sbg:modifiedBy": "duplexa",
+    "cwlVersion": "sbg:draft-2",
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "sbg:id": "4dn-dcic/dev/fastq2bam/0",
+    "sbg:latestRevision": 0,
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
     "requirements": [
         {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
             "requirements": [
                 {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
                 }
-            ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
+            ]
         }
     ],
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:image_url": null,
+    "class": "CommandLineTool",
+    "sbg:revisionsInfo": [
+        {
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1473274829,
+            "sbg:revisionNotes": "Copy of gaurav/4dn/fastq2bam/14",
+            "sbg:modifiedBy": "duplexa"
+        }
+    ],
+    "sbg:copyOf": "gaurav/4dn/fastq2bam/14",
     "label": "hictool-fastq2bam",
-    "sbg:createdBy": "duplexa",
-    "sbg:projectName": "Dev",
-    "sbg:revision": 0,
-    "description": "",
-    "sbg:createdOn": 1473274829,
-    "arguments": [],
+    "sbg:revisionNotes": "docker version 3. A sort step skipped.",
+    "sbg:job": {
+        "inputs": {
+            "output_dir": "output_dir",
+            "bowtie_index": {
+                "size": 0,
+                "path": "/path/to/bowtie_index.ext",
+                "class": "File",
+                "secondaryFiles": []
+            },
+            "input_fastq2": {
+                "size": 0,
+                "path": "/path/to/input_fastq2.fastq",
+                "class": "File",
+                "secondaryFiles": []
+            },
+            "input_fastq1": {
+                "size": 0,
+                "path": "/path/to/input_fastq1.fastq",
+                "class": "File",
+                "secondaryFiles": []
+            }
+        },
+        "allocatedResources": {
+            "cpu": 4,
+            "mem": 24000
+        }
+    },
+    "sbg:cmdPreview": "preprocessing.sh /path/to/input_fastq1.fastq /path/to/input_fastq2.fastq",
     "sbg:validationErrors": [],
+    "description": "",
+    "sbg:projectName": "Dev",
+    "sbg:createdOn": 1473274829,
+    "successCodes": [],
+    "outputs": [
+        {
+            "id": "#sorted_bam_pe",
+            "outputBinding": {
+                "glob": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#split_bam1",
+            "outputBinding": {
+                "glob": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_pair1.bam'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#split_bam2",
+            "outputBinding": {
+                "glob": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir + '/out_pair2.bam'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "hints": [
+        {
+            "value": 24000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/hictool-fastq2bam:v3",
+            "dockerImageId": ""
+        },
+        {
+            "value": 4,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": "i2.xlarge",
+            "class": "sbg:AWSInstanceType"
+        }
+    ],
+    "stdout": "",
+    "sbg:project": "4dn-dcic/dev",
+    "arguments": [],
+    "sbg:revision": 0,
+    "sbg:modifiedOn": 1473274829,
+    "temporaryFailCodes": [],
+    "sbg:createdBy": "duplexa",
+    "sbg:modifiedBy": "duplexa",
+    "stdin": "",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/fastq2bam/0/raw/",
+    "sbg:image_url": null,
     "inputs": [
         {
-            "sbg:fileTypes": "FASTQ, FQ",
-            "type": [
-                "File"
-            ],
             "inputBinding": {
                 "position": 2,
-                "sbg:cmdInclude": true,
-                "separate": false
+                "separate": false,
+                "sbg:cmdInclude": true
             },
-            "id": "#input_fastq1"
-        },
-        {
-            "sbg:fileTypes": "FASTQ, FQ",
+            "id": "#input_fastq1",
             "type": [
                 "File"
             ],
-            "inputBinding": {
-                "position": 3,
-                "sbg:cmdInclude": true,
-                "separate": false
-            },
-            "id": "#input_fastq2"
+            "sbg:fileTypes": "FASTQ, FQ"
         },
         {
-            "sbg:toolDefaultValue": ".",
+            "inputBinding": {
+                "position": 3,
+                "separate": false,
+                "sbg:cmdInclude": true
+            },
+            "id": "#input_fastq2",
+            "type": [
+                "File"
+            ],
+            "sbg:fileTypes": "FASTQ, FQ"
+        },
+        {
+            "inputBinding": {
+                "position": 4,
+                "separate": false,
+                "valueFrom": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir || '.'"
+                },
+                "sbg:cmdInclude": true
+            },
+            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
             ],
-            "inputBinding": {
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression"
-                },
-                "position": 4,
-                "sbg:cmdInclude": true,
-                "separate": false
-            },
-            "id": "#output_dir"
+            "sbg:toolDefaultValue": "."
         },
         {
-            "sbg:fileTypes": "TGZ",
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
                 "position": 1,
-                "sbg:cmdInclude": true,
-                "separate": false
+                "separate": false,
+                "sbg:cmdInclude": true
             },
-            "id": "#bowtie_index"
-        }
-    ],
-    "stdin": "",
-    "sbg:cmdPreview": "preprocessing.sh /path/to/input_fastq1.fastq /path/to/input_fastq2.fastq",
-    "sbg:latestRevision": 0,
-    "sbg:revisionsInfo": [
-        {
-            "sbg:modifiedOn": 1473274829,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": "Copy of gaurav/4dn/fastq2bam/14",
-            "sbg:revision": 0
-        }
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/fastq2bam/0/raw/",
-    "stdout": "",
-    "sbg:copyOf": "gaurav/4dn/fastq2bam/14",
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
-    "sbg:modifiedOn": 1473274829,
-    "cwlVersion": "sbg:draft-2",
-    "class": "CommandLineTool",
-    "temporaryFailCodes": [],
-    "sbg:revisionNotes": "docker version 3. A sort step skipped.",
-    "hints": [
-        {
-            "class": "sbg:MemRequirement",
-            "value": 24000
-        },
-        {
-            "dockerPull": "duplexa/hictool-fastq2bam:v3",
-            "class": "DockerRequirement",
-            "dockerImageId": ""
-        },
-        {
-            "class": "sbg:CPURequirement",
-            "value": 4
-        },
-        {
-            "class": "sbg:AWSInstanceType",
-            "value": "i2.xlarge"
-        }
-    ],
-    "outputs": [
-        {
+            "id": "#bowtie_index",
             "type": [
                 "null",
                 "File"
             ],
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/out_noDup.sort.bam'",
-                    "class": "Expression"
-                }
-            },
-            "id": "#sorted_bam_pe"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/out_pair1.bam'",
-                    "class": "Expression"
-                }
-            },
-            "id": "#split_bam1"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/out_pair2.bam'",
-                    "class": "Expression"
-                }
-            },
-            "id": "#split_bam2"
+            "sbg:fileTypes": "TGZ"
         }
     ],
-    "sbg:job": {
-        "allocatedResources": {
-            "mem": 24000,
-            "cpu": 4
-        },
-        "inputs": {
-            "bowtie_index": {
-                "size": 0,
-                "secondaryFiles": [],
-                "class": "File",
-                "path": "/path/to/bowtie_index.ext"
-            },
-            "output_dir": "output_dir",
-            "input_fastq2": {
-                "size": 0,
-                "secondaryFiles": [],
-                "class": "File",
-                "path": "/path/to/input_fastq2.fastq"
-            },
-            "input_fastq1": {
-                "size": 0,
-                "secondaryFiles": [],
-                "class": "File",
-                "path": "/path/to/input_fastq1.fastq"
-            }
-        }
-    },
-    "sbg:sbgMaintained": false,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "successCodes": [],
-    "sbg:id": "4dn-dcic/dev/fastq2bam/0",
-    "sbg:contributors": [
-        "duplexa"
-    ]
+    "sbg:sbgMaintained": false
 }

@@ -1,56 +1,31 @@
 {
-    "sbg:modifiedOn": 1486183166,
-    "sbg:createdOn": 1486182682,
-    "stdout": "",
-    "sbg:revisionsInfo": [
-        {
-            "sbg:modifiedOn": 1486182682,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 0
-        },
-        {
-            "sbg:modifiedOn": 1486182872,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 1
-        },
-        {
-            "sbg:modifiedOn": 1486183166,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 2
-        }
+    "successCodes": [],
+    "sbg:modifiedBy": "duplexa",
+    "baseCommand": [
+        "run.sh"
     ],
-    "inputs": [
+    "temporaryFailCodes": [],
+    "cwlVersion": "sbg:draft-2",
+    "description": "",
+    "outputs": [
         {
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": true,
-                "position": 1
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_file"
+            "outputBinding": {
+                "glob": "\"report\"",
+                "loadContents": true
+            },
+            "id": "#report"
         }
     ],
-    "description": "",
+    "sbg:project": "4dn-dcic/dev",
     "requirements": [],
-    "stdin": "",
-    "sbg:appVersion": [
-        "sbg:draft-2"
+    "sbg:revision": 2,
+    "sbg:contributors": [
+        "duplexa"
     ],
-    "sbg:sbgMaintained": false,
-    "arguments": [],
-    "label": "sha256",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:latestRevision": 2,
-    "sbg:cmdPreview": "run.sh",
-    "sbg:createdBy": "duplexa",
-    "successCodes": [],
-    "sbg:id": "4dn-dcic/dev/sha256/2",
     "hints": [
         {
             "value": 1,
@@ -66,46 +41,71 @@
             "dockerPull": "duplexa/sha256:v1"
         }
     ],
-    "sbg:modifiedBy": "duplexa",
-    "sbg:image_url": null,
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
-    "temporaryFailCodes": [],
-    "outputs": [
+    "inputs": [
         {
-            "outputBinding": {
-                "glob": "\"report\"",
-                "loadContents": true
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#report"
+            "inputBinding": {
+                "position": 1,
+                "sbg:cmdInclude": true,
+                "separate": true
+            },
+            "id": "#input_file"
         }
     ],
-    "sbg:revision": 2,
-    "sbg:project": "4dn-dcic/dev",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
+    "label": "sha256",
+    "sbg:sbgMaintained": false,
+    "sbg:createdOn": 1486182682,
+    "sbg:image_url": null,
     "sbg:projectName": "Dev",
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 1000
+    "sbg:latestRevision": 2,
+    "sbg:modifiedOn": 1486183166,
+    "sbg:revisionsInfo": [
+        {
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1486182682,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
         },
+        {
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1486182872,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1486183166,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "duplexa"
+        }
+    ],
+    "stdin": "",
+    "class": "CommandLineTool",
+    "stdout": "",
+    "arguments": [],
+    "sbg:cmdPreview": "run.sh",
+    "sbg:id": "4dn-dcic/dev/sha256/2",
+    "sbg:createdBy": "duplexa",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:validationErrors": [],
+    "sbg:job": {
         "inputs": {
             "input_file": {
-                "class": "File",
-                "size": 0,
                 "path": "/path/to/input.ext",
-                "secondaryFiles": []
+                "secondaryFiles": [],
+                "size": 0,
+                "class": "File"
             }
+        },
+        "allocatedResources": {
+            "mem": 1000,
+            "cpu": 1
         }
-    },
-    "class": "CommandLineTool",
-    "sbg:validationErrors": [],
-    "baseCommand": [
-        "run.sh"
-    ]
+    }
 }

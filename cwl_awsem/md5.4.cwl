@@ -1,26 +1,24 @@
 {
     "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh"
+    ],
     "outputs": [
         {
             "outputBinding": {
                 "glob": "\"report\""
             },
+            "id": "#report",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#report"
+            ]
         }
     ],
-    "cwlVersion": "draft-3",
-    "hints": [
+    "requirements": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/md5:v1"
+            "class": "InlineJavascriptRequirement"
         }
-    ],
-    "baseCommand": [
-        "run.sh"
     ],
     "inputs": [
         {
@@ -35,10 +33,12 @@
             ]
         }
     ],
-    "requirements": [
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/md5:v1"
         }
     ],
-    "arguments": []
+    "arguments": [],
+    "cwlVersion": "draft-3"
 }

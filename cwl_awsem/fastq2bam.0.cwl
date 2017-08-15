@@ -1,53 +1,43 @@
 {
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
-    "arguments": [],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-fastq2bam:v3"
+            "dockerPull": "duplexa/hictool-fastq2bam:v3",
+            "class": "DockerRequirement"
         }
     ],
     "outputs": [
         {
             "id": "#sorted_bam_pe",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
-            }
+            ]
         },
         {
             "id": "#split_bam1",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_pair1.bam')"
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_pair1.bam')"
-            }
+            ]
         },
         {
             "id": "#split_bam2",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_pair2.bam')"
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_pair2.bam')"
-            }
+            ]
         }
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
+    "arguments": [],
     "inputs": [
         {
             "id": "#input_fastq1",
@@ -73,18 +63,18 @@
             "id": "#output_dir",
             "inputBinding": {
                 "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
                     "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "$job.inputs.output_dir || '.'"
+                    "class": "Expression"
                 },
                 "position": 4,
                 "separate": false
             },
+            "default": ".",
             "type": [
                 "null",
                 "string"
-            ],
-            "default": "."
+            ]
         },
         {
             "id": "#bowtie_index",
@@ -97,5 +87,15 @@
                 "File"
             ]
         }
+    ],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "baseCommand": [
+        "preprocessing.sh"
     ]
 }

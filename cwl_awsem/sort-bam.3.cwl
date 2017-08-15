@@ -1,55 +1,27 @@
 {
-    "arguments": [],
+    "class": "CommandLineTool",
     "inputs": [
         {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "id": "#input_bam",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_bam",
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            }
+            ]
         },
         {
+            "default": "out",
+            "id": "#prefix",
             "type": [
                 "null",
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
-            "id": "#prefix",
-            "default": "out"
-        }
-    ],
-    "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam",
-            "outputBinding": {
-                "glob": "*.sorted.bam"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index",
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
+                "position": 2,
+                "separate": true
             }
         }
     ],
@@ -60,7 +32,35 @@
         }
     ],
     "cwlVersion": "draft-3",
+    "arguments": [],
     "baseCommand": [
         "run.sh"
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "outputs": [
+        {
+            "id": "#out_sorted_bam",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.sorted.bam"
+            }
+        },
+        {
+            "id": "#out_sorted_bam_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.sorted.bam.bai"
+            }
+        }
     ]
 }

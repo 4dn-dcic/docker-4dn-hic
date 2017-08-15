@@ -1,40 +1,50 @@
 {
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "arguments": [],
     "inputs": [
         {
+            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
             "type": [
                 "null",
                 "string"
             ],
-            "default": "out",
             "id": "#outprefix"
         },
         {
             "inputBinding": {
-                "separate": true,
                 "position": 2,
+                "separate": true,
                 "itemSeparator": " "
             },
-            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "type": "array",
-                    "items": "File"
+                    "items": "File",
+                    "type": "array"
                 }
-            ]
+            ],
+            "id": "#input_pairs"
         }
     ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "arguments": [],
     "outputs": [
         {
             "secondaryFiles": [
@@ -44,20 +54,10 @@
                 "null",
                 "File"
             ],
+            "id": "#output_pairs",
             "outputBinding": {
                 "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
-            "id": "#output_pairs"
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
+            }
         }
     ]
 }

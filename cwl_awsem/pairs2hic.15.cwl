@@ -1,11 +1,4 @@
 {
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
-    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
@@ -13,91 +6,98 @@
     ],
     "inputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_pairs"
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            },
+            "id": "#chromsizes_file",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#chromsizes_file"
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            },
+            "id": "#output_prefix",
             "type": [
                 "null",
                 "string"
             ],
-            "default": "out",
-            "id": "#output_prefix"
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "default": "out"
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            },
+            "id": "#min_res",
             "type": [
                 "null",
                 "int"
             ],
-            "default": 5000,
-            "id": "#min_res"
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
+            "default": 5000
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            },
+            "id": "#higlass",
             "type": [
                 "null",
                 "string"
             ],
-            "default": "1",
-            "id": "#higlass"
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            },
+            "default": "1"
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 6
-            },
+            "id": "#maxmem",
             "type": [
                 "null",
                 "string"
             ],
-            "default": "14g",
-            "id": "#maxmem"
+            "inputBinding": {
+                "position": 6,
+                "separate": true
+            },
+            "default": "14g"
         }
-    ],
-    "baseCommand": [
-        "run-juicebox-pre.sh"
     ],
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "*.hic"
-            },
+            "id": "#output_hic",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#output_hic"
+            "outputBinding": {
+                "glob": "*.hic"
+            }
         }
     ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v30"
+        }
+    ],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
     "arguments": [],
-    "class": "CommandLineTool"
+    "cwlVersion": "draft-3"
 }
