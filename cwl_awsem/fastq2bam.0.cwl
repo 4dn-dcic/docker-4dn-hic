@@ -1,47 +1,36 @@
 {
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-fastq2bam:v3"
-        }
-    ],
     "outputs": [
         {
+            "id": "#sorted_bam_pe",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
             },
-            "id": "#sorted_bam_pe",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
+            "id": "#split_bam1",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair1.bam')"
             },
-            "id": "#split_bam1",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
+            "id": "#split_bam2",
             "outputBinding": {
                 "glob": "$(inputs.output_dir + '/out_pair2.bam')"
             },
-            "id": "#split_bam2",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "arguments": [],
-    "baseCommand": [
-        "preprocessing.sh"
-    ],
-    "class": "CommandLineTool",
     "inputs": [
         {
             "type": [
@@ -49,8 +38,8 @@
             ],
             "id": "#input_fastq1",
             "inputBinding": {
-                "position": 2,
-                "separate": false
+                "separate": false,
+                "position": 2
             }
         },
         {
@@ -59,8 +48,8 @@
             ],
             "id": "#input_fastq2",
             "inputBinding": {
-                "position": 3,
-                "separate": false
+                "separate": false,
+                "position": 3
             }
         },
         {
@@ -68,16 +57,16 @@
                 "null",
                 "string"
             ],
-            "id": "#output_dir",
             "inputBinding": {
-                "position": 4,
+                "separate": false,
                 "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
+                    "engine": "#cwl-js-engine",
                     "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "script": "$job.inputs.output_dir || '.'"
                 },
-                "separate": false
+                "position": 4
             },
+            "id": "#output_dir",
             "default": "."
         },
         {
@@ -87,15 +76,26 @@
             ],
             "id": "#bowtie_index",
             "inputBinding": {
-                "position": 1,
-                "separate": false
+                "separate": false,
+                "position": 1
             }
         }
     ],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "draft-3"
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-fastq2bam:v3",
+            "class": "DockerRequirement"
+        }
+    ]
 }

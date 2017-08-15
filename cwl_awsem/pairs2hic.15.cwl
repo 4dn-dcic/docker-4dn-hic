@@ -1,14 +1,78 @@
 {
-    "outputs": [
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
+    "class": "CommandLineTool",
+    "inputs": [
         {
-            "outputBinding": {
-                "glob": "*.hic"
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#output_hic"
+            "id": "#input_pairs",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chromsizes_file",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "id": "#output_prefix",
+            "default": "out"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
+            "id": "#min_res",
+            "default": 5000
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            },
+            "id": "#higlass",
+            "default": "1"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 6,
+                "separate": true
+            },
+            "id": "#maxmem",
+            "default": "14g"
         }
     ],
     "hints": [
@@ -17,83 +81,21 @@
             "class": "DockerRequirement"
         }
     ],
-    "inputs": [
+    "cwlVersion": "draft-3",
+    "requirements": {
+        "class": "InlineJavascriptRequirement"
+    },
+    "outputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_pairs"
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
+            "outputBinding": {
+                "glob": "*.hic"
             },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#chromsizes_file"
-        },
-        {
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
-            "id": "#output_prefix",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out"
-        },
-        {
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "default": 5000,
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#min_res"
-        },
-        {
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
-            "default": "1",
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#higlass"
-        },
-        {
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "id": "#maxmem",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "14g"
+            "id": "#output_hic"
         }
     ],
-    "requirements": [],
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ],
-    "class": "CommandLineTool"
+    "arguments": []
 }

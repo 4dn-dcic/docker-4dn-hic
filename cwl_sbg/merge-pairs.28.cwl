@@ -1,145 +1,97 @@
 {
-    "sbg:projectName": "Dev",
-    "inputs": [
-        {
-            "id": "#outprefix",
-            "sbg:toolDefaultValue": "out",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                {
-                    "items": "File",
-                    "type": "array"
-                }
-            ],
-            "sbg:stageInput": "copy",
-            "sbg:fileTypes": "PAIRS.GZ",
-            "inputBinding": {
-                "itemSeparator": " ",
-                "sbg:cmdInclude": true,
-                "position": 2,
-                "separate": true
-            }
-        }
-    ],
     "cwlVersion": "sbg:draft-2",
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 4000
-        },
-        "inputs": {
-            "outprefix": "outprefix-string-value",
-            "input_pairs": [
-                {
-                    "path": "/path/to/input_pairs-1.ext",
-                    "size": 0,
-                    "class": "File",
-                    "secondaryFiles": []
-                },
-                {
-                    "path": "/path/to/input_pairs-2.ext",
-                    "size": 0,
-                    "class": "File",
-                    "secondaryFiles": []
-                }
-            ]
-        }
-    },
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "label": "merge-pairs",
-    "sbg:sbgMaintained": false,
-    "outputs": [
-        {
-            "id": "#output_pairs",
-            "sbg:fileTypes": "PAIRS.GZ",
-            "outputBinding": {
-                "secondaryFiles": [
-                    "$job.inputs.outprefix + '.pairs.gz.px2'"
-                ],
-                "glob": {
-                    "script": "$job.inputs.outprefix + '.pairs.gz'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                }
-            },
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "sbg:id": "4dn-dcic/dev/merge-pairs/27",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/merge-pairs/27/raw/",
-    "sbg:links": [],
-    "hints": [
-        {
-            "value": 1,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 4000,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "class": "DockerRequirement",
-            "dockerImageId": "",
-            "dockerPull": "duplexa/4dn-hic:v33"
-        },
-        {
-            "value": "",
-            "class": "ExpressionEngineRequirement"
-        }
-    ],
-    "sbg:modifiedOn": 1502830223,
-    "requirements": [
-        {
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ]
-        }
-    ],
+    "sbg:id": "4dn-dcic/dev/merge-pairs/28",
     "sbg:contributors": [
         "4dn-dcic",
         "duplexa"
     ],
-    "stdout": "",
-    "class": "CommandLineTool",
     "sbg:image_url": null,
-    "description": "",
-    "sbg:createdBy": "duplexa",
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:cmdPreview": "run-merge-pairs.sh",
-    "successCodes": [],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/merge-pairs/28/raw/",
+    "class": "CommandLineTool",
     "sbg:modifiedBy": "4dn-dcic",
-    "sbg:appVersion": [
-        "sbg:draft-2"
+    "inputs": [
+        {
+            "sbg:toolDefaultValue": "out",
+            "inputBinding": {
+                "separate": true,
+                "position": 1,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#outprefix"
+        },
+        {
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "File"
+                }
+            ],
+            "inputBinding": {
+                "itemSeparator": " ",
+                "separate": true,
+                "position": 2,
+                "sbg:cmdInclude": true
+            },
+            "sbg:fileTypes": "PAIRS.GZ",
+            "id": "#input_pairs",
+            "sbg:stageInput": "copy"
+        }
     ],
     "sbg:validationErrors": [],
+    "stdin": "",
+    "sbg:sbgMaintained": false,
+    "sbg:job": {
+        "allocatedResources": {
+            "mem": 4000,
+            "cpu": 1
+        },
+        "inputs": {
+            "input_pairs": [
+                {
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": [],
+                    "path": "/path/to/input_pairs-1.ext"
+                },
+                {
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": [],
+                    "path": "/path/to/input_pairs-2.ext"
+                }
+            ],
+            "outprefix": "outprefix-string-value"
+        }
+    },
+    "successCodes": [],
     "temporaryFailCodes": [],
+    "label": "merge-pairs",
+    "sbg:modifiedOn": 1502834121,
+    "sbg:revision": 28,
+    "sbg:revisionNotes": "output secondary file now just '.px2'",
     "sbg:createdOn": 1479143121,
-    "sbg:latestRevision": 27,
-    "sbg:revision": 27,
-    "arguments": [],
-    "sbg:revisionNotes": "modified expression for secondary output file for pairs index",
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ]
+        }
+    ],
+    "sbg:cmdPreview": "run-merge-pairs.sh",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "description": "",
     "sbg:revisionsInfo": [
         {
             "sbg:revision": 0,
@@ -308,7 +260,61 @@
             "sbg:modifiedBy": "4dn-dcic",
             "sbg:modifiedOn": 1502830223,
             "sbg:revisionNotes": "modified expression for secondary output file for pairs index"
+        },
+        {
+            "sbg:revision": 28,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:modifiedOn": 1502834121,
+            "sbg:revisionNotes": "output secondary file now just '.px2'"
         }
     ],
-    "stdin": ""
+    "sbg:projectName": "Dev",
+    "sbg:latestRevision": 28,
+    "sbg:createdBy": "duplexa",
+    "hints": [
+        {
+            "class": "sbg:CPURequirement",
+            "value": 1
+        },
+        {
+            "class": "sbg:MemRequirement",
+            "value": 4000
+        },
+        {
+            "dockerPull": "duplexa/4dn-hic:v33",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
+        },
+        {
+            "class": "ExpressionEngineRequirement",
+            "value": ""
+        }
+    ],
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "stdout": "",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "sbg:fileTypes": "PAIRS.GZ",
+            "id": "#output_pairs",
+            "outputBinding": {
+                "secondaryFiles": [
+                    ".px2"
+                ],
+                "glob": {
+                    "class": "Expression",
+                    "script": "$job.inputs.outprefix + '.pairs.gz'",
+                    "engine": "#cwl-js-engine"
+                }
+            }
+        }
+    ],
+    "sbg:links": [],
+    "arguments": []
 }

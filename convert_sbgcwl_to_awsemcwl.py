@@ -24,9 +24,16 @@ def filter(input_json, key, input_json0):
                 if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey] and 'script' in input_json0[key][i][subkey]['glob']:
                     input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
                 if subkey == 'inputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
+                    input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
+                    del input_json[key][i][subkey]['secondaryFiles']
                     for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
                         if 'script' in scFl:
-                            input_json[key][i][subkey]['secondaryFiles'][j] = "$(" + scFl['script'].replace("$job.", "") + ")"
+                            input_json[key][i]['secondaryFiles'][j] = "$(" + scFl['script'].replace("$job.", "") + ")"
+                if subkey == 'outputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
+                    input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
+                    del input_json[key][i][subkey]['secondaryFiles']
+                    for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
+                        input_json[key][i]['secondaryFiles'][j] = scFl.replace("$job.", "") 
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
@@ -99,6 +106,9 @@ def run_convert(input_cwl, output_cwl):
                     app = input_json0[key][i]['run']['sbg:id'].split('/')[2:4]
                     app.extend(["cwl"])
                     input_json[key][i]['run'] = '.'.join(app)
+
+    if len(input_json['requirements']) == 0:
+        input_json['requirements']={'class': 'InlineJavascriptRequirement' }
 
 
     with open(output_cwl, 'w') as fo:

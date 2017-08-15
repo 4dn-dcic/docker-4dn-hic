@@ -1,58 +1,52 @@
 {
     "arguments": [],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
-        }
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run.sh",
-        ""
-    ],
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
     "inputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#input_file",
             "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#input_file"
+                "position": 1,
+                "separate": true
+            }
         },
         {
             "type": [
                 "null",
                 {
-                    "type": "enum",
                     "name": "type",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
-                    ]
+                    ],
+                    "type": "enum"
                 }
             ],
+            "id": "#type",
             "inputBinding": {
                 "valueFrom": {
-                    "script": "\"fastq\"",
+                    "engine": "#cwl-js-engine",
                     "class": "Expression",
-                    "engine": "#cwl-js-engine"
+                    "script": "\"fastq\""
                 },
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
-            "default": "fastq",
-            "id": "#type"
+            "default": "fastq"
+        }
+    ],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
     "outputs": [
@@ -65,6 +59,12 @@
             "outputBinding": {
                 "glob": "\"report_validatefiles\""
             }
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
         }
     ]
 }
