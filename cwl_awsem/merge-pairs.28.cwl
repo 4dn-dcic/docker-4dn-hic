@@ -5,11 +5,9 @@
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "class": "CommandLineTool",
+    "arguments": [],
     "inputs": [
         {
-            "default": "out",
-            "id": "#outprefix",
             "inputBinding": {
                 "separate": true,
                 "position": 1
@@ -17,38 +15,28 @@
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "default": "out",
+            "id": "#outprefix"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 2,
+                "itemSeparator": " "
+            },
+            "id": "#input_pairs",
             "type": [
                 "null",
                 {
-                    "items": "File",
-                    "type": "array"
+                    "type": "array",
+                    "items": "File"
                 }
-            ],
-            "inputBinding": {
-                "separate": true,
-                "itemSeparator": " ",
-                "position": 2
-            },
-            "id": "#input_pairs"
+            ]
         }
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "arguments": [],
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
             "secondaryFiles": [
                 ".px2"
             ],
@@ -56,8 +44,20 @@
                 "null",
                 "File"
             ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            },
             "id": "#output_pairs"
         }
     ],
-    "cwlVersion": "draft-3"
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ]
 }

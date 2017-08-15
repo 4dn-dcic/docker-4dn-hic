@@ -1,5 +1,95 @@
 {
-    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "steps": [
+        {
+            "run": "pairs2hic.15.cwl",
+            "inputs": [
+                {
+                    "id": "#pairs2hic.output_prefix"
+                },
+                {
+                    "source": "#min_res",
+                    "id": "#pairs2hic.min_res"
+                },
+                {
+                    "source": "#maxmem",
+                    "id": "#pairs2hic.maxmem"
+                },
+                {
+                    "source": "#merge_pairs.output_pairs",
+                    "id": "#pairs2hic.input_pairs"
+                },
+                {
+                    "id": "#pairs2hic.higlass"
+                },
+                {
+                    "source": "#chrsizes",
+                    "id": "#pairs2hic.chromsizes_file"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#pairs2hic.output_hic"
+                }
+            ],
+            "id": "#pairs2hic"
+        },
+        {
+            "run": "merge-pairs.28.cwl",
+            "inputs": [
+                {
+                    "id": "#merge_pairs.outprefix"
+                },
+                {
+                    "source": "#input_pairs",
+                    "id": "#merge_pairs.input_pairs"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#merge_pairs.output_pairs"
+                }
+            ],
+            "id": "#merge_pairs"
+        },
+        {
+            "run": "cooler.21.cwl",
+            "inputs": [
+                {
+                    "source": "#merge_pairs.output_pairs",
+                    "id": "#cooler.pairs"
+                },
+                {
+                    "source": "#chrsizes",
+                    "id": "#cooler.chrsizes"
+                },
+                {
+                    "source": "#binsize",
+                    "id": "#cooler.binsize"
+                },
+                {
+                    "id": "#cooler.outprefix"
+                },
+                {
+                    "source": "#ncores",
+                    "id": "#cooler.ncores"
+                },
+                {
+                    "id": "#cooler.max_split"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "#cooler.out_cool"
+                }
+            ],
+            "id": "#cooler"
+        }
+    ],
     "inputs": [
         {
             "id": "#chrsizes",
@@ -13,129 +103,45 @@
             "type": [
                 "null",
                 {
-                    "type": "array",
-                    "items": "File"
+                    "items": "File",
+                    "type": "array"
                 }
             ]
         },
         {
             "default": 5000,
-            "id": "#min_res",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#min_res"
         },
         {
             "default": "14g",
-            "id": "#maxmem",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#maxmem"
         },
         {
             "default": 8,
-            "id": "#ncores",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         },
         {
-            "id": "#binsize",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#binsize"
         }
     ],
-    "steps": [
-        {
-            "id": "#pairs2hic",
-            "outputs": [
-                {
-                    "id": "#pairs2hic.output_hic"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#pairs2hic.output_prefix"
-                },
-                {
-                    "id": "#pairs2hic.min_res",
-                    "source": "#min_res"
-                },
-                {
-                    "id": "#pairs2hic.maxmem",
-                    "source": "#maxmem"
-                },
-                {
-                    "id": "#pairs2hic.input_pairs",
-                    "source": "#merge_pairs.output_pairs"
-                },
-                {
-                    "id": "#pairs2hic.higlass"
-                },
-                {
-                    "id": "#pairs2hic.chromsizes_file",
-                    "source": "#chrsizes"
-                }
-            ],
-            "run": "pairs2hic.15.cwl"
-        },
-        {
-            "id": "#merge_pairs",
-            "outputs": [
-                {
-                    "id": "#merge_pairs.output_pairs"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#merge_pairs.outprefix"
-                },
-                {
-                    "id": "#merge_pairs.input_pairs",
-                    "source": "#input_pairs"
-                }
-            ],
-            "run": "merge-pairs.28.cwl"
-        },
-        {
-            "id": "#cooler",
-            "outputs": [
-                {
-                    "id": "#cooler.out_cool"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#cooler.pairs",
-                    "source": "#merge_pairs.output_pairs"
-                },
-                {
-                    "id": "#cooler.chrsizes",
-                    "source": "#chrsizes"
-                },
-                {
-                    "id": "#cooler.binsize",
-                    "source": "#binsize"
-                },
-                {
-                    "id": "#cooler.outprefix"
-                },
-                {
-                    "id": "#cooler.ncores",
-                    "source": "#ncores"
-                },
-                {
-                    "id": "#cooler.max_split"
-                }
-            ],
-            "run": "cooler.21.cwl"
-        }
-    ],
+    "class": "Workflow",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#output_pairs_index",
@@ -145,32 +151,28 @@
             ]
         },
         {
-            "id": "#output_pairs",
+            "source": "#merge_pairs.output_pairs",
             "type": [
                 "null",
                 "File"
             ],
-            "source": "#merge_pairs.output_pairs"
+            "id": "#output_pairs"
         },
         {
+            "source": "#cooler.out_cool",
             "id": "#out_cool",
             "type": [
                 "null",
                 "File"
-            ],
-            "source": "#cooler.out_cool"
+            ]
         },
         {
+            "source": "#pairs2hic.output_hic",
             "id": "#output_hic",
             "type": [
                 "null",
                 "File"
-            ],
-            "source": "#pairs2hic.output_hic"
+            ]
         }
-    ],
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
-    "class": "Workflow"
+    ]
 }

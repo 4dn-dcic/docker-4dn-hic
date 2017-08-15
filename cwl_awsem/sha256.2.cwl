@@ -1,43 +1,45 @@
 {
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh"
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/sha256:v1"
+        }
     ],
     "outputs": [
         {
-            "id": "#report",
             "outputBinding": {
-                "loadContents": true,
-                "glob": "\"report\""
+                "glob": "\"report\"",
+                "loadContents": true
             },
+            "id": "#report",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
-    "arguments": [],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "inputBinding": {
-                "position": 1,
-                "separate": true
+                "separate": true,
+                "position": 1
             },
+            "id": "#input_file",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_file"
+            ]
         }
     ],
-    "hints": [
+    "arguments": [],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "class": "CommandLineTool",
+    "requirements": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sha256:v1"
+            "class": "InlineJavascriptRequirement"
         }
     ]
 }

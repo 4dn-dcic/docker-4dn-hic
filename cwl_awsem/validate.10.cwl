@@ -1,24 +1,29 @@
 {
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "inputs": [
         {
+            "id": "#input_file",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_file",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
+            ]
         },
         {
+            "id": "#type",
+            "inputBinding": {
+                "separate": true,
+                "valueFrom": {
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine",
+                    "script": "\"fastq\""
+                },
+                "position": 2
+            },
             "type": [
                 "null",
                 {
@@ -31,29 +36,25 @@
                     "name": "type"
                 }
             ],
-            "default": "fastq",
-            "id": "#type",
-            "inputBinding": {
-                "position": 2,
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "\"fastq\"",
-                    "class": "Expression"
-                },
-                "separate": true
-            }
+            "default": "fastq"
         }
     ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
+            "id": "#report",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "\"report_validatefiles\""
-            },
-            "id": "#report"
+            }
         }
     ],
     "baseCommand": [
@@ -62,9 +63,8 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/validatefiles:v1",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/validatefiles:v1"
         }
-    ],
-    "class": "CommandLineTool"
+    ]
 }

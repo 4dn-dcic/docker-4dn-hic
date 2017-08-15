@@ -108,7 +108,7 @@ def run_convert(input_cwl, output_cwl):
                     input_json[key][i]['run'] = '.'.join(app)
 
     if len(input_json['requirements']) == 0:
-        input_json['requirements']={'class': 'InlineJavascriptRequirement' }
+        input_json['requirements']=[{'class': 'InlineJavascriptRequirement' }]
 
 
     with open(output_cwl, 'w') as fo:

@@ -1,32 +1,45 @@
 {
+    "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "id": "#report_zip",
+            "source": "#FastQC.report_zip",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "class": "Workflow",
     "steps": [
         {
-            "run": "fastqc-0-11-4.6.cwl",
             "id": "#FastQC",
+            "outputs": [
+                {
+                    "id": "#FastQC.report_zip"
+                }
+            ],
+            "run": "fastqc-0-11-4.6.cwl",
             "inputs": [
                 {
-                    "source": "#threads",
-                    "id": "#FastQC.threads"
+                    "id": "#FastQC.threads",
+                    "source": "#threads"
                 },
                 {
                     "id": "#FastQC.outdir"
                 },
                 {
-                    "source": "#input_fastq",
-                    "id": "#FastQC.input_fastq"
-                }
-            ],
-            "outputs": [
-                {
-                    "id": "#FastQC.report_zip"
+                    "id": "#FastQC.input_fastq",
+                    "source": "#input_fastq"
                 }
             ]
         }
     ],
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
     "inputs": [
         {
             "id": "#input_fastq",
@@ -41,17 +54,6 @@
             "type": [
                 "null",
                 "int"
-            ]
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "source": "#FastQC.report_zip",
-            "id": "#report_zip",
-            "type": [
-                "null",
-                "File"
             ]
         }
     ]

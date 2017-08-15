@@ -1,63 +1,65 @@
 {
-    "class": "CommandLineTool",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/bam2pairs:v1"
-        }
-    ],
     "inputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "type": [
                 "File"
             ],
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "id": "#input_bam"
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
             "type": [
                 "null",
                 "string"
             ],
             "default": "out",
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
             "id": "#out_prefix"
         }
     ],
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "requirements": {
-        "class": "InlineJavascriptRequirement"
-    },
     "outputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_pairs",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz"
-            },
-            "id": "#out_pairs"
+            }
         },
         {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_pairs_index",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "id": "#out_pairs_index"
+            }
         }
     ],
-    "cwlVersion": "draft-3"
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/bam2pairs:v1",
+            "class": "DockerRequirement"
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ]
 }
