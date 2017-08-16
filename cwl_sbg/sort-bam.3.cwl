@@ -1,155 +1,155 @@
 {
-    "sbg:projectName": "Dev",
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revision": 0,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1478224605,
-            "sbg:revisionNotes": null
+    "sbg:job": {
+        "inputs": {
+            "prefix": "prefix-string-value",
+            "input_bam": {
+                "path": "/path/to/input_bam.ext",
+                "class": "File",
+                "size": 0,
+                "secondaryFiles": []
+            }
         },
-        {
-            "sbg:revision": 1,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1478224740,
-            "sbg:revisionNotes": null
-        },
-        {
-            "sbg:revision": 2,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1478224969,
-            "sbg:revisionNotes": null
-        },
-        {
-            "sbg:revision": 3,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1478225129,
-            "sbg:revisionNotes": null
-        },
-        {
-            "sbg:revision": 4,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1488524436,
-            "sbg:revisionNotes": "now using 4dn-hic docker image"
-        },
-        {
-            "sbg:revision": 5,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:modifiedOn": 1490717033,
-            "sbg:revisionNotes": null
+        "allocatedResources": {
+            "mem": 4000,
+            "cpu": 2
         }
+    },
+    "cwlVersion": "sbg:draft-2",
+    "baseCommand": [
+        "run.sh"
     ],
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "label": "sort-bam",
-    "sbg:createdBy": "duplexa",
-    "successCodes": [],
-    "sbg:cmdPreview": "run.sh",
     "hints": [
         {
-            "value": 2,
-            "class": "sbg:CPURequirement"
+            "class": "sbg:CPURequirement",
+            "value": 2
         },
         {
-            "value": 4000,
-            "class": "sbg:MemRequirement"
+            "class": "sbg:MemRequirement",
+            "value": 4000
         },
         {
+            "dockerImageId": "",
             "dockerPull": "duplexa/sort-bam:v1",
-            "class": "DockerRequirement",
-            "dockerImageId": ""
+            "class": "DockerRequirement"
         }
     ],
-    "sbg:id": "4dn-dcic/dev/sort-bam/3",
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
+    "sbg:createdOn": 1478224605,
+    "temporaryFailCodes": [],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sort-bam/3/raw/",
     "arguments": [],
-    "sbg:validationErrors": [],
+    "label": "sort-bam",
+    "sbg:revision": 3,
+    "sbg:createdBy": "duplexa",
+    "stdin": "",
+    "sbg:modifiedBy": "duplexa",
     "outputs": [
         {
-            "sbg:fileTypes": "BAM",
             "id": "#out_sorted_bam",
             "outputBinding": {
                 "glob": "*.sorted.bam"
             },
+            "sbg:fileTypes": "BAM",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
-            "sbg:fileTypes": "BAI",
             "id": "#out_sorted_bam_index",
             "outputBinding": {
                 "glob": "*.sorted.bam.bai"
             },
+            "sbg:fileTypes": "BAI",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
-    "requirements": [],
-    "stdout": "",
-    "baseCommand": [
-        "run.sh"
+    "sbg:sbgMaintained": false,
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:modifiedOn": 1478225129,
+    "sbg:contributors": [
+        "duplexa"
     ],
-    "sbg:revision": 3,
-    "sbg:latestRevision": 5,
+    "sbg:image_url": null,
+    "class": "CommandLineTool",
+    "sbg:validationErrors": [],
+    "sbg:projectName": "Dev",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "requirements": [],
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1478224605
+        },
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1478224740
+        },
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1478224969
+        },
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 3,
+            "sbg:modifiedOn": 1478225129
+        },
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": "now using 4dn-hic docker image",
+            "sbg:revision": 4,
+            "sbg:modifiedOn": 1488524436
+        },
+        {
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 5,
+            "sbg:modifiedOn": 1490717033
+        }
+    ],
+    "stdout": "",
+    "successCodes": [],
     "inputs": [
         {
-            "sbg:fileTypes": "BAM",
             "id": "#input_bam",
             "type": [
                 "null",
                 "File"
             ],
+            "sbg:fileTypes": "BAM",
             "inputBinding": {
-                "separate": true,
+                "position": 1,
                 "sbg:cmdInclude": true,
-                "position": 1
+                "separate": true
             }
         },
         {
             "id": "#prefix",
-            "sbg:toolDefaultValue": "out",
             "type": [
                 "null",
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
+                "position": 2,
                 "sbg:cmdInclude": true,
-                "position": 2
-            }
+                "separate": true
+            },
+            "sbg:toolDefaultValue": "out"
         }
     ],
-    "sbg:project": "4dn-dcic/dev",
-    "temporaryFailCodes": [],
-    "sbg:job": {
-        "allocatedResources": {
-            "mem": 4000,
-            "cpu": 2
-        },
-        "inputs": {
-            "prefix": "prefix-string-value",
-            "input_bam": {
-                "secondaryFiles": [],
-                "size": 0,
-                "class": "File",
-                "path": "/path/to/input_bam.ext"
-            }
-        }
-    },
-    "class": "CommandLineTool",
-    "sbg:createdOn": 1478224605,
-    "sbg:modifiedOn": 1478225129,
-    "cwlVersion": "sbg:draft-2",
-    "sbg:sbgMaintained": false,
-    "sbg:image_url": null,
-    "stdin": "",
+    "sbg:id": "4dn-dcic/dev/sort-bam/3",
+    "sbg:latestRevision": 5,
     "description": "Produces a coordinate-sorted bam file and its index, using samtools 1.2.",
-    "sbg:modifiedBy": "duplexa",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sort-bam/3/raw/"
+    "sbg:cmdPreview": "run.sh"
 }

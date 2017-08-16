@@ -1,101 +1,63 @@
 {
-    "sbg:revisionsInfo": [
+    "class": "CommandLineTool",
+    "sbg:createdBy": "duplexa",
+    "successCodes": [],
+    "stdout": "",
+    "label": "validatefiles",
+    "sbg:validationErrors": [],
+    "sbg:modifiedOn": 1480981592,
+    "requirements": [
         {
-            "sbg:modifiedOn": 1476287593,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 0
-        },
-        {
-            "sbg:modifiedOn": 1476287940,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": "first revision",
-            "sbg:revision": 1
-        },
-        {
-            "sbg:modifiedOn": 1479853127,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 2
-        },
-        {
-            "sbg:modifiedOn": 1479853200,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 3
-        },
-        {
-            "sbg:modifiedOn": 1479853246,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 4
-        },
-        {
-            "sbg:modifiedOn": 1480958676,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": "added validate_on switch.",
-            "sbg:revision": 5
-        },
-        {
-            "sbg:modifiedOn": 1480958776,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 6
-        },
-        {
-            "sbg:modifiedOn": 1480958819,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 7
-        },
-        {
-            "sbg:modifiedOn": 1480958939,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 8
-        },
-        {
-            "sbg:modifiedOn": 1480981348,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": null,
-            "sbg:revision": 9
-        },
-        {
-            "sbg:modifiedOn": 1480981592,
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revisionNotes": "changed report name to 'report_validatefiles'",
-            "sbg:revision": 10
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ]
         }
     ],
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "stdout": "",
-    "sbg:validationErrors": [],
+    "sbg:revision": 10,
+    "sbg:projectName": "Dev",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/validate/10/raw/",
+    "sbg:latestRevision": 10,
+    "sbg:createdOn": 1476287593,
+    "arguments": [],
+    "sbg:project": "4dn-dcic/dev",
     "sbg:job": {
-        "inputs": {
-            "type": "fastq",
-            "input_file": {
-                "size": 0,
-                "secondaryFiles": [],
-                "path": "/path/to/input_file.ext",
-                "class": "File"
-            }
-        },
         "allocatedResources": {
             "cpu": 1,
             "mem": 500
+        },
+        "inputs": {
+            "input_file": {
+                "class": "File",
+                "path": "/path/to/input_file.ext",
+                "size": 0,
+                "secondaryFiles": []
+            },
+            "type": "fastq"
         }
     },
-    "sbg:projectName": "Dev",
+    "sbg:id": "4dn-dcic/dev/validate/10",
+    "stdin": "",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "temporaryFailCodes": [],
     "hints": [
         {
-            "value": 1,
-            "class": "sbg:CPURequirement"
+            "class": "sbg:CPURequirement",
+            "value": 1
         },
         {
-            "value": 500,
-            "class": "sbg:MemRequirement"
+            "class": "sbg:MemRequirement",
+            "value": 500
         },
         {
             "class": "DockerRequirement",
@@ -103,97 +65,135 @@
             "dockerImageId": ""
         }
     ],
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "description": "",
+    "sbg:modifiedBy": "duplexa",
+    "sbg:cmdPreview": "run.sh",
+    "sbg:revisionsInfo": [
+        {
+            "sbg:revision": 0,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1476287593,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 1,
+            "sbg:revisionNotes": "first revision",
+            "sbg:modifiedOn": 1476287940,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 2,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479853127,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 3,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479853200,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 4,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479853246,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 5,
+            "sbg:revisionNotes": "added validate_on switch.",
+            "sbg:modifiedOn": 1480958676,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 6,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1480958776,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 7,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1480958819,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 8,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1480958939,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 9,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1480981348,
+            "sbg:modifiedBy": "duplexa"
+        },
+        {
+            "sbg:revision": 10,
+            "sbg:revisionNotes": "changed report name to 'report_validatefiles'",
+            "sbg:modifiedOn": 1480981592,
+            "sbg:modifiedBy": "duplexa"
+        }
+    ],
     "inputs": [
         {
+            "id": "#input_file",
+            "inputBinding": {
+                "separate": true,
+                "position": 1,
+                "sbg:cmdInclude": true
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": true,
-                "position": 1
-            },
-            "id": "#input_file",
             "sbg:fileTypes": "FASTQ, FQ, FASTQ.GZ, FQ.GZ"
         },
         {
+            "id": "#type",
+            "sbg:toolDefaultValue": "fastq",
             "type": [
                 "null",
                 {
                     "type": "enum",
-                    "name": "type",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
-                    ]
+                    ],
+                    "name": "type"
                 }
             ],
             "inputBinding": {
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "\"fastq\"",
-                    "class": "Expression"
-                },
-                "sbg:cmdInclude": true,
                 "separate": true,
-                "position": 2
-            },
-            "id": "#type",
-            "sbg:toolDefaultValue": "fastq"
+                "valueFrom": {
+                    "class": "Expression",
+                    "script": "\"fastq\"",
+                    "engine": "#cwl-js-engine"
+                },
+                "position": 2,
+                "sbg:cmdInclude": true
+            }
         }
     ],
-    "sbg:modifiedOn": 1480981592,
-    "sbg:createdOn": 1476287593,
-    "sbg:project": "4dn-dcic/dev",
     "cwlVersion": "sbg:draft-2",
-    "sbg:revision": 10,
-    "sbg:id": "4dn-dcic/dev/validate/10",
-    "sbg:latestRevision": 10,
-    "sbg:createdBy": "duplexa",
-    "sbg:revisionNotes": "changed report name to 'report_validatefiles'",
     "outputs": [
         {
+            "id": "#report",
             "outputBinding": {
                 "glob": "\"report_validatefiles\""
             },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#report"
+            ]
         }
     ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/validate/10/raw/",
-    "temporaryFailCodes": [],
-    "label": "validatefiles",
-    "sbg:cmdPreview": "run.sh",
     "sbg:image_url": null,
-    "successCodes": [],
-    "baseCommand": [
-        "run.sh",
-        ""
-    ],
-    "arguments": [],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "stdin": "",
-    "sbg:sbgMaintained": false,
-    "class": "CommandLineTool",
-    "sbg:modifiedBy": "duplexa",
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement"
-        }
-    ],
-    "description": ""
+    "sbg:revisionNotes": "changed report name to 'report_validatefiles'",
+    "sbg:sbgMaintained": false
 }

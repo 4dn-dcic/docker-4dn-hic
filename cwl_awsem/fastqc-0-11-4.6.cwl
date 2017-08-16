@@ -4,8 +4,19 @@
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool",
-    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*_fastqc.zip"
+            },
+            "description": "Zip archive of the report.",
+            "id": "#report_zip",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
     "baseCommand": [
         "run-fastqc.sh"
     ],
@@ -13,9 +24,9 @@
         {
             "description": "Input file.",
             "inputBinding": {
+                "itemSeparator": null,
                 "position": 1,
-                "separate": true,
-                "itemSeparator": null
+                "separate": true
             },
             "id": "#input_fastq",
             "type": [
@@ -24,6 +35,7 @@
         },
         {
             "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
+            "default": 1,
             "inputBinding": {
                 "position": 2,
                 "separate": true
@@ -32,10 +44,10 @@
             "type": [
                 "null",
                 "int"
-            ],
-            "default": 1
+            ]
         },
         {
+            "default": ".",
             "inputBinding": {
                 "position": 3,
                 "separate": true
@@ -44,28 +56,16 @@
             "type": [
                 "null",
                 "string"
-            ],
-            "default": "."
+            ]
         }
     ],
+    "arguments": [],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v32"
+            "dockerPull": "duplexa/4dn-hic:v32",
+            "class": "DockerRequirement"
         }
     ],
-    "outputs": [
-        {
-            "id": "#report_zip",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*_fastqc.zip"
-            },
-            "description": "Zip archive of the report."
-        }
-    ],
-    "cwlVersion": "draft-3"
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool"
 }

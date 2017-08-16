@@ -1,4 +1,28 @@
 {
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v33"
+        }
+    ],
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
+    "outputs": [
+        {
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.hic"
+            }
+        }
+    ],
+    "class": "CommandLineTool",
+    "arguments": [],
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
@@ -75,29 +99,5 @@
             },
             "default": "14g"
         }
-    ],
-    "outputs": [
-        {
-            "id": "#output_hic",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.hic"
-            }
-        }
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v30"
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ],
-    "arguments": [],
-    "cwlVersion": "draft-3"
+    ]
 }

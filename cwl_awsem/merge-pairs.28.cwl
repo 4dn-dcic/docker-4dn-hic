@@ -1,5 +1,39 @@
 {
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "out",
+            "id": "#outprefix",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            }
+        },
+        {
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "File"
+                }
+            ],
+            "id": "#input_pairs",
+            "inputBinding": {
+                "separate": true,
+                "itemSeparator": " ",
+                "position": 2
+            }
+        }
+    ],
     "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "class": "CommandLineTool",
     "baseCommand": [
         "run-merge-pairs.sh"
@@ -10,54 +44,20 @@
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "inputs": [
-        {
-            "default": "out",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#outprefix"
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": true,
-                "itemSeparator": " "
-            },
-            "type": [
-                "null",
-                {
-                    "items": "File",
-                    "type": "array"
-                }
-            ],
-            "id": "#input_pairs"
-        }
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "arguments": [],
     "outputs": [
         {
-            "secondaryFiles": [
-                ".px2"
-            ],
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#output_pairs",
             "outputBinding": {
                 "glob": "$(inputs.outprefix + '.pairs.gz')"
-            }
+            },
+            "id": "#output_pairs",
+            "secondaryFiles": [
+                ".px2"
+            ]
         }
-    ]
+    ],
+    "arguments": []
 }

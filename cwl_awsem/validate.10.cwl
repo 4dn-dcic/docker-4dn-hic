@@ -1,10 +1,17 @@
 {
-    "class": "CommandLineTool",
+    "arguments": [],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
     "inputs": [
         {
             "inputBinding": {
@@ -18,53 +25,46 @@
             ]
         },
         {
-            "default": "fastq",
             "inputBinding": {
                 "position": 2,
-                "separate": true,
                 "valueFrom": {
-                    "script": "\"fastq\"",
                     "engine": "#cwl-js-engine",
+                    "script": "\"fastq\"",
                     "class": "Expression"
-                }
+                },
+                "separate": true
             },
+            "default": "fastq",
             "id": "#type",
             "type": [
                 "null",
                 {
+                    "name": "type",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
                     ],
-                    "name": "type",
                     "type": "enum"
                 }
             ]
         }
     ],
-    "arguments": [],
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            },
             "id": "#report",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            }
         }
     ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh",
-        ""
-    ]
+    "cwlVersion": "draft-3"
 }
