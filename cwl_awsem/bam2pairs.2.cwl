@@ -1,65 +1,65 @@
 {
-    "baseCommand": [
-        "run.sh"
-    ],
+    "class": "CommandLineTool",
     "inputs": [
         {
-            "id": "#input_bam",
             "type": [
                 "File"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 1
-            }
+                "position": 1,
+                "separate": true
+            },
+            "id": "#input_bam"
         },
         {
-            "id": "#out_prefix",
             "type": [
                 "null",
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
+            "id": "#out_prefix",
             "default": "out"
         }
     ],
-    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
-            "id": "#out_pairs",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz"
-            }
+            },
+            "id": "#out_pairs"
         },
         {
-            "id": "#out_pairs_index",
             "type": [
                 "null",
                 "File"
             ],
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz.px2"
-            }
+            },
+            "id": "#out_pairs_index"
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": [],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
-    ],
-    "hints": [
-        {
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "class": "DockerRequirement"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "arguments": []
+    ]
 }

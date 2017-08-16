@@ -2,7 +2,7 @@
 #python get_cwl.py -a hi-c-processing-parta -r 9 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-parta-juicer -r 5 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partb -r 42 -t $SBG_TOKEN
-python get_cwl.py -a hi-c-processing-partc -r 6 -t $SBG_TOKEN
+python get_cwl.py -a hi-c-processing-partc -r 11 -t $SBG_TOKEN
 python get_cwl.py -a sha256 -r 2 -t $SBG_TOKEN
 python get_cwl.py -a md5-validate -r 1 -t $SBG_TOKEN
 python get_cwl.py -a validate -r 10 -t $SBG_TOKEN
@@ -18,4 +18,7 @@ python get_cwl.py -a bam2matrix2 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a bam2hdf5 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a fastq2bam -r 0 -t $SBG_TOKEN
 python get_cwl.py -a gitar-v0-2 -r 0 -t $SBG_TOKEN
+python get_cwl.py -a cool2mcool -r 2 -t $SBG_TOKEN
+python get_cwl.py -a add-hic-normvector-to-mcool -r 5 -t $SBG_TOKEN
+python get_cwl.py -a extract-mcool-normvector-for-juicebox -r 6 -t $SBG_TOKEN
 

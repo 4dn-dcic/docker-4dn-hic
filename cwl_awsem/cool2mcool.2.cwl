@@ -1,66 +1,68 @@
 {
-    "arguments": [],
+    "baseCommand": [
+        "run-cool2multirescool.sh"
+    ],
     "outputs": [
         {
+            "id": "#output_mcool",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#out_sorted_bam",
             "outputBinding": {
-                "glob": "*.sorted.bam"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index",
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
+                "glob": "*.multires.cool"
             }
         }
     ],
+    "arguments": [],
     "inputs": [
         {
+            "id": "#input_cool",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_bam",
             "inputBinding": {
                 "position": 1,
                 "separate": true
             }
         },
         {
-            "default": "out",
+            "id": "#ncores",
+            "type": [
+                "null",
+                "int"
+            ],
             "inputBinding": {
                 "position": 2,
                 "separate": true
             },
-            "id": "#prefix",
+            "default": 4
+        },
+        {
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "default": "out"
         }
     ],
     "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh"
-    ],
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/sort-bam:v1"
+            "dockerPull": "duplexa/4dn-hic:v17"
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
         }
     ]
 }

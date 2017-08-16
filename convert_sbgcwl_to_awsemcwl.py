@@ -21,8 +21,13 @@ def filter(input_json, key, input_json0):
                     del input_json[key][i][subkey]
                 if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) and len(input_json0[key][i][subkey])==1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
-                if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey] and 'script' in input_json0[key][i][subkey]['glob']:
-                    input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
+                if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey]:
+                    if 'script' in input_json0[key][i][subkey]['glob']:
+                        input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
+                    elif input_json0[key][i][subkey]['glob'].startswith('$job'):
+                        input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob'].replace("$job.", "") + ")"
+                    else:
+                        input_json[key][i][subkey]['glob'] = input_json0[key][i][subkey]['glob']
                 if subkey == 'inputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
                     input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
                     del input_json[key][i][subkey]['secondaryFiles']

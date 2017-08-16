@@ -1,5 +1,46 @@
 {
     "cwlVersion": "draft-3",
+    "class": "Workflow",
+    "steps": [
+        {
+            "id": "#md5",
+            "inputs": [
+                {
+                    "source": "#input_file",
+                    "id": "#md5.input_file"
+                }
+            ],
+            "run": "md5.1.cwl",
+            "outputs": [
+                {
+                    "id": "#md5.report"
+                }
+            ]
+        },
+        {
+            "id": "#validatefiles",
+            "inputs": [
+                {
+                    "source": "#input_file",
+                    "id": "#validatefiles.input_file"
+                },
+                {
+                    "id": "#validatefiles.type"
+                }
+            ],
+            "run": "validate.10.cwl",
+            "outputs": [
+                {
+                    "id": "#validatefiles.report"
+                }
+            ]
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "inputs": [
         {
             "type": [
@@ -9,63 +50,22 @@
             "id": "#input_file"
         }
     ],
-    "steps": [
-        {
-            "outputs": [
-                {
-                    "id": "#md5.report"
-                }
-            ],
-            "run": "md5.1.cwl",
-            "id": "#md5",
-            "inputs": [
-                {
-                    "id": "#md5.input_file",
-                    "source": "#input_file"
-                }
-            ]
-        },
-        {
-            "outputs": [
-                {
-                    "id": "#validatefiles.report"
-                }
-            ],
-            "run": "validate.10.cwl",
-            "id": "#validatefiles",
-            "inputs": [
-                {
-                    "id": "#validatefiles.input_file",
-                    "source": "#input_file"
-                },
-                {
-                    "id": "#validatefiles.type"
-                }
-            ]
-        }
-    ],
     "outputs": [
         {
+            "source": "#validatefiles.report",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#validatefiles_report",
-            "source": "#validatefiles.report"
+            "id": "#validatefiles_report"
         },
         {
+            "source": "#md5.report",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#md5_report",
-            "source": "#md5.report"
-        }
-    ],
-    "class": "Workflow",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
+            "id": "#md5_report"
         }
     ]
 }
