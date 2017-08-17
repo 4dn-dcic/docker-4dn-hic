@@ -1,63 +1,63 @@
 {
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
-    "inputs": [
-        {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "default": "out",
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#outprefix"
-        },
-        {
-            "inputBinding": {
-                "itemSeparator": " ",
-                "separate": true,
-                "position": 2
-            },
-            "type": [
-                "null",
-                {
-                    "type": "array",
-                    "items": "File"
-                }
-            ],
-            "id": "#input_pairs"
-        }
-    ],
     "baseCommand": [
         "run-merge-pairs.sh"
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
                 "glob": "$(inputs.outprefix + '.pairs.gz')"
             },
-            "type": [
-                "null",
-                "File"
-            ],
+            "id": "#output_pairs",
             "secondaryFiles": [
                 ".px2"
             ],
-            "id": "#output_pairs"
+            "type": [
+                "null",
+                "File"
+            ]
         }
-    ]
+    ],
+    "arguments": [],
+    "inputs": [
+        {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "id": "#outprefix",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "out"
+        },
+        {
+            "inputBinding": {
+                "position": 2,
+                "itemSeparator": " ",
+                "separate": true
+            },
+            "id": "#input_pairs",
+            "type": [
+                "null",
+                {
+                    "items": "File",
+                    "type": "array"
+                }
+            ]
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

@@ -1,15 +1,13 @@
 {
-    "arguments": [],
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/hictool-hdf52matrix:v2"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
         }
     ],
     "inputs": [
@@ -52,11 +50,11 @@
                 "int"
             ],
             "default": 50000,
-            "id": "#contact_matrix_binsize",
             "inputBinding": {
                 "separate": false,
                 "position": 3
-            }
+            },
+            "id": "#contact_matrix_binsize"
         },
         {
             "type": [
@@ -65,12 +63,12 @@
             ],
             "id": "#output_dir",
             "inputBinding": {
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression",
-                    "script": "$job.inputs.output_dir || '.'"
-                },
                 "separate": false,
+                "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                },
                 "position": 5
             }
         },
@@ -86,60 +84,62 @@
             }
         }
     ],
-    "class": "CommandLineTool",
-    "outputs": [
+    "arguments": [],
+    "requirements": [
         {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' )"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#observed_contact_matrix"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' )"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#normalized_fend_contact_matrix"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' )"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#normalized_enrich_contact_matrix"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' )"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#expected_fend_contact_matrix"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt')"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#expected_enrich_contact_matrix"
+            "class": "InlineJavascriptRequirement"
         }
     ],
-    "baseCommand": [
-        "run.sh"
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#observed_contact_matrix",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' )"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#normalized_fend_contact_matrix",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' )"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#normalized_enrich_contact_matrix",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' )"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#expected_fend_contact_matrix",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' )"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#expected_enrich_contact_matrix",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt')"
+            }
+        }
     ]
 }

@@ -1,19 +1,14 @@
 {
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
-            "id": "#pairs",
             "secondaryFiles": [
                 "$(self.basename + '.px2')"
             ],
+            "id": "#pairs",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
             "type": [
                 "null",
                 "File"
@@ -21,8 +16,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
             "id": "#chrsizes",
             "type": [
@@ -32,8 +27,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             },
             "id": "#binsize",
             "type": [
@@ -42,64 +37,69 @@
             ]
         },
         {
-            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 5
+                "position": 5,
+                "separate": true
             },
+            "id": "#outprefix",
+            "default": "out",
             "type": [
                 "null",
                 "string"
-            ],
-            "id": "#outprefix"
+            ]
         },
         {
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
+            "id": "#ncores",
             "default": 8,
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            },
             "type": [
                 "null",
                 "int"
-            ],
-            "id": "#ncores"
+            ]
         },
         {
-            "default": 2,
+            "id": "#max_split",
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 6,
+                "separate": true
             },
+            "default": 2,
             "type": [
                 "null",
                 "int"
-            ],
-            "id": "#max_split"
+            ]
         }
     ],
+    "outputs": [
+        {
+            "id": "#out_cool",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.cool"
+            }
+        }
+    ],
+    "baseCommand": [
+        "run-cooler.sh"
+    ],
+    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "arguments": [],
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v33",
             "class": "DockerRequirement"
         }
     ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.cool"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_cool"
-        }
-    ],
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ]
+    "cwlVersion": "draft-3"
 }

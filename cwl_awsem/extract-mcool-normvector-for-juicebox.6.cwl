@@ -1,74 +1,6 @@
 {
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v33"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_normvector",
-            "outputBinding": {
-                "glob": "'*.juicerformat.gz'"
-            }
-        }
-    ],
     "arguments": [],
     "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_mcool"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": ".",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#outdir"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out",
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
-            "id": "#output_prefix"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "default": 13,
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "id": "#nres"
-        }
-    ],
-    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
@@ -76,5 +8,73 @@
     ],
     "baseCommand": [
         "run-mcool2hic.sh"
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_mcool",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "id": "#outdir",
+            "default": ".",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
+            "id": "#output_prefix",
+            "default": "out",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 4
+            },
+            "id": "#nres",
+            "default": 13,
+            "type": [
+                "null",
+                "int"
+            ]
+        }
+    ],
+    "class": "CommandLineTool",
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "'*.juicerformat.gz'"
+            },
+            "id": "#output_normvector",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v33"
+        }
     ]
 }

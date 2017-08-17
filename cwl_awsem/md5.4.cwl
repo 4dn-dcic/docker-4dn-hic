@@ -1,20 +1,16 @@
 {
     "inputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file",
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            }
+            },
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ]
         }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
     ],
     "cwlVersion": "draft-3",
     "hints": [
@@ -23,22 +19,26 @@
             "class": "DockerRequirement"
         }
     ],
-    "arguments": [],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "\"report\""
+            },
+            "id": "#report",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "\"report\""
-            },
-            "id": "#report"
-        }
-    ]
+    "class": "CommandLineTool",
+    "arguments": []
 }

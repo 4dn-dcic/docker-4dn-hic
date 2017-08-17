@@ -1,7 +1,5 @@
 {
-    "baseCommand": [
-        "run-cool2multirescool.sh"
-    ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#output_mcool",
@@ -10,59 +8,61 @@
                 "File"
             ],
             "outputBinding": {
-                "glob": "*.multires.cool"
+                "glob": "*.multires.cool *.mcool"
             }
         }
     ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v17",
+            "class": "DockerRequirement"
+        }
+    ],
     "arguments": [],
+    "baseCommand": [
+        "run-cool2multirescool.sh"
+    ],
+    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "inputs": [
         {
             "id": "#input_cool",
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
                 "position": 1,
                 "separate": true
-            }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
         },
         {
             "id": "#ncores",
-            "type": [
-                "null",
-                "int"
-            ],
             "inputBinding": {
                 "position": 2,
                 "separate": true
             },
+            "type": [
+                "null",
+                "int"
+            ],
             "default": 4
         },
         {
             "id": "#outprefix",
-            "type": [
-                "null",
-                "string"
-            ],
             "inputBinding": {
                 "position": 3,
                 "separate": true
             },
+            "type": [
+                "null",
+                "string"
+            ],
             "default": "out"
-        }
-    ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v17"
-        }
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
         }
     ]
 }

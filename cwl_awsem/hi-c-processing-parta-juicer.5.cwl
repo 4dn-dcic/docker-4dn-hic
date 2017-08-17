@@ -1,105 +1,61 @@
 {
-    "steps": [
+    "requirements": [
         {
-            "run": "juicer.6.cwl",
-            "outputs": [
-                {
-                    "id": "#juicer.merged_nodups"
-                }
-            ],
-            "id": "#juicer",
-            "inputs": [
-                {
-                    "id": "#juicer.restriction_file",
-                    "source": "#restriction_file"
-                },
-                {
-                    "id": "#juicer.reference_fasta",
-                    "source": "#reference_fasta"
-                },
-                {
-                    "id": "#juicer.outdir"
-                },
-                {
-                    "id": "#juicer.input_fastq2",
-                    "source": "#fastq2"
-                },
-                {
-                    "id": "#juicer.input_fastq1",
-                    "source": "#fastq1"
-                },
-                {
-                    "id": "#juicer.chromsizes_file",
-                    "source": "#chrsizes"
-                },
-                {
-                    "id": "#juicer.bwaIndex",
-                    "source": "#bwa_index"
-                }
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "source": "#juicer2pairs.out_pairs",
+            "type": [
+                "null",
+                "File"
             ]
         },
         {
-            "run": "juicer2pairs.1.cwl",
-            "outputs": [
-                {
-                    "id": "#juicer2pairs.out_pairs_px"
-                },
-                {
-                    "id": "#juicer2pairs.out_pairs"
-                }
-            ],
-            "id": "#juicer2pairs",
-            "inputs": [
-                {
-                    "id": "#juicer2pairs.outprefix"
-                },
-                {
-                    "id": "#juicer2pairs.nsplit",
-                    "source": "#nsplit"
-                },
-                {
-                    "id": "#juicer2pairs.input_merged_nodups",
-                    "source": "#juicer.merged_nodups"
-                },
-                {
-                    "id": "#juicer2pairs.chromsize",
-                    "source": "#chrsizes"
-                }
+            "id": "#out_pairs_index",
+            "source": "#juicer2pairs.out_pairs_px",
+            "type": [
+                "null",
+                "File"
             ]
         }
     ],
+    "class": "Workflow",
+    "cwlVersion": "draft-3",
     "inputs": [
         {
+            "id": "#fastq1",
             "type": [
                 "File"
-            ],
-            "id": "#fastq1"
+            ]
         },
         {
+            "id": "#fastq2",
             "type": [
                 "File"
-            ],
-            "id": "#fastq2"
+            ]
         },
         {
+            "id": "#bwa_index",
             "type": [
                 "File"
-            ],
-            "id": "#bwa_index"
+            ]
         },
         {
+            "id": "#chrsizes",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#chrsizes"
+            ]
         },
         {
+            "id": "#reference_fasta",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#reference_fasta"
+            ]
         },
         {
             "type": [
@@ -113,33 +69,77 @@
                 "null",
                 "int"
             ],
-            "id": "#nsplit",
-            "default": 100
+            "default": 100,
+            "id": "#nsplit"
         }
     ],
-    "class": "Workflow",
-    "outputs": [
+    "steps": [
         {
-            "type": [
-                "null",
-                "File"
+            "outputs": [
+                {
+                    "id": "#juicer.merged_nodups"
+                }
             ],
-            "id": "#out_pairs",
-            "source": "#juicer2pairs.out_pairs"
+            "run": "juicer.6.cwl",
+            "id": "#juicer",
+            "inputs": [
+                {
+                    "source": "#restriction_file",
+                    "id": "#juicer.restriction_file"
+                },
+                {
+                    "source": "#reference_fasta",
+                    "id": "#juicer.reference_fasta"
+                },
+                {
+                    "id": "#juicer.outdir"
+                },
+                {
+                    "source": "#fastq2",
+                    "id": "#juicer.input_fastq2"
+                },
+                {
+                    "source": "#fastq1",
+                    "id": "#juicer.input_fastq1"
+                },
+                {
+                    "source": "#chrsizes",
+                    "id": "#juicer.chromsizes_file"
+                },
+                {
+                    "source": "#bwa_index",
+                    "id": "#juicer.bwaIndex"
+                }
+            ]
         },
         {
-            "type": [
-                "null",
-                "File"
+            "outputs": [
+                {
+                    "id": "#juicer2pairs.out_pairs_px"
+                },
+                {
+                    "id": "#juicer2pairs.out_pairs"
+                }
             ],
-            "id": "#out_pairs_index",
-            "source": "#juicer2pairs.out_pairs_px"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
+            "run": "juicer2pairs.1.cwl",
+            "id": "#juicer2pairs",
+            "inputs": [
+                {
+                    "id": "#juicer2pairs.outprefix"
+                },
+                {
+                    "source": "#nsplit",
+                    "id": "#juicer2pairs.nsplit"
+                },
+                {
+                    "source": "#juicer.merged_nodups",
+                    "id": "#juicer2pairs.input_merged_nodups"
+                },
+                {
+                    "source": "#chrsizes",
+                    "id": "#juicer2pairs.chromsize"
+                }
+            ]
         }
     ]
 }

@@ -1,52 +1,11 @@
 {
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/sort-bam:v1"
+        }
+    ],
     "arguments": [],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam",
-            "outputBinding": {
-                "glob": "*.sorted.bam"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index",
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
-            }
-        }
-    ],
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_bam",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
-            "default": "out",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#prefix",
-            "type": [
-                "null",
-                "string"
-            ]
-        }
-    ],
     "class": "CommandLineTool",
     "requirements": [
         {
@@ -54,13 +13,54 @@
         }
     ],
     "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*.sorted.bam"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_sorted_bam"
+        },
+        {
+            "outputBinding": {
+                "glob": "*.sorted.bam.bai"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_sorted_bam_index"
+        }
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_bam",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "id": "#prefix",
+            "default": "out",
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    ],
     "baseCommand": [
         "run.sh"
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sort-bam:v1"
-        }
     ]
 }

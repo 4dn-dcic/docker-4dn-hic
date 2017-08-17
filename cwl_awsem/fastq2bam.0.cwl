@@ -1,4 +1,14 @@
 {
+    "cwlVersion": "draft-3",
+    "arguments": [],
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "inputs": [
         {
             "type": [
@@ -6,8 +16,8 @@
             ],
             "id": "#input_fastq1",
             "inputBinding": {
-                "separate": false,
-                "position": 2
+                "position": 2,
+                "separate": false
             }
         },
         {
@@ -16,11 +26,12 @@
             ],
             "id": "#input_fastq2",
             "inputBinding": {
-                "separate": false,
-                "position": 3
+                "position": 3,
+                "separate": false
             }
         },
         {
+            "default": ".",
             "type": [
                 "null",
                 "string"
@@ -32,10 +43,9 @@
                     "script": "$job.inputs.output_dir || '.'",
                     "class": "Expression"
                 },
-                "separate": false,
-                "position": 4
-            },
-            "default": "."
+                "position": 4,
+                "separate": false
+            }
         },
         {
             "type": [
@@ -44,21 +54,9 @@
             ],
             "id": "#bowtie_index",
             "inputBinding": {
-                "separate": false,
-                "position": 1
+                "position": 1,
+                "separate": false
             }
-        }
-    ],
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "hints": [
-        {
-            "dockerPull": "duplexa/hictool-fastq2bam:v3",
-            "class": "DockerRequirement"
         }
     ],
     "outputs": [
@@ -93,9 +91,11 @@
             }
         }
     ],
-    "baseCommand": [
-        "preprocessing.sh"
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-fastq2bam:v3",
+            "class": "DockerRequirement"
+        }
     ],
-    "cwlVersion": "draft-3",
     "class": "CommandLineTool"
 }
