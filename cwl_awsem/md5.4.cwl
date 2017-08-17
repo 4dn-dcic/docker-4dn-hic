@@ -2,8 +2,8 @@
     "inputs": [
         {
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
             "id": "#input_file",
             "type": [
@@ -12,13 +12,23 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run.sh"
+    ],
     "hints": [
         {
-            "dockerPull": "duplexa/md5:v1",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/md5:v1"
         }
     ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "arguments": [],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "outputBinding": {
@@ -30,15 +40,5 @@
                 "File"
             ]
         }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": []
+    ]
 }

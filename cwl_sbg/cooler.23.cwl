@@ -1,16 +1,139 @@
 {
-    "outputs": [
+    "sbg:latestRevision": 23,
+    "sbg:createdOn": 1488495202,
+    "class": "CommandLineTool",
+    "requirements": [
         {
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
+        }
+    ],
+    "sbg:image_url": null,
+    "sbg:projectName": "Dev",
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:revisionNotes": "docker v34",
+    "sbg:contributors": [
+        "duplexa",
+        "4dn-dcic"
+    ],
+    "stdout": "",
+    "hints": [
+        {
+            "value": 2,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 16000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerImageId": "",
+            "dockerPull": "duplexa/4dn-hic:v34",
+            "class": "DockerRequirement"
+        }
+    ],
+    "label": "cooler",
+    "sbg:validationErrors": [],
+    "sbg:cmdPreview": "run-cooler.sh",
+    "inputs": [
+        {
+            "sbg:stageInput": "copy",
+            "sbg:fileTypes": "PAIRS.GZ",
             "type": [
                 "null",
                 "File"
             ],
-            "outputBinding": {
-                "glob": "*.cool"
-            },
-            "id": "#out_cool"
+            "id": "#pairs",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "secondaryFiles": [
+                    {
+                        "script": "self.basename + '.px2'",
+                        "engine": "#cwl-js-engine",
+                        "class": "Expression"
+                    }
+                ],
+                "separate": true,
+                "position": 1
+            }
+        },
+        {
+            "sbg:fileTypes": "SIZES",
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrsizes",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 2
+            }
+        },
+        {
+            "sbg:stageInput": null,
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#binsize",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 3
+            }
+        },
+        {
+            "id": "#outprefix",
+            "type": [
+                "null",
+                "string"
+            ],
+            "sbg:toolDefaultValue": "out",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 5
+            }
+        },
+        {
+            "id": "#ncores",
+            "type": [
+                "null",
+                "int"
+            ],
+            "sbg:toolDefaultValue": "8",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 4
+            }
+        },
+        {
+            "sbg:stageInput": null,
+            "id": "#max_split",
+            "type": [
+                "null",
+                "int"
+            ],
+            "sbg:toolDefaultValue": "2",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 6
+            }
         }
     ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:id": "4dn-dcic/dev/cooler/23",
+    "sbg:modifiedOn": 1503000496,
+    "cwlVersion": "sbg:draft-2",
     "sbg:revisionsInfo": [
         {
             "sbg:revisionNotes": null,
@@ -149,188 +272,71 @@
             "sbg:revision": 22,
             "sbg:modifiedOn": 1502843400,
             "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:revisionNotes": "docker v34",
+            "sbg:revision": 23,
+            "sbg:modifiedOn": 1503000496,
+            "sbg:modifiedBy": "4dn-dcic"
         }
     ],
-    "sbg:createdBy": "duplexa",
-    "sbg:revisionNotes": "self.path -> self.basename for secondary file (pairs index)",
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "secondaryFiles": [
-                    {
-                        "class": "Expression",
-                        "engine": "#cwl-js-engine",
-                        "script": "self.basename + '.px2'"
-                    }
-                ],
-                "separate": true,
-                "position": 1,
-                "sbg:cmdInclude": true
-            },
-            "sbg:stageInput": "copy",
-            "id": "#pairs",
-            "sbg:fileTypes": "PAIRS.GZ"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 2,
-                "sbg:cmdInclude": true
-            },
-            "id": "#chrsizes",
-            "sbg:fileTypes": "SIZES"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 3,
-                "sbg:cmdInclude": true
-            },
-            "sbg:stageInput": null,
-            "id": "#binsize"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "sbg:toolDefaultValue": "out",
-            "inputBinding": {
-                "separate": true,
-                "position": 5,
-                "sbg:cmdInclude": true
-            },
-            "id": "#outprefix"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "sbg:toolDefaultValue": "8",
-            "inputBinding": {
-                "separate": true,
-                "position": 4,
-                "sbg:cmdInclude": true
-            },
-            "id": "#ncores"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "sbg:toolDefaultValue": "2",
-            "inputBinding": {
-                "separate": true,
-                "position": 6,
-                "sbg:cmdInclude": true
-            },
-            "sbg:stageInput": null,
-            "id": "#max_split"
-        }
-    ],
-    "sbg:createdOn": 1488495202,
-    "class": "CommandLineTool",
-    "sbg:validationErrors": [],
-    "label": "cooler",
-    "sbg:modifiedOn": 1502843400,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cooler/22/raw/",
     "sbg:appVersion": [
         "sbg:draft-2"
     ],
-    "sbg:cmdPreview": "run-cooler.sh",
+    "successCodes": [],
+    "sbg:revision": 23,
     "stdin": "",
-    "stdout": "",
-    "requirements": [
-        {
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement"
-        }
-    ],
-    "sbg:contributors": [
-        "duplexa",
-        "4dn-dcic"
-    ],
-    "sbg:latestRevision": 22,
+    "sbg:sbgMaintained": false,
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cooler/23/raw/",
     "baseCommand": [
         "run-cooler.sh"
     ],
-    "successCodes": [],
-    "sbg:sbgMaintained": false,
-    "sbg:projectName": "Dev",
-    "hints": [
-        {
-            "value": 2,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 16000,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "dockerImageId": "",
-            "class": "DockerRequirement"
-        }
-    ],
-    "arguments": [],
-    "sbg:project": "4dn-dcic/dev",
-    "description": "",
-    "sbg:image_url": null,
-    "sbg:revision": 22,
-    "sbg:id": "4dn-dcic/dev/cooler/22",
+    "sbg:createdBy": "duplexa",
     "temporaryFailCodes": [],
-    "sbg:modifiedBy": "4dn-dcic",
+    "arguments": [],
     "sbg:job": {
-        "allocatedResources": {
-            "cpu": 2,
-            "mem": 16000
-        },
         "inputs": {
-            "chrsizes": {
-                "secondaryFiles": [],
-                "path": "/path/to/chrsize.ext",
-                "size": 0,
-                "class": "File"
-            },
-            "max_split": 0,
-            "ncores": 5,
             "pairs": {
                 "secondaryFiles": [
                     {
                         "path": {
-                            "class": "Expression",
+                            "script": "self.basename + '.px2'",
                             "engine": "#cwl-js-engine",
-                            "script": "self.basename + '.px2'"
+                            "class": "Expression"
                         }
                     }
                 ],
-                "path": "/path/to/pairs.ext",
+                "class": "File",
                 "size": 0,
-                "class": "File"
+                "path": "/path/to/pairs.ext"
             },
             "binsize": 4,
+            "ncores": 5,
+            "chrsizes": {
+                "secondaryFiles": [],
+                "class": "File",
+                "size": 0,
+                "path": "/path/to/chrsize.ext"
+            },
+            "max_split": 0,
             "outprefix": "outprefix-string-value"
+        },
+        "allocatedResources": {
+            "mem": 16000,
+            "cpu": 2
         }
     },
-    "cwlVersion": "sbg:draft-2"
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_cool",
+            "outputBinding": {
+                "glob": "*.cool"
+            }
+        }
+    ],
+    "description": ""
 }

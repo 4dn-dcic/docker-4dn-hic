@@ -1,148 +1,148 @@
 {
-    "sbg:sbgMaintained": false,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.multires.cool *.mcool"
-            },
-            "sbg:fileTypes": ".COOL",
-            "id": "#output_mcool",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 1
-        },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 1000
-        },
-        {
-            "class": "DockerRequirement",
-            "dockerImageId": "",
-            "dockerPull": "duplexa/4dn-hic:v17"
-        }
-    ],
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:projectName": "Dev",
-    "stdin": "",
-    "cwlVersion": "sbg:draft-2",
-    "baseCommand": [
-        "run-cool2multirescool.sh"
-    ],
-    "requirements": [],
-    "successCodes": [],
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:cmdPreview": "run-cool2multirescool.sh",
-    "sbg:job": {
-        "allocatedResources": {
-            "mem": 1000,
-            "cpu": 1
-        },
-        "inputs": {
-            "input_cool": {
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/input_cool.ext",
-                "size": 0
-            },
-            "ncores": 9,
-            "outprefix": "outprefix-string-value"
-        }
-    },
-    "sbg:contributors": [
-        "4dn-dcic"
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cool2mcool/3/raw/",
-    "label": "cool2mcool",
     "description": "",
-    "class": "CommandLineTool",
-    "sbg:revisionsInfo": [
-        {
-            "sbg:modifiedOn": 1496166920,
-            "sbg:revision": 0,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:modifiedOn": 1496167248,
-            "sbg:revision": 1,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:modifiedOn": 1496181675,
-            "sbg:revision": 2,
-            "sbg:revisionNotes": null,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:modifiedOn": 1502996615,
-            "sbg:revision": 3,
-            "sbg:revisionNotes": "output both *.multires.cool and *.mcool",
-            "sbg:modifiedBy": "4dn-dcic"
-        }
-    ],
+    "sbg:revision": 3,
+    "sbg:image_url": null,
+    "arguments": [],
     "inputs": [
         {
+            "id": "#input_cool",
             "type": [
                 "null",
                 "File"
             ],
             "sbg:fileTypes": ".COOL",
-            "id": "#input_cool",
             "inputBinding": {
+                "separate": true,
                 "position": 1,
-                "sbg:cmdInclude": true,
-                "separate": true
+                "sbg:cmdInclude": true
             }
         },
         {
+            "sbg:toolDefaultValue": "4",
+            "sbg:stageInput": null,
             "type": [
                 "null",
                 "int"
             ],
-            "sbg:stageInput": null,
-            "inputBinding": {
-                "position": 2,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
             "id": "#ncores",
-            "sbg:toolDefaultValue": "4"
+            "inputBinding": {
+                "separate": true,
+                "position": 2,
+                "sbg:cmdInclude": true
+            }
         },
         {
+            "sbg:toolDefaultValue": "out",
             "type": [
                 "null",
                 "string"
             ],
-            "inputBinding": {
-                "position": 3,
-                "sbg:cmdInclude": true,
-                "separate": true
-            },
             "id": "#outprefix",
-            "sbg:toolDefaultValue": "out"
+            "inputBinding": {
+                "separate": true,
+                "position": 3,
+                "sbg:cmdInclude": true
+            }
         }
     ],
-    "temporaryFailCodes": [],
-    "arguments": [],
-    "sbg:id": "4dn-dcic/dev/cool2mcool/3",
-    "sbg:latestRevision": 3,
-    "sbg:createdOn": 1496166920,
-    "stdout": "",
-    "sbg:createdBy": "4dn-dcic",
-    "sbg:validationErrors": [],
-    "sbg:modifiedOn": 1502996615,
+    "sbg:job": {
+        "inputs": {
+            "ncores": 9,
+            "input_cool": {
+                "size": 0,
+                "secondaryFiles": [],
+                "class": "File",
+                "path": "/path/to/input_cool.ext"
+            },
+            "outprefix": "outprefix-string-value"
+        },
+        "allocatedResources": {
+            "mem": 1000,
+            "cpu": 1
+        }
+    },
+    "stdin": "",
+    "outputs": [
+        {
+            "id": "#output_mcool",
+            "type": [
+                "null",
+                "File"
+            ],
+            "sbg:fileTypes": ".COOL",
+            "outputBinding": {
+                "glob": "*.multires.cool *.mcool"
+            }
+        }
+    ],
+    "baseCommand": [
+        "run-cool2multirescool.sh"
+    ],
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "requirements": [],
+    "successCodes": [],
+    "label": "cool2mcool",
+    "sbg:sbgMaintained": false,
+    "hints": [
+        {
+            "value": 1,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 1000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerImageId": "",
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v17"
+        }
+    ],
     "sbg:revisionNotes": "output both *.multires.cool and *.mcool",
-    "sbg:image_url": null,
-    "sbg:revision": 3
+    "sbg:project": "4dn-dcic/dev",
+    "class": "CommandLineTool",
+    "sbg:id": "4dn-dcic/dev/cool2mcool/3",
+    "sbg:projectName": "Dev",
+    "sbg:modifiedOn": 1502996615,
+    "sbg:contributors": [
+        "4dn-dcic"
+    ],
+    "sbg:latestRevision": 3,
+    "sbg:cmdPreview": "run-cool2multirescool.sh",
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1496166920,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1496167248,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1496181675,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 3,
+            "sbg:modifiedOn": 1502996615,
+            "sbg:revisionNotes": "output both *.multires.cool and *.mcool"
+        }
+    ],
+    "stdout": "",
+    "temporaryFailCodes": [],
+    "sbg:modifiedBy": "4dn-dcic",
+    "cwlVersion": "sbg:draft-2",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/cool2mcool/3/raw/",
+    "sbg:validationErrors": [],
+    "sbg:createdOn": 1496166920,
+    "sbg:createdBy": "4dn-dcic"
 }

@@ -1,14 +1,14 @@
 {
     "steps": [
         {
-            "inputs": [
-                {
-                    "id": "#md5.input_file",
-                    "source": "#input_file"
-                }
-            ],
             "id": "#md5",
             "run": "md5.1.cwl",
+            "inputs": [
+                {
+                    "source": "#input_file",
+                    "id": "#md5.input_file"
+                }
+            ],
             "outputs": [
                 {
                     "id": "#md5.report"
@@ -16,17 +16,17 @@
             ]
         },
         {
+            "id": "#validatefiles",
+            "run": "validate.10.cwl",
             "inputs": [
                 {
-                    "id": "#validatefiles.input_file",
-                    "source": "#input_file"
+                    "source": "#input_file",
+                    "id": "#validatefiles.input_file"
                 },
                 {
                     "id": "#validatefiles.type"
                 }
             ],
-            "id": "#validatefiles",
-            "run": "validate.10.cwl",
             "outputs": [
                 {
                     "id": "#validatefiles.report"
@@ -34,38 +34,38 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
     "outputs": [
         {
+            "source": "#validatefiles.report",
             "id": "#validatefiles_report",
             "type": [
                 "null",
                 "File"
-            ],
-            "source": "#validatefiles.report"
+            ]
         },
         {
+            "source": "#md5.report",
             "id": "#md5_report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "source": "#md5.report"
-        }
-    ],
-    "inputs": [
-        {
-            "id": "#input_file",
             "type": [
                 "null",
                 "File"
             ]
         }
     ],
+    "cwlVersion": "draft-3",
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_file"
+        }
+    ],
+    "class": "Workflow",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
-    ],
-    "class": "Workflow"
+    ]
 }

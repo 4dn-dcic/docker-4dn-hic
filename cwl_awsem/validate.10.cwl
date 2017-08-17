@@ -1,17 +1,4 @@
 {
-    "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "\"report_validatefiles\""
-            },
-            "id": "#report"
-        }
-    ],
     "inputs": [
         {
             "inputBinding": {
@@ -25,21 +12,20 @@
             "id": "#input_file"
         },
         {
-            "default": "fastq",
             "inputBinding": {
                 "position": 2,
-                "separate": true,
                 "valueFrom": {
-                    "class": "Expression",
                     "script": "\"fastq\"",
-                    "engine": "#cwl-js-engine"
-                }
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                },
+                "separate": true
             },
             "type": [
                 "null",
                 {
-                    "type": "enum",
                     "name": "type",
+                    "type": "enum",
                     "symbols": [
                         "fastq",
                         "fasta",
@@ -47,14 +33,9 @@
                     ]
                 }
             ],
+            "default": "fastq",
             "id": "#type"
         }
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "baseCommand": [
-        "run.sh",
-        ""
     ],
     "hints": [
         {
@@ -62,6 +43,25 @@
             "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
+    "outputs": [
+        {
+            "id": "#report",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "\"report_validatefiles\""
+            }
+        }
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "arguments": [],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"

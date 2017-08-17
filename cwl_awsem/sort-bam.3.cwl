@@ -5,54 +5,26 @@
             "dockerPull": "duplexa/sort-bam:v1"
         }
     ],
-    "arguments": [],
     "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "cwlVersion": "draft-3",
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.sorted.bam"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam"
-        },
-        {
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index"
-        }
-    ],
+    "arguments": [],
     "inputs": [
         {
+            "id": "#input_bam",
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
-            "id": "#input_bam",
             "type": [
                 "null",
                 "File"
             ]
         },
         {
+            "id": "#prefix",
             "inputBinding": {
                 "separate": true,
                 "position": 2
             },
-            "id": "#prefix",
             "default": "out",
             "type": [
                 "null",
@@ -62,5 +34,33 @@
     ],
     "baseCommand": [
         "run.sh"
-    ]
+    ],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_sorted_bam",
+            "outputBinding": {
+                "glob": "*.sorted.bam"
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_sorted_bam_index",
+            "outputBinding": {
+                "glob": "*.sorted.bam.bai"
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

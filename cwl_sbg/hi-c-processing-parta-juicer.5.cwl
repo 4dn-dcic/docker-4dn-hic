@@ -1,441 +1,35 @@
 {
-    "sbg:modifiedOn": 1495833605,
-    "sbg:projectName": "Dev",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revisionNotes": "Copy of 4dn-dcic/dev/hi-c-processing-parta/20",
-            "sbg:revision": 0,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495645271
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 1,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495645459
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 2,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495833499
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 3,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495833561
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 4,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495833566
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 5,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495833605
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 6,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1495836706
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 7,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496170708
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 8,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1496431004
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 9,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497473502
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 10,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497473555
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 11,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497538622
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 12,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497641679
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 13,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497643656
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 14,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1497983491
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 15,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1498165262
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 16,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1498230882
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 17,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1498844973
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 18,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499287014
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 19,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499287106
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 20,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499967331
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 21,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499967351
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 22,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1499976565
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 23,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500054122
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 24,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500054228
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 25,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500054337
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 26,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500054494
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 27,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:modifiedOn": 1500054599
-        }
-    ],
+    "label": "Hi-C_processing_partA_Juicer",
     "sbg:canvas_y": -43,
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
     "sbg:latestRevision": 27,
+    "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-parta-juicer/5.png",
+    "class": "Workflow",
+    "sbg:canvas_x": 225,
+    "hints": [],
     "steps": [
         {
-            "inputs": [
+            "outputs": [
                 {
-                    "source": [
-                        "#restriction_file"
-                    ],
-                    "id": "#juicer.restriction_file"
-                },
-                {
-                    "source": [
-                        "#reference_fasta"
-                    ],
-                    "id": "#juicer.reference_fasta"
-                },
-                {
-                    "default": ".",
-                    "id": "#juicer.outdir"
-                },
-                {
-                    "source": [
-                        "#fastq2"
-                    ],
-                    "id": "#juicer.input_fastq2"
-                },
-                {
-                    "source": [
-                        "#fastq1"
-                    ],
-                    "id": "#juicer.input_fastq1"
-                },
-                {
-                    "source": [
-                        "#chrsizes"
-                    ],
-                    "id": "#juicer.chromsizes_file"
-                },
-                {
-                    "source": [
-                        "#bwa_index"
-                    ],
-                    "id": "#juicer.bwaIndex"
+                    "id": "#juicer.merged_nodups"
                 }
             ],
+            "id": "#juicer",
             "run": {
-                "sbg:modifiedOn": 1495813869,
-                "sbg:projectName": "Dev",
-                "cwlVersion": "sbg:draft-2",
-                "sbg:revisionsInfo": [
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 0,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495727497
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 1,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495727990
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 2,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495730389
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 3,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495737299
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 4,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495811058
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 5,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495813279
-                    },
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 6,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495813869
-                    }
-                ],
-                "sbg:job": {
-                    "inputs": {
-                        "input_fastq1": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/input_fastq1.ext"
-                        },
-                        "input_fastq2": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/input_fastq2.ext"
-                        },
-                        "reference_fasta": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/reference_fasta.ext"
-                        },
-                        "chromsizes_file": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/chromsizes_file.ext"
-                        },
-                        "bwaIndex": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/bwaIndex.ext"
-                        },
-                        "outdir": "outdir-string-value",
-                        "restriction_file": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/restriction_file.ext"
-                        }
-                    },
-                    "allocatedResources": {
-                        "cpu": 8,
-                        "mem": 12000
-                    }
-                },
-                "sbg:latestRevision": 6,
-                "baseCommand": [
-                    "run-juicer.sh"
-                ],
-                "sbg:image_url": null,
-                "sbg:contributors": [
-                    "4dn-dcic"
-                ],
-                "stdin": "",
-                "sbg:createdBy": "4dn-dcic",
-                "sbg:project": "4dn-dcic/dev",
-                "sbg:sbgMaintained": false,
-                "sbg:createdOn": 1495727497,
-                "sbg:modifiedBy": "4dn-dcic",
-                "requirements": [],
+                "stdout": "",
+                "x": 381.6666833559674,
                 "sbg:appVersion": [
                     "sbg:draft-2"
                 ],
-                "sbg:revision": 6,
-                "temporaryFailCodes": [],
-                "id": "4dn-dcic/dev/juicer/6",
-                "description": "",
-                "stdout": "",
-                "sbg:validationErrors": [],
-                "class": "CommandLineTool",
-                "inputs": [
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 6,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "required": false,
-                        "id": "#restriction_file"
-                    },
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 4,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:fileTypes": "FA, FASTA, FA.GZ, FASTA.GZ",
-                        "required": false,
-                        "id": "#reference_fasta"
-                    },
-                    {
-                        "sbg:toolDefaultValue": "\".\"",
-                        "type": [
-                            "null",
-                            "string"
-                        ],
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 7,
-                            "sbg:cmdInclude": true
-                        },
-                        "id": "#outdir"
-                    },
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 2,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
-                        "required": false,
-                        "id": "#input_fastq2"
-                    },
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 1,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
-                        "required": false,
-                        "id": "#input_fastq1"
-                    },
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 5,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "required": false,
-                        "id": "#chromsizes_file"
-                    },
-                    {
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 3,
-                            "sbg:cmdInclude": true
-                        },
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "sbg:fileTypes": "BWAINDEX.TGZ",
-                        "required": false,
-                        "id": "#bwaIndex"
-                    }
-                ],
+                "label": "juicer",
+                "sbg:cmdPreview": "run-juicer.sh",
+                "sbg:image_url": null,
                 "arguments": [],
-                "sbg:id": "4dn-dcic/dev/juicer/6",
-                "successCodes": [],
+                "sbg:modifiedBy": "4dn-dcic",
+                "class": "CommandLineTool",
+                "id": "4dn-dcic/dev/juicer/6",
                 "hints": [
                     {
                         "class": "sbg:CPURequirement",
@@ -446,220 +40,300 @@
                         "value": 12000
                     },
                     {
-                        "dockerPull": "duplexa/4dn-hic:v13",
                         "dockerImageId": "",
-                        "class": "DockerRequirement"
+                        "class": "DockerRequirement",
+                        "dockerPull": "duplexa/4dn-hic:v13"
                     }
                 ],
-                "sbg:cmdPreview": "run-juicer.sh",
-                "outputs": [
+                "sbg:validationErrors": [],
+                "stdin": "",
+                "sbg:createdOn": 1495727497,
+                "sbg:projectName": "Dev",
+                "y": 349.42709947004937,
+                "requirements": [],
+                "temporaryFailCodes": [],
+                "sbg:id": "4dn-dcic/dev/juicer/6",
+                "sbg:revision": 6,
+                "inputs": [
                     {
+                        "inputBinding": {
+                            "position": 6,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#restriction_file",
                         "type": [
                             "null",
                             "File"
                         ],
-                        "outputBinding": {
-                            "glob": "merged_nodups.txt"
-                        },
-                        "id": "#merged_nodups"
-                    }
-                ],
-                "y": 349.42709947004937,
-                "x": 381.6666833559674,
-                "label": "juicer"
-            },
-            "id": "#juicer",
-            "outputs": [
-                {
-                    "id": "#juicer.merged_nodups"
-                }
-            ],
-            "sbg:x": 381.6666833559674,
-            "sbg:y": 349.42709947004937
-        },
-        {
-            "inputs": [
-                {
-                    "default": "out",
-                    "id": "#juicer2pairs.outprefix"
-                },
-                {
-                    "source": [
-                        "#nsplit"
-                    ],
-                    "id": "#juicer2pairs.nsplit"
-                },
-                {
-                    "source": [
-                        "#juicer.merged_nodups"
-                    ],
-                    "id": "#juicer2pairs.input_merged_nodups"
-                },
-                {
-                    "source": [
-                        "#chrsizes"
-                    ],
-                    "id": "#juicer2pairs.chromsize"
-                }
-            ],
-            "run": {
-                "sbg:modifiedOn": 1495826456,
-                "sbg:projectName": "Dev",
-                "cwlVersion": "sbg:draft-2",
-                "sbg:revisionsInfo": [
-                    {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 0,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495826137
+                        "required": false
                     },
                     {
-                        "sbg:revisionNotes": null,
-                        "sbg:revision": 1,
-                        "sbg:modifiedBy": "4dn-dcic",
-                        "sbg:modifiedOn": 1495826456
-                    }
-                ],
-                "sbg:job": {
-                    "inputs": {
-                        "chromsize": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/chromsize.ext"
+                        "inputBinding": {
+                            "position": 4,
+                            "separate": true,
+                            "sbg:cmdInclude": true
                         },
-                        "input_merged_nodups": {
-                            "secondaryFiles": [],
-                            "class": "File",
-                            "size": 0,
-                            "path": "/path/to/input_merged_nodups.ext"
-                        },
-                        "outprefix": "outprefix-string-value",
-                        "nsplit": 8
+                        "id": "#reference_fasta",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": "FA, FASTA, FA.GZ, FASTA.GZ",
+                        "required": false
                     },
-                    "allocatedResources": {
-                        "cpu": 1,
-                        "mem": 1000
-                    }
-                },
-                "sbg:latestRevision": 1,
-                "baseCommand": [
-                    "merged_nodup2pairs.pl"
-                ],
-                "sbg:image_url": null,
-                "sbg:contributors": [
-                    "4dn-dcic"
-                ],
-                "stdin": "",
-                "sbg:createdBy": "4dn-dcic",
-                "sbg:project": "4dn-dcic/dev",
-                "sbg:sbgMaintained": false,
-                "sbg:createdOn": 1495826137,
-                "sbg:modifiedBy": "4dn-dcic",
-                "requirements": [],
-                "sbg:appVersion": [
-                    "sbg:draft-2"
-                ],
-                "sbg:revision": 1,
-                "temporaryFailCodes": [],
-                "description": "",
-                "stdout": "",
-                "appUrl": "/u/4dn-dcic/dev/apps/#4dn-dcic/dev/juicer2pairs/1",
-                "sbg:validationErrors": [],
-                "class": "CommandLineTool",
-                "inputs": [
                     {
-                        "sbg:toolDefaultValue": "out",
+                        "inputBinding": {
+                            "position": 7,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#outdir",
                         "type": [
                             "null",
                             "string"
                         ],
-                        "inputBinding": {
-                            "separate": true,
-                            "position": 4,
-                            "sbg:cmdInclude": true
-                        },
-                        "required": false,
-                        "id": "#outprefix"
-                    },
-                    {
-                        "sbg:toolDefaultValue": "100",
-                        "type": [
-                            "null",
-                            "int"
-                        ],
-                        "sbg:stageInput": null,
-                        "inputBinding": {
-                            "separate": false,
-                            "position": 1,
-                            "sbg:cmdInclude": true,
-                            "prefix": "-s"
-                        },
-                        "sbg:includeInPorts": false,
-                        "required": false,
-                        "id": "#nsplit"
+                        "sbg:toolDefaultValue": "\".\""
                     },
                     {
                         "inputBinding": {
-                            "separate": true,
                             "position": 2,
+                            "separate": true,
                             "sbg:cmdInclude": true
                         },
+                        "id": "#input_fastq2",
                         "type": [
                             "null",
                             "File"
                         ],
-                        "sbg:fileTypes": ".TXT",
-                        "required": false,
-                        "id": "#input_merged_nodups"
+                        "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
+                        "required": false
                     },
                     {
                         "inputBinding": {
+                            "position": 1,
                             "separate": true,
-                            "position": 3,
                             "sbg:cmdInclude": true
                         },
+                        "id": "#input_fastq1",
                         "type": [
                             "null",
                             "File"
                         ],
-                        "sbg:fileTypes": ".CHROM.SIZES",
-                        "required": false,
-                        "id": "#chromsize"
+                        "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
+                        "required": false
+                    },
+                    {
+                        "inputBinding": {
+                            "position": 5,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#chromsizes_file",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "required": false
+                    },
+                    {
+                        "inputBinding": {
+                            "position": 3,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#bwaIndex",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": "BWAINDEX.TGZ",
+                        "required": false
                     }
                 ],
-                "arguments": [],
-                "sbg:id": "4dn-dcic/dev/juicer2pairs/1",
-                "successCodes": [],
-                "id": "4dn-dcic/dev/juicer2pairs/1",
-                "sbg:cmdPreview": "merged_nodup2pairs.pl",
+                "baseCommand": [
+                    "run-juicer.sh"
+                ],
+                "description": "",
                 "outputs": [
                     {
+                        "outputBinding": {
+                            "glob": "merged_nodups.txt"
+                        },
+                        "id": "#merged_nodups",
                         "type": [
                             "null",
                             "File"
-                        ],
-                        "outputBinding": {
-                            "glob": "*.bsorted.pairs.gz.px2"
-                        },
-                        "sbg:fileTypes": ".PX2",
-                        "id": "#out_pairs_px"
-                    },
-                    {
-                        "type": [
-                            "null",
-                            "File"
-                        ],
-                        "outputBinding": {
-                            "glob": "*.bsorted.pairs.gz"
-                        },
-                        "sbg:fileTypes": ".PAIRS.GZ",
-                        "id": "#out_pairs"
+                        ]
                     }
                 ],
-                "y": 407.7604166666669,
+                "sbg:modifiedOn": 1495813869,
+                "sbg:sbgMaintained": false,
+                "sbg:contributors": [
+                    "4dn-dcic"
+                ],
+                "sbg:revisionsInfo": [
+                    {
+                        "sbg:modifiedOn": 1495727497,
+                        "sbg:revision": 0,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495727990,
+                        "sbg:revision": 1,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495730389,
+                        "sbg:revision": 2,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495737299,
+                        "sbg:revision": 3,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495811058,
+                        "sbg:revision": 4,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495813279,
+                        "sbg:revision": 5,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495813869,
+                        "sbg:revision": 6,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    }
+                ],
+                "sbg:project": "4dn-dcic/dev",
+                "successCodes": [],
+                "sbg:latestRevision": 6,
+                "cwlVersion": "sbg:draft-2",
+                "sbg:job": {
+                    "allocatedResources": {
+                        "cpu": 8,
+                        "mem": 12000
+                    },
+                    "inputs": {
+                        "restriction_file": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/restriction_file.ext"
+                        },
+                        "chromsizes_file": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/chromsizes_file.ext"
+                        },
+                        "input_fastq2": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/input_fastq2.ext"
+                        },
+                        "input_fastq1": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/input_fastq1.ext"
+                        },
+                        "outdir": "outdir-string-value",
+                        "bwaIndex": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/bwaIndex.ext"
+                        },
+                        "reference_fasta": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/reference_fasta.ext"
+                        }
+                    }
+                },
+                "sbg:createdBy": "4dn-dcic"
+            },
+            "sbg:x": 381.6666833559674,
+            "sbg:y": 349.42709947004937,
+            "inputs": [
+                {
+                    "id": "#juicer.restriction_file",
+                    "source": [
+                        "#restriction_file"
+                    ]
+                },
+                {
+                    "id": "#juicer.reference_fasta",
+                    "source": [
+                        "#reference_fasta"
+                    ]
+                },
+                {
+                    "default": ".",
+                    "id": "#juicer.outdir"
+                },
+                {
+                    "id": "#juicer.input_fastq2",
+                    "source": [
+                        "#fastq2"
+                    ]
+                },
+                {
+                    "id": "#juicer.input_fastq1",
+                    "source": [
+                        "#fastq1"
+                    ]
+                },
+                {
+                    "id": "#juicer.chromsizes_file",
+                    "source": [
+                        "#chrsizes"
+                    ]
+                },
+                {
+                    "id": "#juicer.bwaIndex",
+                    "source": [
+                        "#bwa_index"
+                    ]
+                }
+            ]
+        },
+        {
+            "outputs": [
+                {
+                    "id": "#juicer2pairs.out_pairs_px"
+                },
+                {
+                    "id": "#juicer2pairs.out_pairs"
+                }
+            ],
+            "id": "#juicer2pairs",
+            "run": {
+                "stdout": "",
                 "x": 665.0000000000003,
+                "sbg:appVersion": [
+                    "sbg:draft-2"
+                ],
                 "label": "juicer2pairs",
+                "sbg:cmdPreview": "merged_nodup2pairs.pl",
+                "sbg:image_url": null,
+                "arguments": [],
+                "class": "CommandLineTool",
+                "id": "4dn-dcic/dev/juicer2pairs/1",
                 "hints": [
                     {
                         "class": "sbg:CPURequirement",
@@ -670,156 +344,482 @@
                         "value": 1000
                     },
                     {
-                        "dockerPull": "duplexa/4dn-hic:v13",
                         "dockerImageId": "",
-                        "class": "DockerRequirement"
+                        "class": "DockerRequirement",
+                        "dockerPull": "duplexa/4dn-hic:v13"
                     }
-                ]
+                ],
+                "sbg:validationErrors": [],
+                "stdin": "",
+                "sbg:project": "4dn-dcic/dev",
+                "sbg:createdOn": 1495826137,
+                "sbg:projectName": "Dev",
+                "y": 407.7604166666669,
+                "requirements": [],
+                "temporaryFailCodes": [],
+                "sbg:id": "4dn-dcic/dev/juicer2pairs/1",
+                "sbg:revision": 1,
+                "sbg:modifiedBy": "4dn-dcic",
+                "baseCommand": [
+                    "merged_nodup2pairs.pl"
+                ],
+                "description": "",
+                "outputs": [
+                    {
+                        "outputBinding": {
+                            "glob": "*.bsorted.pairs.gz.px2"
+                        },
+                        "id": "#out_pairs_px",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": ".PX2"
+                    },
+                    {
+                        "outputBinding": {
+                            "glob": "*.bsorted.pairs.gz"
+                        },
+                        "id": "#out_pairs",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": ".PAIRS.GZ"
+                    }
+                ],
+                "sbg:modifiedOn": 1495826456,
+                "sbg:sbgMaintained": false,
+                "sbg:contributors": [
+                    "4dn-dcic"
+                ],
+                "sbg:revisionsInfo": [
+                    {
+                        "sbg:modifiedOn": 1495826137,
+                        "sbg:revision": 0,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    },
+                    {
+                        "sbg:modifiedOn": 1495826456,
+                        "sbg:revision": 1,
+                        "sbg:revisionNotes": null,
+                        "sbg:modifiedBy": "4dn-dcic"
+                    }
+                ],
+                "inputs": [
+                    {
+                        "inputBinding": {
+                            "position": 4,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#outprefix",
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "sbg:toolDefaultValue": "out",
+                        "required": false
+                    },
+                    {
+                        "inputBinding": {
+                            "position": 1,
+                            "separate": false,
+                            "sbg:cmdInclude": true,
+                            "prefix": "-s"
+                        },
+                        "id": "#nsplit",
+                        "type": [
+                            "null",
+                            "int"
+                        ],
+                        "sbg:stageInput": null,
+                        "sbg:includeInPorts": false,
+                        "sbg:toolDefaultValue": "100",
+                        "required": false
+                    },
+                    {
+                        "inputBinding": {
+                            "position": 2,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#input_merged_nodups",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": ".TXT",
+                        "required": false
+                    },
+                    {
+                        "inputBinding": {
+                            "position": 3,
+                            "separate": true,
+                            "sbg:cmdInclude": true
+                        },
+                        "id": "#chromsize",
+                        "type": [
+                            "null",
+                            "File"
+                        ],
+                        "sbg:fileTypes": ".CHROM.SIZES",
+                        "required": false
+                    }
+                ],
+                "successCodes": [],
+                "appUrl": "/u/4dn-dcic/dev/apps/#4dn-dcic/dev/juicer2pairs/1",
+                "sbg:latestRevision": 1,
+                "cwlVersion": "sbg:draft-2",
+                "sbg:job": {
+                    "allocatedResources": {
+                        "cpu": 1,
+                        "mem": 1000
+                    },
+                    "inputs": {
+                        "input_merged_nodups": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/input_merged_nodups.ext"
+                        },
+                        "nsplit": 8,
+                        "chromsize": {
+                            "size": 0,
+                            "class": "File",
+                            "secondaryFiles": [],
+                            "path": "/path/to/chromsize.ext"
+                        },
+                        "outprefix": "outprefix-string-value"
+                    }
+                },
+                "sbg:createdBy": "4dn-dcic"
             },
-            "id": "#juicer2pairs",
-            "outputs": [
+            "sbg:x": 665.0000000000003,
+            "sbg:y": 407.7604166666669,
+            "inputs": [
                 {
-                    "id": "#juicer2pairs.out_pairs_px"
+                    "default": "out",
+                    "id": "#juicer2pairs.outprefix"
                 },
                 {
-                    "id": "#juicer2pairs.out_pairs"
+                    "id": "#juicer2pairs.nsplit",
+                    "source": [
+                        "#nsplit"
+                    ]
+                },
+                {
+                    "id": "#juicer2pairs.input_merged_nodups",
+                    "source": [
+                        "#juicer.merged_nodups"
+                    ]
+                },
+                {
+                    "id": "#juicer2pairs.chromsize",
+                    "source": [
+                        "#chrsizes"
+                    ]
                 }
-            ],
-            "sbg:x": 665.0000000000003,
-            "sbg:y": 407.7604166666669
+            ]
         }
     ],
-    "sbg:createdBy": "4dn-dcic",
-    "sbg:image_url": "https://brood.sbgenomics.com/static/4dn-dcic/dev/hi-c-processing-parta-juicer/5.png",
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:createdOn": 1495645271,
+    "sbg:projectName": "Dev",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-parta-juicer/5/raw/",
+    "sbg:canvas_zoom": 0.5999999999999996,
+    "requirements": [],
+    "sbg:id": "4dn-dcic/dev/hi-c-processing-parta-juicer/5",
+    "sbg:revision": 5,
+    "sbg:modifiedOn": 1495833605,
+    "sbg:validationErrors": [],
+    "description": "",
+    "outputs": [
+        {
+            "id": "#out_pairs",
+            "label": "out_pairs",
+            "sbg:fileTypes": ".PAIRS.GZ",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#juicer2pairs.out_pairs"
+            ],
+            "sbg:x": 1135.1589554743873,
+            "sbg:y": 433.94532003450297,
+            "sbg:includeInPorts": true,
+            "required": false
+        },
+        {
+            "id": "#out_pairs_index",
+            "label": "out_pairs_index",
+            "sbg:fileTypes": ".PX2",
+            "type": [
+                "null",
+                "File"
+            ],
+            "source": [
+                "#juicer2pairs.out_pairs_px"
+            ],
+            "sbg:x": 1156.8454639320414,
+            "sbg:y": 230.81040345869056,
+            "sbg:includeInPorts": true,
+            "required": false
+        }
+    ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:sbgMaintained": false,
     "sbg:contributors": [
         "4dn-dcic"
     ],
-    "sbg:canvas_x": 225,
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:sbgMaintained": false,
-    "sbg:createdOn": 1495645271,
-    "requirements": [],
-    "sbg:appVersion": [
-        "sbg:draft-2"
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedOn": 1495645271,
+            "sbg:revision": 0,
+            "sbg:revisionNotes": "Copy of 4dn-dcic/dev/hi-c-processing-parta/20",
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495645459,
+            "sbg:revision": 1,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495833499,
+            "sbg:revision": 2,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495833561,
+            "sbg:revision": 3,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495833566,
+            "sbg:revision": 4,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495833605,
+            "sbg:revision": 5,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1495836706,
+            "sbg:revision": 6,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1496170708,
+            "sbg:revision": 7,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1496431004,
+            "sbg:revision": 8,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497473502,
+            "sbg:revision": 9,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497473555,
+            "sbg:revision": 10,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497538622,
+            "sbg:revision": 11,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497641679,
+            "sbg:revision": 12,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497643656,
+            "sbg:revision": 13,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1497983491,
+            "sbg:revision": 14,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1498165262,
+            "sbg:revision": 15,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1498230882,
+            "sbg:revision": 16,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1498844973,
+            "sbg:revision": 17,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499287014,
+            "sbg:revision": 18,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499287106,
+            "sbg:revision": 19,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499967331,
+            "sbg:revision": 20,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499967351,
+            "sbg:revision": 21,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499976565,
+            "sbg:revision": 22,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1500054122,
+            "sbg:revision": 23,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1500054228,
+            "sbg:revision": 24,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1500054337,
+            "sbg:revision": 25,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1500054494,
+            "sbg:revision": 26,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1500054599,
+            "sbg:revision": 27,
+            "sbg:revisionNotes": null,
+            "sbg:modifiedBy": "4dn-dcic"
+        }
     ],
-    "sbg:revision": 5,
-    "label": "Hi-C_processing_partA_Juicer",
-    "sbg:canvas_zoom": 0.5999999999999996,
-    "description": "",
-    "class": "Workflow",
     "inputs": [
         {
-            "type": [
-                "File"
-            ],
-            "sbg:x": -79.33332717418662,
-            "sbg:y": 140.66383514128128,
             "label": "fastq1",
-            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
-            "id": "#fastq1"
-        },
-        {
+            "id": "#fastq1",
             "type": [
                 "File"
             ],
-            "sbg:x": 24.555563087816765,
-            "sbg:y": 193.10828503403184,
+            "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
+            "sbg:x": -79.33332717418662,
+            "sbg:y": 140.66383514128128
+        },
+        {
             "label": "fastq2",
+            "id": "#fastq2",
+            "type": [
+                "File"
+            ],
             "sbg:fileTypes": "FQ, FASTQ, FQ.GZ, FASTQ.GZ",
-            "id": "#fastq2"
+            "sbg:x": 24.555563087816765,
+            "sbg:y": 193.10828503403184
         },
         {
-            "type": [
-                "File"
-            ],
-            "sbg:x": -11.111108400203499,
-            "sbg:y": 462.3305623795146,
             "label": "bwa_index",
+            "id": "#bwa_index",
+            "type": [
+                "File"
+            ],
             "sbg:fileTypes": "BWAINDEX.TGZ",
-            "id": "#bwa_index"
+            "sbg:x": -11.111108400203499,
+            "sbg:y": 462.3305623795146
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "sbg:x": -99.99998479419224,
-            "sbg:y": 554.9952898421001,
             "label": "chrsizes",
+            "id": "#chrsizes",
+            "type": [
+                "null",
+                "File"
+            ],
             "sbg:fileTypes": ".CHROM.SIZES",
-            "id": "#chrsizes"
+            "sbg:x": -99.99998479419224,
+            "sbg:y": 554.9952898421001
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "sbg:x": -113.33335151937345,
-            "sbg:y": 394.9952658280505,
             "label": "reference_fasta",
-            "sbg:fileTypes": "FA, FASTA, FA.GZ, FASTA.GZ",
-            "id": "#reference_fasta"
-        },
-        {
+            "id": "#reference_fasta",
             "type": [
                 "null",
                 "File"
             ],
-            "label": "restriction_file",
-            "sbg:x": -35.00001758999382,
-            "sbg:y": 294.99526332484334,
-            "id": "#restriction_file"
+            "sbg:fileTypes": "FA, FASTA, FA.GZ, FASTA.GZ",
+            "sbg:x": -113.33335151937345,
+            "sbg:y": 394.9952658280505
         },
         {
-            "sbg:toolDefaultValue": "100",
+            "label": "restriction_file",
+            "sbg:y": 294.99526332484334,
+            "id": "#restriction_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "sbg:x": -35.00001758999382
+        },
+        {
+            "sbg:suggestedValue": 100,
             "type": [
                 "null",
                 "int"
             ],
             "sbg:stageInput": null,
-            "sbg:suggestedValue": 100,
+            "id": "#nsplit",
             "sbg:includeInPorts": false,
-            "required": false,
-            "id": "#nsplit"
+            "sbg:toolDefaultValue": "100",
+            "required": false
         }
     ],
-    "sbg:id": "4dn-dcic/dev/hi-c-processing-parta-juicer/5",
-    "sbg:validationErrors": [],
-    "hints": [],
-    "outputs": [
-        {
-            "sbg:includeInPorts": true,
-            "type": [
-                "null",
-                "File"
-            ],
-            "label": "out_pairs",
-            "id": "#out_pairs",
-            "sbg:fileTypes": ".PAIRS.GZ",
-            "sbg:x": 1135.1589554743873,
-            "source": [
-                "#juicer2pairs.out_pairs"
-            ],
-            "required": false,
-            "sbg:y": 433.94532003450297
-        },
-        {
-            "sbg:includeInPorts": true,
-            "type": [
-                "null",
-                "File"
-            ],
-            "label": "out_pairs_index",
-            "id": "#out_pairs_index",
-            "sbg:fileTypes": ".PX2",
-            "sbg:x": 1156.8454639320414,
-            "source": [
-                "#juicer2pairs.out_pairs_px"
-            ],
-            "required": false,
-            "sbg:y": 230.81040345869056
-        }
-    ],
-    "sbg:modifiedBy": "4dn-dcic",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/hi-c-processing-parta-juicer/5/raw/"
+    "cwlVersion": "sbg:draft-2",
+    "sbg:createdBy": "4dn-dcic"
 }

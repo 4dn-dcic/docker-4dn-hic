@@ -1,67 +1,66 @@
 {
     "inputs": [
         {
-            "secondaryFiles": [
-                "$(self.basename + '.px2')"
+            "type": [
+                "null",
+                "File"
             ],
             "id": "#pairs",
             "inputBinding": {
                 "position": 1,
                 "separate": true
             },
-            "type": [
-                "null",
-                "File"
+            "secondaryFiles": [
+                "$(self.basename + '.px2')"
             ]
         },
         {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrsizes",
             "inputBinding": {
                 "position": 2,
                 "separate": true
-            },
-            "id": "#chrsizes",
-            "type": [
-                "null",
-                "File"
-            ]
+            }
         },
         {
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#binsize",
             "inputBinding": {
                 "position": 3,
                 "separate": true
-            },
-            "id": "#binsize",
-            "type": [
-                "null",
-                "int"
-            ]
+            }
         },
         {
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
-            "id": "#outprefix",
-            "default": "out",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#outprefix",
+            "default": "out",
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            }
         },
         {
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "id": "#ncores",
-            "default": 8,
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores",
+            "default": 8,
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            }
         },
         {
-            "id": "#max_split",
             "inputBinding": {
                 "position": 6,
                 "separate": true
@@ -70,36 +69,37 @@
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#max_split"
         }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v34",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-cooler.sh"
     ],
     "outputs": [
         {
-            "id": "#out_cool",
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#out_cool",
             "outputBinding": {
                 "glob": "*.cool"
             }
         }
     ],
-    "baseCommand": [
-        "run-cooler.sh"
-    ],
-    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "arguments": [],
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "class": "DockerRequirement"
-        }
-    ],
-    "cwlVersion": "draft-3"
+    "arguments": []
 }
