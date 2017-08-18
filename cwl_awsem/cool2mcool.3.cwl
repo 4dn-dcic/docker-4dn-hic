@@ -1,68 +1,68 @@
 {
+    "baseCommand": [
+        "run-cool2multirescool.sh"
+    ],
+    "arguments": [],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "inputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_cool"
+            "id": "#input_cool",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            }
         },
         {
-            "default": 4,
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
-            "id": "#ncores",
+            "default": 4,
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "id": "#ncores"
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            },
-            "default": "out",
-            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#outprefix",
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "default": "out"
         }
-    ],
-    "cwlVersion": "draft-3",
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-cool2multirescool.sh"
     ],
     "outputs": [
         {
             "outputBinding": {
                 "glob": "*.multires.cool *.mcool"
             },
-            "id": "#output_mcool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_mcool"
         }
     ],
-    "arguments": [],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/4dn-hic:v17"
         }
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ]
+    "cwlVersion": "draft-3"
 }

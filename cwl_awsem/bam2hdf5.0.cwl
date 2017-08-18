@@ -1,10 +1,5 @@
 {
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
+    "arguments": [],
     "outputs": [
         {
             "outputBinding": {
@@ -57,64 +52,69 @@
             "id": "#HiC_project_object_hdf5"
         }
     ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
     ],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
-            "id": "#input_bam1",
-            "type": [
-                "File"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 1
-            }
-        },
-        {
-            "id": "#input_bam2",
+            },
             "type": [
                 "File"
             ],
+            "id": "#input_bam1"
+        },
+        {
             "inputBinding": {
                 "separate": false,
                 "position": 2
-            }
+            },
+            "type": [
+                "File"
+            ],
+            "id": "#input_bam2"
         },
         {
-            "id": "#output_dir",
-            "type": [
-                "null",
-                "string"
-            ],
             "inputBinding": {
                 "separate": false,
                 "position": 4,
                 "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression",
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
+                    "script": "$job.inputs.output_dir || '.'"
                 }
-            }
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#output_dir"
         },
         {
-            "id": "#RE_bed",
+            "inputBinding": {
+                "separate": false,
+                "position": 3
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "inputBinding": {
-                "separate": false,
-                "position": 3
-            }
+            "id": "#RE_bed"
         }
     ],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/hictool-bam2hdf5:v2"
         }
+    ],
+    "baseCommand": [
+        "run.sh"
     ]
 }

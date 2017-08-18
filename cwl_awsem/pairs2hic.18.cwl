@@ -1,103 +1,103 @@
 {
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_hic",
-            "outputBinding": {
-                "glob": "*.hic"
-            }
-        }
-    ],
-    "arguments": [],
-    "cwlVersion": "draft-3",
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v34",
-            "class": "DockerRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "inputs": [
         {
+            "id": "#input_pairs",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_pairs",
             "inputBinding": {
                 "separate": true,
                 "position": 1
             }
         },
         {
+            "id": "#chromsizes_file",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#chromsizes_file",
             "inputBinding": {
                 "separate": true,
                 "position": 2
             }
         },
         {
+            "id": "#output_prefix",
+            "default": "out",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#output_prefix",
             "inputBinding": {
                 "separate": true,
                 "position": 3
-            },
-            "default": "out"
+            }
         },
         {
+            "id": "#min_res",
+            "default": 5000,
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#min_res",
-            "default": 5000,
             "inputBinding": {
                 "separate": true,
                 "position": 4
             }
         },
         {
+            "id": "#higlass",
+            "default": "1",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#higlass",
-            "default": "1",
             "inputBinding": {
                 "separate": true,
                 "position": 5
             }
         },
         {
+            "id": "#maxmem",
+            "default": "14g",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#maxmem",
             "inputBinding": {
                 "separate": true,
                 "position": 6
-            },
-            "default": "14g"
+            }
         }
     ],
+    "class": "CommandLineTool",
     "baseCommand": [
         "run-juicebox-pre.sh"
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v35",
+            "class": "DockerRequirement"
+        }
+    ],
+    "arguments": [],
+    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "outputs": [
+        {
+            "id": "#output_hic",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.hic"
+            }
+        }
     ]
 }

@@ -1,33 +1,24 @@
 {
-    "arguments": [],
-    "requirements": [
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
+    "class": "CommandLineTool",
+    "arguments": [],
     "outputs": [
         {
+            "outputBinding": {
+                "glob": "$(inputs.outdir + '*.mcool')"
+            },
             "id": "#output_mcool",
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outdir + '*.mcool')"
-            }
+            ]
         }
     ],
-    "class": "CommandLineTool",
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "class": "DockerRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run-add-hicnormvector-to-mcool.sh"
-    ],
-    "cwlVersion": "draft-3",
     "inputs": [
         {
             "id": "#input_hic",
@@ -57,11 +48,20 @@
                 "null",
                 "string"
             ],
+            "default": ".",
             "inputBinding": {
                 "position": 3,
                 "separate": true
-            },
-            "default": "."
+            }
         }
-    ]
+    ],
+    "baseCommand": [
+        "run-add-hicnormvector-to-mcool.sh"
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "cwlVersion": "draft-3"
 }

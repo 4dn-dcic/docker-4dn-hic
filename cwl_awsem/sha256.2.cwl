@@ -1,27 +1,22 @@
 {
-    "hints": [
+    "requirements": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sha256:v1"
+            "class": "InlineJavascriptRequirement"
         }
-    ],
-    "baseCommand": [
-        "run.sh"
     ],
     "inputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_file"
+            "id": "#input_file",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            }
         }
     ],
-    "cwlVersion": "draft-3",
     "outputs": [
         {
             "type": [
@@ -35,11 +30,16 @@
             }
         }
     ],
-    "requirements": [
+    "baseCommand": [
+        "run.sh"
+    ],
+    "hints": [
         {
-            "class": "InlineJavascriptRequirement"
+            "dockerPull": "duplexa/sha256:v1",
+            "class": "DockerRequirement"
         }
     ],
+    "cwlVersion": "draft-3",
     "class": "CommandLineTool",
     "arguments": []
 }

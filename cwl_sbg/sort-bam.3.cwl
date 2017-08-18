@@ -1,20 +1,5 @@
 {
-    "sbg:createdOn": 1478224605,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "temporaryFailCodes": [],
-    "sbg:image_url": null,
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "stdin": "",
     "sbg:validationErrors": [],
-    "sbg:modifiedOn": 1478225129,
-    "sbg:projectName": "Dev",
-    "successCodes": [],
-    "requirements": [],
     "hints": [
         {
             "value": 2,
@@ -25,61 +10,12 @@
             "class": "sbg:MemRequirement"
         },
         {
-            "dockerImageId": "",
+            "class": "DockerRequirement",
             "dockerPull": "duplexa/sort-bam:v1",
-            "class": "DockerRequirement"
+            "dockerImageId": ""
         }
     ],
-    "stdout": "",
-    "sbg:id": "4dn-dcic/dev/sort-bam/3",
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 2,
-            "mem": 4000
-        },
-        "inputs": {
-            "prefix": "prefix-string-value",
-            "input_bam": {
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/input_bam.ext",
-                "size": 0
-            }
-        }
-    },
-    "sbg:modifiedBy": "duplexa",
-    "sbg:latestRevision": 5,
-    "label": "sort-bam",
-    "arguments": [],
-    "sbg:cmdPreview": "run.sh",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:revision": 3,
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam",
-            "outputBinding": {
-                "glob": "*.sorted.bam"
-            },
-            "sbg:fileTypes": "BAM"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index",
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
-            },
-            "sbg:fileTypes": "BAI"
-        }
-    ],
-    "sbg:sbgMaintained": false,
-    "sbg:createdBy": "duplexa",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sort-bam/3/raw/",
     "sbg:revisionsInfo": [
         {
             "sbg:revisionNotes": null,
@@ -118,38 +54,102 @@
             "sbg:revision": 5
         }
     ],
+    "sbg:id": "4dn-dcic/dev/sort-bam/3",
+    "sbg:revision": 3,
+    "arguments": [],
+    "sbg:job": {
+        "inputs": {
+            "input_bam": {
+                "secondaryFiles": [],
+                "class": "File",
+                "size": 0,
+                "path": "/path/to/input_bam.ext"
+            },
+            "prefix": "prefix-string-value"
+        },
+        "allocatedResources": {
+            "cpu": 2,
+            "mem": 4000
+        }
+    },
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:createdOn": 1478224605,
+    "stdin": "",
+    "requirements": [],
+    "description": "Produces a coordinate-sorted bam file and its index, using samtools 1.2.",
+    "successCodes": [],
+    "sbg:projectName": "Dev",
+    "sbg:modifiedOn": 1478225129,
+    "sbg:sbgMaintained": false,
+    "baseCommand": [
+        "run.sh"
+    ],
+    "class": "CommandLineTool",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:createdBy": "duplexa",
+    "temporaryFailCodes": [],
+    "sbg:modifiedBy": "duplexa",
+    "stdout": "",
+    "sbg:latestRevision": 5,
+    "sbg:cmdPreview": "run.sh",
     "inputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_bam",
             "inputBinding": {
-                "position": 1,
                 "sbg:cmdInclude": true,
-                "separate": true
+                "separate": true,
+                "position": 1
             },
+            "id": "#input_bam",
+            "sbg:fileTypes": "BAM"
+        },
+        {
+            "sbg:toolDefaultValue": "out",
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#prefix",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 2
+            }
+        }
+    ],
+    "label": "sort-bam",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.sorted.bam"
+            },
+            "id": "#out_sorted_bam",
             "sbg:fileTypes": "BAM"
         },
         {
             "type": [
                 "null",
-                "string"
+                "File"
             ],
-            "sbg:toolDefaultValue": "out",
-            "inputBinding": {
-                "position": 2,
-                "sbg:cmdInclude": true,
-                "separate": true
+            "outputBinding": {
+                "glob": "*.sorted.bam.bai"
             },
-            "id": "#prefix"
+            "id": "#out_sorted_bam_index",
+            "sbg:fileTypes": "BAI"
         }
     ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sort-bam/3/raw/",
-    "description": "Produces a coordinate-sorted bam file and its index, using samtools 1.2."
+    "sbg:image_url": null,
+    "cwlVersion": "sbg:draft-2"
 }

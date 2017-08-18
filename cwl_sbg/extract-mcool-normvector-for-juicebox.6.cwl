@@ -2,190 +2,190 @@
     "sbg:contributors": [
         "4dn-dcic"
     ],
-    "stdout": "",
-    "sbg:job": {
-        "inputs": {
-            "output_prefix": "output_prefix-string-value",
-            "nres": 7,
-            "outdir": "outdir-string-value",
-            "input_mcool": {
-                "class": "File",
-                "size": 0,
-                "path": "/path/to/input_mcool.ext",
-                "secondaryFiles": []
-            }
-        },
-        "allocatedResources": {
-            "cpu": 8,
-            "mem": 8000
-        }
-    },
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:sbgMaintained": false,
-    "sbg:createdBy": "4dn-dcic",
-    "sbg:modifiedOn": 1502900127,
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:project": "4dn-dcic/dev",
+    "sbg:cmdPreview": "run-mcool2hic.sh",
+    "sbg:latestRevision": 6,
     "stdin": "",
-    "sbg:revision": 6,
-    "baseCommand": [
-        "run-mcool2hic.sh"
-    ],
-    "sbg:id": "4dn-dcic/dev/extract-mcool-normvector-for-juicebox/6",
-    "temporaryFailCodes": [],
+    "cwlVersion": "sbg:draft-2",
+    "sbg:revisionNotes": "removed valuefrom from output_prefix",
+    "class": "CommandLineTool",
     "requirements": [
         {
-            "id": "#cwl-js-engine",
             "requirements": [
                 {
                     "dockerPull": "rabix/js-engine",
                     "class": "DockerRequirement"
                 }
             ],
-            "class": "ExpressionEngineRequirement"
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine"
         }
     ],
-    "outputs": [
+    "hints": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "'*.juicerformat.gz'"
-            },
-            "id": "#output_normvector",
-            "sbg:fileTypes": "GZ"
+            "class": "sbg:CPURequirement",
+            "value": 8
+        },
+        {
+            "class": "sbg:MemRequirement",
+            "value": 8000
+        },
+        {
+            "dockerPull": "duplexa/4dn-hic:v33",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
         }
     ],
-    "sbg:revisionNotes": "removed valuefrom from output_prefix",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:projectName": "Dev",
+    "description": "",
+    "sbg:modifiedBy": "4dn-dcic",
     "sbg:createdOn": 1499701567,
-    "label": "extract-mcool-normvector-for-juicebox",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/extract-mcool-normvector-for-juicebox/6/raw/",
+    "successCodes": [],
     "arguments": [],
+    "sbg:projectName": "Dev",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/extract-mcool-normvector-for-juicebox/6/raw/",
+    "sbg:job": {
+        "allocatedResources": {
+            "cpu": 8,
+            "mem": 8000
+        },
+        "inputs": {
+            "input_mcool": {
+                "class": "File",
+                "secondaryFiles": [],
+                "path": "/path/to/input_mcool.ext",
+                "size": 0
+            },
+            "output_prefix": "output_prefix-string-value",
+            "outdir": "outdir-string-value",
+            "nres": 7
+        }
+    },
+    "sbg:sbgMaintained": false,
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1499701567,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1499701784,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1499703640,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 3,
+            "sbg:modifiedOn": 1499704766,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 4,
+            "sbg:modifiedOn": 1499705191,
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 5,
+            "sbg:modifiedOn": 1502899948,
+            "sbg:revisionNotes": "docker v33 and removed valuefrom for outdir (default is enough)"
+        },
+        {
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revision": 6,
+            "sbg:modifiedOn": 1502900127,
+            "sbg:revisionNotes": "removed valuefrom from output_prefix"
+        }
+    ],
     "sbg:image_url": null,
-    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-mcool2hic.sh"
+    ],
+    "temporaryFailCodes": [],
+    "sbg:validationErrors": [],
+    "sbg:modifiedOn": 1502900127,
+    "label": "extract-mcool-normvector-for-juicebox",
+    "sbg:project": "4dn-dcic/dev",
+    "stdout": "",
+    "sbg:revision": 6,
+    "sbg:createdBy": "4dn-dcic",
     "inputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "sbg:fileTypes": "MCOOL",
             "id": "#input_mcool",
             "inputBinding": {
                 "position": 1,
-                "separate": true,
-                "sbg:cmdInclude": true
-            }
-        },
-        {
+                "sbg:cmdInclude": true,
+                "separate": true
+            },
             "type": [
                 "null",
-                "string"
-            ],
+                "File"
+            ]
+        },
+        {
             "sbg:toolDefaultValue": ".",
             "id": "#outdir",
             "inputBinding": {
                 "position": 2,
-                "separate": true,
-                "sbg:cmdInclude": true
-            }
-        },
-        {
+                "sbg:cmdInclude": true,
+                "separate": true
+            },
             "type": [
                 "null",
                 "string"
-            ],
+            ]
+        },
+        {
             "sbg:toolDefaultValue": "out",
             "id": "#output_prefix",
             "inputBinding": {
                 "position": 3,
-                "separate": true,
-                "sbg:cmdInclude": true
-            }
-        },
-        {
+                "sbg:cmdInclude": true,
+                "separate": true
+            },
             "type": [
                 "null",
-                "int"
-            ],
+                "string"
+            ]
+        },
+        {
             "sbg:toolDefaultValue": "13",
             "id": "#nres",
             "sbg:stageInput": null,
             "inputBinding": {
                 "position": 4,
-                "separate": true,
-                "sbg:cmdInclude": true
-            }
+                "sbg:cmdInclude": true,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "int"
+            ]
         }
     ],
-    "sbg:validationErrors": [],
-    "sbg:revisionsInfo": [
+    "sbg:id": "4dn-dcic/dev/extract-mcool-normvector-for-juicebox/6",
+    "outputs": [
         {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 0,
-            "sbg:modifiedOn": 1499701567,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 1,
-            "sbg:modifiedOn": 1499701784,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 2,
-            "sbg:modifiedOn": 1499703640,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 3,
-            "sbg:modifiedOn": 1499704766,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:revision": 4,
-            "sbg:modifiedOn": 1499705191,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": "docker v33 and removed valuefrom for outdir (default is enough)",
-            "sbg:revision": 5,
-            "sbg:modifiedOn": 1502899948,
-            "sbg:modifiedBy": "4dn-dcic"
-        },
-        {
-            "sbg:revisionNotes": "removed valuefrom from output_prefix",
-            "sbg:revision": 6,
-            "sbg:modifiedOn": 1502900127,
-            "sbg:modifiedBy": "4dn-dcic"
+            "sbg:fileTypes": "GZ",
+            "outputBinding": {
+                "glob": "'*.juicerformat.gz'"
+            },
+            "id": "#output_normvector",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
-    "description": "",
-    "sbg:cmdPreview": "run-mcool2hic.sh",
-    "hints": [
-        {
-            "value": 8,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 8000,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "dockerImageId": "",
-            "class": "DockerRequirement"
-        }
-    ],
-    "successCodes": [],
-    "sbg:latestRevision": 6
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ]
 }

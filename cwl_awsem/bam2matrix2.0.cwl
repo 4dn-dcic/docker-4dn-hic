@@ -1,10 +1,21 @@
 {
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
+        }
+    ],
     "inputs": [
         {
             "id": "#HiC_norm_binning_hdf5",
             "inputBinding": {
-                "separate": false,
-                "position": 1
+                "position": 1,
+                "separate": false
             },
             "type": [
                 "File"
@@ -27,8 +38,8 @@
         {
             "id": "#chromosome",
             "inputBinding": {
-                "separate": false,
-                "position": 2
+                "position": 2,
+                "separate": false
             },
             "type": [
                 "string"
@@ -36,25 +47,25 @@
         },
         {
             "id": "#contact_matrix_binsize",
-            "default": 50000,
             "inputBinding": {
-                "separate": false,
-                "position": 3
+                "position": 3,
+                "separate": false
             },
             "type": [
                 "int"
-            ]
+            ],
+            "default": 50000
         },
         {
             "id": "#output_dir",
             "inputBinding": {
                 "position": 5,
-                "separate": false,
                 "valueFrom": {
+                    "class": "Expression",
                     "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression"
-                }
+                    "script": "$job.inputs.output_dir || '.'"
+                },
+                "separate": false
             },
             "type": [
                 "null",
@@ -64,8 +75,8 @@
         {
             "id": "#chrlen_file",
             "inputBinding": {
-                "separate": false,
-                "position": 4
+                "position": 4,
+                "separate": false
             },
             "type": [
                 "null",
@@ -125,21 +136,10 @@
             ]
         }
     ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2"
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": []
+    ]
 }

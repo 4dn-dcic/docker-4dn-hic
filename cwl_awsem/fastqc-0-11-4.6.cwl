@@ -1,4 +1,20 @@
 {
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*_fastqc.zip"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#report_zip",
+            "description": "Zip archive of the report."
+        }
+    ],
+    "baseCommand": [
+        "run-fastqc.sh"
+    ],
     "cwlVersion": "draft-3",
     "hints": [
         {
@@ -6,34 +22,36 @@
             "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run-fastqc.sh"
+    "class": "CommandLineTool",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
     ],
-    "arguments": [],
     "inputs": [
         {
             "type": [
                 "File"
             ],
+            "id": "#input_fastq",
             "inputBinding": {
+                "separate": true,
                 "itemSeparator": null,
-                "position": 1,
-                "separate": true
+                "position": 1
             },
-            "description": "Input file.",
-            "id": "#input_fastq"
+            "description": "Input file."
         },
         {
+            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
             "type": [
                 "null",
                 "int"
             ],
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
             "id": "#threads",
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
             "default": 1
         },
         {
@@ -41,31 +59,13 @@
                 "null",
                 "string"
             ],
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
             "id": "#outdir",
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
             "default": "."
         }
     ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*_fastqc.zip"
-            },
-            "id": "#report_zip",
-            "description": "Zip archive of the report."
-        }
-    ]
+    "arguments": []
 }

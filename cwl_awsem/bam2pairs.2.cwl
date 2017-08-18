@@ -1,65 +1,65 @@
 {
-    "baseCommand": [
-        "run.sh"
-    ],
-    "arguments": [],
-    "hints": [
+    "outputs": [
         {
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "class": "DockerRequirement"
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            },
+            "id": "#out_pairs"
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            },
+            "id": "#out_pairs_index"
         }
     ],
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool",
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
     "inputs": [
         {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_bam",
             "type": [
                 "File"
-            ]
+            ],
+            "id": "#input_bam",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            }
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#out_prefix",
-            "default": "out",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "default": "out",
+            "id": "#out_prefix",
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            }
         }
     ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            },
-            "id": "#out_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "id": "#out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ]
+    "arguments": []
 }
