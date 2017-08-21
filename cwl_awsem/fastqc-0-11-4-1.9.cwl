@@ -1,13 +1,29 @@
 {
-    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
+    "inputs": [
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#input_fastq"
+        },
+        {
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": 1,
+            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
+            "id": "#threads"
+        }
+    ],
     "steps": [
         {
-            "run": "fastqc-0-11-4.6.cwl",
+            "id": "#FastQC",
             "inputs": [
                 {
                     "source": "#threads",
@@ -26,27 +42,10 @@
                     "id": "#FastQC.report_zip"
                 }
             ],
-            "id": "#FastQC"
+            "run": "fastqc-0-11-4.6.cwl"
         }
     ],
-    "class": "Workflow",
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_fastq"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#threads",
-            "default": 1,
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine."
-        }
-    ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "type": [
@@ -56,5 +55,6 @@
             "source": "#FastQC.report_zip",
             "id": "#report_zip"
         }
-    ]
+    ],
+    "class": "Workflow"
 }

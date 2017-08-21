@@ -1,120 +1,120 @@
 {
-    "arguments": [],
-    "outputs": [
+    "inputs": [
         {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/fend_object.hdf5')"
+            "inputBinding": {
+                "position": 1,
+                "separate": false
             },
+            "id": "#input_bam1",
             "type": [
-                "null",
                 "File"
-            ],
-            "id": "#fend_object_hdf5"
+            ]
         },
         {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiC_data_object.hdf5')"
+            "inputBinding": {
+                "position": 2,
+                "separate": false
             },
+            "id": "#input_bam2",
             "type": [
-                "null",
                 "File"
-            ],
-            "id": "#HiC_data_object_hdf5"
+            ]
         },
         {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiC_distance_function.hdf5')"
+            "inputBinding": {
+                "position": 4,
+                "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                },
+                "separate": false
             },
+            "id": "#output_dir",
             "type": [
                 "null",
-                "File"
-            ],
-            "id": "#HiC_distance_function_hdf5"
+                "string"
+            ]
         },
         {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiC_norm_binning.hdf5')"
+            "inputBinding": {
+                "position": 3,
+                "separate": false
             },
+            "id": "#RE_bed",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#HiC_norm_binning_hdf5"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/HiC_project_object.hdf5' )"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#HiC_project_object_hdf5"
+            ]
         }
     ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "arguments": [],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "inputs": [
+    "class": "CommandLineTool",
+    "outputs": [
         {
-            "inputBinding": {
-                "separate": false,
-                "position": 1
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/fend_object.hdf5')"
             },
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam1"
-        },
-        {
-            "inputBinding": {
-                "separate": false,
-                "position": 2
-            },
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam2"
-        },
-        {
-            "inputBinding": {
-                "separate": false,
-                "position": 4,
-                "valueFrom": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'"
-                }
-            },
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#output_dir"
-        },
-        {
-            "inputBinding": {
-                "separate": false,
-                "position": 3
-            },
+            "id": "#fend_object_hdf5",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#RE_bed"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiC_data_object.hdf5')"
+            },
+            "id": "#HiC_data_object_hdf5",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiC_distance_function.hdf5')"
+            },
+            "id": "#HiC_distance_function_hdf5",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiC_norm_binning.hdf5')"
+            },
+            "id": "#HiC_norm_binning_hdf5",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/HiC_project_object.hdf5' )"
+            },
+            "id": "#HiC_project_object_hdf5",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
-    "class": "CommandLineTool",
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/hictool-bam2hdf5:v2"
+            "dockerPull": "duplexa/hictool-bam2hdf5:v2",
+            "class": "DockerRequirement"
         }
     ],
-    "baseCommand": [
-        "run.sh"
-    ]
+    "cwlVersion": "draft-3"
 }

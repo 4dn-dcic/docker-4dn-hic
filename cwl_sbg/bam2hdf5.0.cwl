@@ -1,76 +1,5 @@
 {
-    "sbg:project": "4dn-dcic/dev",
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam1",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 1
-            },
-            "sbg:fileTypes": "BAM"
-        },
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam2",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 2
-            },
-            "sbg:fileTypes": "BAM"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#output_dir",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 4,
-                "valueFrom": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression"
-                }
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#RE_bed",
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 3
-            },
-            "sbg:fileTypes": "BED"
-        }
-    ],
-    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
     "temporaryFailCodes": [],
-    "sbg:createdOn": 1473274836,
-    "requirements": [
-        {
-            "id": "#cwl-js-engine",
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ]
-        }
-    ],
     "hints": [
         {
             "value": 4,
@@ -82,35 +11,160 @@
         },
         {
             "dockerPull": "duplexa/hictool-bam2hdf5:v2",
-            "dockerImageId": "",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerImageId": ""
         }
     ],
+    "sbg:image_url": null,
+    "sbg:id": "4dn-dcic/dev/bam2hdf5/0",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:createdOn": 1473274836,
     "sbg:modifiedOn": 1473274836,
-    "sbg:validationErrors": [],
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 1,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "File"
+            ],
+            "id": "#input_bam1",
+            "sbg:fileTypes": "BAM"
+        },
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 2,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "File"
+            ],
+            "id": "#input_bam2",
+            "sbg:fileTypes": "BAM"
+        },
+        {
+            "inputBinding": {
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir || '.'"
+                },
+                "separate": false,
+                "position": 4,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#output_dir"
+        },
+        {
+            "inputBinding": {
+                "separate": false,
+                "position": 3,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#RE_bed",
+            "sbg:fileTypes": "BED"
+        }
+    ],
     "sbg:contributors": [
         "duplexa"
     ],
+    "stdin": "",
+    "stdout": "",
     "sbg:createdBy": "duplexa",
-    "sbg:image_url": null,
-    "sbg:copyOf": "gaurav/4dn/bam2hdf5/4",
-    "arguments": [],
-    "sbg:modifiedBy": "duplexa",
+    "sbg:validationErrors": [],
     "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2hdf5/0/raw/",
-    "sbg:cmdPreview": "run.sh /path/to/input_bam1.bam /path/to/input_bam2.bam",
-    "successCodes": [],
     "description": "",
-    "label": "hictool-bam2hdf5",
+    "sbg:project": "4dn-dcic/dev",
+    "arguments": [],
+    "cwlVersion": "sbg:draft-2",
+    "outputs": [
+        {
+            "id": "#fend_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/fend_object.hdf5'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#HiC_data_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiC_data_object.hdf5'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#HiC_distance_function_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiC_distance_function.hdf5'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#HiC_norm_binning_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiC_norm_binning.hdf5'"
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#HiC_project_object_hdf5",
+            "outputBinding": {
+                "glob": {
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression",
+                    "script": "$job.inputs.output_dir + '/HiC_project_object.hdf5' "
+                }
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "class": "CommandLineTool",
     "baseCommand": [
         "run.sh"
-    ],
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revision": 0,
-            "sbg:modifiedOn": 1473274836,
-            "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
-            "sbg:modifiedBy": "duplexa"
-        }
     ],
     "sbg:job": {
         "allocatedResources": {
@@ -119,108 +173,54 @@
         },
         "inputs": {
             "input_bam2": {
-                "size": 0,
-                "class": "File",
+                "secondaryFiles": [],
                 "path": "/path/to/input_bam2.bam",
-                "secondaryFiles": []
+                "class": "File",
+                "size": 0
+            },
+            "RE_bed": {
+                "secondaryFiles": [],
+                "path": "/path/to/RE_bed.ext",
+                "class": "File",
+                "size": 0
             },
             "input_bam1": {
-                "size": 0,
-                "class": "File",
+                "secondaryFiles": [],
                 "path": "/path/to/input_bam1.bam",
-                "secondaryFiles": []
-            },
-            "output_dir": "output_dir",
-            "RE_bed": {
-                "size": 0,
                 "class": "File",
-                "path": "/path/to/RE_bed.ext",
-                "secondaryFiles": []
-            }
+                "size": 0
+            },
+            "output_dir": "output_dir"
         }
     },
-    "sbg:id": "4dn-dcic/dev/bam2hdf5/0",
-    "cwlVersion": "sbg:draft-2",
-    "sbg:projectName": "Dev",
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "stdin": "",
+    "sbg:revision": 0,
+    "sbg:copyOf": "gaurav/4dn/bam2hdf5/4",
+    "label": "hictool-bam2hdf5",
     "sbg:latestRevision": 0,
+    "successCodes": [],
     "sbg:sbgMaintained": false,
-    "outputs": [
+    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4",
+    "sbg:projectName": "Dev",
+    "requirements": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#fend_object_hdf5",
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/fend_object.hdf5'",
-                    "class": "Expression"
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
                 }
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
             ],
-            "id": "#HiC_data_object_hdf5",
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/HiC_data_object.hdf5'",
-                    "class": "Expression"
-                }
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#HiC_distance_function_hdf5",
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/HiC_distance_function.hdf5'",
-                    "class": "Expression"
-                }
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#HiC_norm_binning_hdf5",
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/HiC_norm_binning.hdf5'",
-                    "class": "Expression"
-                }
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#HiC_project_object_hdf5",
-            "outputBinding": {
-                "glob": {
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir + '/HiC_project_object.hdf5' ",
-                    "class": "Expression"
-                }
-            }
+            "class": "ExpressionEngineRequirement"
         }
     ],
-    "sbg:revision": 0,
-    "stdout": "",
-    "class": "CommandLineTool"
+    "sbg:revisionsInfo": [
+        {
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1473274836,
+            "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": "Copy of gaurav/4dn/bam2hdf5/4"
+        }
+    ],
+    "sbg:modifiedBy": "duplexa",
+    "sbg:cmdPreview": "run.sh /path/to/input_bam1.bam /path/to/input_bam2.bam"
 }

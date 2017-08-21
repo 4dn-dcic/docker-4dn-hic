@@ -1,63 +1,63 @@
 {
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_bam",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#prefix",
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": "out"
-        }
-    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/sort-bam:v1"
         }
     ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#out_sorted_bam",
+            "outputBinding": {
+                "glob": "*.sorted.bam"
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "*.sorted.bam"
-            }
+            ]
         },
         {
             "id": "#out_sorted_bam_index",
+            "outputBinding": {
+                "glob": "*.sorted.bam.bai"
+            },
             "type": [
                 "null",
                 "File"
-            ],
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
-            }
+            ]
         }
     ],
     "class": "CommandLineTool",
     "arguments": [],
-    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_bam"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "out",
+            "id": "#prefix"
         }
     ],
     "baseCommand": [

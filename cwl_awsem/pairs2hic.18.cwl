@@ -1,93 +1,15 @@
 {
-    "inputs": [
-        {
-            "id": "#input_pairs",
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 1
-            }
-        },
-        {
-            "id": "#chromsizes_file",
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            }
-        },
-        {
-            "id": "#output_prefix",
-            "default": "out",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            }
-        },
-        {
-            "id": "#min_res",
-            "default": 5000,
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            }
-        },
-        {
-            "id": "#higlass",
-            "default": "1",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            }
-        },
-        {
-            "id": "#maxmem",
-            "default": "14g",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 6
-            }
-        }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v35",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v35"
         }
     ],
     "arguments": [],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
+    "baseCommand": [
+        "run-juicebox-pre.sh"
     ],
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "id": "#output_hic",
@@ -99,5 +21,83 @@
                 "glob": "*.hic"
             }
         }
-    ]
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "#input_pairs",
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#chromsizes_file",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#output_prefix",
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "out"
+        },
+        {
+            "default": 5000,
+            "id": "#min_res",
+            "type": [
+                "null",
+                "int"
+            ],
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            }
+        },
+        {
+            "default": "1",
+            "id": "#higlass",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            }
+        },
+        {
+            "id": "#maxmem",
+            "inputBinding": {
+                "position": 6,
+                "separate": true
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "14g"
+        }
+    ],
+    "class": "CommandLineTool"
 }

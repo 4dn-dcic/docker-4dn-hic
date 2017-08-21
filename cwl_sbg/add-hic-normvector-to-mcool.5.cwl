@@ -1,57 +1,97 @@
 {
-    "sbg:contributors": [
-        "4dn-dcic"
+    "baseCommand": [
+        "run-add-hicnormvector-to-mcool.sh"
     ],
-    "sbg:job": {
-        "allocatedResources": {
-            "mem": 8000,
-            "cpu": 4
+    "inputs": [
+        {
+            "id": "#input_hic",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 1
+            },
+            "sbg:fileTypes": ".HIC",
+            "type": [
+                "null",
+                "File"
+            ]
         },
-        "inputs": {
-            "input_mcool": {
-                "class": "File",
-                "path": "/path/to/input_mcool.ext",
-                "secondaryFiles": [],
-                "size": 0
+        {
+            "id": "#input_mcool",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 2
             },
-            "input_hic": {
-                "class": "File",
-                "path": "/path/to/input_hic.ext",
-                "secondaryFiles": [],
-                "size": 0
+            "sbg:fileTypes": ".MCOOL",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#outdir",
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 3
             },
-            "outdir": "outdir-string-value"
+            "sbg:toolDefaultValue": ".",
+            "type": [
+                "null",
+                "string"
+            ]
         }
-    },
+    ],
+    "sbg:cmdPreview": "run-add-hicnormvector-to-mcool.sh",
+    "sbg:sbgMaintained": false,
+    "label": "add_hic_normvector_to_mcool",
+    "sbg:latestRevision": 5,
+    "sbg:project": "4dn-dcic/dev",
+    "arguments": [],
+    "stdout": "",
+    "successCodes": [],
+    "class": "CommandLineTool",
+    "sbg:modifiedOn": 1502899564,
+    "stdin": "",
+    "sbg:createdOn": 1499653917,
     "requirements": [
         {
             "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
             "requirements": [
                 {
                     "class": "DockerRequirement",
                     "dockerPull": "rabix/js-engine"
                 }
-            ],
-            "id": "#cwl-js-engine"
+            ]
         }
     ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/add-hic-normvector-to-mcool/5/raw/",
-    "sbg:createdBy": "4dn-dcic",
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "$job.inputs.outdir + '*.mcool'"
+    "description": "",
+    "sbg:projectName": "Dev",
+    "cwlVersion": "sbg:draft-2",
+    "sbg:job": {
+        "inputs": {
+            "input_mcool": {
+                "path": "/path/to/input_mcool.ext",
+                "class": "File",
+                "size": 0,
+                "secondaryFiles": []
             },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_mcool"
+            "outdir": "outdir-string-value",
+            "input_hic": {
+                "path": "/path/to/input_hic.ext",
+                "class": "File",
+                "size": 0,
+                "secondaryFiles": []
+            }
+        },
+        "allocatedResources": {
+            "mem": 8000,
+            "cpu": 4
         }
-    ],
-    "baseCommand": [
-        "run-add-hicnormvector-to-mcool.sh"
-    ],
+    },
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/add-hic-normvector-to-mcool/5/raw/",
     "hints": [
         {
             "class": "sbg:MemRequirement",
@@ -59,116 +99,76 @@
         },
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "dockerImageId": ""
+            "dockerImageId": "",
+            "dockerPull": "duplexa/4dn-hic:v33"
         },
         {
             "class": "sbg:CPURequirement",
             "value": 4
         }
     ],
-    "sbg:sbgMaintained": false,
-    "temporaryFailCodes": [],
-    "stdout": "",
-    "sbg:latestRevision": 5,
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_hic",
-            "sbg:fileTypes": ".HIC"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 2,
-                "separate": true
-            },
-            "id": "#input_mcool",
-            "sbg:fileTypes": ".MCOOL"
-        },
-        {
-            "sbg:toolDefaultValue": ".",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "position": 3,
-                "separate": true
-            },
-            "id": "#outdir"
-        }
+    "sbg:contributors": [
+        "4dn-dcic"
     ],
-    "sbg:id": "4dn-dcic/dev/add-hic-normvector-to-mcool/5",
-    "stdin": "",
-    "sbg:modifiedOn": 1502899564,
-    "sbg:image_url": null,
-    "sbg:modifiedBy": "4dn-dcic",
-    "label": "add_hic_normvector_to_mcool",
-    "sbg:cmdPreview": "run-add-hicnormvector-to-mcool.sh",
     "sbg:appVersion": [
         "sbg:draft-2"
     ],
-    "sbg:validationErrors": [],
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:revision": 5,
     "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
-    "sbg:revisionsInfo": [
+    "sbg:id": "4dn-dcic/dev/add-hic-normvector-to-mcool/5",
+    "outputs": [
         {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499653917,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 0
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499654479,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 1
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499659501,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 2
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499701134,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 3
-        },
-        {
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1502652131,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 4
-        },
-        {
-            "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
-            "sbg:modifiedOn": 1502899564,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revision": 5
+            "outputBinding": {
+                "glob": "$job.inputs.outdir + '*.mcool'"
+            },
+            "id": "#output_mcool",
+            "type": [
+                "null",
+                "File"
+            ]
         }
     ],
-    "successCodes": [],
-    "sbg:projectName": "Dev",
-    "class": "CommandLineTool",
-    "arguments": [],
-    "cwlVersion": "sbg:draft-2",
-    "description": "",
-    "sbg:createdOn": 1499653917
+    "temporaryFailCodes": [],
+    "sbg:createdBy": "4dn-dcic",
+    "sbg:image_url": null,
+    "sbg:validationErrors": [],
+    "sbg:revision": 5,
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedOn": 1499653917,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedOn": 1499654479,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedOn": 1499659501,
+            "sbg:revision": 2,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedOn": 1499701134,
+            "sbg:revision": 3,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedOn": 1502652131,
+            "sbg:revision": 4,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": null
+        },
+        {
+            "sbg:modifiedOn": 1502899564,
+            "sbg:revision": 5,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh."
+        }
+    ]
 }

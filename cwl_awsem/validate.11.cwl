@@ -1,4 +1,8 @@
 {
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
     "outputs": [
         {
             "type": [
@@ -6,26 +10,24 @@
                 "File"
             ],
             "outputBinding": {
-                "glob": "*.multires.cool *.mcool"
+                "glob": "report_validatefiles"
             },
-            "id": "#output_mcool"
+            "id": "#report"
         }
     ],
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v17"
+            "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
     "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-cool2multirescool.sh"
-    ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
+    "arguments": [],
     "class": "CommandLineTool",
     "inputs": [
         {
@@ -37,32 +39,32 @@
                 "separate": true,
                 "position": 1
             },
-            "id": "#input_cool"
+            "id": "#input_file"
         },
         {
-            "default": 4,
             "type": [
                 "null",
-                "int"
+                {
+                    "type": "enum",
+                    "name": "type",
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ]
+                }
             ],
             "inputBinding": {
                 "separate": true,
-                "position": 2
+                "position": 2,
+                "valueFrom": {
+                    "script": "\"fastq\"",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
             },
-            "id": "#ncores"
-        },
-        {
-            "default": "out",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            },
-            "id": "#outprefix"
+            "default": "fastq",
+            "id": "#type"
         }
-    ],
-    "arguments": []
+    ]
 }

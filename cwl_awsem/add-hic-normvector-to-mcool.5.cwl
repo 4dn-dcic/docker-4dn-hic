@@ -1,67 +1,67 @@
 {
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v33"
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outdir + '*.mcool')"
-            },
-            "id": "#output_mcool",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
     "inputs": [
         {
+            "type": [
+                "null",
+                "File"
+            ],
             "id": "#input_hic",
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            }
+        },
+        {
             "type": [
                 "null",
                 "File"
             ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
             "id": "#input_mcool",
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
-                "position": 2,
-                "separate": true
+                "separate": true,
+                "position": 2
             }
         },
         {
-            "id": "#outdir",
             "type": [
                 "null",
                 "string"
             ],
             "default": ".",
+            "id": "#outdir",
             "inputBinding": {
-                "position": 3,
-                "separate": true
+                "separate": true,
+                "position": 3
             }
         }
     ],
     "baseCommand": [
         "run-add-hicnormvector-to-mcool.sh"
     ],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "$(inputs.outdir + '*.mcool')"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#output_mcool"
+        }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v33",
+            "class": "DockerRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "draft-3"
+    "arguments": []
 }

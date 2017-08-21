@@ -1,50 +1,16 @@
 {
-    "stdout": "",
-    "sbg:projectName": "Dev",
-    "arguments": [],
-    "sbg:id": "4dn-dcic/dev/bam2pairs/2",
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:modifiedOn": 1478233222,
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2pairs/2/raw/",
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 1000
-        },
-        "inputs": {
-            "out_prefix": "out_prefix-string-value",
-            "input_bam": {
-                "class": "File",
-                "secondaryFiles": [],
-                "size": 0,
-                "path": "/path/to/input_bam.ext"
-            }
-        }
-    },
-    "sbg:modifiedBy": "duplexa",
-    "sbg:cmdPreview": "run.sh  /path/to/input_bam.ext",
-    "class": "CommandLineTool",
-    "description": "Direct conversion of bam to an Upper-triangular, chromosome-block-sorted (Uc) pairs file, gzipped and pairix-indexed.",
-    "temporaryFailCodes": [],
-    "sbg:latestRevision": 5,
-    "sbg:image_url": null,
     "inputs": [
         {
             "sbg:fileTypes": "BAM",
-            "type": [
-                "File"
-            ],
             "inputBinding": {
                 "position": 1,
-                "sbg:cmdInclude": true,
-                "separate": true
+                "separate": true,
+                "sbg:cmdInclude": true
             },
-            "id": "#input_bam"
+            "id": "#input_bam",
+            "type": [
+                "File"
+            ]
         },
         {
             "sbg:toolDefaultValue": "out",
@@ -54,72 +20,88 @@
             ],
             "inputBinding": {
                 "position": 2,
-                "sbg:cmdInclude": true,
-                "separate": true
+                "separate": true,
+                "sbg:cmdInclude": true
             },
             "id": "#out_prefix"
         }
     ],
-    "sbg:validationErrors": [],
-    "sbg:revision": 2,
-    "successCodes": [],
-    "sbg:sbgMaintained": false,
-    "requirements": [],
-    "cwlVersion": "sbg:draft-2",
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 1
+    "arguments": [],
+    "sbg:createdOn": 1478232564,
+    "sbg:job": {
+        "inputs": {
+            "out_prefix": "out_prefix-string-value",
+            "input_bam": {
+                "path": "/path/to/input_bam.ext",
+                "size": 0,
+                "secondaryFiles": [],
+                "class": "File"
+            }
         },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 1000
-        },
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "dockerImageId": ""
+        "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
         }
+    },
+    "sbg:image_url": null,
+    "sbg:cmdPreview": "run.sh  /path/to/input_bam.ext",
+    "sbg:validationErrors": [],
+    "sbg:modifiedBy": "duplexa",
+    "sbg:revision": 2,
+    "class": "CommandLineTool",
+    "label": "bam2pairs",
+    "sbg:contributors": [
+        "duplexa"
     ],
-    "sbg:createdBy": "duplexa",
+    "successCodes": [],
     "sbg:revisionsInfo": [
         {
-            "sbg:revision": 0,
             "sbg:revisionNotes": null,
+            "sbg:revision": 0,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1478232564
         },
         {
-            "sbg:revision": 1,
             "sbg:revisionNotes": null,
+            "sbg:revision": 1,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1478232733
         },
         {
-            "sbg:revision": 2,
             "sbg:revisionNotes": null,
+            "sbg:revision": 2,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1478233222
         },
         {
-            "sbg:revision": 3,
             "sbg:revisionNotes": "bam2pairs:v2",
+            "sbg:revision": 3,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1488515633
         },
         {
-            "sbg:revision": 4,
             "sbg:revisionNotes": "now using 4dn-hic docker image",
+            "sbg:revision": 4,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1488524333
         },
         {
-            "sbg:revision": 5,
             "sbg:revisionNotes": null,
+            "sbg:revision": 5,
             "sbg:modifiedBy": "duplexa",
             "sbg:modifiedOn": 1490716999
         }
     ],
+    "requirements": [],
+    "stdout": "",
+    "sbg:project": "4dn-dcic/dev",
+    "stdin": "",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:projectName": "Dev",
+    "cwlVersion": "sbg:draft-2",
+    "sbg:modifiedOn": 1478233222,
     "outputs": [
         {
             "sbg:fileTypes": "GZ",
@@ -144,11 +126,29 @@
             "id": "#out_pairs_index"
         }
     ],
-    "label": "bam2pairs",
-    "stdin": "",
-    "sbg:project": "4dn-dcic/dev",
+    "sbg:latestRevision": 5,
+    "hints": [
+        {
+            "value": 1,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 1000,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerImageId": "",
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
+        }
+    ],
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2pairs/2/raw/",
+    "sbg:sbgMaintained": false,
+    "sbg:createdBy": "duplexa",
+    "temporaryFailCodes": [],
+    "sbg:id": "4dn-dcic/dev/bam2pairs/2",
+    "description": "Direct conversion of bam to an Upper-triangular, chromosome-block-sorted (Uc) pairs file, gzipped and pairix-indexed.",
     "baseCommand": [
         "run.sh"
-    ],
-    "sbg:createdOn": 1478232564
+    ]
 }
