@@ -4,8 +4,8 @@ python get_cwl.py -a hi-c-processing-parta-juicer -r 5 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partb -r 44 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partc -r 12 -t $SBG_TOKEN
 python get_cwl.py -a sha256 -r 2 -t $SBG_TOKEN
-python get_cwl.py -a md5-validate -r 3 -t $SBG_TOKEN
-python get_cwl.py -a validate -r 11 -t $SBG_TOKEN
+python get_cwl.py -a md5-validate -r 4 -t $SBG_TOKEN
+python get_cwl.py -a validate -r 12 -t $SBG_TOKEN
 python get_cwl.py -a md5 -r 5 -t $SBG_TOKEN
 python get_cwl.py -a merge-pairs -r 30 -t $SBG_TOKEN
 python get_cwl.py -a pairs2hic -r 18 -t $SBG_TOKEN

@@ -1,41 +1,32 @@
 {
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh",
+        ""
+    ],
+    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
-    ],
     "outputs": [
         {
             "outputBinding": {
-                "glob": "*.sorted.bam"
+                "glob": "report_validatefiles"
             },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#out_sorted_bam"
-        },
-        {
-            "outputBinding": {
-                "glob": "*.sorted.bam.bai"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_sorted_bam_index"
+            "id": "#report"
         }
     ],
+    "arguments": [],
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/sort-bam:v1"
+            "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
     "inputs": [
@@ -44,23 +35,31 @@
                 "position": 1,
                 "separate": true
             },
-            "id": "#input_bam",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#input_file"
         },
         {
-            "default": "out",
-            "id": "#prefix",
             "inputBinding": {
                 "position": 2,
                 "separate": true
             },
+            "default": "fastq",
             "type": [
                 "null",
-                "string"
-            ]
+                {
+                    "symbols": [
+                        "fastq",
+                        "fasta",
+                        "bam"
+                    ],
+                    "type": "enum",
+                    "name": "type"
+                }
+            ],
+            "id": "#type"
         }
     ]
 }

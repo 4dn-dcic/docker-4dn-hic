@@ -1,46 +1,47 @@
 {
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.multires.cool *.mcool"
-            },
-            "id": "#output_mcool"
-        }
-    ],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v17"
+            "dockerPull": "duplexa/4dn-hic:v17",
+            "class": "DockerRequirement"
         }
     ],
+    "class": "CommandLineTool",
     "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run-cool2multirescool.sh"
-    ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool",
-    "inputs": [
+    "outputs": [
         {
+            "id": "#output_mcool",
+            "outputBinding": {
+                "glob": "*.multires.cool *.mcool"
+            },
             "type": [
                 "null",
                 "File"
-            ],
+            ]
+        }
+    ],
+    "baseCommand": [
+        "run-cool2multirescool.sh"
+    ],
+    "arguments": [],
+    "inputs": [
+        {
+            "id": "#input_cool",
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
-            "id": "#input_cool"
+            "type": [
+                "null",
+                "File"
+            ]
         },
         {
-            "default": 4,
+            "id": "#ncores",
             "type": [
                 "null",
                 "int"
@@ -49,10 +50,10 @@
                 "separate": true,
                 "position": 2
             },
-            "id": "#ncores"
+            "default": 4
         },
         {
-            "default": "out",
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
@@ -61,8 +62,7 @@
                 "separate": true,
                 "position": 3
             },
-            "id": "#outprefix"
+            "default": "out"
         }
-    ],
-    "arguments": []
+    ]
 }

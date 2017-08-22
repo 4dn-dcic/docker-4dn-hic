@@ -1,29 +1,54 @@
 {
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v35"
+            "dockerPull": "duplexa/4dn-hic:v35",
+            "class": "DockerRequirement"
         }
     ],
+    "arguments": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "secondaryFiles": [
+                ".px2"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            },
+            "id": "#output_pairs"
+        }
+    ],
+    "class": "CommandLineTool",
     "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "inputs": [
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
             "type": [
                 "null",
                 "string"
             ],
             "default": "out",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
             "id": "#outprefix"
         },
         {
             "inputBinding": {
-                "position": 2,
+                "separate": true,
                 "itemSeparator": " ",
-                "separate": true
+                "position": 2
             },
             "type": [
                 "null",
@@ -34,30 +59,5 @@
             ],
             "id": "#input_pairs"
         }
-    ],
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "secondaryFiles": [
-                ".px2"
-            ],
-            "id": "#output_pairs"
-        }
-    ],
-    "arguments": []
+    ]
 }

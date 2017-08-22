@@ -5,76 +5,76 @@
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "class": "CommandLineTool",
-    "outputs": [
+    "inputs": [
         {
-            "id": "#output_normvector",
-            "outputBinding": {
-                "glob": "'*.juicerformat.gz'"
+            "inputBinding": {
+                "separate": true,
+                "position": 1
             },
             "type": [
                 "null",
                 "File"
-            ]
-        }
-    ],
-    "baseCommand": [
-        "run-mcool2hic.sh"
-    ],
-    "inputs": [
-        {
-            "id": "#input_mcool",
-            "type": [
-                "null",
-                "File"
             ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
+            "id": "#input_mcool"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "string"
+            ],
             "default": ".",
-            "id": "#outdir",
+            "id": "#outdir"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
             "type": [
                 "null",
                 "string"
             ],
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
-        },
-        {
             "default": "out",
-            "id": "#output_prefix",
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            }
+            "id": "#output_prefix"
         },
         {
-            "default": 13,
-            "id": "#nres",
             "type": [
                 "null",
                 "int"
             ],
             "inputBinding": {
-                "position": 4,
-                "separate": true
-            }
+                "separate": true,
+                "position": 4
+            },
+            "default": 13,
+            "id": "#nres"
         }
     ],
+    "baseCommand": [
+        "run-mcool2hic.sh"
+    ],
     "cwlVersion": "draft-3",
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "'*.juicerformat.gz'"
+            },
+            "id": "#output_normvector"
+        }
+    ],
+    "class": "CommandLineTool",
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v33"
+            "dockerPull": "duplexa/4dn-hic:v33",
+            "class": "DockerRequirement"
         }
     ]
 }

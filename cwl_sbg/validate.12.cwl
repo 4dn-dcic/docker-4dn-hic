@@ -1,16 +1,47 @@
 {
+    "sbg:validationErrors": [],
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "id": "#cwl-js-engine",
+            "requirements": [
+                {
+                    "class": "DockerRequirement",
+                    "dockerPull": "rabix/js-engine"
+                }
+            ]
+        }
+    ],
+    "sbg:cmdPreview": "run.sh",
+    "sbg:latestRevision": 12,
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:job": {
+        "inputs": {
+            "type": "fastq",
+            "input_file": {
+                "class": "File",
+                "secondaryFiles": [],
+                "path": "/path/to/input_file.ext",
+                "size": 0
+            }
+        },
+        "allocatedResources": {
+            "mem": 500,
+            "cpu": 1
+        }
+    },
     "inputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
-            "sbg:fileTypes": "FASTQ, FQ, FASTQ.GZ, FQ.GZ",
             "id": "#input_file",
+            "sbg:fileTypes": "FASTQ, FQ, FASTQ.GZ, FQ.GZ",
             "inputBinding": {
                 "separate": true,
-                "sbg:cmdInclude": true,
-                "position": 1
+                "position": 1,
+                "sbg:cmdInclude": true
             }
         },
         {
@@ -26,28 +57,17 @@
                     "type": "enum"
                 }
             ],
+            "sbg:toolDefaultValue": "fastq",
             "id": "#type",
             "inputBinding": {
-                "valueFrom": {
-                    "script": "\"fastq\"",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                },
                 "separate": true,
-                "sbg:cmdInclude": true,
-                "position": 2
-            },
-            "sbg:toolDefaultValue": "fastq"
+                "position": 2,
+                "sbg:cmdInclude": true
+            }
         }
     ],
-    "sbg:latestRevision": 11,
-    "description": "",
-    "successCodes": [],
-    "sbg:revision": 11,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "sbg:project": "4dn-dcic/dev",
+    "sbg:createdOn": 1476287593,
+    "class": "CommandLineTool",
     "sbg:revisionsInfo": [
         {
             "sbg:revision": 0,
@@ -120,9 +140,18 @@
             "sbg:modifiedOn": 1503348708,
             "sbg:modifiedBy": "4dn-dcic",
             "sbg:revisionNotes": "removed quote from output glob"
+        },
+        {
+            "sbg:revision": 12,
+            "sbg:modifiedOn": 1503414051,
+            "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": "removed 'value' from input 'type'"
         }
     ],
-    "cwlVersion": "sbg:draft-2",
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:revisionNotes": "removed 'value' from input 'type'",
+    "sbg:createdBy": "duplexa",
+    "temporaryFailCodes": [],
     "hints": [
         {
             "class": "sbg:CPURequirement",
@@ -138,69 +167,41 @@
             "dockerPull": "duplexa/validatefiles:v1"
         }
     ],
-    "sbg:contributors": [
-        "duplexa",
-        "4dn-dcic"
-    ],
-    "sbg:cmdPreview": "run.sh",
-    "class": "CommandLineTool",
-    "sbg:createdOn": 1476287593,
-    "temporaryFailCodes": [],
-    "sbg:id": "4dn-dcic/dev/validate/11",
-    "sbg:validationErrors": [],
-    "stdout": "",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/validate/11/raw/",
-    "sbg:createdBy": "duplexa",
-    "label": "validatefiles",
-    "sbg:sbgMaintained": false,
-    "arguments": [],
-    "sbg:job": {
-        "allocatedResources": {
-            "cpu": 1,
-            "mem": 500
-        },
-        "inputs": {
-            "type": "fastq",
-            "input_file": {
-                "class": "File",
-                "secondaryFiles": [],
-                "size": 0,
-                "path": "/path/to/input_file.ext"
-            }
-        }
-    },
-    "stdin": "",
-    "sbg:modifiedOn": 1503348708,
-    "requirements": [
-        {
-            "class": "ExpressionEngineRequirement",
-            "requirements": [
-                {
-                    "class": "DockerRequirement",
-                    "dockerPull": "rabix/js-engine"
-                }
-            ],
-            "id": "#cwl-js-engine"
-        }
-    ],
-    "sbg:modifiedBy": "4dn-dcic",
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "report_validatefiles"
-            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#report"
+            "id": "#report",
+            "outputBinding": {
+                "glob": "report_validatefiles"
+            }
         }
     ],
+    "sbg:image_url": null,
+    "stdout": "",
+    "cwlVersion": "sbg:draft-2",
+    "arguments": [],
+    "successCodes": [],
+    "description": "",
+    "sbg:projectName": "Dev",
+    "sbg:modifiedOn": 1503414051,
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/validate/12/raw/",
+    "label": "validatefiles",
     "baseCommand": [
         "run.sh",
         ""
     ],
-    "sbg:revisionNotes": "removed quote from output glob",
-    "sbg:image_url": null,
-    "sbg:projectName": "Dev"
+    "sbg:revision": 12,
+    "sbg:contributors": [
+        "duplexa",
+        "4dn-dcic"
+    ],
+    "stdin": "",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:sbgMaintained": false,
+    "sbg:id": "4dn-dcic/dev/validate/12"
 }

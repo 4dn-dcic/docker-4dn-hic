@@ -1,65 +1,65 @@
 {
-    "cwlVersion": "draft-3",
     "class": "CommandLineTool",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            },
-            "id": "#out_pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "id": "#out_pairs_index"
-        }
-    ],
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "type": [
                 "File"
             ],
+            "id": "#input_bam",
             "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "id": "#input_bam"
+                "separate": true,
+                "position": 1
+            }
         },
         {
+            "default": "out",
             "type": [
                 "null",
                 "string"
             ],
+            "id": "#out_prefix",
             "inputBinding": {
-                "position": 2,
-                "separate": true
+                "separate": true,
+                "position": 2
+            }
+        }
+    ],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
             },
-            "default": "out",
-            "id": "#out_prefix"
+            "id": "#out_pairs",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            },
+            "id": "#out_pairs_index",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
         }
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/bam2pairs:v1",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
-    ]
+    "arguments": []
 }

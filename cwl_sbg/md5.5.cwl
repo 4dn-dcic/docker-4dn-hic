@@ -1,29 +1,17 @@
 {
-    "sbg:latestRevision": 5,
-    "sbg:revisionNotes": "removed quotes in output glob",
-    "description": "",
-    "sbg:sbgMaintained": false,
-    "baseCommand": [
-        "run.sh"
-    ],
-    "sbg:revision": 5,
-    "stdout": "",
-    "sbg:cmdPreview": "run.sh",
-    "outputs": [
-        {
-            "id": "#report",
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "report"
-            }
-        }
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/5/raw/",
-    "cwlVersion": "sbg:draft-2",
     "successCodes": [],
+    "stdin": "",
+    "sbg:createdBy": "duplexa",
+    "sbg:sbgMaintained": false,
+    "sbg:contributors": [
+        "duplexa",
+        "4dn-dcic"
+    ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:cmdPreview": "run.sh",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
     "sbg:job": {
         "inputs": {
             "input_file": {
@@ -34,97 +22,109 @@
             }
         },
         "allocatedResources": {
-            "mem": 500,
-            "cpu": 1
+            "cpu": 1,
+            "mem": 500
         }
     },
-    "sbg:contributors": [
-        "duplexa",
-        "4dn-dcic"
-    ],
-    "stdin": "",
-    "sbg:image_url": null,
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 1
-        },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 500
-        },
-        {
-            "dockerPull": "duplexa/md5:v1",
-            "dockerImageId": "",
-            "class": "DockerRequirement"
-        }
-    ],
     "arguments": [],
-    "temporaryFailCodes": [],
-    "sbg:id": "4dn-dcic/dev/md5/5",
-    "sbg:projectName": "Dev",
+    "baseCommand": [
+        "run.sh"
+    ],
     "requirements": [],
-    "sbg:validationErrors": [],
+    "sbg:revisionNotes": "removed quotes in output glob",
+    "stdout": "",
+    "class": "CommandLineTool",
     "inputs": [
         {
-            "id": "#input_file",
             "type": [
                 "null",
                 "File"
             ],
             "inputBinding": {
-                "position": 1,
                 "separate": true,
+                "position": 1,
                 "sbg:cmdInclude": true
-            }
+            },
+            "id": "#input_file"
         }
     ],
+    "sbg:latestRevision": 5,
     "sbg:project": "4dn-dcic/dev",
-    "class": "CommandLineTool",
-    "label": "md5",
-    "sbg:modifiedBy": "4dn-dcic",
-    "sbg:createdOn": 1480978938,
     "sbg:revisionsInfo": [
         {
-            "sbg:revision": 0,
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0,
             "sbg:modifiedOn": 1480978938
         },
         {
-            "sbg:revision": 1,
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1,
             "sbg:modifiedOn": 1480978992
         },
         {
-            "sbg:revision": 2,
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2,
             "sbg:modifiedOn": 1494438192
         },
         {
-            "sbg:revision": 3,
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 3,
             "sbg:modifiedOn": 1494438281
         },
         {
-            "sbg:revision": 4,
-            "sbg:revisionNotes": null,
             "sbg:modifiedBy": "duplexa",
+            "sbg:revisionNotes": null,
+            "sbg:revision": 4,
             "sbg:modifiedOn": 1494536730
         },
         {
-            "sbg:revision": 5,
-            "sbg:revisionNotes": "removed quotes in output glob",
             "sbg:modifiedBy": "4dn-dcic",
+            "sbg:revisionNotes": "removed quotes in output glob",
+            "sbg:revision": 5,
             "sbg:modifiedOn": 1503348580
         }
     ],
-    "sbg:createdBy": "duplexa",
+    "sbg:projectName": "Dev",
+    "description": "",
+    "hints": [
+        {
+            "value": 1,
+            "class": "sbg:CPURequirement"
+        },
+        {
+            "value": 500,
+            "class": "sbg:MemRequirement"
+        },
+        {
+            "dockerPull": "duplexa/md5:v1",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
+        }
+    ],
     "sbg:modifiedOn": 1503348580,
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ]
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "report"
+            },
+            "id": "#report"
+        }
+    ],
+    "sbg:image_url": null,
+    "label": "md5",
+    "sbg:id": "4dn-dcic/dev/md5/5",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/5/raw/",
+    "sbg:createdOn": 1480978938,
+    "sbg:validationErrors": [],
+    "temporaryFailCodes": [],
+    "cwlVersion": "sbg:draft-2",
+    "sbg:revision": 5
 }

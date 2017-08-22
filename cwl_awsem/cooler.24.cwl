@@ -1,104 +1,104 @@
 {
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v35",
+            "class": "DockerRequirement"
+        }
+    ],
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "secondaryFiles": [
+                "$(self.basename + '.px2')"
+            ],
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#pairs"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrsizes"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#binsize"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 5
+            },
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "out",
+            "id": "#outprefix"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 4
+            },
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": 8,
+            "id": "#ncores"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 6
+            },
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": 2,
+            "id": "#max_split"
+        }
+    ],
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            },
-            "secondaryFiles": [
-                "$(self.basename + '.px2')"
-            ],
-            "id": "#pairs"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            },
-            "id": "#chrsizes"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "position": 3,
-                "separate": true
-            },
-            "id": "#binsize"
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "inputBinding": {
-                "position": 5,
-                "separate": true
-            },
-            "default": "out",
-            "id": "#outprefix"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "position": 4,
-                "separate": true
-            },
-            "default": 8,
-            "id": "#ncores"
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "id": "#max_split",
-            "default": 2
-        }
-    ],
-    "arguments": [],
     "class": "CommandLineTool",
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v35"
-        }
-    ],
     "baseCommand": [
         "run-cooler.sh"
     ],
+    "arguments": [],
     "outputs": [
         {
+            "outputBinding": {
+                "glob": "*.cool"
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "outputBinding": {
-                "glob": "*.cool"
-            },
             "id": "#out_cool"
         }
     ]

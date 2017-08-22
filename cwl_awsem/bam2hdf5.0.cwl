@@ -1,63 +1,4 @@
 {
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": false
-            },
-            "id": "#input_bam1",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": false
-            },
-            "id": "#input_bam2",
-            "type": [
-                "File"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 4,
-                "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine"
-                },
-                "separate": false
-            },
-            "id": "#output_dir",
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        {
-            "inputBinding": {
-                "position": 3,
-                "separate": false
-            },
-            "id": "#RE_bed",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
@@ -110,11 +51,70 @@
             ]
         }
     ],
+    "arguments": [],
+    "baseCommand": [
+        "run.sh"
+    ],
     "hints": [
         {
             "dockerPull": "duplexa/hictool-bam2hdf5:v2",
             "class": "DockerRequirement"
         }
     ],
-    "cwlVersion": "draft-3"
+    "inputs": [
+        {
+            "id": "#input_bam1",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "position": 1,
+                "separate": false
+            }
+        },
+        {
+            "id": "#input_bam2",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "position": 2,
+                "separate": false
+            }
+        },
+        {
+            "id": "#output_dir",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "valueFrom": {
+                    "engine": "#cwl-js-engine",
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression"
+                },
+                "position": 4,
+                "separate": false
+            }
+        },
+        {
+            "id": "#RE_bed",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 3,
+                "separate": false
+            }
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "class": "CommandLineTool"
 }

@@ -1,8 +1,6 @@
 {
-    "class": "CommandLineTool",
     "outputs": [
         {
-            "id": "#report",
             "outputBinding": {
                 "loadContents": true,
                 "glob": "\"report\""
@@ -10,9 +8,11 @@
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#report"
         }
     ],
+    "class": "CommandLineTool",
     "hints": [
         {
             "class": "DockerRequirement",
@@ -20,26 +20,26 @@
         }
     ],
     "cwlVersion": "draft-3",
-    "inputs": [
-        {
-            "id": "#input_file",
-            "type": [
-                "null",
-                "File"
-            ],
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        }
+    "arguments": [],
+    "baseCommand": [
+        "run.sh"
     ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "arguments": [],
-    "baseCommand": [
-        "run.sh"
+    "inputs": [
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ]
+        }
     ]
 }

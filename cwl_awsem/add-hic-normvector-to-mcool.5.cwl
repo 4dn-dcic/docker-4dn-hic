@@ -1,43 +1,53 @@
 {
     "inputs": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_hic",
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            }
-        },
-        {
+            },
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#input_mcool",
+            "id": "#input_hic"
+        },
+        {
             "inputBinding": {
                 "separate": true,
                 "position": 2
-            }
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#input_mcool"
         },
         {
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
             "type": [
                 "null",
                 "string"
             ],
-            "default": ".",
             "id": "#outdir",
-            "inputBinding": {
-                "separate": true,
-                "position": 3
-            }
+            "default": "."
         }
     ],
-    "baseCommand": [
-        "run-add-hicnormvector-to-mcool.sh"
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v33",
+            "class": "DockerRequirement"
+        }
     ],
+    "arguments": [],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "class": "CommandLineTool",
     "outputs": [
         {
             "outputBinding": {
@@ -50,18 +60,8 @@
             "id": "#output_mcool"
         }
     ],
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v33",
-            "class": "DockerRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
     "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "arguments": []
+    "baseCommand": [
+        "run-add-hicnormvector-to-mcool.sh"
+    ]
 }
