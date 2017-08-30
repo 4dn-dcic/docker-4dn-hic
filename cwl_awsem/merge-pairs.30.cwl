@@ -1,63 +1,63 @@
 {
+    "arguments": [],
+    "class": "CommandLineTool",
+    "baseCommand": [
+        "run-merge-pairs.sh"
+    ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v35",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v35"
         }
     ],
-    "arguments": [],
-    "outputs": [
+    "inputs": [
         {
+            "inputBinding": {
+                "position": 1,
+                "separate": true
+            },
+            "default": "out",
+            "id": "#outprefix",
             "type": [
                 "null",
-                "File"
-            ],
-            "secondaryFiles": [
-                ".px2"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
+                "string"
+            ]
+        },
+        {
+            "inputBinding": {
+                "position": 2,
+                "separate": true,
+                "itemSeparator": " "
             },
-            "id": "#output_pairs"
+            "id": "#input_pairs",
+            "type": [
+                "null",
+                {
+                    "items": "File",
+                    "type": "array"
+                }
+            ]
         }
     ],
-    "class": "CommandLineTool",
     "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "baseCommand": [
-        "run-merge-pairs.sh"
-    ],
-    "inputs": [
+    "outputs": [
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 1
+            "secondaryFiles": [
+                ".px2"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
             },
+            "id": "#output_pairs",
             "type": [
                 "null",
-                "string"
-            ],
-            "default": "out",
-            "id": "#outprefix"
-        },
-        {
-            "inputBinding": {
-                "separate": true,
-                "itemSeparator": " ",
-                "position": 2
-            },
-            "type": [
-                "null",
-                {
-                    "type": "array",
-                    "items": "File"
-                }
-            ],
-            "id": "#input_pairs"
+                "File"
+            ]
         }
     ]
 }

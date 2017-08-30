@@ -1,13 +1,13 @@
 {
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "run.sh",
-        ""
-    ],
-    "class": "CommandLineTool",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "hints": [
+        {
+            "dockerPull": "duplexa/validatefiles:v1",
+            "class": "DockerRequirement"
         }
     ],
     "outputs": [
@@ -15,22 +15,23 @@
             "outputBinding": {
                 "glob": "report_validatefiles"
             },
+            "id": "#report",
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#report"
+            ]
         }
     ],
+    "class": "CommandLineTool",
+    "cwlVersion": "draft-3",
     "arguments": [],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/validatefiles:v1"
-        }
+    "baseCommand": [
+        "run.sh",
+        ""
     ],
     "inputs": [
         {
+            "id": "#input_file",
             "inputBinding": {
                 "position": 1,
                 "separate": true
@@ -38,10 +39,10 @@
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#input_file"
+            ]
         },
         {
+            "id": "#type",
             "inputBinding": {
                 "position": 2,
                 "separate": true
@@ -50,16 +51,15 @@
             "type": [
                 "null",
                 {
+                    "name": "type",
                     "symbols": [
                         "fastq",
                         "fasta",
                         "bam"
                     ],
-                    "type": "enum",
-                    "name": "type"
+                    "type": "enum"
                 }
-            ],
-            "id": "#type"
+            ]
         }
     ]
 }

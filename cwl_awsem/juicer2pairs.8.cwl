@@ -1,53 +1,46 @@
 {
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v35"
-        }
-    ],
     "inputs": [
         {
+            "id": "#input_merged_nodups",
             "type": [
                 "null",
                 "File"
             ],
-            "secondaryFiles": [
-                "$(self.basename + '.px2')"
-            ],
-            "id": "#pairs",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#chrsizes",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#binsize",
             "inputBinding": {
                 "position": 3,
                 "separate": true
             }
         },
         {
+            "id": "#chromsize",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            }
+        },
+        {
+            "id": "#nsplit",
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": 100,
+            "inputBinding": {
+                "position": 1,
+                "separate": true,
+                "prefix": "-s"
+            }
+        },
+        {
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
             ],
-            "id": "#outprefix",
             "default": "out",
             "inputBinding": {
                 "position": 5,
@@ -55,51 +48,55 @@
             }
         },
         {
+            "id": "#max_remove_mapq",
             "type": [
                 "null",
                 "int"
             ],
-            "id": "#ncores",
-            "default": 8,
             "inputBinding": {
-                "position": 4,
-                "separate": true
-            }
-        },
-        {
-            "type": [
-                "null",
-                "int"
-            ],
-            "id": "#max_split",
-            "default": 2,
-            "inputBinding": {
-                "position": 6,
-                "separate": true
+                "position": 2,
+                "separate": true,
+                "prefix": "-m"
             }
         }
-    ],
-    "baseCommand": [
-        "run-cooler.sh"
     ],
     "cwlVersion": "draft-3",
     "class": "CommandLineTool",
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "*.cool"
-            },
+            "id": "#out_pairs",
             "type": [
                 "null",
                 "File"
             ],
-            "id": "#out_cool"
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            }
+        },
+        {
+            "id": "#out_pairs_px",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            }
         }
     ],
-    "arguments": [],
+    "baseCommand": [
+        "merged_nodup2pairs.pl"
+    ],
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "arguments": [],
+    "hints": [
+        {
+            "dockerPull": "duplexa/4dn-hic:v26",
+            "class": "DockerRequirement"
         }
     ]
 }

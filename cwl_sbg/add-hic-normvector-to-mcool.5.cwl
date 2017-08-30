@@ -1,161 +1,78 @@
 {
-    "sbg:job": {
-        "inputs": {
-            "outdir": "outdir-string-value",
-            "input_hic": {
-                "path": "/path/to/input_hic.ext",
-                "secondaryFiles": [],
-                "size": 0,
-                "class": "File"
-            },
-            "input_mcool": {
-                "path": "/path/to/input_mcool.ext",
-                "secondaryFiles": [],
-                "size": 0,
-                "class": "File"
-            }
-        },
-        "allocatedResources": {
-            "cpu": 4,
-            "mem": 8000
-        }
-    },
-    "sbg:createdOn": 1499653917,
-    "successCodes": [],
+    "cwlVersion": "sbg:draft-2",
     "outputs": [
         {
             "outputBinding": {
                 "glob": "$job.inputs.outdir + '*.mcool'"
             },
-            "id": "#output_mcool",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "id": "#output_mcool"
         }
     ],
-    "sbg:validationErrors": [],
+    "sbg:project": "4dn-dcic/dev",
     "sbg:contributors": [
         "4dn-dcic"
     ],
-    "stdout": "",
-    "sbg:latestRevision": 5,
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/add-hic-normvector-to-mcool/5/raw/",
+    "sbg:validationErrors": [],
+    "sbg:revision": 5,
+    "sbg:sbgMaintained": false,
+    "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
+    "successCodes": [],
+    "label": "add_hic_normvector_to_mcool",
+    "stdin": "",
+    "sbg:modifiedOn": 1502899564,
     "sbg:appVersion": [
         "sbg:draft-2"
     ],
-    "temporaryFailCodes": [],
-    "baseCommand": [
-        "run-add-hicnormvector-to-mcool.sh"
-    ],
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:projectName": "Dev",
-    "sbg:sbgMaintained": false,
-    "sbg:modifiedOn": 1502899564,
-    "label": "add_hic_normvector_to_mcool",
-    "class": "CommandLineTool",
-    "sbg:modifiedBy": "4dn-dcic",
-    "description": "",
-    "requirements": [
-        {
-            "id": "#cwl-js-engine",
-            "requirements": [
-                {
-                    "dockerPull": "rabix/js-engine",
-                    "class": "DockerRequirement"
-                }
-            ],
-            "class": "ExpressionEngineRequirement"
-        }
-    ],
-    "sbg:image_url": null,
-    "sbg:revision": 5,
-    "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
-    "sbg:id": "4dn-dcic/dev/add-hic-normvector-to-mcool/5",
-    "sbg:cmdPreview": "run-add-hicnormvector-to-mcool.sh",
-    "sbg:createdBy": "4dn-dcic",
-    "arguments": [],
-    "sbg:revisionsInfo": [
-        {
-            "sbg:revision": 0,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499653917
-        },
-        {
-            "sbg:revision": 1,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499654479
-        },
-        {
-            "sbg:revision": 2,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499659501
-        },
-        {
-            "sbg:revision": 3,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1499701134
-        },
-        {
-            "sbg:revision": 4,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": null,
-            "sbg:modifiedOn": 1502652131
-        },
-        {
-            "sbg:revision": 5,
-            "sbg:modifiedBy": "4dn-dcic",
-            "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
-            "sbg:modifiedOn": 1502899564
-        }
-    ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/add-hic-normvector-to-mcool/5/raw/",
-    "cwlVersion": "sbg:draft-2",
     "inputs": [
         {
             "inputBinding": {
-                "separate": true,
                 "sbg:cmdInclude": true,
+                "separate": true,
                 "position": 1
             },
-            "id": "#input_hic",
+            "sbg:fileTypes": ".HIC",
             "type": [
                 "null",
                 "File"
             ],
-            "sbg:fileTypes": ".HIC"
+            "id": "#input_hic"
         },
         {
             "inputBinding": {
-                "separate": true,
                 "sbg:cmdInclude": true,
+                "separate": true,
                 "position": 2
             },
-            "id": "#input_mcool",
+            "sbg:fileTypes": ".MCOOL",
             "type": [
                 "null",
                 "File"
             ],
-            "sbg:fileTypes": ".MCOOL"
+            "id": "#input_mcool"
         },
         {
             "inputBinding": {
-                "separate": true,
                 "sbg:cmdInclude": true,
+                "separate": true,
                 "position": 3
             },
             "sbg:toolDefaultValue": ".",
-            "id": "#outdir",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "id": "#outdir"
         }
     ],
-    "stdin": "",
+    "sbg:modifiedBy": "4dn-dcic",
+    "stdout": "",
+    "sbg:createdBy": "4dn-dcic",
+    "description": "",
     "hints": [
         {
             "value": 8000,
@@ -163,12 +80,95 @@
         },
         {
             "dockerPull": "duplexa/4dn-hic:v33",
-            "dockerImageId": "",
-            "class": "DockerRequirement"
+            "class": "DockerRequirement",
+            "dockerImageId": ""
         },
         {
             "value": 4,
             "class": "sbg:CPURequirement"
+        }
+    ],
+    "sbg:image_url": null,
+    "baseCommand": [
+        "run-add-hicnormvector-to-mcool.sh"
+    ],
+    "temporaryFailCodes": [],
+    "sbg:cmdPreview": "run-add-hicnormvector-to-mcool.sh",
+    "sbg:job": {
+        "inputs": {
+            "input_hic": {
+                "secondaryFiles": [],
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/input_hic.ext"
+            },
+            "input_mcool": {
+                "secondaryFiles": [],
+                "size": 0,
+                "class": "File",
+                "path": "/path/to/input_mcool.ext"
+            },
+            "outdir": "outdir-string-value"
+        },
+        "allocatedResources": {
+            "cpu": 4,
+            "mem": 8000
+        }
+    },
+    "sbg:id": "4dn-dcic/dev/add-hic-normvector-to-mcool/5",
+    "sbg:createdOn": 1499653917,
+    "sbg:projectName": "Dev",
+    "arguments": [],
+    "sbg:revisionsInfo": [
+        {
+            "sbg:modifiedOn": 1499653917,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499654479,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499659501,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1499701134,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 3,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1502652131,
+            "sbg:revisionNotes": null,
+            "sbg:revision": 4,
+            "sbg:modifiedBy": "4dn-dcic"
+        },
+        {
+            "sbg:modifiedOn": 1502899564,
+            "sbg:revisionNotes": "removed valuefrom for outdir. default is enoguh.",
+            "sbg:revision": 5,
+            "sbg:modifiedBy": "4dn-dcic"
+        }
+    ],
+    "class": "CommandLineTool",
+    "sbg:latestRevision": 5,
+    "requirements": [
+        {
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+                {
+                    "dockerPull": "rabix/js-engine",
+                    "class": "DockerRequirement"
+                }
+            ],
+            "id": "#cwl-js-engine"
         }
     ]
 }

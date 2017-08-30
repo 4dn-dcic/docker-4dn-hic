@@ -1,11 +1,11 @@
 {
     "outputs": [
         {
-            "id": "#report_zip",
-            "description": "Zip archive of the report.",
             "outputBinding": {
                 "glob": "*_fastqc.zip"
             },
+            "id": "#report_zip",
+            "description": "Zip archive of the report.",
             "type": [
                 "null",
                 "File"
@@ -14,58 +14,58 @@
     ],
     "inputs": [
         {
-            "id": "#input_fastq",
+            "inputBinding": {
+                "position": 1,
+                "itemSeparator": null,
+                "separate": true
+            },
             "description": "Input file.",
+            "id": "#input_fastq",
             "type": [
                 "File"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 1,
-                "itemSeparator": null
-            }
+            ]
         },
         {
-            "default": 1,
-            "id": "#threads",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            },
             "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
+            "id": "#threads",
+            "default": 1,
             "type": [
                 "null",
                 "int"
-            ],
-            "inputBinding": {
-                "separate": true,
-                "position": 2
-            }
+            ]
         },
         {
-            "default": ".",
-            "id": "#outdir",
             "type": [
                 "null",
                 "string"
             ],
             "inputBinding": {
-                "separate": true,
-                "position": 3
-            }
+                "position": 3,
+                "separate": true
+            },
+            "id": "#outdir",
+            "default": "."
         }
     ],
+    "cwlVersion": "draft-3",
     "baseCommand": [
         "run-fastqc.sh"
     ],
-    "cwlVersion": "draft-3",
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v32",
             "class": "DockerRequirement"
         }
     ],
-    "arguments": []
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "arguments": [],
+    "class": "CommandLineTool"
 }

@@ -1,6 +1,7 @@
 {
     "class": "CommandLineTool",
     "cwlVersion": "draft-3",
+    "arguments": [],
     "inputs": [
         {
             "type": [
@@ -8,47 +9,22 @@
             ],
             "id": "#input_bam",
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             }
         },
         {
-            "default": "out",
             "type": [
                 "null",
                 "string"
             ],
             "id": "#out_prefix",
+            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             }
         }
-    ],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz"
-            },
-            "id": "#out_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
-        },
-        {
-            "outputBinding": {
-                "glob": "*.bsorted.pairs.gz.px2"
-            },
-            "id": "#out_pairs_index",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
     ],
     "requirements": [
         {
@@ -61,5 +37,29 @@
             "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "arguments": []
+    "baseCommand": [
+        "run.sh"
+    ],
+    "outputs": [
+        {
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs"
+        },
+        {
+            "outputBinding": {
+                "glob": "*.bsorted.pairs.gz.px2"
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#out_pairs_index"
+        }
+    ]
 }

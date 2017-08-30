@@ -1,6 +1,43 @@
 {
-    "sbg:modifiedOn": 1486183166,
+    "class": "CommandLineTool",
+    "outputs": [
+        {
+            "id": "#report",
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "loadContents": true,
+                "glob": "\"report\""
+            }
+        }
+    ],
+    "sbg:latestRevision": 2,
+    "sbg:sbgMaintained": false,
+    "label": "sha256",
     "stdin": "",
+    "sbg:id": "4dn-dcic/dev/sha256/2",
+    "sbg:revision": 2,
+    "sbg:modifiedBy": "duplexa",
+    "hints": [
+        {
+            "class": "sbg:CPURequirement",
+            "value": 1
+        },
+        {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+        },
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/sha256:v1",
+            "dockerImageId": ""
+        }
+    ],
+    "sbg:cmdPreview": "run.sh",
+    "sbg:modifiedOn": 1486183166,
+    "temporaryFailCodes": [],
     "sbg:revisionsInfo": [
         {
             "sbg:modifiedBy": "duplexa",
@@ -21,8 +58,41 @@
             "sbg:revision": 2
         }
     ],
+    "sbg:image_url": null,
+    "sbg:createdBy": "duplexa",
+    "sbg:projectName": "Dev",
     "arguments": [],
+    "sbg:project": "4dn-dcic/dev",
+    "stdout": "",
+    "sbg:validationErrors": [],
+    "inputs": [
+        {
+            "id": "#input_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "separate": true,
+                "position": 1
+            }
+        }
+    ],
+    "successCodes": [],
+    "baseCommand": [
+        "run.sh"
+    ],
     "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/sha256/2/raw/",
+    "sbg:contributors": [
+        "duplexa"
+    ],
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "requirements": [],
+    "description": "",
+    "cwlVersion": "sbg:draft-2",
     "sbg:job": {
         "allocatedResources": {
             "cpu": 1,
@@ -30,82 +100,12 @@
         },
         "inputs": {
             "input_file": {
-                "secondaryFiles": [],
                 "size": 0,
                 "class": "File",
+                "secondaryFiles": [],
                 "path": "/path/to/input.ext"
             }
         }
     },
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:cmdPreview": "run.sh",
-    "label": "sha256",
-    "class": "CommandLineTool",
-    "sbg:projectName": "Dev",
-    "sbg:sbgMaintained": false,
-    "sbg:revision": 2,
-    "sbg:image_url": null,
-    "sbg:modifiedBy": "duplexa",
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "description": "",
-    "outputs": [
-        {
-            "outputBinding": {
-                "loadContents": true,
-                "glob": "\"report\""
-            },
-            "id": "#report",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "successCodes": [],
-    "temporaryFailCodes": [],
-    "sbg:createdBy": "duplexa",
-    "baseCommand": [
-        "run.sh"
-    ],
-    "sbg:id": "4dn-dcic/dev/sha256/2",
-    "requirements": [],
-    "sbg:validationErrors": [],
-    "hints": [
-        {
-            "value": 1,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 1000,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "dockerImageId": "",
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/sha256:v1"
-        }
-    ],
-    "sbg:contributors": [
-        "duplexa"
-    ],
-    "stdout": "",
-    "sbg:createdOn": 1486182682,
-    "cwlVersion": "sbg:draft-2",
-    "inputs": [
-        {
-            "inputBinding": {
-                "separate": true,
-                "sbg:cmdInclude": true,
-                "position": 1
-            },
-            "id": "#input_file",
-            "type": [
-                "null",
-                "File"
-            ]
-        }
-    ],
-    "sbg:latestRevision": 2
+    "sbg:createdOn": 1486182682
 }

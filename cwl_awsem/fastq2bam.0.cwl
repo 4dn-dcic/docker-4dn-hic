@@ -1,57 +1,55 @@
 {
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
     "arguments": [],
+    "baseCommand": [
+        "preprocessing.sh"
+    ],
     "inputs": [
         {
-            "type": [
-                "File"
-            ],
             "inputBinding": {
                 "position": 2,
                 "separate": false
             },
-            "id": "#input_fastq1"
-        },
-        {
             "type": [
                 "File"
             ],
+            "id": "#input_fastq1"
+        },
+        {
             "inputBinding": {
                 "position": 3,
                 "separate": false
             },
+            "type": [
+                "File"
+            ],
             "id": "#input_fastq2"
         },
         {
-            "default": ".",
             "inputBinding": {
                 "position": 4,
-                "separate": false,
                 "valueFrom": {
-                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression",
                     "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
+                    "script": "$job.inputs.output_dir || '.'"
+                },
+                "separate": false
             },
-            "id": "#output_dir",
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "default": ".",
+            "id": "#output_dir"
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
             "inputBinding": {
                 "position": 1,
                 "separate": false
             },
+            "type": [
+                "null",
+                "File"
+            ],
             "id": "#bowtie_index"
         }
     ],
@@ -88,14 +86,16 @@
             "id": "#split_bam2"
         }
     ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
     "hints": [
         {
             "class": "DockerRequirement",
             "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ],
-    "cwlVersion": "draft-3",
-    "baseCommand": [
-        "preprocessing.sh"
-    ]
+    "cwlVersion": "draft-3"
 }
