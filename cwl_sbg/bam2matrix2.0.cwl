@@ -1,145 +1,82 @@
 {
-    "sbg:validationErrors": [],
+    "sbg:revision": 0,
+    "cwlVersion": "sbg:draft-2",
     "sbg:job": {
         "allocatedResources": {
             "mem": 8000,
             "cpu": 8
         },
         "inputs": {
-            "HiC_data_object_hdf5": {
-                "size": 0,
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/HiC_data_object_hdf5.ext"
-            },
-            "fend_object_hdf5": {
-                "size": 0,
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/fend_object_hdf5.ext"
-            },
-            "contact_matrix_binsize": 0,
-            "chrlen_file": {
-                "size": 0,
-                "class": "File",
-                "secondaryFiles": [],
-                "path": "/path/to/chrlen_file.ext"
-            },
+            "chromosome": "chromosome",
             "HiC_norm_binning_hdf5": {
                 "size": 0,
-                "class": "File",
+                "path": "/path/to/HiC_norm_binning_hdf5.ext",
                 "secondaryFiles": [],
-                "path": "/path/to/HiC_norm_binning_hdf5.ext"
+                "class": "File"
             },
-            "output_dir": "output_dir",
-            "chromosome": "chromosome"
+            "chrlen_file": {
+                "size": 0,
+                "path": "/path/to/chrlen_file.ext",
+                "secondaryFiles": [],
+                "class": "File"
+            },
+            "contact_matrix_binsize": 0,
+            "fend_object_hdf5": {
+                "size": 0,
+                "path": "/path/to/fend_object_hdf5.ext",
+                "secondaryFiles": [],
+                "class": "File"
+            },
+            "HiC_data_object_hdf5": {
+                "size": 0,
+                "path": "/path/to/HiC_data_object_hdf5.ext",
+                "secondaryFiles": [],
+                "class": "File"
+            },
+            "output_dir": "output_dir"
         }
     },
-    "sbg:createdOn": 1473274839,
-    "outputs": [
+    "hints": [
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' ",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#observed_contact_matrix"
+            "value": 8,
+            "class": "sbg:CPURequirement"
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' ",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#normalized_fend_contact_matrix"
+            "value": 8000,
+            "class": "sbg:MemRequirement"
         },
         {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' ",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#normalized_enrich_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' ",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#expected_fend_contact_matrix"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": {
-                    "script": "$job.inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt'",
-                    "engine": "#cwl-js-engine",
-                    "class": "Expression"
-                }
-            },
-            "id": "#expected_enrich_contact_matrix"
+            "dockerImageId": "",
+            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
+            "class": "DockerRequirement"
         }
     ],
-    "sbg:appVersion": [
-        "sbg:draft-2"
+    "baseCommand": [
+        "run.sh"
     ],
+    "arguments": [],
+    "sbg:cmdPreview": "run.sh /path/to/HiC_norm_binning_hdf5.ext chromosome 0",
     "sbg:revisionsInfo": [
         {
-            "sbg:modifiedBy": "duplexa",
-            "sbg:revision": 0,
             "sbg:modifiedOn": 1473274839,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "duplexa",
             "sbg:revisionNotes": "Copy of gaurav/4dn/bam2matrix2/7"
         }
     ],
-    "hints": [
-        {
-            "class": "sbg:CPURequirement",
-            "value": 8
-        },
-        {
-            "class": "sbg:MemRequirement",
-            "value": 8000
-        },
-        {
-            "dockerPull": "duplexa/hictool-hdf52matrix:v2",
-            "class": "DockerRequirement",
-            "dockerImageId": ""
-        }
-    ],
-    "arguments": [],
-    "successCodes": [],
-    "sbg:revision": 0,
-    "sbg:id": "4dn-dcic/dev/bam2matrix2/0",
-    "label": "hictool-hdf52matrix",
+    "sbg:image_url": null,
+    "stdout": "",
+    "sbg:copyOf": "gaurav/4dn/bam2matrix2/7",
     "sbg:project": "4dn-dcic/dev",
+    "sbg:createdBy": "duplexa",
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2matrix2/0/raw/",
+    "stdin": "",
+    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2matrix2/7",
+    "sbg:id": "4dn-dcic/dev/bam2matrix2/0",
+    "sbg:createdOn": 1473274839,
+    "sbg:modifiedOn": 1473274839,
+    "description": "",
+    "sbg:modifiedBy": "duplexa",
     "requirements": [
         {
             "requirements": [
@@ -148,113 +85,176 @@
                     "class": "DockerRequirement"
                 }
             ],
-            "class": "ExpressionEngineRequirement",
-            "id": "#cwl-js-engine"
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement"
         }
     ],
+    "temporaryFailCodes": [],
+    "successCodes": [],
+    "class": "CommandLineTool",
+    "sbg:validationErrors": [],
+    "sbg:latestRevision": 0,
     "sbg:contributors": [
         "duplexa"
     ],
-    "sbg:latestRevision": 0,
-    "sbg:image_url": null,
-    "sbg:modifiedBy": "duplexa",
-    "sbg:cmdPreview": "run.sh /path/to/HiC_norm_binning_hdf5.ext chromosome 0",
-    "class": "CommandLineTool",
-    "baseCommand": [
-        "run.sh"
-    ],
-    "sbg:copyOf": "gaurav/4dn/bam2matrix2/7",
-    "sbg:createdBy": "duplexa",
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/bam2matrix2/0/raw/",
-    "stdin": "",
-    "cwlVersion": "sbg:draft-2",
-    "description": "",
-    "sbg:projectName": "Dev",
-    "sbg:revisionNotes": "Copy of gaurav/4dn/bam2matrix2/7",
-    "sbg:modifiedOn": 1473274839,
-    "temporaryFailCodes": [],
-    "stdout": "",
     "inputs": [
         {
+            "sbg:fileTypes": "HDF5",
             "type": [
                 "File"
             ],
-            "sbg:fileTypes": "HDF5",
+            "id": "#HiC_norm_binning_hdf5",
             "inputBinding": {
-                "sbg:cmdInclude": true,
+                "position": 1,
                 "separate": false,
-                "position": 1
-            },
-            "id": "#HiC_norm_binning_hdf5"
+                "sbg:cmdInclude": true
+            }
         },
         {
+            "sbg:fileTypes": "HDF5",
             "type": [
                 "null",
                 "File"
             ],
-            "sbg:fileTypes": "HDF5",
             "id": "#HiC_data_object_hdf5"
         },
         {
+            "sbg:fileTypes": "HDF5",
             "type": [
                 "null",
                 "File"
             ],
-            "sbg:fileTypes": "HDF5",
             "id": "#fend_object_hdf5"
         },
         {
+            "inputBinding": {
+                "position": 2,
+                "separate": false,
+                "sbg:cmdInclude": true
+            },
             "type": [
                 "string"
             ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 2
-            },
             "id": "#chromosome"
         },
         {
+            "inputBinding": {
+                "position": 3,
+                "separate": false,
+                "sbg:cmdInclude": true
+            },
             "type": [
                 "int"
             ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 3
-            },
-            "sbg:toolDefaultValue": "50000",
-            "id": "#contact_matrix_binsize"
+            "id": "#contact_matrix_binsize",
+            "sbg:toolDefaultValue": "50000"
         },
         {
-            "type": [
-                "null",
-                "string"
-            ],
             "inputBinding": {
+                "position": 5,
                 "valueFrom": {
                     "script": "$job.inputs.output_dir || '.'",
                     "engine": "#cwl-js-engine",
                     "class": "Expression"
                 },
                 "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 5
+                "separate": false
             },
+            "type": [
+                "null",
+                "string"
+            ],
             "id": "#output_dir"
+        },
+        {
+            "inputBinding": {
+                "position": 4,
+                "separate": false,
+                "sbg:cmdInclude": true
+            },
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#chrlen_file"
+        }
+    ],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#observed_contact_matrix",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiCtool_observed_contact_matrix*.txt' ",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
         },
         {
             "type": [
                 "null",
                 "File"
             ],
-            "inputBinding": {
-                "sbg:cmdInclude": true,
-                "separate": false,
-                "position": 4
-            },
-            "id": "#chrlen_file"
+            "id": "#normalized_fend_contact_matrix",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_fend_contact_matrix*.txt' ",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#normalized_enrich_contact_matrix",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiCtool_normalized_enrich_contact_matrix*.txt' ",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#expected_fend_contact_matrix",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiCtool_expected_fend_contact_matrix*.txt' ",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
+        },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "id": "#expected_enrich_contact_matrix",
+            "outputBinding": {
+                "glob": {
+                    "script": "$job.inputs.output_dir + '/HiCtool_expected_enrich_contact_matrix*.txt'",
+                    "engine": "#cwl-js-engine",
+                    "class": "Expression"
+                }
+            }
         }
     ],
+    "label": "hictool-hdf52matrix",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:projectName": "Dev",
     "sbg:sbgMaintained": false
 }

@@ -1,95 +1,9 @@
 {
+    "cwlVersion": "draft-3",
     "arguments": [],
+    "class": "CommandLineTool",
     "baseCommand": [
         "preprocessing.sh"
-    ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "position": 2,
-                "separate": false
-            },
-            "type": [
-                "File"
-            ],
-            "id": "#input_fastq1"
-        },
-        {
-            "inputBinding": {
-                "position": 3,
-                "separate": false
-            },
-            "type": [
-                "File"
-            ],
-            "id": "#input_fastq2"
-        },
-        {
-            "inputBinding": {
-                "position": 4,
-                "valueFrom": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "$job.inputs.output_dir || '.'"
-                },
-                "separate": false
-            },
-            "type": [
-                "null",
-                "string"
-            ],
-            "default": ".",
-            "id": "#output_dir"
-        },
-        {
-            "inputBinding": {
-                "position": 1,
-                "separate": false
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#bowtie_index"
-        }
-    ],
-    "class": "CommandLineTool",
-    "outputs": [
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
-            },
-            "id": "#sorted_bam_pe"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_pair1.bam')"
-            },
-            "id": "#split_bam1"
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.output_dir + '/out_pair2.bam')"
-            },
-            "id": "#split_bam2"
-        }
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
     ],
     "hints": [
         {
@@ -97,5 +11,91 @@
             "dockerPull": "duplexa/hictool-fastq2bam:v3"
         }
     ],
-    "cwlVersion": "draft-3"
+    "inputs": [
+        {
+            "id": "#input_fastq1",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "separate": false,
+                "position": 2
+            }
+        },
+        {
+            "id": "#input_fastq2",
+            "type": [
+                "File"
+            ],
+            "inputBinding": {
+                "separate": false,
+                "position": 3
+            }
+        },
+        {
+            "default": ".",
+            "id": "#output_dir",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "position": 4,
+                "valueFrom": {
+                    "script": "$job.inputs.output_dir || '.'",
+                    "class": "Expression",
+                    "engine": "#cwl-js-engine"
+                },
+                "separate": false
+            }
+        },
+        {
+            "id": "#bowtie_index",
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": false,
+                "position": 1
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "outputs": [
+        {
+            "id": "#sorted_bam_pe",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_noDup.sort.bam')"
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#split_bam1",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_pair1.bam')"
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
+            "id": "#split_bam2",
+            "outputBinding": {
+                "glob": "$(inputs.output_dir + '/out_pair2.bam')"
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        }
+    ]
 }

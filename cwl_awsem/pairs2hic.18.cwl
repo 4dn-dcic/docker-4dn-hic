@@ -1,28 +1,35 @@
 {
-    "hints": [
-        {
-            "dockerPull": "duplexa/4dn-hic:v35",
-            "class": "DockerRequirement"
-        }
-    ],
-    "class": "CommandLineTool",
     "outputs": [
         {
-            "outputBinding": {
-                "glob": "*.hic"
-            },
             "id": "#output_hic",
             "type": [
                 "null",
                 "File"
-            ]
+            ],
+            "outputBinding": {
+                "glob": "*.hic"
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
+        }
+    ],
+    "baseCommand": [
+        "run-juicebox-pre.sh"
+    ],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/4dn-hic:v35"
         }
     ],
     "inputs": [
         {
             "inputBinding": {
-                "separate": true,
-                "position": 1
+                "position": 1,
+                "separate": true
             },
             "id": "#input_pairs",
             "type": [
@@ -32,8 +39,8 @@
         },
         {
             "inputBinding": {
-                "separate": true,
-                "position": 2
+                "position": 2,
+                "separate": true
             },
             "id": "#chromsizes_file",
             "type": [
@@ -42,23 +49,23 @@
             ]
         },
         {
+            "default": "out",
             "inputBinding": {
-                "separate": true,
-                "position": 3
+                "position": 3,
+                "separate": true
             },
+            "id": "#output_prefix",
             "type": [
                 "null",
                 "string"
-            ],
-            "id": "#output_prefix",
-            "default": "out"
+            ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 4
-            },
             "default": 5000,
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
             "id": "#min_res",
             "type": [
                 "null",
@@ -66,11 +73,11 @@
             ]
         },
         {
-            "inputBinding": {
-                "separate": true,
-                "position": 5
-            },
             "default": "1",
+            "inputBinding": {
+                "position": 5,
+                "separate": true
+            },
             "id": "#higlass",
             "type": [
                 "null",
@@ -78,26 +85,19 @@
             ]
         },
         {
+            "default": "14g",
             "inputBinding": {
-                "separate": true,
-                "position": 6
+                "position": 6,
+                "separate": true
             },
+            "id": "#maxmem",
             "type": [
                 "null",
                 "string"
-            ],
-            "id": "#maxmem",
-            "default": "14g"
+            ]
         }
     ],
-    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "arguments": [],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "baseCommand": [
-        "run-juicebox-pre.sh"
-    ]
+    "cwlVersion": "draft-3"
 }

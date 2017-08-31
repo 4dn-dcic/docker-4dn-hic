@@ -1,52 +1,40 @@
 {
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
     "inputs": [
         {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#input_hic",
             "inputBinding": {
                 "separate": true,
                 "position": 1
-            },
-            "id": "#input_hic"
+            }
         },
         {
             "type": [
                 "null",
                 "File"
             ],
+            "id": "#input_mcool",
             "inputBinding": {
                 "separate": true,
                 "position": 2
-            },
-            "id": "#input_mcool"
+            }
         },
         {
-            "default": ".",
             "type": [
                 "null",
                 "string"
             ],
+            "id": "#outdir",
             "inputBinding": {
                 "separate": true,
                 "position": 3
             },
-            "id": "#outdir"
-        }
-    ],
-    "class": "CommandLineTool",
-    "arguments": [],
-    "outputs": [
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outdir + '*.mcool')"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#output_mcool"
+            "default": "."
         }
     ],
     "requirements": [
@@ -60,7 +48,19 @@
             "dockerPull": "duplexa/4dn-hic:v33"
         }
     ],
-    "cwlVersion": "draft-3",
+    "arguments": [],
+    "outputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outdir + '*.mcool')"
+            },
+            "id": "#output_mcool"
+        }
+    ],
     "baseCommand": [
         "run-add-hicnormvector-to-mcool.sh"
     ]

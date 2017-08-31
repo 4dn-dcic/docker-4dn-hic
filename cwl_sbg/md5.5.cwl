@@ -1,56 +1,51 @@
 {
-    "sbg:cmdPreview": "run.sh",
-    "cwlVersion": "sbg:draft-2",
-    "stdout": "",
-    "sbg:projectName": "Dev",
-    "sbg:project": "4dn-dcic/dev",
-    "sbg:revision": 5,
-    "hints": [
-        {
-            "value": 1,
-            "class": "sbg:CPURequirement"
-        },
-        {
-            "value": 500,
-            "class": "sbg:MemRequirement"
-        },
-        {
-            "dockerImageId": "",
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/md5:v1"
-        }
-    ],
-    "sbg:appVersion": [
-        "sbg:draft-2"
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
-    "arguments": [],
-    "sbg:id": "4dn-dcic/dev/md5/5",
-    "sbg:image_url": null,
-    "sbg:revisionNotes": "removed quotes in output glob",
     "sbg:contributors": [
         "4dn-dcic",
         "duplexa"
     ],
-    "temporaryFailCodes": [],
-    "sbg:latestRevision": 5,
-    "sbg:modifiedOn": 1503348580,
-    "sbg:job": {
-        "allocatedResources": {
-            "mem": 500,
-            "cpu": 1
-        },
-        "inputs": {
-            "input_file": {
-                "class": "File",
-                "path": "/path/to/input_file.ext",
-                "size": 0,
-                "secondaryFiles": []
-            }
+    "successCodes": [],
+    "stdout": "",
+    "cwlVersion": "sbg:draft-2",
+    "requirements": [],
+    "sbg:projectName": "Dev",
+    "sbg:appVersion": [
+        "sbg:draft-2"
+    ],
+    "sbg:modifiedBy": "4dn-dcic",
+    "inputs": [
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "sbg:cmdInclude": true,
+                "position": 1,
+                "separate": true
+            },
+            "id": "#input_file"
         }
-    },
+    ],
+    "arguments": [],
+    "class": "CommandLineTool",
+    "stdin": "",
+    "description": "",
+    "hints": [
+        {
+            "class": "sbg:CPURequirement",
+            "value": 1
+        },
+        {
+            "class": "sbg:MemRequirement",
+            "value": 500
+        },
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/md5:v1",
+            "dockerImageId": ""
+        }
+    ],
+    "sbg:revisionNotes": "removed quotes in output glob",
     "sbg:revisionsInfo": [
         {
             "sbg:revisionNotes": null,
@@ -89,22 +84,9 @@
             "sbg:modifiedOn": 1503348580
         }
     ],
-    "inputs": [
-        {
-            "inputBinding": {
-                "separate": true,
-                "position": 1,
-                "sbg:cmdInclude": true
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_file"
-        }
-    ],
+    "sbg:project": "4dn-dcic/dev",
+    "sbg:revision": 5,
     "sbg:validationErrors": [],
-    "label": "md5",
     "outputs": [
         {
             "outputBinding": {
@@ -117,14 +99,32 @@
             "id": "#report"
         }
     ],
-    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/5/raw/",
-    "successCodes": [],
-    "description": "",
-    "sbg:modifiedBy": "4dn-dcic",
+    "sbg:modifiedOn": 1503348580,
+    "sbg:latestRevision": 5,
+    "sbg:cmdPreview": "run.sh",
     "sbg:createdBy": "duplexa",
-    "class": "CommandLineTool",
-    "requirements": [],
+    "baseCommand": [
+        "run.sh"
+    ],
+    "label": "md5",
     "sbg:sbgMaintained": false,
-    "stdin": "",
-    "sbg:createdOn": 1480978938
+    "sbg:id": "4dn-dcic/dev/md5/5",
+    "sbg:image_url": null,
+    "sbg:createdOn": 1480978938,
+    "temporaryFailCodes": [],
+    "sbg:job": {
+        "allocatedResources": {
+            "mem": 500,
+            "cpu": 1
+        },
+        "inputs": {
+            "input_file": {
+                "secondaryFiles": [],
+                "class": "File",
+                "size": 0,
+                "path": "/path/to/input_file.ext"
+            }
+        }
+    },
+    "id": "https://api.sbgenomics.com/v2/apps/4dn-dcic/dev/md5/5/raw/"
 }

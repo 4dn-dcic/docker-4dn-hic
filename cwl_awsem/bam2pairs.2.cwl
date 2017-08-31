@@ -1,65 +1,65 @@
 {
     "class": "CommandLineTool",
-    "cwlVersion": "draft-3",
-    "arguments": [],
-    "inputs": [
-        {
-            "type": [
-                "File"
-            ],
-            "id": "#input_bam",
-            "inputBinding": {
-                "position": 1,
-                "separate": true
-            }
-        },
-        {
-            "type": [
-                "null",
-                "string"
-            ],
-            "id": "#out_prefix",
-            "default": "out",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
-        }
-    ],
-    "requirements": [
-        {
-            "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "hints": [
-        {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/bam2pairs:v1"
-        }
-    ],
-    "baseCommand": [
-        "run.sh"
-    ],
     "outputs": [
         {
+            "id": "#out_pairs",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz"
             },
             "type": [
                 "null",
                 "File"
-            ],
-            "id": "#out_pairs"
+            ]
         },
         {
+            "id": "#out_pairs_index",
             "outputBinding": {
                 "glob": "*.bsorted.pairs.gz.px2"
             },
             "type": [
                 "null",
                 "File"
+            ]
+        }
+    ],
+    "arguments": [],
+    "hints": [
+        {
+            "class": "DockerRequirement",
+            "dockerPull": "duplexa/bam2pairs:v1"
+        }
+    ],
+    "cwlVersion": "draft-3",
+    "baseCommand": [
+        "run.sh"
+    ],
+    "inputs": [
+        {
+            "type": [
+                "File"
             ],
-            "id": "#out_pairs_index"
+            "inputBinding": {
+                "separate": true,
+                "position": 1
+            },
+            "id": "#input_bam"
+        },
+        {
+            "default": "out",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "id": "#out_prefix"
+        }
+    ],
+    "requirements": [
+        {
+            "class": "InlineJavascriptRequirement"
         }
     ]
 }

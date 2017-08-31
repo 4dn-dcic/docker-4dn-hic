@@ -1,6 +1,6 @@
 #!/bin/bash
 #python get_cwl.py -a hi-c-processing-parta -r 9 -t $SBG_TOKEN
-python get_cwl.py -a hi-c-processing-parta-juicer -r 27 -t $SBG_TOKEN
+python get_cwl.py -a hi-c-processing-parta-juicer -r 28 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partb -r 44 -t $SBG_TOKEN
 python get_cwl.py -a hi-c-processing-partc -r 12 -t $SBG_TOKEN
 python get_cwl.py -a sha256 -r 2 -t $SBG_TOKEN
@@ -21,5 +21,10 @@ python get_cwl.py -a gitar-v0-2 -r 0 -t $SBG_TOKEN
 python get_cwl.py -a cool2mcool -r 3 -t $SBG_TOKEN
 python get_cwl.py -a add-hic-normvector-to-mcool -r 5 -t $SBG_TOKEN
 python get_cwl.py -a extract-mcool-normvector-for-juicebox -r 6 -t $SBG_TOKEN
-python get_cwl.py -a juicer2pairs -r 8 -t $SBG_TOKEN
-python get_cwl.py -a juicer -r 19 -t $SBG_TOKEN
+python get_cwl.py -a juicer2pairs -r 9 -t $SBG_TOKEN
+python get_cwl.py -a juicer -r 20 -t $SBG_TOKEN
+python get_cwl.py -a hic-processing-from-oldjuicer -r 1 -t $SBG_TOKEN
+python get_cwl.py -a oldjuicer2pairs -r 1 -t $SBG_TOKEN
+python get_cwl.py -a addfragtopairs -r 2 -t $SBG_TOKEN
+python get_cwl.py -a pairsqc-single -r 4 -t $SBG_TOKEN
+python get_cwl.py -a bwa-mem -r 10 -t $SBG_TOKEN

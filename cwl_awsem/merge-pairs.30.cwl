@@ -1,35 +1,51 @@
 {
-    "arguments": [],
-    "class": "CommandLineTool",
+    "outputs": [
+        {
+            "id": "#output_pairs",
+            "type": [
+                "null",
+                "File"
+            ],
+            "secondaryFiles": [
+                ".px2"
+            ],
+            "outputBinding": {
+                "glob": "$(inputs.outprefix + '.pairs.gz')"
+            }
+        }
+    ],
     "baseCommand": [
         "run-merge-pairs.sh"
     ],
     "hints": [
         {
-            "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v35"
+            "dockerPull": "duplexa/4dn-hic:v35",
+            "class": "DockerRequirement"
         }
     ],
+    "cwlVersion": "draft-3",
+    "class": "CommandLineTool",
+    "arguments": [],
     "inputs": [
         {
+            "id": "#outprefix",
             "inputBinding": {
                 "position": 1,
                 "separate": true
             },
             "default": "out",
-            "id": "#outprefix",
             "type": [
                 "null",
                 "string"
             ]
         },
         {
-            "inputBinding": {
-                "position": 2,
-                "separate": true,
-                "itemSeparator": " "
-            },
             "id": "#input_pairs",
+            "inputBinding": {
+                "itemSeparator": " ",
+                "position": 2,
+                "separate": true
+            },
             "type": [
                 "null",
                 {
@@ -39,25 +55,9 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
-        }
-    ],
-    "outputs": [
-        {
-            "secondaryFiles": [
-                ".px2"
-            ],
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.pairs.gz')"
-            },
-            "id": "#output_pairs",
-            "type": [
-                "null",
-                "File"
-            ]
         }
     ]
 }
