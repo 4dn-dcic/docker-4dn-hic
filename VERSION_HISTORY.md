@@ -1,3 +1,9 @@
+### v36
+* `run-bwa-mem.sh` uses `-SP5M` flag instead of `-SP5`.
+
+### v35
+* pairix 0.2.4
+
 ### v34
 * pairix 0.2.3 : this may be a critical fix for cooler because cooler installation automatically installs pypairix 0.2.3, which used a different index structure from pairix 0.2.2. This causes cooler to attempt to use an infinite amount of memory.
 
