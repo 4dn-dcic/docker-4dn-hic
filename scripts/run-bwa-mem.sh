@@ -24,5 +24,5 @@ then
 fi
 
 # run bwa
-bwa mem -t $nThreads -SP5 $index $fastq1 $fastq2 | samtools view -Shb - > $prefix.bam
+bwa mem -t $nThreads -SP5M $index $fastq1 $fastq2 | samtools view -Shb - > $prefix.bam
 
