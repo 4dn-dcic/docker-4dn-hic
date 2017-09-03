@@ -50,7 +50,7 @@
         }
     ],
     "class": "Workflow",
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "outputs": [
         {
             "source": "#hictool_fastq2bam.sorted_bam_pe",
@@ -159,7 +159,7 @@
     ],
     "steps": [
         {
-            "run": "fastq2bam.14.cwl",
+            "run": "fastq2bam.cwl",
             "inputs": [
                 {
                     "id": "#hictool_fastq2bam.output_dir"
@@ -191,7 +191,7 @@
             ]
         },
         {
-            "run": "bam2hdf5.4.cwl",
+            "run": "bam2hdf5.cwl",
             "inputs": [
                 {
                     "id": "#hictool_bam2hdf5.output_dir"
@@ -259,7 +259,7 @@
                 }
             ],
             "scatter": "#hictool_hdf52matrix.chromosome",
-            "run": "bam2matrix2.7.cwl",
+            "run": "bam2matrix2.cwl",
             "id": "#hictool_hdf52matrix",
             "outputs": [
                 {

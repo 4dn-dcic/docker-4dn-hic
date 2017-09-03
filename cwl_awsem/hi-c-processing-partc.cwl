@@ -1,5 +1,5 @@
 {
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "inputs": [
         {
             "id": "#input_cool",
@@ -58,7 +58,7 @@
                     "id": "#add_hic_normvector_to_mcool.output_mcool"
                 }
             ],
-            "run": "add-hic-normvector-to-mcool.5.cwl",
+            "run": "add-hic-normvector-to-mcool.cwl",
             "inputs": [
                 {
                     "id": "#add_hic_normvector_to_mcool.outdir"
@@ -80,7 +80,7 @@
                     "id": "#extract_mcool_normvector_for_juicebox.output_normvector"
                 }
             ],
-            "run": "extract-mcool-normvector-for-juicebox.6.cwl",
+            "run": "extract-mcool-normvector-for-juicebox.cwl",
             "inputs": [
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.output_prefix"
@@ -105,7 +105,7 @@
                     "id": "#cool2mcool.output_mcool"
                 }
             ],
-            "run": "cool2mcool.3.cwl",
+            "run": "cool2mcool.cwl",
             "inputs": [
                 {
                     "id": "#cool2mcool.input_cool",

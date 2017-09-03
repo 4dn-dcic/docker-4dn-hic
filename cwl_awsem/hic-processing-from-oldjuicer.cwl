@@ -29,7 +29,7 @@
                     "id": "#oldjuicer2pairs.out_pairs_px"
                 }
             ],
-            "run": "oldjuicer2pairs.1.cwl"
+            "run": "oldjuicer2pairs.cwl"
         },
         {
             "inputs": [
@@ -75,7 +75,7 @@
                     "id": "#hic_pairs_to_end.output_pairs_index"
                 }
             ],
-            "run": "hic-pairs-to-end.2.cwl"
+            "run": "hic-pairs-to-end.cwl"
         }
     ],
     "outputs": [
@@ -157,6 +157,6 @@
             ]
         }
     ],
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "class": "Workflow"
 }

@@ -25,7 +25,7 @@
             "source": "#juicer.merged_nodups"
         }
     ],
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "steps": [
         {
             "outputs": [
@@ -66,7 +66,7 @@
                     "source": "#ncores"
                 }
             ],
-            "run": "juicer.20.cwl",
+            "run": "juicer.cwl",
             "id": "#juicer"
         },
         {
@@ -99,7 +99,7 @@
                     "source": "#max_remove_mapq"
                 }
             ],
-            "run": "juicer2pairs.9.cwl",
+            "run": "juicer2pairs.cwl",
             "id": "#juicer2pairs"
         }
     ],

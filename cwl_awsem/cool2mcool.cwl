@@ -8,7 +8,7 @@
             "class": "DockerRequirement"
         }
     ],
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "inputs": [
         {
             "inputBinding": {

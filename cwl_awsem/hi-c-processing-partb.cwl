@@ -76,7 +76,7 @@
         }
     ],
     "class": "Workflow",
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "steps": [
         {
             "outputs": [
@@ -84,7 +84,7 @@
                     "id": "#merge_pairs.output_pairs"
                 }
             ],
-            "run": "merge-pairs.30.cwl",
+            "run": "merge-pairs.cwl",
             "inputs": [
                 {
                     "id": "#merge_pairs.outprefix"
@@ -102,7 +102,7 @@
                     "id": "#cooler.out_cool"
                 }
             ],
-            "run": "cooler.24.cwl",
+            "run": "cooler.cwl",
             "inputs": [
                 {
                     "source": "#merge_pairs.output_pairs",
@@ -135,7 +135,7 @@
                     "id": "#pairs2hic.output_hic"
                 }
             ],
-            "run": "pairs2hic.18.cwl",
+            "run": "pairs2hic.cwl",
             "inputs": [
                 {
                     "source": "#merge_pairs.output_pairs",

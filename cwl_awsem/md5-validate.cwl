@@ -17,7 +17,7 @@
                     "id": "#md5.report"
                 }
             ],
-            "run": "md5.5.cwl",
+            "run": "md5.cwl",
             "inputs": [
                 {
                     "source": "#input_file",
@@ -32,7 +32,7 @@
                     "id": "#validatefiles.report"
                 }
             ],
-            "run": "validate.12.cwl",
+            "run": "validate.cwl",
             "inputs": [
                 {
                     "source": "#input_file",
@@ -62,7 +62,7 @@
             "source": "#md5.report"
         }
     ],
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"

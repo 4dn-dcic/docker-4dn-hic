@@ -9,7 +9,7 @@
             "id": "#report_zip"
         }
     ],
-    "cwlVersion": "draft-3",
+    "cwlVersion": "v1.0",
     "class": "Workflow",
     "steps": [
         {
@@ -31,7 +31,7 @@
                     "id": "#FastQC.report_zip"
                 }
             ],
-            "run": "fastqc-0-11-4.6.cwl",
+            "run": "fastqc-0-11-4.cwl",
             "id": "#FastQC"
         }
     ],
