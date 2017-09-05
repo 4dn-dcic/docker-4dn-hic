@@ -1,3 +1,8 @@
+### v37
+* pairix 0.2.4 -> 0.2.5
+* updated pairsamtools version
+* More organized Docker source file format
+
 ### v36
 * `run-bwa-mem.sh` uses `-SP5M` flag instead of `-SP5`.
 

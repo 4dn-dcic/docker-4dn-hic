@@ -1,36 +1,55 @@
-## source file for duplexa/bwa-mem:v1
-
 FROM ubuntu:16.04
 MAINTAINER Soo Lee (duplexa@gmail.com)
+LABEL docker.image.name="4dn-hic" \
+      docker.image.version="v37" \
+      release.date="2017-09-05"
 
 # 1. general updates & installing necessary Linux components
-RUN apt-get update -y && apt-get install -y wget unzip less vim bzip2 make gcc zlib1g-dev libncurses-dev git time
+RUN apt-get update -y && apt-get install -y \
+    bzip2 \
+    gcc \
+    git \
+    less \
+    libncurses-dev \
+    make \
+    time \
+    unzip \
+    vim \
+    wget \
+    zlib1g-dev
 
 # installing python3.5 & pip
-RUN apt-get update -y && apt-get install -y python3.5-dev python3-setuptools
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3.5 get-pip.py
+RUN apt-get update -y && apt-get install -y \
+    python3.5-dev \
+    python3-setuptools \
+    && wget https://bootstrap.pypa.io/get-pip.py \
+    && python3.5 get-pip.py
 
 # installing java (for nozzle) - latest java version
 RUN apt-get update -y && apt-get install -y default-jdk 
 
 # installing R & dependencies for pairsqc
 # r-base, r-base-dev for R, libcurl4-openssl-dev, libssl-dev for devtools
-RUN apt-get update -y && apt-get install -y r-base r-base-dev libcurl4-openssl-dev libssl-dev 
-RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")' # devtools 
-RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-project.org" )' # nozzle
-RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' # plotosaurus
+RUN apt-get update -y && apt-get install -y 
+    libcurl4-openssl-dev \
+    libssl-dev \
+    r-base \
+    r-base-dev
+
+RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")' \ # devtools 
+RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-project.org" )' \ # nozzle
+RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' \ # plotosaurus
 RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
 # installing conda
 RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh && bash Miniconda2-latest-Linux-x86_64.sh -p /miniconda2 -b
 ENV PATH=/miniconda2/bin:$PATH
-RUN conda update -y conda
-RUN rm Miniconda2-latest-Linux-x86_64.sh
+RUN conda update -y conda \
+    && rm Miniconda2-latest-Linux-x86_64.sh
 
 # installing gawk for juicer
-RUN apt-get update -y && apt-get install -y gawk
-RUN echo 'alias awk=gawk' >> ~/.bashrc
+RUN apt-get update -y && apt-get install -y gawk \
+    && echo 'alias awk=gawk' >> ~/.bashrc
 
 # download tools
 WORKDIR /usr/local/bin

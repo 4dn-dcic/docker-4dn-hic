@@ -33,14 +33,14 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.2.4
-wget https://github.com/4dn-dcic/pairix/archive/0.2.4.tar.gz
-tar -xzf 0.2.4.tar.gz
-rm 0.2.4.tar.gz
-cd pairix-0.2.4
+## VERSION: 0.2.5
+wget https://github.com/4dn-dcic/pairix/archive/0.2.5.tar.gz
+tar -xzf 0.2.5.tar.gz
+rm 0.2.5.tar.gz
+cd pairix-0.2.5
 make
 cd ..
-ln -s pairix-0.2.4 pairix
+ln -s pairix-0.2.5 pairix
 
 
 ## SOFTWARE: cooler
@@ -89,11 +89,11 @@ cd ..
 
 
 ## SOFTWARE: pairsamtools
-## COMMIT: 537a604d8f7b0467b5700946d7656937e0eb4c85
+## COMMIT: 514fc05accc697ce49133c0ea08754b1dce9b804
 pip3 install numpy Cython click
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git@537a604d8f7b0467b5700946d7656937e0eb4c85
+pip3 install git+https://github.com/mirnylab/pairsamtools.git@514fc05accc697ce49133c0ea08754b1dce9b804
 
