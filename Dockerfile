@@ -30,7 +30,7 @@ RUN apt-get update -y && apt-get install -y default-jdk
 
 # installing R & dependencies for pairsqc
 # r-base, r-base-dev for R, libcurl4-openssl-dev, libssl-dev for devtools
-RUN apt-get update -y && apt-get install -y 
+RUN apt-get update -y && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
     r-base \
