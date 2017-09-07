@@ -1,6 +1,6 @@
 
-# input_json: { 'input_size': {'input_arg_name1': input_arg_name1_size, 'input_arg_name2': input_arg_name2_size, ...}, 'input_param_name1': input_param_value1, 'input_param_name2': input_param_value2, ... }
-# input_size is the input file size in MB.
+# input_json: { 'input_size_in_MB': {'input_arg_name1': input_arg_name1_size, 'input_arg_name2': input_arg_name2_size, ...}, 'input_param_name1': input_param_value1, 'input_param_name2': input_param_value2, ... }
+# input_size_in_MB is the input file size in MB.
 # return values: total_size(MB), total_mem(MB), number_of_CPUs_required
 
 
@@ -17,10 +17,10 @@ class BenchmarkResult(object):
 
 def md5(input_json):
 
-    assert 'input_size' in input_json
-    assert 'input_file' in input_json.get('input_size')
+    assert 'input_size_in_MB' in input_json
+    assert 'input_file' in input_json.get('input_size_in_MB')
 
-    r = BenchmarkResult(size=input_json.get('input_size').get('input_file') + 3000,
+    r = BenchmarkResult(size=input_json.get('input_size_in_MB').get('input_file') + 3000,
                         mem=4,
                         cpu=1)
 

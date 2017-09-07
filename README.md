@@ -5,7 +5,7 @@
 ### Example usage of benchmarking script
 ```
 from Benchmark import Benchmark as B
-B.md5({'input_size': {'input_file':20000}})
+B.md5({'input_size_in_MB': {'input_file':20000}})
 ```
 ```
 {'total_mem_in_MB': 4, 'total_size_in_MB': 23000, 'min_CPU': 1}
