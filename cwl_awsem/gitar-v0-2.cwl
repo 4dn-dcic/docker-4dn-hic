@@ -50,7 +50,7 @@
         }
     ],
     "class": "Workflow",
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "source": "#hictool_fastq2bam.sorted_bam_pe",

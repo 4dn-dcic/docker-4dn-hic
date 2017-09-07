@@ -62,7 +62,7 @@
             "source": "#md5.report"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"

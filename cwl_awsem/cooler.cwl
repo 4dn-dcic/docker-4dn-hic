@@ -88,7 +88,7 @@
             "id": "#out_cool"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "hints": [
         {
             "dockerPull": "duplexa/4dn-hic:v35",

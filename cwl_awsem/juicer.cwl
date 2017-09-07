@@ -104,7 +104,7 @@
         }
     ],
     "arguments": [],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"

@@ -25,7 +25,7 @@
             "source": "#juicer.merged_nodups"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "steps": [
         {
             "outputs": [

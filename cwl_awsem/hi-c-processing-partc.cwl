@@ -1,5 +1,5 @@
 {
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "id": "#input_cool",

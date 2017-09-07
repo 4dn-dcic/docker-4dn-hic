@@ -29,7 +29,7 @@
     "baseCommand": [
         "run.sh"
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "hints": [
         {
             "dockerPull": "duplexa/sha256:v1",

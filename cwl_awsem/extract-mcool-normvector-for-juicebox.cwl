@@ -61,7 +61,7 @@
             ]
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "baseCommand": [
         "run-mcool2hic.sh"
     ],

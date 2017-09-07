@@ -1,5 +1,5 @@
 {
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "class": "CommandLineTool",
     "inputs": [
         {

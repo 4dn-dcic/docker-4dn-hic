@@ -1,6 +1,6 @@
 {
     "class": "CommandLineTool",
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "inputs": [
         {
             "inputBinding": {

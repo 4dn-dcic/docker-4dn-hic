@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "source": "#FastQC.report_zip",
+            "outputSource": "#FastQC.report_zip",
             "type": [
                 "null",
                 "File"
@@ -9,11 +9,11 @@
             "id": "#report_zip"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "class": "Workflow",
     "steps": [
         {
-            "inputs": [
+            "in": [
                 {
                     "source": "#threads",
                     "id": "#FastQC.threads"
@@ -26,7 +26,7 @@
                     "id": "#FastQC.input_fastq"
                 }
             ],
-            "outputs": [
+            "out": [
                 {
                     "id": "#FastQC.report_zip"
                 }
@@ -49,7 +49,6 @@
                 "int"
             ],
             "id": "#threads",
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine."
         }
     ],
     "requirements": [

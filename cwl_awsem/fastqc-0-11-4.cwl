@@ -2,7 +2,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v32"
+            "dockerPull": "duplexa/4dn-hic:v37"
         }
     ],
     "baseCommand": [
@@ -11,7 +11,6 @@
     "class": "CommandLineTool",
     "inputs": [
         {
-            "description": "Input file.",
             "type": [
                 "File"
             ],
@@ -23,7 +22,6 @@
             }
         },
         {
-            "description": "Specifies the number of files which can be processed simultaneously.  Each thread will be allocated 250MB of memory so you shouldn't run more threads than your available memory will cope with, and not more than 6 threads on a 32 bit machine.",
             "type": [
                 "null",
                 "int"
@@ -54,10 +52,9 @@
             "class": "InlineJavascriptRequirement"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
-            "description": "Zip archive of the report.",
             "id": "#report_zip",
             "type": [
                 "null",

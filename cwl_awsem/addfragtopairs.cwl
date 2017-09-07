@@ -41,7 +41,7 @@
             "dockerPull": "duplexa/4dn-hic:v22"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "outputs": [
         {
             "outputBinding": {

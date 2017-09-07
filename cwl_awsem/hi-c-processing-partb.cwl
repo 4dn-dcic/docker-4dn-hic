@@ -76,7 +76,7 @@
         }
     ],
     "class": "Workflow",
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "steps": [
         {
             "outputs": [

@@ -99,5 +99,5 @@
     ],
     "class": "CommandLineTool",
     "arguments": [],
-    "cwlVersion": "v1.0"
+    "cwlVersion": "draft-3"
 }

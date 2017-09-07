@@ -29,7 +29,7 @@
             "dockerPull": "duplexa/bam2pairs:v1"
         }
     ],
-    "cwlVersion": "v1.0",
+    "cwlVersion": "draft-3",
     "baseCommand": [
         "run.sh"
     ],
