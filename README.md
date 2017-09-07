@@ -31,6 +31,7 @@ B.md5({'input_size_in_MB': {'input_file':20000}})
     ```
     source convert.sh
     ```
-    This one assumes Mac (`xargs -I{}` instead of `xargs -i`).
+    This conversion uses script `convert_sbgcwl_to_awsemcwl.py` individually.
+    The shell script assumes Mac (`xargs -I{}` instead of `xargs -i`).
 
 
