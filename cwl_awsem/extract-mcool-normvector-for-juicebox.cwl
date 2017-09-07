@@ -4,6 +4,6 @@
         separate: true, position: 2}, type: ['null', string]}, {default: out, id: '#output_prefix',
       inputBinding: {separate: true, position: 3}, type: ['null', string]}, {default: 13,
       id: '#nres', inputBinding: {separate: true, position: 4}, type: ['null', int]}],
-  cwlVersion: draft-3, baseCommand: [run-mcool2hic.sh], class: CommandLineTool, requirements: [
+  cwlVersion: v1.0, baseCommand: [run-mcool2hic.sh], class: CommandLineTool, requirements: [
     {class: InlineJavascriptRequirement}], hints: [{class: DockerRequirement, dockerPull: 'duplexa/4dn-hic:v33'}]}
 

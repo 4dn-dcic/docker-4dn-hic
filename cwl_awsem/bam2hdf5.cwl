@@ -13,5 +13,5 @@
         glob: $(inputs.output_dir + '/HiC_norm_binning.hdf5')}, id: '#HiC_norm_binning_hdf5'},
     {type: ['null', File], outputBinding: {glob: $(inputs.output_dir + '/HiC_project_object.hdf5'
           )}, id: '#HiC_project_object_hdf5'}], arguments: [], class: CommandLineTool,
-  cwlVersion: draft-3}
+  cwlVersion: v1.0}
 

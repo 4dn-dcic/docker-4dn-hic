@@ -1,7 +1,7 @@
 {outputs: [{id: '#out_pairs', type: ['null', File], source: '#juicer2pairs.out_pairs'},
     {id: '#out_pairs_index', type: ['null', File], source: '#juicer2pairs.out_pairs_px'},
     {id: '#merged_nodups', type: ['null', File], source: '#juicer.merged_nodups'}],
-  cwlVersion: draft-3, steps: [{outputs: [{id: '#juicer.merged_nodups'}], inputs: [
+  cwlVersion: v1.0, steps: [{outputs: [{id: '#juicer.merged_nodups'}], inputs: [
         {id: '#juicer.input_fastq1', source: '#fastq1'}, {id: '#juicer.input_fastq2',
           source: '#fastq2'}, {id: '#juicer.bwaIndex', source: '#bwa_index'}, {id: '#juicer.reference_fasta',
           source: '#reference_fasta'}, {id: '#juicer.chromsizes_file', source: '#chrsizes'},

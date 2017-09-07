@@ -1,7 +1,7 @@
 {inputs: [{type: [File], id: '#input_fastq2'}, {type: [File], id: '#input_fastq1'},
     {type: ['null', File], id: '#bowtie_index'}, {type: ['null', File], id: '#RE_bed'},
     {type: ['null', File], id: '#chrlen_file'}, {type: [int], id: '#contact_matrix_binsize'},
-    {type: [{items: string, type: array}], id: '#chromosome'}], class: Workflow, cwlVersion: draft-3,
+    {type: [{items: string, type: array}], id: '#chromosome'}], class: Workflow, cwlVersion: v1.0,
   outputs: [{source: '#hictool_fastq2bam.sorted_bam_pe', type: ['null', File], id: '#sorted_bam_pe'},
     {source: '#hictool_bam2hdf5.HiC_project_object_hdf5', type: ['null', File], id: '#HiC_project_object_hdf5'},
     {source: '#hictool_bam2hdf5.HiC_distance_function_hdf5', type: ['null', File],

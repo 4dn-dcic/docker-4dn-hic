@@ -8,5 +8,5 @@
         position: 4, separate: true}, id: '#min_res', type: ['null', int]}, {default: '1',
       inputBinding: {position: 5, separate: true}, id: '#higlass', type: ['null',
         string]}, {default: 14g, inputBinding: {position: 6, separate: true}, id: '#maxmem',
-      type: ['null', string]}], class: CommandLineTool, arguments: [], cwlVersion: draft-3}
+      type: ['null', string]}], class: CommandLineTool, arguments: [], cwlVersion: v1.0}
 

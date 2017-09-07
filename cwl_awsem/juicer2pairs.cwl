@@ -1,4 +1,4 @@
-{class: CommandLineTool, cwlVersion: draft-3, inputs: [{inputBinding: {position: 3,
+{class: CommandLineTool, cwlVersion: v1.0, inputs: [{inputBinding: {position: 3,
         separate: true}, type: ['null', File], id: '#input_merged_nodups'}, {inputBinding: {
         position: 4, separate: true}, type: ['null', File], id: '#chromsize'}, {inputBinding: {
         separate: true, position: 1, prefix: -s}, type: ['null', int], default: 100,

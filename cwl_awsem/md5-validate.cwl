@@ -4,5 +4,5 @@
       run: validate.cwl, inputs: [{source: '#input_file', id: '#validatefiles.input_file'},
         {id: '#validatefiles.type'}]}], outputs: [{type: ['null', File], id: '#validatefiles_report',
       source: '#validatefiles.report'}, {type: ['null', File], id: '#md5_report',
-      source: '#md5.report'}], cwlVersion: draft-3, requirements: [{class: InlineJavascriptRequirement}]}
+      source: '#md5.report'}], cwlVersion: v1.0, requirements: [{class: InlineJavascriptRequirement}]}
 

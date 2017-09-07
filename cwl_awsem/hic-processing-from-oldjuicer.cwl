@@ -18,5 +18,5 @@
       type: ['null', File]}, {id: '#out_pairs', source: '#oldjuicer2pairs.out_pairs',
       type: ['null', File]}], requirements: [{class: InlineJavascriptRequirement}],
   inputs: [{id: '#input_merged_nodups', type: ['null', File]}, {id: '#chromsize',
-      type: ['null', File]}], cwlVersion: draft-3, class: Workflow}
+      type: ['null', File]}], cwlVersion: v1.0, class: Workflow}
 

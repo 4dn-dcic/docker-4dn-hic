@@ -6,7 +6,7 @@
       id: '#outprefix'}, {default: 8, type: ['null', int], inputBinding: {separate: true,
         position: 4}, id: '#ncores'}, {default: 2, type: ['null', int], inputBinding: {
         separate: true, position: 6}, id: '#max_split'}], outputs: [{outputBinding: {
-        glob: '*.cool'}, type: ['null', File], id: '#out_cool'}], cwlVersion: draft-3,
+        glob: '*.cool'}, type: ['null', File], id: '#out_cool'}], cwlVersion: v1.0,
   hints: [{dockerPull: 'duplexa/4dn-hic:v35', class: DockerRequirement}], requirements: [
     {class: InlineJavascriptRequirement}], arguments: [], class: CommandLineTool}
 

@@ -4,6 +4,6 @@
         'null', int], id: '#threads', default: 1, inputBinding: {position: 2, separate: true}},
     {type: ['null', string], id: '#outdir', default: ., inputBinding: {position: 3,
         separate: true}}], arguments: [], requirements: [{class: InlineJavascriptRequirement}],
-  cwlVersion: draft-3, outputs: [{id: '#report_zip', type: ['null', File], outputBinding: {
+  cwlVersion: v1.0, outputs: [{id: '#report_zip', type: ['null', File], outputBinding: {
         glob: '*_fastqc.zip'}}]}
 

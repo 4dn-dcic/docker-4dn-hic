@@ -4,7 +4,7 @@
     {type: ['null', File], id: '#chrsizes'}, {type: ['null', {type: array, items: File}],
       id: '#input_pairs'}, {type: ['null', int], id: '#binsize'}, {type: ['null',
         int], id: '#ncores', default: 8}, {type: ['null', int], default: 5000, id: '#min_res'},
-    {type: ['null', string], default: 14g, id: '#maxmem'}], class: Workflow, cwlVersion: draft-3,
+    {type: ['null', string], default: 14g, id: '#maxmem'}], class: Workflow, cwlVersion: v1.0,
   steps: [{outputs: [{id: '#merge_pairs.output_pairs'}], run: merge-pairs.cwl, inputs: [
         {id: '#merge_pairs.outprefix'}, {source: '#input_pairs', id: '#merge_pairs.input_pairs'}],
       id: '#merge_pairs'}, {outputs: [{id: '#cooler.out_cool'}], run: cooler.cwl,

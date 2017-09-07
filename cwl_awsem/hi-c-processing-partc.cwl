@@ -1,4 +1,4 @@
-{cwlVersion: draft-3, inputs: [{id: '#input_cool', type: ['null', File]}, {id: '#input_hic',
+{cwlVersion: v1.0, inputs: [{id: '#input_cool', type: ['null', File]}, {id: '#input_hic',
       type: ['null', File]}, {id: '#nres', default: 13, type: ['null', int]}, {id: '#ncores',
       default: 4, type: ['null', int]}], outputs: [{id: '#output_mcool', source: '#add_hic_normvector_to_mcool.output_mcool',
       type: ['null', File]}, {id: '#output_normvector', type: ['null', File], source: '#extract_mcool_normvector_for_juicebox.output_normvector'}],

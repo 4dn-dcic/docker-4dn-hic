@@ -17,5 +17,5 @@
         valueFrom: {class: Expression, script: $job.inputs.output_dir || '.', engine: '#cwl-js-engine'},
         position: 5, separate: false}}, {type: ['null', File], id: '#chrlen_file',
       inputBinding: {position: 4, separate: false}}], arguments: [], requirements: [
-    {class: InlineJavascriptRequirement}], cwlVersion: draft-3, baseCommand: [run.sh]}
+    {class: InlineJavascriptRequirement}], cwlVersion: v1.0, baseCommand: [run.sh]}
 

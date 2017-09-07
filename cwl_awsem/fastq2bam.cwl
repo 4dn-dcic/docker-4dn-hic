@@ -1,4 +1,4 @@
-{cwlVersion: draft-3, arguments: [], class: CommandLineTool, baseCommand: [preprocessing.sh],
+{cwlVersion: v1.0, arguments: [], class: CommandLineTool, baseCommand: [preprocessing.sh],
   hints: [{class: DockerRequirement, dockerPull: 'duplexa/hictool-fastq2bam:v3'}],
   inputs: [{id: '#input_fastq1', type: [File], inputBinding: {separate: false, position: 2}},
     {id: '#input_fastq2', type: [File], inputBinding: {separate: false, position: 3}},

@@ -1,4 +1,4 @@
-{cwlVersion: draft-3, class: CommandLineTool, inputs: [{type: ['null', File], id: '#input_hic',
+{cwlVersion: v1.0, class: CommandLineTool, inputs: [{type: ['null', File], id: '#input_hic',
       inputBinding: {separate: true, position: 1}}, {type: ['null', File], id: '#input_mcool',
       inputBinding: {separate: true, position: 2}}, {type: ['null', string], id: '#outdir',
       inputBinding: {separate: true, position: 3}, default: .}], requirements: [{

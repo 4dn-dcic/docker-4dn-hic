@@ -8,7 +8,7 @@
       id: '#outdir'}, {inputBinding: {position: 7, separate: true}, type: ['null',
         int], default: 8, id: '#ncores'}], outputs: [{outputBinding: {glob: $(inputs.outdir
           + '/data_dir/aligned/merged_nodups.txt')}, type: ['null', File], id: '#merged_nodups'}],
-  arguments: [], cwlVersion: draft-3, requirements: [{class: InlineJavascriptRequirement}],
+  arguments: [], cwlVersion: v1.0, requirements: [{class: InlineJavascriptRequirement}],
   baseCommand: [run-juicer.sh], class: CommandLineTool, hints: [{class: DockerRequirement,
       dockerPull: 'duplexa/4dn-hic:v35'}]}
 

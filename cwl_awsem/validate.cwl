@@ -3,6 +3,6 @@
       dockerPull: 'duplexa/validatefiles:v1'}], inputs: [{id: '#input_file', inputBinding: {
         position: 1, separate: true}, type: ['null', File]}, {id: '#type', inputBinding: {
         position: 2, separate: true}, type: ['null', {symbols: [fastq, fasta, bam],
-          name: type, type: enum}], default: fastq}], cwlVersion: draft-3, arguments: [],
+          name: type, type: enum}], default: fastq}], cwlVersion: v1.0, arguments: [],
   requirements: [{class: InlineJavascriptRequirement}]}
 

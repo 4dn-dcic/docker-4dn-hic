@@ -6,5 +6,5 @@
         separate: true}, default: 4}, {type: ['null', string], id: '#prefix', inputBinding: {
         position: 4, separate: true}, default: out}], outputs: [{type: ['null', File],
       id: '#out_bam', outputBinding: {glob: '*.bam'}}], baseCommand: [run-bwa-mem.sh],
-  requirements: [{class: InlineJavascriptRequirement}], cwlVersion: draft-3}
+  requirements: [{class: InlineJavascriptRequirement}], cwlVersion: v1.0}
 

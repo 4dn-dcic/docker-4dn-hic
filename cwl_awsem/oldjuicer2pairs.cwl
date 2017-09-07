@@ -1,6 +1,6 @@
 {requirements: [{class: InlineJavascriptRequirement}], baseCommand: [old_merged_nodup2pairs.pl],
   arguments: [], hints: [{dockerPull: 'duplexa/4dn-hic:v31', class: DockerRequirement}],
-  cwlVersion: draft-3, class: CommandLineTool, outputs: [{outputBinding: {glob: '*.bsorted.pairs.gz'},
+  cwlVersion: v1.0, class: CommandLineTool, outputs: [{outputBinding: {glob: '*.bsorted.pairs.gz'},
       id: '#out_pairs', type: ['null', File]}, {outputBinding: {glob: '*.bsorted.pairs.gz.px2'},
       id: '#out_pairs_px', type: ['null', File]}], inputs: [{inputBinding: {position: 3,
         separate: true}, id: '#input_merged_nodups', type: ['null', File]}, {inputBinding: {
