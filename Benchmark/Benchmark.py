@@ -16,7 +16,6 @@ class BenchmarkResult(object):
 
 
 def md5(input_json):
-
     assert 'input_size_in_MB' in input_json
     assert 'input_file' in input_json.get('input_size_in_MB')
 
@@ -25,5 +24,19 @@ def md5(input_json):
                         cpu=1)
 
     return(r.as_dict())
+
+
+def fastqc_0_11_4_1(input_json):
+    assert 'input_size_in_MB' in input_json
+    assert 'input_fastq' in input_json.get('input_size_in_MB')
+    assert 'threads' in input_json
+
+    nthreads = input_json.get('threads')
+    r = BenchmarkResult(size=input_json.get('input_size_in_MB').get('input_fastq') * 2 + 3000,
+                        mem=300 * nthreads,
+                        cpu=nthreads)
+
+    return(r.as_dict())
+
 
 
