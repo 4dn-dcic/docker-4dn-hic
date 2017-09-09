@@ -56,7 +56,7 @@
     "outputs": [
         {
             "outputBinding": {
-                "glob": "*.multires.cool,*.mcool"
+                "glob": "*.multires.cool"
             },
             "id": "#output_mcool",
             "type": [
