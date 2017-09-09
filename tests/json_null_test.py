@@ -8,6 +8,7 @@ if len(sys.argv)>1:
 else:
     s=json.load(sys.stdin)
 
+print(s)
 for k in s:
     if s[k] is None:
         raise Exception("Field {} is null.".format(k))
