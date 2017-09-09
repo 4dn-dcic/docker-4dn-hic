@@ -1,5 +1,6 @@
-CWL_FILENAME=$1
-INPUT_JSON_NAME=$2
+CWL_NAME=$1
+CWL_FILENAME=$1.cwl
+INPUT_JSON_NAME=$2.input.json
 CWD=$(pwd)
 OUTDIR=$CWD/tests/test_outdir
 CWL_RUNNER=$(which cwltool)
