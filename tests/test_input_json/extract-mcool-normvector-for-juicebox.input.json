@@ -1,0 +1,6 @@
+{
+    "input_mcool": {
+        "class": "File", 
+        "path": "../test_files/test.mcool"
+    } 
+}
