@@ -7,6 +7,7 @@ env:
   - CWL_NAME=cool2mcool
   - CWL_NAME=hi-c-processing-partc
   - CWL_NAME=bwa-mem
+  - CWL_NAME=extract-mcool-normvector-for-juicebox
 python:
   - 3.5
 os:
