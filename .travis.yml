@@ -5,6 +5,7 @@ env:
   - CWL_NAME=fastqc-0-11-4-1
   - CWL_NAME=hi-c-processing-partb
   - CWL_NAME=cool2mcool
+  - CWL_NAME=hi-c-processing-partc
 python:
   - 3.5
 os:
