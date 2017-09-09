@@ -1,4 +1,4 @@
-CWL_RUNNER=$(which cwl-runner)
+CWL_RUNNER=$(which cwltool)
 echo $CWL_RUNNER
 CWD=$(pwd)
 OUTDIR=$CWD/tests/test_outdir
