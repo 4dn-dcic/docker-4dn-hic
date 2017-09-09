@@ -7,7 +7,7 @@
     "input_pairs": [
         {
             "class": "File", 
-            "path": "../test_files/test.pairs.gz"
+            "path": "../test_files/test_4dn.pairs.gz"
         }
     ], 
     "maxmem": "2g", 
