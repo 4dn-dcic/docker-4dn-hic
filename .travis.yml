@@ -1,7 +1,11 @@
 sudo: false
 language: python
+env:
+  - CWL_FILE_NAME=md5.cwl INPUT_JSON_NAME=md5_input.json
+  - CWL_FILE_NAME=fastqc-0-11-4-1.cwl INPUT_JSON_NAME=fastqc_input.json
+  - CWL_FILE_NAME=hi-c-processing-partb.cwl INPUT_JSON_NAME=hi-c-processing-partb.input.json
+  - CWL_FILE_NAME=cool2mcool.cwl INPUT_JSON_NAME=cool2mcool.input.json
 python:
-  - 2.7
   - 3.5
 os:
   - linux
@@ -10,5 +14,5 @@ services:
 install:
   - pip install git+https://github.com/SooLee/cwltool.git
 script:
-  - source tests/tests.sh
+  - source tests/tests.sh $CWL_FILE_NAME $INPUT_JSON_NAME
 
