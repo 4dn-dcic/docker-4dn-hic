@@ -81,10 +81,10 @@ cd ..
 
 
 ## SOFTWARE: mcool2hic
-## COMMIT: 34b5430e8b9cfd8f01203e0821b68efe4897b18f 
+## COMMIT: 32d6b8f
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
-git checkout 34b5430e8b9cfd8f01203e0821b68efe4897b18f
+git checkout 32d6b8f
 cd ..
 
 
