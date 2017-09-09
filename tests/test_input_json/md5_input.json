@@ -1,6 +1,6 @@
 {
     "input_file": {
         "class": "File", 
-        "path": "tests/test_files/arraw2.jpg"
+        "path": "../test_files/arrow2.jpg"
     }
 }
