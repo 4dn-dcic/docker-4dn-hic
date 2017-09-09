@@ -4,8 +4,8 @@
         "path": "../test_files/SRR1658650_R1.h40.fastq.gz"
     }, 
     "fastq2": {
-	"class": "File", 
-	"path": "../test_files/SRR1658650_R2.h40.fastq.gz"
+        "class": "File", 
+        "path": "../test_files/SRR1658650_R2.h40.fastq.gz"
     }, 
     "bwa_index": {
         "class": "File", 
