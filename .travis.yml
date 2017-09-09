@@ -10,5 +10,5 @@ services:
 install:
   - pip install git+https://github.com/SooLee/cwltool.git
 script:
-  - tests/tests.sh
+  - source tests/tests.sh
 
