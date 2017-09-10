@@ -81,10 +81,10 @@ cd ..
 
 
 ## SOFTWARE: mcool2hic
-## COMMIT: 32d6b8f
+## COMMIT: f2d1283
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
-git checkout 32d6b8f
+git checkout f2d1283
 cd ..
 
 
