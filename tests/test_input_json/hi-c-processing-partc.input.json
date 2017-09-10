@@ -13,5 +13,5 @@
     },
     "ncores": 1, 
     "nres": 6,
-    "min_res": 5000
+    "min_res": 500000
 }
