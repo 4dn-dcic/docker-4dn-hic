@@ -47,6 +47,24 @@ def bwa_mem(input_json):
     assert 'bwa_index' in input_json.get('input_size_in_bytes')
     assert 'nThreads' in input_json
 
+    # cpu
     nthreads = input_json.get('nThreads')
 
+    # space
+    input_sizes = input_json.get('input_size_in_bytes')
+    total_input_size = input_sizes.get('fastq1') + input_sizes.get('fastq2') + input_sizes.get('bwa_index')
+    output_bam_size = (input_sizes.get('fastq1') + input_sizes.get('fastq2')) * 1.5
+    intermediate_uncompressed_index_size = input_sizes.get('bwa_index') * 2
+    total_intermediate_size = intermediate_uncompressed_index_size + output_bam_size
+    total_output_size = output_bam_size
+    additional_size_in_gb = 4.5
+
+    total_size = (total_input_size + total_intermediate_size + total_output_size) / 1048576 + additional_size_in_gb
+
+    # mem
+    mem = input_sizes.get('bwa_index') * 4 / 1024
+
+    r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
+
+    return(r.as_dict())
 
