@@ -74,7 +74,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:dev"
+            "dockerPull": "duplexa/4dn-hic:v38"
         }
     ]
 }
