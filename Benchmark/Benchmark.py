@@ -39,4 +39,14 @@ def fastqc_0_11_4_1(input_json):
     return(r.as_dict())
 
 
+# bwa_mem is still a draft
+def bwa_mem(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'fastq1' in input_json.get('input_size_in_bytes')
+    assert 'fastq2' in input_json.get('input_size_in_bytes')
+    assert 'bwa_index' in input_json.get('input_size_in_bytes')
+    assert 'nThreads' in input_json
+
+    nthreads = input_json.get('nThreads')
+
 
