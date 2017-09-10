@@ -6,6 +6,11 @@ output_prefix=$4
 nres=$5
 min_res=$6
 
+if [ "$#" -ne 6 ]; then
+    echo "Illegal number of parameters"
+    exit(1)
+fi
+
 cp $input_mcool $outdir/$output_prefix.mcool
 scriptdir=/usr/local/bin
 res_list = $(python3 -c "from cooler.contrib import higlass; higlass.print_zoom_resolutions('$chromsizefile', $min_res)")
