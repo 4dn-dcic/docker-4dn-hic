@@ -3,5 +3,10 @@
         "class": "File", 
         "path": "../test_files/test.mcool"
     },
-    "nres": 6
+    "chromsize": {
+        "class": "File",
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
+    "nres": 6,
+    "min_res": 500000
 }
