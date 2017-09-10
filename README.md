@@ -3,12 +3,24 @@
 * Starting from 0.0.5, the repo contains a benchmarking script for some of the CWLs, that returns total space, mem and CPUs required per given input size.
 
 ### Example usage of benchmarking script
-```
+```python
 from Benchmark import Benchmark as B
-B.md5({'input_size_in_MB': {'input_file':20000}})
+B.md5({'input_size_in_bytes': {'input_file':20000}})
 ```
 ```
-{'total_mem_in_MB': 4, 'total_size_in_MB': 23000, 'min_CPU': 1}
+{'total_mem_in_MB': 4, 'min_CPU': 1, 'total_size_in_GB': 3.019073486328125}
+```
+```python
+B.fastqc_0_11_4_1({'input_size_in_bytes': {'input_fastq':20000},'threads': 4})
+```
+```
+{'total_mem_in_MB': 1200, 'min_CPU': 4, 'total_size_in_GB': 3.03814697265625}
+```
+```python
+B.bwa_mem({'input_size_in_bytes': {'fastq1':93520, 'fastq2':97604, 'bwa_index':3364568}, 'nThreads': 4})
+```
+```
+{'total_size_in_GB': 14.855186462402344, 'total_mem_in_MB': 13142.84375, 'min_CPU': 4}
 ```
 
 ### Notes on SBG/AWSEM

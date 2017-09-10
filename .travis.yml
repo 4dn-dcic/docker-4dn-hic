@@ -1,0 +1,21 @@
+sudo: false
+language: python
+env:
+  - CWL_NAME=extract-mcool-normvector-for-juicebox
+  - CWL_NAME=md5
+  - CWL_NAME=fastqc-0-11-4-1
+  - CWL_NAME=hi-c-processing-partb
+  - CWL_NAME=cool2mcool
+  - CWL_NAME=hi-c-processing-partc
+  - CWL_NAME=bwa-mem
+python:
+  - 3.5
+os:
+  - linux
+services:
+  - docker
+install:
+  - pip install git+https://github.com/SooLee/cwltool.git
+script:
+  - source tests/tests.sh $CWL_NAME
+

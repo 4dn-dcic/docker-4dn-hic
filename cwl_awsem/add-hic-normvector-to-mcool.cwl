@@ -56,7 +56,7 @@
                 "File"
             ],
             "outputBinding": {
-                "glob": "$(inputs.outdir + '*.mcool')"
+                "glob": "$(inputs.outdir + '/' + '*.mcool')"
             },
             "id": "#output_mcool"
         }
