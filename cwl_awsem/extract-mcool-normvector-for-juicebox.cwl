@@ -25,11 +25,22 @@
             ]
         },
         {
+            "id": "#chromsize",
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
             "default": ".",
             "id": "#outdir",
             "inputBinding": {
                 "separate": true,
-                "position": 2
+                "position": 3
             },
             "type": [
                 "null",
@@ -41,7 +52,7 @@
             "id": "#output_prefix",
             "inputBinding": {
                 "separate": true,
-                "position": 3
+                "position": 4
             },
             "type": [
                 "null",
@@ -53,13 +64,25 @@
             "id": "#nres",
             "inputBinding": {
                 "separate": true,
-                "position": 4
+                "position": 5
             },
             "type": [
                 "null",
                 "int"
             ]
-        }
+       },
+       {
+            "default": 5000,
+            "id": "#min_res",
+            "inputBinding": {
+                "separate": true,
+                "position": 6
+            },
+            "type": [
+                "null",
+                "int"
+            ]
+       }
     ],
     "cwlVersion": "draft-3",
     "baseCommand": [

@@ -7,6 +7,11 @@
         "class": "File", 
         "path": "../test_files/4DNFISNLMQWI.hic"
     }, 
+    "chrsizes": {
+        "class": "File",
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
     "ncores": 1, 
-    "nres": 6
+    "nres": 6,
+    "min_res": 5000
 }

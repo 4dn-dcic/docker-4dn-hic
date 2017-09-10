@@ -16,8 +16,23 @@
             ]
         },
         {
+            "id": "#chromsize",
+            "type": [
+                "null",
+                "File"
+            ]
+        },
+        {
             "id": "#nres",
             "default": 13,
+            "type": [
+                "null",
+                "int"
+            ]
+        },
+        {
+            "id": "#min_res",
+            "default": 5000,
             "type": [
                 "null",
                 "int"
@@ -91,6 +106,14 @@
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.nres",
                     "source": "#nres"
+                },
+                {
+                    "id": "#extract_mcool_normvector_for_juicebox.min_res",
+                    "source": "#min_res"
+                },
+                {
+                    "id": "#extract_mcool_normvector_for_juicebox.chromsize",
+                    "source": "#chromsize"
                 },
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.input_mcool",
