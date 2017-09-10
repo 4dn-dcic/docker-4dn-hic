@@ -5,16 +5,16 @@
 ### Example usage of benchmarking script
 ```python
 from Benchmark import Benchmark as B
-B.md5({'input_size_in_MB': {'input_file':20000}})
+B.md5({'input_size_in_bytes': {'input_file':20000}})
 ```
 ```
-{'total_mem_in_MB': 4, 'total_size_in_MB': 23000, 'min_CPU': 1}
+{'total_mem_in_MB': 4, 'min_CPU': 1, 'total_size_in_GB': 3.019073486328125}
 ```
 ```python
-B.fastqc_0_11_4_1({'input_size_in_MB': {'input_fastq':20000},'threads': 4})
+B.fastqc_0_11_4_1({'input_size_in_bytes': {'input_fastq':20000},'threads': 4})
 ```
 ```
-{'total_mem_in_MB': 1200, 'total_size_in_MB': 43000, 'min_CPU': 4}
+{'total_mem_in_MB': 1200, 'min_CPU': 4, 'total_size_in_GB': 3.03814697265625}
 ```
 
 ### Notes on SBG/AWSEM
