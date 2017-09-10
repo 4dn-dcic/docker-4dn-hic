@@ -1,3 +1,6 @@
+### v38
+* mmool2hic is modified to avoid readonly input file issue in cwl-runner.
+
 ### v37
 * pairix 0.2.4 -> 0.2.5
 * updated pairsamtools version
