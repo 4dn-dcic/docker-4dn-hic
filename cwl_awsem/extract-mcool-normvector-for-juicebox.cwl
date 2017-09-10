@@ -4,7 +4,7 @@
         {
             "id": "#output_normvector",
             "outputBinding": {
-                "glob": "'*.juicerformat.gz'"
+                "glob": "*.juicerformat.gz"
             },
             "type": [
                 "null",
