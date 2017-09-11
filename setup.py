@@ -14,9 +14,10 @@ setup(
     author="Soo Lee",
     author_email="duplexa@gmail.com",
     license="MIT",
-    keywords=['pipeline-cwl', 'benchmark', 'cwl', 'common workflow language', 'docker', 'tibanna', 'bioinformatics', '4dn'],
+    keywords=['pipeline-cwl', 'benchmark', 'cwl', 'common workflow language',
+              'docker', 'tibanna', 'bioinformatics', '4dn'],
     packages=find_packages(),
-    package_data={ "": ["aws/*"] },
+    package_data={"": ["aws/*"]},
     classifiers=[
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
