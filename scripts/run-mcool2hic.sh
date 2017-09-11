@@ -8,7 +8,7 @@ min_res=$6
 
 if [ "$#" -ne 6 ]; then
     echo "Illegal number of parameters"
-    return 1;
+    exit 1;
 fi
 
 cp $input_mcool $outdir/$output_prefix.mcool
