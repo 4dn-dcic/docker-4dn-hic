@@ -1,2 +1,4 @@
+build/
+dist/
 tests/test_tmp*
 tests/test_outdir
