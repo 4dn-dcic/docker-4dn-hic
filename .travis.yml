@@ -10,8 +10,8 @@ env:
   - CWL_NAME=hi-c-processing-partc
   - CWL_NAME=bwa-mem
 python:
-  - 3.5
-  - 2.7
+  - '3.5'
+  - '2.7'
 os:
   - linux
 services:
