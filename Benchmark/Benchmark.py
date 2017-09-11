@@ -13,10 +13,21 @@ class BenchmarkResult(object):
         self.total_size_in_GB = size
         self.total_mem_in_MB = mem
         self.min_CPU = cpu
-        self.aws = get_optimal_instance_type(cpu=cpu, mem=mem)
+        self.aws = get_optimal_instance_type(cpu=cpu, mem_in_gb=mem / 1024)
 
     def as_dict(self):
         return self.__dict__
+
+
+def benchmark(app_name, input_json):
+    if app_name == 'md5':
+        return(md5(input_json))
+    elif app_name == 'fastqc-0-11-4-1':
+        return(fastqc_0_11_4_1(input_json))
+    elif app_name == 'bwa-mem':
+        return(bwa_mem(input_json))
+    else:
+        return(None)
 
 
 def md5(input_json):
@@ -79,10 +90,10 @@ def get_aws_ec2_info_file():
     # return(resource_filename(__name__, 'aws/Amazon EC2 Instance Comparison.csv'))
 
 
-def get_optimal_instance_type(cpu=1, mem=0.5,
+def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
                               instance_info_file=get_aws_ec2_info_file()):
     res = dict()
-    res['cost'] = 100000
+    res['cost_in_usd'] = 100000
     with open(instance_info_file, "r") as csvfile:
         spamreader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
         for row in spamreader:
@@ -97,12 +108,15 @@ def get_optimal_instance_type(cpu=1, mem=0.5,
             else:
                 row_ebs_opt = True
                 row_ebs_opt_surcharge = float(row_ebs_opt_surcharge.replace(' hourly', '').replace('$', ''))
-            if row_cpu >= cpu and row_mem >= mem and row_cost < res['cost']:
-                res['cost'] = row_cost
-                res['mem'] = row_mem
+            if row_cpu >= cpu and row_mem >= mem_in_gb and row_cost < res['cost_in_usd']:
+                res['cost_in_usd'] = row_cost
+                res['mem_in_gb'] = row_mem
                 res['cpu'] = row_cpu
                 res['recommended_instance_type'] = row_instance_type
                 res['EBS_optimized'] = row_ebs_opt
                 res['EBS_optimization_surcharge'] = row_ebs_opt_surcharge
+    if res['cost_in_usd'] == 100000:
+        raise Exception("No EC2 instance can match the requirement.")
+
     return(res)
 
