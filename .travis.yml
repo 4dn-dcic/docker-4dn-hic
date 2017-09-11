@@ -22,7 +22,7 @@ script:
   - if [ "$BENCHMARK_TEST" == 1 ]; then
        python tests/tests_benchmark.py;
     fi
-  - if [ -z "$CWL_NAME" ]; then
+  - if [ ! -z "$CWL_NAME" ]; then
        source tests/tests.sh $CWL_NAME;
     fi
 
