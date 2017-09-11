@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: Benchmark
+Version: 0.0.7
+Summary: Benchmark functions that returns total space, mem, cpu given input size and parameters for the CWL workflows in the pipelines-cwl repo
+Home-page: https://github.com/4dn-dcic/pipelines-cwl/
+Author: Soo Lee
+Author-email: duplexa@gmail.com
+License: MIT
+Download-URL: https://github.com/4dn-dcic/pipelines-cwl/tarball/0.0.7
+Description: UNKNOWN
+Keywords: pipeline-cwl,benchmark,cwl,common workflow language,docker,tibanna,bioinformatics,4dn
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
