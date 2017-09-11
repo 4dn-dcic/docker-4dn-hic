@@ -119,4 +119,3 @@ def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
         raise Exception("No EC2 instance can match the requirement.")
 
     return(res)
-
