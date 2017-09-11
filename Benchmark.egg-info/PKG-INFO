@@ -1,7 +1,7 @@
 Metadata-Version: 1.1
 Name: Benchmark
 Version: 0.0.7
-Summary: UNKNOWN
+Summary: Benchmark functions that returns total space, mem, cpu given input size and parameters for the CWL workflows in the pipelines-cwl repo
 Home-page: https://github.com/4dn-dcic/pipelines-cwl/
 Author: Soo Lee
 Author-email: duplexa@gmail.com
