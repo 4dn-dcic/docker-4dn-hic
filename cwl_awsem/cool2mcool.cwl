@@ -4,7 +4,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v17",
+            "dockerPull": "duplexa/4dn-hic:v38",
             "class": "DockerRequirement"
         }
     ],
