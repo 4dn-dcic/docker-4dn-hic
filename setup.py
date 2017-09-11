@@ -3,7 +3,7 @@
 # https://github.com/4dn-dcic/pipelines-cwl
 # IMPORTANT: use Python 2.7 or above for this package
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name = "Benchmark",
@@ -15,7 +15,8 @@ setup(
     author_email = "duplexa@gmail.com",
     license = "MIT",
     keywords = ['pipeline-cwl', 'benchmark', 'cwl', 'common workflow language', 'docker', 'tibanna', 'bioinformatics', '4dn'],
-    packages = ['Benchmark'],
+    packages = find_packages(),
+    package_data = { "": ["aws/*"] },
     classifiers = [
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",

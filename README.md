@@ -8,19 +8,19 @@ from Benchmark import Benchmark as B
 B.md5({'input_size_in_bytes': {'input_file':20000}})
 ```
 ```
-{'total_mem_in_MB': 4, 'min_CPU': 1, 'total_size_in_GB': 3.019073486328125}
+{'aws': {'mem': 4.0, 'recommended_instance_type': 't2.medium', 'cost': 0.047, 'EBS_optimized': False, 'EBS_optimization_surcharge': None, 'cpu': 2}, 'min_CPU': 1, 'total_mem_in_MB': 4, 'total_size_in_GB': 3.019073486328125}
 ```
 ```python
 B.fastqc_0_11_4_1({'input_size_in_bytes': {'input_fastq':20000},'threads': 4})
 ```
 ```
-{'total_mem_in_MB': 1200, 'min_CPU': 4, 'total_size_in_GB': 3.03814697265625}
+{'aws': {'EBS_optimized': True, 'cpu': 128, 'cost': 13.338, 'recommended_instance_type': 'x1.32xlarge', 'EBS_optimization_surcharge': 0.0, 'mem': 1952.0}, 'total_size_in_GB': 3.03814697265625, 'min_CPU': 4, 'total_mem_in_MB': 1200}
 ```
 ```python
 B.bwa_mem({'input_size_in_bytes': {'fastq1':93520, 'fastq2':97604, 'bwa_index':3364568}, 'nThreads': 4})
 ```
 ```
-{'total_size_in_GB': 14.855186462402344, 'total_mem_in_MB': 13142.84375, 'min_CPU': 4}
+{'aws': {'cost': 100000}, 'total_size_in_GB': 14.855186462402344, 'min_CPU': 4, 'total_mem_in_MB': 13142.84375}
 ```
 
 To use Benchmark in from other places, install it as below.

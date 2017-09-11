@@ -1,3 +1,7 @@
+import os
+import csv
+import re
+from pkg_resources import resource_filename
 
 # input_json: { 'input_size_in_bytes': {'input_arg_name1': input_arg_name1_size, 'input_arg_name2': input_arg_name2_size, ...}, 'input_param_name1': input_param_value1, 'input_param_name2': input_param_value2, ... }
 # input_size_in_bytes is the input file size in bytes.
@@ -10,6 +14,7 @@ class BenchmarkResult(object):
         self.total_size_in_GB = size
         self.total_mem_in_MB = mem
         self.min_CPU = cpu
+        self.aws = get_optimal_instance_type(cpu=cpu, mem=mem)
 
     def as_dict(self):
         return self.__dict__
@@ -67,4 +72,38 @@ def bwa_mem(input_json):
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
 
     return(r.as_dict())
+
+
+def get_aws_ec2_info_file():
+    this_dir, _ = os.path.split(__file__)
+    return(os.path.join(this_dir, "aws", "Amazon EC2 Instance Comparison.csv"))
+    # return(resource_filename(__name__, 'aws/Amazon EC2 Instance Comparison.csv'))
+
+
+def get_optimal_instance_type(cpu=1, mem=0.5,
+                              instance_info_file=get_aws_ec2_info_file()):
+    res = dict()
+    res['cost'] = 100000
+    with open(instance_info_file, "r") as csvfile:
+        spamreader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+        for row in spamreader:
+            row_cpu = int(re.sub(" vCPUs.*", '', row['vCPUs']))
+            row_instance_type = row['API Name']
+            row_mem = float(row['Memory'].replace(' GiB', ''))
+            row_cost = float(row['Linux On Demand cost'].replace(' hourly', '').replace('$', ''))
+            row_ebs_opt_surcharge = row['EBS Optimized surcharge']
+            if row_ebs_opt_surcharge == 'unavailable':
+                row_ebs_opt = False
+                row_ebs_opt_surcharge = None
+            else:
+                row_ebs_opt = True
+                row_ebs_opt_surcharge = float(row_ebs_opt_surcharge.replace(' hourly', '').replace('$', ''))
+            if row_cpu >= cpu and row_mem >= mem and row_cost < res['cost']:
+                res['cost'] = row_cost
+                res['mem'] = row_mem
+                res['cpu'] = row_cpu
+                res['recommended_instance_type'] = row_instance_type
+                res['EBS_optimized'] = row_ebs_opt
+                res['EBS_optimization_surcharge'] = row_ebs_opt_surcharge
+    return(res)
 
