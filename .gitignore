@@ -1,5 +1,5 @@
-build/
-dist/
+build/*
+dist/*
 *.egg-info
-tests/test_tmp*
-tests/test_outdir
+tests/test_tmp*/*
+tests/test_outdir/*
