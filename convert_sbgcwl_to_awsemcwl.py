@@ -5,6 +5,7 @@ VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs', 'baseCommand', 'argu
 INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description', 'inputBinding', 'outputBinding', 'sbg:toolDefaultValue']
 STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
+
 def filter(input_json, key, input_json0):
 
     # remove non-valid input/output subfields
@@ -14,18 +15,22 @@ def filter(input_json, key, input_json0):
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
                     del input_json[key][i][subkey]
                 if subkey == 'sbg:toolDefaultValue':
-                    if input_json0[key][i][subkey].isdigit() and 'type' in input_json0[key][i] and 'int' in input_json0[key][i]['type']:  # convert to int
+                    if input_json0[key][i][subkey].isdigit() and 'type' in input_json0[key][i] \
+                        and 'int' in input_json0[key][i]['type']:  # convert to int
                         input_json[key][i]['default'] = int(input_json0[key][i][subkey])
                     else:
                         input_json[key][i]['default'] = input_json0[key][i][subkey]
                     del input_json[key][i][subkey]
-                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) and len(input_json0[key][i][subkey])==1:
+                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) \
+                    and len(input_json0[key][i][subkey]) == 1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
                 if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey]:
                     if 'script' in input_json0[key][i][subkey]['glob']:
-                        input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
+                        input_json[key][i][subkey]['glob'] \
+                            = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
                     elif input_json0[key][i][subkey]['glob'].startswith('$job'):
-                        input_json[key][i][subkey]['glob'] = "$(" + input_json0[key][i][subkey]['glob'].replace("$job.", "") + ")"
+                        input_json[key][i][subkey]['glob'] \
+                            = "$(" + input_json0[key][i][subkey]['glob'].replace("$job.", "") + ")"
                     else:
                         input_json[key][i][subkey]['glob'] = input_json0[key][i][subkey]['glob']
                 if subkey == 'inputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
@@ -38,7 +43,7 @@ def filter(input_json, key, input_json0):
                     input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
                     del input_json[key][i][subkey]['secondaryFiles']
                     for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
-                        input_json[key][i]['secondaryFiles'][j] = scFl.replace("$job.", "") 
+                        input_json[key][i]['secondaryFiles'][j] = scFl.replace("$job.", "")
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
@@ -76,18 +81,18 @@ def filter(input_json, key, input_json0):
 
     if key == 'requirements':
         for i, item in enumerate(input_json0[key]):
-            if 'class' in item and item['class']=="ExpressionEngineRequirement":
-                input_json[key][i] = { 'class': 'InlineJavascriptRequirement' }
+            if 'class' in item and item['class'] == "ExpressionEngineRequirement":
+                input_json[key][i] = {'class': 'InlineJavascriptRequirement'}
 
     return(copy.deepcopy(input_json))
 
 
 def run_convert(input_cwl, output_cwl):
 
-    with open(input_cwl,'r') as fi:
-        input_json0=json.load(fi)
+    with open(input_cwl, 'r') as fi:
+        input_json0 = json.load(fi)
 
-    input_json=dict()
+    input_json = dict()
 
     # keep only the minimal key list and throw away others
     for key in VALID_KEY_LIST:
@@ -113,8 +118,7 @@ def run_convert(input_cwl, output_cwl):
                     input_json[key][i]['run'] = '.'.join(app)
 
     if len(input_json['requirements']) == 0:
-        input_json['requirements']=[{'class': 'InlineJavascriptRequirement' }]
-
+        input_json['requirements'] = [{'class': 'InlineJavascriptRequirement'}]
 
     with open(output_cwl, 'w') as fo:
         json.dump(input_json, fo, indent=4)
@@ -126,6 +130,5 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--input", help="input sbg cwl")
     parser.add_argument("-o", "--output", help="output awsem cwl")
     args = parser.parse_args()
-   
+ 
     run_convert(args.input, args.output)
-
