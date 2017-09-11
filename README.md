@@ -1,6 +1,7 @@
 # pipelines-cwl
 * This is a collection of pipelines built by 4DN-DCIC that were created and run either on the SevenBridges platform or on the 4DN platform, AWSEM.
-* Starting from 0.0.5, the repo contains a benchmarking script for some of the CWLs, that returns total space, mem and CPUs required per given input size.
+* The repo contains a benchmarking script for some of the CWLs, that returns total space, mem and CPUs required per given input size and a recommended AWS EC2 instance type.
+
 
 ### Example usage of benchmarking script
 * importing the module
