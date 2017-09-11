@@ -32,14 +32,22 @@ class TestBenchmark(unittest.TestCase):
         print(res)
 
     def test_benchmark3(self):
-        res = B.benchmark('bwa-mem', {'input_size_in_bytes': {'fastq1': 93520, 'fastq2': 97604, 'bwa_index': 3364568}, 'nThreads': 4})
+        input_json = {'input_size_in_bytes': {'fastq1': 93520,
+                                              'fastq2': 97604,
+                                              'bwa_index': 3364568},
+                      'nThreads': 4}
+        res = B.benchmark('bwa-mem', input_json)
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 't2.xlarge'
         print(res)
 
     def test_benchmark_none(self):
-        res = B.benchmark('some_weird_name', {'input_size_in_bytes': {'fastq1': 93520, 'fastq2': 97604, 'bwa_index': 3364568}, 'nThreads': 4})
+        input_json = {'input_size_in_bytes': {'fastq1': 93520,
+                                              'fastq2': 97604,
+                                              'bwa_index': 3364568},
+                      'nThreads': 4}
+        res = B.benchmark('some_weird_name', input_json)
         assert res is None
 
 
