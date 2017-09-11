@@ -34,6 +34,18 @@
             }
         },
         {
+            "default": 10000000,
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#chunksize",
+            "inputBinding": {
+                "separate": true,
+                "position": 4
+            }
+        },
+        {
             "default": "out",
             "inputBinding": {
                 "separate": true,

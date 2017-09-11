@@ -45,6 +45,14 @@
                 "null",
                 "int"
             ]
+        },
+        {
+            "id": "#chunksize",
+            "default": 10000000,
+            "type": [
+                "null",
+                "int"
+            ]
         }
     ],
     "outputs": [
@@ -137,6 +145,10 @@
                 {
                     "id": "#cool2mcool.ncores",
                     "source": "#ncores"
+                },
+                {
+                    "id": "#cool2mcool.chunksize",
+                    "source": "#chunksize"
                 },
                 {
                     "id": "#cool2mcool.outprefix"
