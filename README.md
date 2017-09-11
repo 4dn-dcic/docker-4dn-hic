@@ -25,8 +25,7 @@ B.bwa_mem({'input_size_in_bytes': {'fastq1':93520, 'fastq2':97604, 'bwa_index':3
 
 To use Benchmark in from other places, install it as below.
 ```
-cd pipelines-cwl
-python setup.py install
+pip install git+git://github.com/4dn-dcic/pipelines-cwl.git
 ```
 
 
