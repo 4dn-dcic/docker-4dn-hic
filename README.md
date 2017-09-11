@@ -23,6 +23,12 @@ B.bwa_mem({'input_size_in_bytes': {'fastq1':93520, 'fastq2':97604, 'bwa_index':3
 {'total_size_in_GB': 14.855186462402344, 'total_mem_in_MB': 13142.84375, 'min_CPU': 4}
 ```
 
+To use Benchmark in from other places, install it as below.
+```
+pip install git+git://github.com/4dn-dcic/pipelines-cwl.git
+```
+
+
 ### Notes on SBG/AWSEM
 
 #### Freeze >=0.0.2
