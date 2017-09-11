@@ -4,7 +4,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v17",
+            "dockerPull": "duplexa/4dn-hic:v38",
             "class": "DockerRequirement"
         }
     ],
@@ -31,6 +31,18 @@
             "inputBinding": {
                 "separate": true,
                 "position": 2
+            }
+        },
+        {
+            "default": 10000000,
+            "type": [
+                "null",
+                "int"
+            ],
+            "id": "#chunksize",
+            "inputBinding": {
+                "separate": true,
+                "position": 4
             }
         },
         {
