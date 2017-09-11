@@ -1,7 +1,6 @@
 import os
 import csv
 import re
-from pkg_resources import resource_filename
 
 # input_json: { 'input_size_in_bytes': {'input_arg_name1': input_arg_name1_size, 'input_arg_name2': input_arg_name2_size, ...}, 'input_param_name1': input_param_value1, 'input_param_name2': input_param_value2, ... }
 # input_size_in_bytes is the input file size in bytes.
