@@ -1,6 +1,7 @@
 sudo: false
 language: python
 env:
+  - BENCHMARK_TEST=1
   - CWL_NAME=extract-mcool-normvector-for-juicebox
   - CWL_NAME=md5
   - CWL_NAME=fastqc-0-11-4-1
@@ -16,6 +17,12 @@ services:
   - docker
 install:
   - pip install git+https://github.com/SooLee/cwltool.git
+  - python setup.py install
 script:
-  - source tests/tests.sh $CWL_NAME
+  - if [ "$BENCHMARK_TEST" == 1 ]; then
+       python tests/tests_benchmark.py;
+    fi
+  - if [ ! -z "$CWL_NAME" ]; then
+       source tests/tests.sh $CWL_NAME;
+    fi
 

@@ -3,19 +3,19 @@
 # https://github.com/4dn-dcic/pipelines-cwl
 # IMPORTANT: use Python 2.7 or above for this package
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name = "Benchmark",
     version = open("Benchmark/_version.py").readlines()[-1].split()[-1].strip("\"'"),
     description = "Benchmark functions that returns total space, mem, cpu given input size and parameters for the CWL workflows in the pipelines-cwl repo",
     url = "https://github.com/4dn-dcic/pipelines-cwl/",
-    download_url = "https://github.com/4dn-dcic/pipelines-cwl/tarball/0.0.7",
     author = "Soo Lee",
     author_email = "duplexa@gmail.com",
     license = "MIT",
     keywords = ['pipeline-cwl', 'benchmark', 'cwl', 'common workflow language', 'docker', 'tibanna', 'bioinformatics', '4dn'],
-    packages = ['Benchmark'],
+    packages = find_packages(),
+    package_data = { "": ["aws/*"] },
     classifiers = [
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
