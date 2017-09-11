@@ -10,7 +10,6 @@ setup(
     version = open("Benchmark/_version.py").readlines()[-1].split()[-1].strip("\"'"),
     description = "Benchmark functions that returns total space, mem, cpu given input size and parameters for the CWL workflows in the pipelines-cwl repo",
     url = "https://github.com/4dn-dcic/pipelines-cwl/",
-    download_url = "https://github.com/4dn-dcic/pipelines-cwl/tarball/0.0.7",
     author = "Soo Lee",
     author_email = "duplexa@gmail.com",
     license = "MIT",
