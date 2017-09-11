@@ -5,27 +5,26 @@
 ### Example usage of benchmarking script
 ```python
 from Benchmark import Benchmark as B
-B.benchmark('md5', \
-            {'input_size_in_bytes': \
-                   {'input_file':20000}})
+input_json = {'input_size_in_bytes': {'input_file': 20000}}
+B.benchmark('md5', input_json)
 ```
 ```
 {'aws': {'recommended_instance_type': 't2.xlarge', 'EBS_optimized': False, 'cost_in_usd': 0.188, 'EBS_optimization_surcharge': None, 'mem_in_gb': 16.0, 'cpu': 4}, 'total_size_in_GB': 14.855186462402344, 'total_mem_in_MB': 13142.84375, 'min_CPU': 4}
 ```
 ```python
-B.benchmark('fastqc-0-11-4-1', \
-            {'input_size_in_bytes': \
-                {'input_fastq':20000}, \
-             'threads': 2})
+input_json = {'input_size_in_bytes': {'input_fastq':20000},
+              'threads': 2}
+B.benchmark('fastqc-0-11-4-1', input_json)
 ```
 ```
 {'recommended_instance_type': 't2.nano', 'EBS_optimized': False, 'cost_in_usd': 0.006, 'EBS_optimization_surcharge': None, 'mem_in_gb': 0.5, 'cpu': 1}
 ```
 ```python
-B.benchmark('bwa-mem', \
-            {'input_size_in_bytes': \
-                {'fastq1':93520, 'fastq2':97604, 'bwa_index':3364568}, \
-             'nThreads': 4})
+input_json = {'input_size_in_bytes': {'fastq1':93520,
+                                      'fastq2':97604,
+                                      'bwa_index':3364568},
+              'nThreads': 4}
+B.benchmark('bwa-mem', input_json)
 ```
 ```
 {'recommended_instance_type': 'c4.8xlarge', 'EBS_optimized': True, 'cost_in_usd': 1.591, 'EBS_optimization_surcharge': 0.0, 'mem_in_gb': 60.0, 'cpu': 36}
