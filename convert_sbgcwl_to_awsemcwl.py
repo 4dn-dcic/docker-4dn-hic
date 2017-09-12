@@ -2,9 +2,11 @@ import json
 import copy
 
 VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs',
-                  'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
+                  'baseCommand', 'arguments', 'outputs', 'steps',
+                  'requirements']
 INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description',
-                               'inputBinding', 'outputBinding', 'sbg:toolDefaultValue']
+                               'inputBinding', 'outputBinding',
+                               'sbg:toolDefaultValue']
 STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
 
@@ -14,16 +16,16 @@ def filter(input_json, key, input_json0):
     if key == 'inputs' or key == 'outputs':
         for i, item in enumerate(input_json[key]):
             for subkey in list(item.keys())[:]:
+                gg = input_json0[key][i]
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
                     del input_json[key][i][subkey]
                 if subkey == 'sbg:toolDefaultValue':
-                    if input_json0[key][i][subkey].isdigit() and 'type' in input_json0[key][i] \
-                                                             and 'int' in input_json0[key][i]['type']:
+                    if gg[subkey].isdigit() and 'type' in gg and 'int' in gg['type']:
                         input_json[key][i]['default'] = int(input_json0[key][i][subkey])
                     else:
                         input_json[key][i]['default'] = input_json0[key][i][subkey]
                     del input_json[key][i][subkey]
-                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) \
+                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list)
                                       and len(input_json0[key][i][subkey]) == 1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
                 if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey]:
