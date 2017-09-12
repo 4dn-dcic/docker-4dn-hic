@@ -17,37 +17,42 @@ def filter(input_json, key, input_json0):
         for i, item in enumerate(input_json[key]):
             for subkey in list(item.keys())[:]:
                 gg = input_json0[key][i]
+                hh = input_json[key][i]
+                ggs = gg[subkey]
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
-                    del input_json[key][i][subkey]
+                    del hh[subkey]
                 if subkey == 'sbg:toolDefaultValue':
-                    if gg[subkey].isdigit() and 'type' in gg and 'int' in gg['type']:
-                        input_json[key][i]['default'] = int(input_json0[key][i][subkey])
+                    if ggs.isdigit() and 'type' in gg and 'int' in gg['type']:
+                        hh['default'] = int(ggs)
                     else:
-                        input_json[key][i]['default'] = input_json0[key][i][subkey]
-                    del input_json[key][i][subkey]
-                if subkey == 'source' and isinstance(input_json0[key][i][subkey], list)
-                                      and len(input_json0[key][i][subkey]) == 1:
-                    input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
-                if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey]:
-                    if 'script' in input_json0[key][i][subkey]['glob']:
-                        input_json[key][i][subkey]['glob'] \
-                            = "$(" + input_json0[key][i][subkey]['glob']['script'].replace("$job.", "") + ")"
-                    elif input_json0[key][i][subkey]['glob'].startswith('$job'):
-                        input_json[key][i][subkey]['glob'] \
-                            = "$(" + input_json0[key][i][subkey]['glob'].replace("$job.", "") + ")"
+                        hh['default'] = ggs
+                    del hh[subkey]
+                if subkey == 'source':
+                    if isinstance(ggs, list) and len(ggs) == 1:
+                        hh[subkey] = copy.deepcopy(ggs[0])
+                if subkey == 'outputBinding' and 'glob' in ggs:
+                    ggsg = ggs['glob']
+                    if 'script' in ggsg:
+                        hh[subkey]['glob'] \
+                            = expr_convert(ggsg)
+                    elif ggs['glob'].startswith('$job'):
+                        hh[subkey]['glob'] \
+                            = expr_convert_noscript(ggsg)
                     else:
-                        input_json[key][i][subkey]['glob'] = input_json0[key][i][subkey]['glob']
-                if subkey == 'inputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
-                    input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
-                    del input_json[key][i][subkey]['secondaryFiles']
-                    for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
+                        hh[subkey]['glob'] = ggsg
+                if subkey == 'inputBinding' and 'secondaryFiles' in ggs:
+                    ggss = ggs['secondaryFiles']
+                    hh['secondaryFiles'] = ggss
+                    del hh[subkey]['secondaryFiles']
+                    for j, scFl in enumerate(ggss):
                         if 'script' in scFl:
-                            input_json[key][i]['secondaryFiles'][j] = "$(" + scFl['script'].replace("$job.", "") + ")"
-                if subkey == 'outputBinding' and 'secondaryFiles' in input_json0[key][i][subkey]:
-                    input_json[key][i]['secondaryFiles'] = input_json0[key][i][subkey]['secondaryFiles']
-                    del input_json[key][i][subkey]['secondaryFiles']
-                    for j, scFl in enumerate(input_json0[key][i][subkey]['secondaryFiles']):
-                        input_json[key][i]['secondaryFiles'][j] = scFl.replace("$job.", "")
+                            hh['secondaryFiles'][j] \
+                                = expr_convert(scFl)
+                if subkey == 'outputBinding' and 'secondaryFiles' in ggs:
+                    hh['secondaryFiles'] = ggs['secondaryFiles']
+                    del hh[subkey]['secondaryFiles']
+                    for j, scFl in enumerate(ggss):
+                        hh['secondaryFiles'][j] = expr_convert_core(scFl)
 
     # delete any sub-field that contains 'sbg:'
     if isinstance(input_json[key], dict):
@@ -78,15 +83,18 @@ def filter(input_json, key, input_json0):
         del input_json[key]
         for item in input_json0[key]:
             if 'dockerPull' in item:
-                input_json[key] = [{'dockerPull': item['dockerPull'], 'class': item['class']}]
+                input_json[key] = [{'dockerPull': item['dockerPull'],
+                                    'class': item['class']}]
 
     if key == 'cwlVersion':
         input_json[key] = 'draft-3'
 
     if key == 'requirements':
         for i, item in enumerate(input_json0[key]):
-            if 'class' in item and item['class'] == "ExpressionEngineRequirement":
-                input_json[key][i] = {'class': 'InlineJavascriptRequirement'}
+            if 'class' in item:
+                if item['class'] == "ExpressionEngineRequirement":
+                    input_json[key][i] \
+                        = {'class': 'InlineJavascriptRequirement'}
 
     return(copy.deepcopy(input_json))
 
@@ -109,23 +117,40 @@ def run_convert(input_cwl, output_cwl):
             # del input_json[key]
             # input_json[key] = [{} for i in range(len(input_json0[key]))]
             for i, item in enumerate(input_json0[key]):
+                gg = input_json0[key][i]
+                hh = input_json[key][i]
                 for subkey in STEPS_VALID_KEY_LIST:
                     if subkey not in item:
-                        del input_json[key][i][subkey]
+                        del hh[subkey]
                         continue
-                    input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey])
-                    input_json[key][i] = filter(input_json[key][i], subkey, input_json0[key][i])
+                    hh[subkey] = copy.deepcopy(gg[subkey])
+                    hh = filter(hh, subkey, gg)
 
                 if 'run' in item:
-                    app = input_json0[key][i]['run']['sbg:id'].split('/')[2:4]
+                    app = gg['run']['sbg:id'].split('/')[2:4]
                     app.extend(["cwl"])
-                    input_json[key][i]['run'] = '.'.join(app)
+                    hh['run'] = '.'.join(app)
 
     if len(input_json['requirements']) == 0:
         input_json['requirements'] = [{'class': 'InlineJavascriptRequirement'}]
 
     with open(output_cwl, 'w') as fo:
         json.dump(input_json, fo, indent=4)
+
+
+def expr_convert(x):
+    converted_str = "$(" + expr_convert_core(x['script']) + ")"
+    return(converted_str)
+
+
+def expr_convert_noscript(x):
+    converted_str = "$(" + expr_convert_core(x) + ")"
+    return(converted_str)
+
+
+def expr_convert_core(x):
+    converted_str = x.replace("$job.", "")
+    return(converted_str)
 
 
 if __name__ == '__main__':
