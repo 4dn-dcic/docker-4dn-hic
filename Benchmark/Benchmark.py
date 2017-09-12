@@ -30,6 +30,7 @@ def benchmark(app_name, input_json):
     elif app_name == 'bwa-mem':
         return(bwa_mem(input_json))
     else:
+        raise Exception("Benchmark is unavailable for the corresponding app_name")
         return(None)
 
 
