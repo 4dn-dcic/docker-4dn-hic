@@ -10,6 +10,9 @@ import re
 #     AWS-related information including recommended_instance_type, ebs_size, EBS_optimized, etc.
 
 
+GB_IN_BYTES = 1073741824
+MB_IN_BYTES = 1048576
+
 class BenchmarkResult(object):
 
     def __init__(self, size, mem, cpu):
@@ -40,7 +43,7 @@ def md5(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_file' in input_json.get('input_size_in_bytes')
 
-    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_file') / 1048576 + 3,
+    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_file') / GB_IN_BYTES + 3,
                         mem=4,
                         cpu=1)
 
@@ -56,7 +59,7 @@ def fastqc_0_11_4_1(input_json):
         if 'threads' in input_json.get('parameters'):
             nthreads = input_json.get('parameters').get('threads')
 
-    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_fastq') / 1048576 * 2 + 3,
+    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_fastq') / GB_IN_BYTES * 2 + 3,
                         mem=300 * nthreads,
                         cpu=nthreads)
 
@@ -85,10 +88,10 @@ def bwa_mem(input_json):
     total_output_size = output_bam_size
     additional_size_in_gb = 4.5
 
-    total_size = (total_input_size + total_intermediate_size + total_output_size) / 1048576 + additional_size_in_gb
+    total_size = (total_input_size + total_intermediate_size + total_output_size) / GB_IN_BYTES + additional_size_in_gb
 
     # mem
-    mem = input_sizes.get('bwa_index') * 4 / 1024
+    mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES
 
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
 
