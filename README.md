@@ -23,7 +23,7 @@ B.benchmark(app_name, input_json)
 ```python
 app_name = 'fastqc-0-11-4-1'
 input_json = {'input_size_in_bytes': {'input_fastq':20000},
-              'threads': 2}
+              'parameters': {'threads': 2}}
 B.benchmark(app_name, input_json)
 ```
 ```
@@ -36,7 +36,7 @@ app_name = 'bwa-mem'
 input_json = {'input_size_in_bytes': {'fastq1':93520,
                                       'fastq2':97604,
                                       'bwa_index':3364568},
-              'nThreads': 4}
+              'parameters': {'nThreads': 4}}
 B.benchmark(app_name, input_json)
 ```
 ```
