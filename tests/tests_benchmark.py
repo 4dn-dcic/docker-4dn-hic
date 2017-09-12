@@ -48,7 +48,7 @@ class TestBenchmark(unittest.TestCase):
                                               'fastq2': 97604,
                                               'bwa_index': 3364568}}
         with self.assertRaises(B.AppNameUnavailableException):
-            res = B.benchmark('some_weird_name', input_json, raise_error=True)
+            B.benchmark('some_weird_name', input_json, raise_error=True)
 
     def test_benchmark_none2(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,

@@ -13,6 +13,7 @@ import re
 GB_IN_BYTES = 1073741824
 MB_IN_BYTES = 1048576
 
+
 class BenchmarkResult(object):
 
     def __init__(self, size, mem, cpu):
@@ -138,5 +139,3 @@ def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
 # Exceptions
 class AppNameUnavailableException(Exception):
     print("Benchmark is unavailable for the corresponding app_name")
-
-
