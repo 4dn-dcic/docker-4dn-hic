@@ -22,7 +22,7 @@ class BenchmarkResult(object):
         return self.__dict__
 
 
-def benchmark(app_name, input_json):
+def benchmark(app_name, input_json, raise_error=False):
     if app_name == 'md5':
         return(md5(input_json))
     elif app_name == 'fastqc-0-11-4-1':
@@ -30,8 +30,10 @@ def benchmark(app_name, input_json):
     elif app_name == 'bwa-mem':
         return(bwa_mem(input_json))
     else:
-        raise Exception("Benchmark is unavailable for the corresponding app_name")
-        return(None)
+        if raise_error:
+            raise AppNameUnavailableException
+        else:
+            return(None)
 
 
 def md5(input_json):
@@ -128,3 +130,10 @@ def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
         raise Exception("No EC2 instance can match the requirement.")
 
     return(res)
+
+
+# Exceptions
+class AppNameUnavailableException(Exception):
+    print("Benchmark is unavailable for the corresponding app_name")
+
+

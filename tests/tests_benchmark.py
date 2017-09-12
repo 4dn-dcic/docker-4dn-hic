@@ -25,7 +25,8 @@ class TestBenchmark(unittest.TestCase):
         print(res)
 
     def test_benchmark2(self):
-        res = B.benchmark('fastqc-0-11-4-1', {'input_size_in_bytes': {'input_fastq': 20000}, 'threads': 2})
+        res = B.benchmark('fastqc-0-11-4-1', {'input_size_in_bytes': {'input_fastq': 20000},
+                                              'parameters': {'threads': 2}})
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 't2.medium'
@@ -35,18 +36,24 @@ class TestBenchmark(unittest.TestCase):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,
                                               'bwa_index': 3364568},
-                      'nThreads': 4}
+                      'parameters': {'nThreads': 4}}
         res = B.benchmark('bwa-mem', input_json)
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 't2.xlarge'
         print(res)
 
-    def test_benchmark_none(self):
+    def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,
-                                              'bwa_index': 3364568},
-                      'nThreads': 4}
+                                              'bwa_index': 3364568}}
+        with self.assertRaises(B.AppNameUnavailableException):
+            res = B.benchmark('some_weird_name', input_json, raise_error=True)
+
+    def test_benchmark_none2(self):
+        input_json = {'input_size_in_bytes': {'fastq1': 93520,
+                                              'fastq2': 97604,
+                                              'bwa_index': 3364568}}
         res = B.benchmark('some_weird_name', input_json)
         assert res is None
 
