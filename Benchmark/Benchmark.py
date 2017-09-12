@@ -47,10 +47,12 @@ def md5(input_json):
 def fastqc_0_11_4_1(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_fastq' in input_json.get('input_size_in_bytes')
-    assert 'parameters' in input_json
-    assert 'threads' in input_json.get('parameters')
 
-    nthreads = input_json.get('parameters').get('threads')
+    nthreads = 1  # default value according to the cwl
+    if 'parameters' in input_json:
+        if 'threads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('threads')
+
     r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_fastq') / 1048576 * 2 + 3,
                         mem=300 * nthreads,
                         cpu=nthreads)
@@ -64,11 +66,12 @@ def bwa_mem(input_json):
     assert 'fastq1' in input_json.get('input_size_in_bytes')
     assert 'fastq2' in input_json.get('input_size_in_bytes')
     assert 'bwa_index' in input_json.get('input_size_in_bytes')
-    assert 'parameters' in input_json
-    assert 'nThreads' in input_json.get('parameters')
 
     # cpu
-    nthreads = input_json.get('parameters').get('nThreads')
+    nthreads = 4  # default from cwl
+    if 'parameters' in input_json:
+        if 'nThreads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('nThreads')
 
     # space
     input_sizes = input_json.get('input_size_in_bytes')
