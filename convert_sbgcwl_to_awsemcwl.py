@@ -1,28 +1,30 @@
 import json
 import copy
 
-VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs', 'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
-INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description', 'inputBinding', 'outputBinding', 'sbg:toolDefaultValue']
+VALID_KEY_LIST = ['class', 'cwlVersion', 'hints', 'inputs',
+                  'baseCommand', 'arguments', 'outputs', 'steps', 'requirements']
+INPUT_OUTPUT_VALID_KEY_LIST = ['id', 'type', 'source', 'description',
+                               'inputBinding', 'outputBinding', 'sbg:toolDefaultValue']
 STEPS_VALID_KEY_LIST = ['inputs', 'outputs', 'run', 'id']
 
 
 def filter(input_json, key, input_json0):
 
     # remove non-valid input/output subfields
-    if key=='inputs' or key=='outputs':
+    if key == 'inputs' or key == 'outputs':
         for i, item in enumerate(input_json[key]):
             for subkey in list(item.keys())[:]:
                 if subkey not in INPUT_OUTPUT_VALID_KEY_LIST:
                     del input_json[key][i][subkey]
                 if subkey == 'sbg:toolDefaultValue':
                     if input_json0[key][i][subkey].isdigit() and 'type' in input_json0[key][i] \
-                        and 'int' in input_json0[key][i]['type']:  # convert to int
+                    and 'int' in input_json0[key][i]['type']:  # convert to int
                         input_json[key][i]['default'] = int(input_json0[key][i][subkey])
                     else:
                         input_json[key][i]['default'] = input_json0[key][i][subkey]
                     del input_json[key][i][subkey]
                 if subkey == 'source' and isinstance(input_json0[key][i][subkey], list) \
-                    and len(input_json0[key][i][subkey]) == 1:
+                and len(input_json0[key][i][subkey]) == 1:
                     input_json[key][i][subkey] = copy.deepcopy(input_json0[key][i][subkey][0])
                 if subkey == 'outputBinding' and 'glob' in input_json0[key][i][subkey]:
                     if 'script' in input_json0[key][i][subkey]['glob']:
@@ -130,5 +132,5 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--input", help="input sbg cwl")
     parser.add_argument("-o", "--output", help="output awsem cwl")
     args = parser.parse_args()
- 
+
     run_convert(args.input, args.output)

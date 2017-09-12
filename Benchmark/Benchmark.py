@@ -5,7 +5,7 @@ import re
 # input_json is a dictionary with two keys: 'input_size_in_bytes' and 'parameters'
 # The value of 'input_size_in_bytes' is a dictionary with input_argument_name as key and file size in bytes as value
 # The value of 'parameters' is also a dictionary with input_argument_name as key and parameter value as value.
-# return values: 
+# return values:
 #     total_size(GB), total_mem(MB), number_of_CPUs_required
 #     AWS-related information including recommended_instance_type, ebs_size, EBS_optimized, etc.
 
