@@ -2,16 +2,21 @@ import os
 import csv
 import re
 
-# input_json is a dictionary with two keys: 'input_size_in_bytes' and 'parameters'
-# The value of 'input_size_in_bytes' is a dictionary with input_argument_name as key and file size in bytes as value
-# The value of 'parameters' is also a dictionary with input_argument_name as key and parameter value as value.
+# input_json is a dictionary with two keys:
+#   'input_size_in_bytes' and 'parameters'
+# The value of 'input_size_in_bytes' is a dictionary,
+# with input_argument_name as key and file size in bytes as value
+# The value of 'parameters' is also a dictionary
+# with input_argument_name as key and parameter value as value.
 # return values:
 #     total_size(GB), total_mem(MB), number_of_CPUs_required
-#     AWS-related information including recommended_instance_type, ebs_size, EBS_optimized, etc.
+#     AWS-related information including :
+#         recommended_instance_type, ebs_size, EBS_optimized.
 
 
 GB_IN_BYTES = 1073741824
 MB_IN_BYTES = 1048576
+
 
 class BenchmarkResult(object):
 
@@ -42,8 +47,9 @@ def benchmark(app_name, input_json, raise_error=False):
 def md5(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_file' in input_json.get('input_size_in_bytes')
-
-    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_file') / GB_IN_BYTES + 3,
+    input_in_bytes = input_json.get('input_size_in_bytes').get('input_file')
+    input_size = input_in_bytes / GB_IN_BYTES + 3
+    r = BenchmarkResult(size=input_size,
                         mem=4,
                         cpu=1)
 
@@ -59,7 +65,9 @@ def fastqc_0_11_4_1(input_json):
         if 'threads' in input_json.get('parameters'):
             nthreads = input_json.get('parameters').get('threads')
 
-    r = BenchmarkResult(size=input_json.get('input_size_in_bytes').get('input_fastq') / GB_IN_BYTES * 2 + 3,
+    input_in_bytes = input_json.get('input_size_in_bytes').get('input_fastq')
+    input_size = input_in_bytes / GB_IN_BYTES * 2 + 3
+    r = BenchmarkResult(size=input_size,
                         mem=300 * nthreads,
                         cpu=nthreads)
 
@@ -81,14 +89,17 @@ def bwa_mem(input_json):
 
     # space
     input_sizes = input_json.get('input_size_in_bytes')
-    total_input_size = input_sizes.get('fastq1') + input_sizes.get('fastq2') + input_sizes.get('bwa_index')
-    output_bam_size = (input_sizes.get('fastq1') + input_sizes.get('fastq2')) * 1.5
-    intermediate_uncompressed_index_size = input_sizes.get('bwa_index') * 2
-    total_intermediate_size = intermediate_uncompressed_index_size + output_bam_size
+    data_input_size = input_sizes.get('fastq1') + input_sizes.get('fastq2')
+    total_input_size = data_input_size + input_sizes.get('bwa_index')
+    output_bam_size = data_input_size * 1.5
+    intermediate_index_size = input_sizes.get('bwa_index') * 2
+    total_intermediate_size = intermediate_index_size + output_bam_size
     total_output_size = output_bam_size
     additional_size_in_gb = 4.5
 
-    total_size = (total_input_size + total_intermediate_size + total_output_size) / GB_IN_BYTES + additional_size_in_gb
+    total_file_size_in_bp \
+        = total_input_size + total_intermediate_size + total_output_size
+    total_size = total_file_size_in_bp / GB_IN_BYTES + additional_size_in_gb
 
     # mem
     mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES
@@ -101,7 +112,6 @@ def bwa_mem(input_json):
 def get_aws_ec2_info_file():
     this_dir, _ = os.path.split(__file__)
     return(os.path.join(this_dir, "aws", "Amazon EC2 Instance Comparison.csv"))
-    # return(resource_filename(__name__, 'aws/Amazon EC2 Instance Comparison.csv'))
 
 
 def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
@@ -114,21 +124,26 @@ def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
             row_cpu = int(re.sub(" vCPUs.*", '', row['vCPUs']))
             row_instance_type = row['API Name']
             row_mem = float(row['Memory'].replace(' GiB', ''))
-            row_cost = float(row['Linux On Demand cost'].replace(' hourly', '').replace('$', ''))
+            row_cost_str = row['Linux On Demand cost']
+            row_cost = float(row_cost_str.replace(' hourly', '')
+                                         .replace('$', ''))
             row_ebs_opt_surcharge = row['EBS Optimized surcharge']
             if row_ebs_opt_surcharge == 'unavailable':
                 row_ebs_opt = False
                 row_ebs_opt_surcharge = None
             else:
                 row_ebs_opt = True
-                row_ebs_opt_surcharge = float(row_ebs_opt_surcharge.replace(' hourly', '').replace('$', ''))
-            if row_cpu >= cpu and row_mem >= mem_in_gb and row_cost < res['cost_in_usd']:
-                res['cost_in_usd'] = row_cost
-                res['mem_in_gb'] = row_mem
-                res['cpu'] = row_cpu
-                res['recommended_instance_type'] = row_instance_type
-                res['EBS_optimized'] = row_ebs_opt
-                res['EBS_optimization_surcharge'] = row_ebs_opt_surcharge
+                row_ebs_opt_surcharge \
+                    = float(row_ebs_opt_surcharge.replace(' hourly', '')
+                                                 .replace('$', ''))
+            if row_cpu >= cpu and row_mem >= mem_in_gb:
+                if row_cost < res['cost_in_usd']:
+                    res['cost_in_usd'] = row_cost
+                    res['mem_in_gb'] = row_mem
+                    res['cpu'] = row_cpu
+                    res['recommended_instance_type'] = row_instance_type
+                    res['EBS_optimized'] = row_ebs_opt
+                    res['EBS_optimization_surcharge'] = row_ebs_opt_surcharge
     if res['cost_in_usd'] == 100000:
         raise Exception("No EC2 instance can match the requirement.")
 
@@ -138,5 +153,3 @@ def get_optimal_instance_type(cpu=1, mem_in_gb=0.5,
 # Exceptions
 class AppNameUnavailableException(Exception):
     print("Benchmark is unavailable for the corresponding app_name")
-
-
