@@ -25,7 +25,7 @@ class TestBenchmark(unittest.TestCase):
         print(res)
 
     def test_benchmark2(self):
-        res = B.benchmark('fastqc-0-11-4-1', {'input_size_in_bytes': {'input_fastq': 20000},'threads': 2})
+        res = B.benchmark('fastqc-0-11-4-1', {'input_size_in_bytes': {'input_fastq': 20000}, 'threads': 2})
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 't2.medium'

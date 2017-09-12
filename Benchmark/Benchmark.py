@@ -2,9 +2,12 @@ import os
 import csv
 import re
 
-# input_json: { 'input_size_in_bytes': {'input_arg_name1': input_arg_name1_size, 'input_arg_name2': input_arg_name2_size, ...}, 'input_param_name1': input_param_value1, 'input_param_name2': input_param_value2, ... }
-# input_size_in_bytes is the input file size in bytes.
-# return values: total_size(GB), total_mem(MB), number_of_CPUs_required
+# input_json is a dictionary with two keys: 'input_size_in_bytes' and 'parameters'
+# The value of 'input_size_in_bytes' is a dictionary with input_argument_name as key and file size in bytes as value
+# The value of 'parameters' is also a dictionary with input_argument_name as key and parameter value as value.
+# return values: 
+#     total_size(GB), total_mem(MB), number_of_CPUs_required
+#     AWS-related information including recommended_instance_type, ebs_size, EBS_optimized, etc.
 
 
 class BenchmarkResult(object):
