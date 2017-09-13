@@ -7,7 +7,10 @@ outdir=$4
 prefix=$5
 nThreads=$6
 
-cd $outdir
+if [[ $outdir != '.' ]]
+then
+  cd $outdir
+fi
 
 # unzip index
 tar -xzf $index_file
@@ -16,21 +19,21 @@ index=`ls -1 *.bwt | head -1 | sed 's/\.bwt//g'`
 # unzip fastq files
 if [[ $fastq1 =~ \.gz$ ]]
 then
-  cp $fastq1 $outdir/fastq1.gz
-  gunzip $oudir/fastq1.gz
+  cp $fastq1 fastq1.gz
+  gunzip fastq1.gz
 else
-  cp $fastq1 $outdir/fastq1
+  cp $fastq1 fastq1
 fi
-  fastq1=$outdir/fastq1
+  fastq1=fastq1
 
 if [[ $fastq2 =~ \.gz$ ]]
 then
-  cp $fastq2 $outdir/fastq2.gz
-  gunzip $oudir/fastq2.gz
+  cp $fastq2 fastq2.gz
+  gunzip fastq2.gz
 else
-  cp $fastq2 $outdir/fastq2
+  cp $fastq2 fastq2
 fi
-  fastq2=$outdir/fastq2
+  fastq2=fastq2
 
 
 # run bwa

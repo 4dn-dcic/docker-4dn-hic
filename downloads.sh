@@ -18,8 +18,8 @@ cd bwa
 git checkout 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
 make
 cd ..
-mv bwa 0.7.16a-r1185-dirty
-ln -s 0.7.16a-r1185-dirty bwa
+mv bwa bwa-0.7.16a-r1185-dirty
+ln -s bwa-0.7.16a-r1185-dirty bwa
 
 
 ## SOFTWARE: samtools
