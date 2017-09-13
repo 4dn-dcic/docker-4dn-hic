@@ -93,7 +93,9 @@ def bwa_mem(input_json):
     total_input_size = data_input_size + input_sizes.get('bwa_index')
     output_bam_size = data_input_size * 1.5
     intermediate_index_size = input_sizes.get('bwa_index') * 2
-    total_intermediate_size = intermediate_index_size + output_bam_size
+    copied_input_size = data_input_size * 5  # copied and unzipped
+    total_intermediate_size \
+        = intermediate_index_size + output_bam_size + copied_input_size
     total_output_size = output_bam_size
     additional_size_in_gb = 4.5
 
