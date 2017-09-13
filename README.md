@@ -33,14 +33,14 @@ B.benchmark(app_name, input_json)
 * bwa-mem
 ```python
 app_name = 'bwa-mem'
-input_json = {'input_size_in_bytes': {'fastq1':93520,
-                                      'fastq2':97604,
-                                      'bwa_index':3364568},
+input_json = {'input_size_in_bytes': {'fastq1':93520000,
+                                      'fastq2':97604000,
+                                      'bwa_index':3364568000},
               'parameters': {'nThreads': 4}}
 B.benchmark(app_name, input_json)
 ```
 ```
-{'recommended_instance_type': 'c4.8xlarge', 'EBS_optimized': True, 'cost_in_usd': 1.591, 'EBS_optimization_surcharge': 0.0, 'mem_in_gb': 60.0, 'cpu': 36}
+{'aws': {'cost_in_usd': 0.188, 'EBS_optimization_surcharge': None, 'EBS_optimized': False, 'cpu': 4, 'mem_in_gb': 16.0, 'recommended_instance_type': 't2.xlarge'}, 'total_mem_in_MB': 12834.808349609375, 'total_size_in_GB': 15.502477258443832, 'min_CPU': 4}
 ```
 
 To use Benchmark in from other places, install it as below.
