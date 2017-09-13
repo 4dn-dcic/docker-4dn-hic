@@ -1,7 +1,7 @@
 {
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v36",
+            "dockerPull": "duplexa/4dn-hic:v39",
             "class": "DockerRequirement"
         }
     ],
@@ -44,7 +44,7 @@
             ],
             "id": "#nThreads",
             "inputBinding": {
-                "position": 5,
+                "position": 6,
                 "separate": true
             },
             "default": 4
@@ -56,10 +56,22 @@
             ],
             "id": "#prefix",
             "inputBinding": {
-                "position": 4,
+                "position": 5,
                 "separate": true
             },
             "default": "out"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#outdir",
+            "inputBinding": {
+                "position": 4,
+                "separate": true
+            },
+            "default": "."
         }
     ],
     "outputs": [
