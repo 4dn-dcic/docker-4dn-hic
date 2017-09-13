@@ -15,7 +15,7 @@ cd ..
 ## This version of bwa is used because it has the -5 option.
 git clone https://github.com/lh3/bwa
 cd bwa
-git checkout 5961611c358e480110793bbf241523a3cfac049b
+git checkout 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
 make
 cd ..
 mv bwa 0.7.16a-r1185-dirty
