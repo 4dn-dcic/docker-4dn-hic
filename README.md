@@ -90,6 +90,7 @@ Run the following in the container.
 run-bwa-mem.sh <fastq1> <fastq2> <bwaIndex> <output_prefix> <nThreads>
 # fastq1, fastq2 : input fastq files, either gzipped or not
 # bwaIndex : tarball for bwa index, .tgz.
+# outdir : output directory
 # output_prefix : prefix of the output bam file.
 # nThreads : number of threads 
 ```
