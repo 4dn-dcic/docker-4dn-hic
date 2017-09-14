@@ -21,9 +21,21 @@
             ],
             "inputBinding": {
                 "separate": true,
-                "position": 3
+                "position": 2
             },
             "id": "#chromsize"
+        },
+        {
+            "default": ".",
+            "type": [
+                "null",
+                "string"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
+            "id": "#outdir"
         },
         {
             "default": "out",
@@ -33,7 +45,7 @@
             ],
             "inputBinding": {
                 "separate": true,
-                "position": 2
+                "position": 4
             },
             "id": "#outprefix"
         },
@@ -43,7 +55,7 @@
             ],
             "id": "#Threads",
             "inputBinding": {
-                "position": 4,
+                "position": 5,
                 "separate": true
             },
             "default": 8
@@ -55,7 +67,7 @@
             ],
             "inputBinding": {
                 "separate": true,
-                "position": 5
+                "position": 6
             },
             "id": "#compress_programm"
         },
