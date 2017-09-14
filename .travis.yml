@@ -2,6 +2,7 @@ sudo: false
 language: python
 env:
   - BENCHMARK_TEST=1
+  - CWL_NAME=pairsam-merge
   - CWL_NAME=pairsam-parse-sort
   - CWL_NAME=extract-mcool-normvector-for-juicebox
   - CWL_NAME=md5

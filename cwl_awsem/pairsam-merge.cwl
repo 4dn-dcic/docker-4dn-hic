@@ -27,7 +27,7 @@
             "default": 8
         },
         {
-            "id": "#input_pairs",
+            "id": "#input_pairsams",
             "inputBinding": {
                 "itemSeparator": " ",
                 "position": 3,
