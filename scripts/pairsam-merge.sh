@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 if [ $# -le 2 ] ; then
     echo "Usage: bash pipeline_bam2sortedPairsam.sh OUTPUT_PREFIX THREADS PAIRSAM"
     echo ""
