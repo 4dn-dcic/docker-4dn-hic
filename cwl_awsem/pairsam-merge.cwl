@@ -52,7 +52,7 @@
                 "null",
                 "File"
             ],
-            "id": "#merged_pairs"
+            "id": "#merged_pairsam"
         }
     ],
     "cwlVersion": "draft-3",
