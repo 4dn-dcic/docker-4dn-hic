@@ -149,7 +149,7 @@ def pairsam_merge(input_json):
 
     # space
     in_size = input_json['input_size_in_bytes']
-    input_size = sum(in_size['input_pairsams'])
+    input_size = sum(in_size['input_pairsams']) / GB_IN_BYTES
     total_size = input_size * 3
     total_safe_size = total_size * 2
 
