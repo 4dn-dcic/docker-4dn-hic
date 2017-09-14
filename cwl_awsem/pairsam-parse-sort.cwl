@@ -70,7 +70,7 @@
                 "null",
                 "File"
             ],
-            "id": "#out_pairs"
+            "id": "#out_pairsam"
         }
     ],
     "cwlVersion": "draft-3",
