@@ -7,8 +7,9 @@ if [ $# -le 2 ] ; then
     echo "positional arguments:"
     echo ""
     echo "BAM             The path to a BAM file."
-    echo "OUTPUT_PREFIX   The prefix to the paths of generated outputs. "
     echo "CHR_SIZES       The path to a chromosome sizes file."
+    echo "OUTDIR          The output directory."
+    echo "OUTPUT_PREFIX   The prefix to the paths of generated outputs. "
     echo "THREADS         Number of threads"
     echo "COMPRESS_PROGRAM    Program for file compression"
     echo ""
@@ -22,11 +23,16 @@ set -o nounset
 set -o pipefail
 
 BAM=$1
-OUTPREFIX=$2
-CHR_SIZES=$3
-THREADS=${4:-8}
-COMPRESS_PROGRAM=${5:=lz4c}
-SORTED_PAIRS_PATH=${OUTPREFIX}.sam.pairs.gz
+CHR_SIZES=$2
+OUTDIR=$3
+OUTPREFIX=$4
+THREADS=${5:-8}
+COMPRESS_PROGRAM=${6:=lz4c}
+SORTED_PAIRS_PATH=${OUTDIR}/${OUTPREFIX}.sam.pairs.gz
+
+if [[ ${OUTDIR} != "." ]]; then
+  mkdir -p ${OUTDIR}
+fi
 
 samtools view -h "${BAM}" | {
     # Classify Hi-C molecules as unmapped/single-sided/multimapped/chimeric/etc
@@ -38,7 +44,9 @@ samtools view -h "${BAM}" | {
     pairsamtools parse -c $CHR_SIZES
 } | {
     # Block-sort pairs together with SAM entries
-    pairsamtools sort --nproc ${THREADS} --compress-program ${COMPRESS_PROGRAM}\
+    pairsamtools sort --nproc ${THREADS} \
+    --compress-program ${COMPRESS_PROGRAM} \
+    --tmpdir ${OUTDIR} \
     --output ${SORTED_PAIRS_PATH}
 }
 
