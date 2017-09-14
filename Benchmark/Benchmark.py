@@ -92,20 +92,20 @@ def bwa_mem(input_json):
     input_sizes = input_json.get('input_size_in_bytes')
     data_input_size = input_sizes.get('fastq1') + input_sizes.get('fastq2')
     total_input_size = data_input_size + input_sizes.get('bwa_index')
-    output_bam_size = data_input_size * 1.5
+    output_bam_size = data_input_size * 2
     intermediate_index_size = input_sizes.get('bwa_index') * 2
-    copied_input_size = data_input_size * 5  # copied and unzipped
+    copied_input_size = data_input_size * 7  # copied and unzipped
     total_intermediate_size \
         = intermediate_index_size + output_bam_size + copied_input_size
     total_output_size = output_bam_size
-    additional_size_in_gb = 4.5
+    additional_size_in_gb = 10
 
     total_file_size_in_bp \
         = total_input_size + total_intermediate_size + total_output_size
     total_size = total_file_size_in_bp / GB_IN_BYTES + additional_size_in_gb
 
     # mem
-    mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES
+    mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES + (nthreads * 500)
 
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
 
