@@ -39,6 +39,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(bwa_mem(input_json))
     elif app_name == 'pairsam-parse-sort':
         return(pairsam_parse_sort(input_json))
+    elif app_name == 'pairsam-merge':
+        return(pairsam_merge(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -131,6 +133,29 @@ def pairsam_parse_sort(input_json):
 
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads * 2)
 
+    return(r.as_dict())
+
+
+def pairsam_merge(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairsams' in input_json.get('input_size_in_bytes')
+
+    # cpu
+    nthreads = 8  # default from cwl
+    if 'parameters' in input_json:
+        if 'nThreads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('nThreads')
+
+    # space
+    in_size = input_json.get('input_size_in_bytes')
+    input_size = sum(in_size.get('input_pairsams'))
+    total_size = input_size * 3
+    total_safe_size = total_size * 2
+
+    # mem
+    mem = 48000  # very rough number
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
     return(r.as_dict())
 
 

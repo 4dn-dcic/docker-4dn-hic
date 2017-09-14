@@ -54,6 +54,17 @@ class TestBenchmark(unittest.TestCase):
         assert res['aws']['recommended_instance_type'] == 'c4.8xlarge'
         print(res)
 
+    def test_benchmark5(self):
+        input_json = {'input_size_in_bytes': {'input_pairsams': [1000000000,
+                                                                 2000000000,
+                                                                 3000000000]},
+                      'parameters': {'nThreads': 32}}
+        res = B.benchmark('pairsam-merge', input_json)
+        assert 'aws' in res
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 'c4.8xlarge'
+        print(res)
+
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,

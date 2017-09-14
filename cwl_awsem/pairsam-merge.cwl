@@ -27,7 +27,7 @@
             "default": 8
         },
         {
-            "id": "#input_pairs",
+            "id": "#input_pairsams",
             "inputBinding": {
                 "itemSeparator": " ",
                 "position": 3,
@@ -52,7 +52,7 @@
                 "null",
                 "File"
             ],
-            "id": "#merged_pairs"
+            "id": "#merged_pairsam"
         }
     ],
     "cwlVersion": "draft-3",
