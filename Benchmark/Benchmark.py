@@ -139,6 +139,7 @@ def pairsam_parse_sort(input_json):
 def pairsam_merge(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_pairsams' in input_json.get('input_size_in_bytes')
+    assert isinstance(input_json['input_size_in_bytes']['input_pairsams'], list)
 
     # cpu
     nthreads = 8  # default from cwl
@@ -147,8 +148,8 @@ def pairsam_merge(input_json):
             nthreads = input_json.get('parameters').get('nThreads')
 
     # space
-    in_size = input_json.get('input_size_in_bytes')
-    input_size = sum(in_size.get('input_pairsams'))
+    in_size = input_json['input_size_in_bytes']
+    input_size = sum(in_size['input_pairsams'])
     total_size = input_size * 3
     total_safe_size = total_size * 2
 
