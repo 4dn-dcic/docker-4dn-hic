@@ -2,6 +2,7 @@ sudo: false
 language: python
 env:
   - BENCHMARK_TEST=1
+  - CWL_NAME=pairsam-parse-sort
   - CWL_NAME=extract-mcool-normvector-for-juicebox
   - CWL_NAME=md5
   - CWL_NAME=fastqc-0-11-4-1
@@ -10,7 +11,6 @@ env:
   - CWL_NAME=hi-c-processing-partc
   - CWL_NAME=bwa-mem
 python:
-  - '3.5'
   - '2.7'
 os:
   - linux
