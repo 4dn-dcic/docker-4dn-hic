@@ -45,6 +45,15 @@ class TestBenchmark(unittest.TestCase):
         assert res['aws']['recommended_instance_type'] == 't2.xlarge'
         print(res)
 
+    def test_benchmark4(self):
+        res = B.benchmark('pairsam-parse-sort',
+                          {'input_size_in_bytes': {'bam': 1000000000},
+                           'parameters': {'nThreads': 16}})
+        assert 'aws' in res
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 'c4.8xlarge'
+        print(res)
+
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,
