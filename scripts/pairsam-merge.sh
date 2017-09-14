@@ -20,11 +20,12 @@ set -o pipefail
 
 OUTPREFIX=$1
 THREADS=${2:-8}
+shift
+shift
+
 MEMORY=2G
 MAXFILEMERGE=8
-PAIRSAM=${@:3}
-
 MERGED_PAIRSAM=${OUTPREFIX}.merged.sam.pairs.gz
 TEMPDIR=""
 
-pairsamtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} ${PAIRSAM}
+pairsamtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} $@
