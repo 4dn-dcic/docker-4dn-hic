@@ -37,6 +37,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(fastqc_0_11_4_1(input_json))
     elif app_name == 'bwa-mem':
         return(bwa_mem(input_json))
+    elif app_name == 'pairsam-parse-sort':
+        return(pairsam_parse_sort(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -74,7 +76,6 @@ def fastqc_0_11_4_1(input_json):
     return(r.as_dict())
 
 
-# bwa_mem is still a draft
 def bwa_mem(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'fastq1' in input_json.get('input_size_in_bytes')
@@ -91,22 +92,44 @@ def bwa_mem(input_json):
     input_sizes = input_json.get('input_size_in_bytes')
     data_input_size = input_sizes.get('fastq1') + input_sizes.get('fastq2')
     total_input_size = data_input_size + input_sizes.get('bwa_index')
-    output_bam_size = data_input_size * 1.5
+    output_bam_size = data_input_size * 2
     intermediate_index_size = input_sizes.get('bwa_index') * 2
-    copied_input_size = data_input_size * 5  # copied and unzipped
+    copied_input_size = data_input_size * 7  # copied and unzipped
     total_intermediate_size \
         = intermediate_index_size + output_bam_size + copied_input_size
     total_output_size = output_bam_size
-    additional_size_in_gb = 4.5
+    additional_size_in_gb = 10
 
     total_file_size_in_bp \
         = total_input_size + total_intermediate_size + total_output_size
     total_size = total_file_size_in_bp / GB_IN_BYTES + additional_size_in_gb
 
     # mem
-    mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES
+    mem = input_sizes.get('bwa_index') * 4 / MB_IN_BYTES + (nthreads * 500)
 
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
+
+    return(r.as_dict())
+
+
+def pairsam_parse_sort(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'bam' in input_json.get('input_size_in_bytes')
+
+    # cpu
+    nthreads = 8  # default from cwl
+    if 'parameters' in input_json:
+        if 'nThreads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('nThreads')
+
+    in_size = input_json.get('input_size_in_bytes')
+    bamsize = in_size.get('bam') / GB_IN_BYTES
+    pairsamsize = bamsize * 10  # very rough number
+    tmp_pairsamsize = pairsamsize
+    total_size = bamsize + pairsamsize + tmp_pairsamsize
+    mem = 48000  # very rough number
+
+    r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads * 2)
 
     return(r.as_dict())
 
