@@ -1,6 +1,7 @@
 ### v39
 * bwa-mem 0.7.16a-r1185-dirty
 * run-bwa-mem.sh copies input files to output directory, so that unzipping doesn't change input files.
+* fastqc temporarily off
 
 ### v38
 * mmool2hic is modified to avoid readonly input file issue in cwl-runner.
