@@ -16,7 +16,8 @@ RUN apt-get update -y && apt-get install -y \
     unzip \
     vim \
     wget \
-    zlib1g-dev
+    zlib1g-dev \
+    liblz4-tool
 
 # installing python3.5 & pip
 RUN apt-get update -y && apt-get install -y \
