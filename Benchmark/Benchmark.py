@@ -134,6 +134,12 @@ def pairsam_parse_sort(input_json):
     return(r.as_dict())
 
 
+# pairsam_merge is still a draft
+def pairsam_merge(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairsams' in input_json.get('input_size_in_bytes')
+
+
 def get_aws_ec2_info_file():
     this_dir, _ = os.path.split(__file__)
     return(os.path.join(this_dir, "aws", "Amazon EC2 Instance Comparison.csv"))
