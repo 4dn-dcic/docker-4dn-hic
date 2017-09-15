@@ -44,10 +44,6 @@ pairsamtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${TEMPF
 
 pairix ${DEDUP_PAIRS}  # sanity check & indexing    
 
-## remove PAIRSAM (i.e. marked pairsamfile) file 
-rm ${PAIRSAM}   ## delete the lossless pairsam file
-rm ${TEMPFILE}
-rm ${TEMPFILE1}
 
 
 
