@@ -89,11 +89,11 @@ cd ..
 
 
 ## SOFTWARE: pairsamtools
-## COMMIT: 58c5b342619d150ef0b2cf5b69a69e7b88849cbd
+## COMMIT: c38588a88e4678071df2e2d32916556b536b9b30
 pip3 install numpy Cython click
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git@58c5b342619d150ef0b2cf5b69a69e7b88849cbd
+pip3 install git+https://github.com/mirnylab/pairsamtools.git@c38588a88e4678071df2e2d32916556b536b9b30
 
