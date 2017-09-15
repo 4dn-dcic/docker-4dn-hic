@@ -2,6 +2,7 @@ sudo: false
 language: python
 env:
   - BENCHMARK_TEST=1
+  - CWL_NAME=pairsam-filter
   - CWL_NAME=pairsam-markasdup
   - CWL_NAME=merge-pairs
   - CWL_NAME=pairsam-merge

@@ -1,0 +1,11 @@
+{
+    "input_pairsam": 
+    {
+        "class": "File", 
+        "path": "../test_files/test1.sam.pairs.gz"
+    },
+    "chromsize": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    }
+}
