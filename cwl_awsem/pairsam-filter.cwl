@@ -36,8 +36,7 @@
                 "position": 3
             },
             "id": "#chromsize"
-        },
-
+        }
     ],
      "outputs": [
         {
@@ -60,7 +59,7 @@
             ],
             "id": "#dedup_pairs"
         }
-    ]
+    ],
     "cwlVersion": "draft-3",
     "hints": [
         {
