@@ -20,5 +20,7 @@ set -o pipefail
 PAIRSAM=$1
 OUTPREFIX=$2
 MARKED_PAIRSAM=${OUTPREFIX}.marked.sam.pairs.gz
-pairsamtools dedup --mark-dups --output ${MARKED_PAIRSAM} ${PAIRSAM}
+pairsamtools dedup --mark-dups --output-dups - --output-unmapped - --output ${MARKED_PAIRSAM} ${PAIRSAM}
+
+pairix ${MARKED_PAIRSAM}  # sanity check.
 
