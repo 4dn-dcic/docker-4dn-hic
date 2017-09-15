@@ -41,7 +41,8 @@ pairsamtools select '(pair_type == "CX") or (pair_type == "LL")' \
 pairsamtools split --output-pairs ${TEMPFILE1} ${TEMPFILE}
 
 pairsamtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${TEMPFILE1}
-    
+
+pairix ${DEDUP_PAIRS}  # sanity check & indexing    
 
 ## remove PAIRSAM (i.e. marked pairsamfile) file 
 rm ${PAIRSAM}   ## delete the lossless pairsam file
