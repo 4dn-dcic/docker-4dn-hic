@@ -154,7 +154,9 @@ def pairsam_merge(input_json):
     total_safe_size = total_size * 2
 
     # mem
-    mem = 48000  # very rough number
+    mem = 4000
+
+    # 32 cores: 1.8G/min (c4.8xlarge), 8 cores: 0.9G/min (r4.2xlarge) 
 
     r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
     return(r.as_dict())
