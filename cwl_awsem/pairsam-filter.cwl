@@ -49,9 +49,7 @@
                 "File"
             ],
             "id": "#lossless_bamfile"
-        }
-    ],
-    "outputs": [
+        },
         {
             "outputBinding": {
                 "glob": "$(inputs.outprefix + '.dedup.pairs.gz')"
@@ -62,19 +60,7 @@
             ],
             "id": "#dedup_pairs"
         }
-    ],
-     "outputs": [
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.unmapped.sam.pairs.gz')"
-            },
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#unmapped_pairsam"
-        }
-    ],
+    ]
     "cwlVersion": "draft-3",
     "hints": [
         {
