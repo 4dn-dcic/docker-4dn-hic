@@ -57,6 +57,9 @@
                 "null",
                 "File"
             ],
+            "secondaryFiles": [
+                ".px2"
+            ],
             "id": "#dedup_pairs"
         }
     ],
