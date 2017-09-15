@@ -187,7 +187,7 @@ def pairsam_markasdup(input_json):
 def pairsam_filter(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_pairsam' in input_json.get('input_size_in_bytes')
-    
+ 
     cpu = 4  # very rough estimate
     mem = 16000  # very rough estimate
 
