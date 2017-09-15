@@ -36,7 +36,7 @@
                 "null",
                 "File"
             ],
-            "id": "#out_markedpairs"
+            "id": "#out_markedpairsam"
         }
     ],
     "cwlVersion": "draft-3",
