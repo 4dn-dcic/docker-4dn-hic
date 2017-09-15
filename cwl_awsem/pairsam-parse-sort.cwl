@@ -1,6 +1,6 @@
 {
     "baseCommand": [
-        "pairsam-parse-sort.sh"
+        "run-pairsam-parse-sort.sh"
     ],
     "inputs": [
         {

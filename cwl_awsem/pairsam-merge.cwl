@@ -1,6 +1,6 @@
 {
     "baseCommand": [
-        "pairsam-merge.sh"
+        "run-pairsam-merge.sh"
     ],
     "inputs": [
         {

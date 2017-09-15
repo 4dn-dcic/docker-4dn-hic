@@ -1,6 +1,6 @@
 {
     "baseCommand": [
-        "pairsam-markasdup.sh"
+        "run-pairsam-markasdup.sh"
     ],
     "inputs": [
         {
