@@ -32,9 +32,6 @@
             "outputBinding": {
                 "glob": "$(inputs.outprefix + '.marked.sam.pairs.gz')"
             },
-            "secondaryFiles": [
-                ".px2"
-            ],
             "type": [
                 "null",
                 "File"
