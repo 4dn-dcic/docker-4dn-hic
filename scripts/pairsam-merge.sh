@@ -23,8 +23,8 @@ THREADS=${2:-8}
 shift
 shift
 
+MAXFILEMERGE=$#
 MEMORY=2G
-MAXFILEMERGE=8
 MERGED_PAIRSAM=${OUTPREFIX}.merged.sam.pairs.gz
 TEMPDIR=""
 
