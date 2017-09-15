@@ -43,6 +43,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(pairsam_merge(input_json))
     elif app_name == 'pairsam-markasdup':
         return(pairsam_markasdup(input_json))
+    elif app_name == 'pairsam-filter':
+        return(pairsam_filter(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -168,12 +170,32 @@ def pairsam_markasdup(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_pairsam' in input_json.get('input_size_in_bytes')
 
-    cpu = 1  # random estimate
-    mem = 16000  # random estimate
+    cpu = 1  # very rough estimate
+    mem = 16000  # very rough estimate
 
     # space
     insize = input_json['input_size_in_bytes']['input_pairsam'] / GB_IN_BYTES
     outsize = insize
+    intersize = outsize
+    total_size = insize + outsize + intersize
+    total_safe_size = total_size * 2
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=cpu)
+    return(r.as_dict())
+
+
+def pairsam_filter(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairsam' in input_json.get('input_size_in_bytes')
+    
+    cpu = 4  # very rough estimate
+    mem = 16000  # very rough estimate
+
+    # space
+    insize = input_json['input_size_in_bytes']['input_pairsam'] / GB_IN_BYTES
+    outbamsize = insize
+    outpairssize = insize  # to be safe
+    outsize = outbamsize + outpairssize
     intersize = outsize
     total_size = insize + outsize + intersize
     total_safe_size = total_size * 2
