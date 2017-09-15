@@ -41,6 +41,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(pairsam_parse_sort(input_json))
     elif app_name == 'pairsam-merge':
         return(pairsam_merge(input_json))
+    elif app_name == 'pairsam-markasdup':
+        return(pairsam_markasdup(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -139,7 +141,8 @@ def pairsam_parse_sort(input_json):
 def pairsam_merge(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_pairsams' in input_json.get('input_size_in_bytes')
-    assert isinstance(input_json['input_size_in_bytes']['input_pairsams'], list)
+    in_size = input_json['input_size_in_bytes']
+    assert isinstance(in_size['input_pairsams'], list)
 
     # cpu
     nthreads = 8  # default from cwl
@@ -148,7 +151,6 @@ def pairsam_merge(input_json):
             nthreads = input_json.get('parameters').get('nThreads')
 
     # space
-    in_size = input_json['input_size_in_bytes']
     input_size = sum(in_size['input_pairsams']) / GB_IN_BYTES
     total_size = input_size * 3
     total_safe_size = total_size * 2
@@ -159,6 +161,24 @@ def pairsam_merge(input_json):
     # 32 cores: 1.8G/min (c4.8xlarge), 8 cores: 0.9G/min (r4.2xlarge)
 
     r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
+    return(r.as_dict())
+
+
+def pairsam_markasdup(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairsam' in input_json.get('input_size_in_bytes')
+
+    cpu = 1  # random estimate
+    mem = 16000  # random estimate
+
+    # space
+    insize = input_json['input_size_in_bytes']['input_pairsam'] / GB_IN_BYTES
+    outsize = insize
+    intersize = outsize
+    total_size = insize + outsize + intersize
+    total_safe_size = total_size * 2
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=cpu)
     return(r.as_dict())
 
 
