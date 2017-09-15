@@ -12,7 +12,7 @@
                 "separate": true,
                 "position": 1
             },
-            "id": "#pairsam"
+            "id": "#input_pairsam"
         },
         {
             "default": "out",
