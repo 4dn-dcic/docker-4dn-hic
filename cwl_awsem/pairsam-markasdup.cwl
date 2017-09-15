@@ -36,6 +36,9 @@
                 "null",
                 "File"
             ],
+            "secondaryFiles": [
+                ".px2"
+            ],
             "id": "#out_markedpairsam"
         }
     ],
