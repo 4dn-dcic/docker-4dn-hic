@@ -20,12 +20,12 @@ set -o pipefail
 
 OUTPREFIX=$1
 THREADS=${2:-8}
-shift
-shift
-
-MAXFILEMERGE=$#
+INFILESTR=${@:3}
+INFILES=(${INFILESTR// / })
+MAXFILEMERGE=${#INFILES[@]}
+echo "Merging $MAXFILEMERGE files..."
 MEMORY=2G
 MERGED_PAIRSAM=${OUTPREFIX}.merged.sam.pairs.gz
 TEMPDIR=""
 
-pairsamtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} $@
+pairsamtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} ${INFILES[@]}
