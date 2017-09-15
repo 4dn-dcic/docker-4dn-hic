@@ -1,6 +1,6 @@
 {
     "baseCommand": [
-        "pipeline_Sorted2noDups.sh"
+        "run-pairsam-filter.sh"
     ],
     "inputs": [
         {
@@ -26,11 +26,23 @@
             },
             "id": "#outprefix"
         },
+        {
+            "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 3
+            },
+            "id": "#chrsizes"
+        },
+
     ],
      "outputs": [
         {
             "outputBinding": {
-                "glob": "$(outprefix + '.lossless.bam')"
+                "glob": "$(inputs.outprefix + '.lossless.bam')"
             },
             "type": [
                 "null",
@@ -42,7 +54,7 @@
     "outputs": [
         {
             "outputBinding": {
-                "glob": "$(outprefix + '.dedup.pairs.gz')"
+                "glob": "$(inputs.outprefix + '.dedup.pairs.gz')"
             },
             "type": [
                 "null",
@@ -54,7 +66,7 @@
      "outputs": [
         {
             "outputBinding": {
-                "glob": "$(outprefix + '.unmapped.sam.pairs.gz')"
+                "glob": "$(inputs.outprefix + '.unmapped.sam.pairs.gz')"
             },
             "type": [
                 "null",
@@ -66,7 +78,7 @@
     "cwlVersion": "draft-3",
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v35",
+            "dockerPull": "duplexa/4dn-hic:v40",
             "class": "DockerRequirement"
         }
     ],
