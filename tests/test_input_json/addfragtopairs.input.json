@@ -3,10 +3,9 @@
         "class": "File", 
         "path": "hg38_HindIII_new.txt"
     }, 
-    "input_pairs": [
-        {
-            "class": "File", 
-            "path": "../test_files/test_4dn.pairs.gz"
-        }
-    ] 
+    "input_pairs": 
+    {
+        "class": "File", 
+        "path": "../test_files/test_4dn.pairs.gz"
+    }
 }
