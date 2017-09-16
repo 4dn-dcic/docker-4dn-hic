@@ -1,0 +1,34 @@
+sudo: false
+language: python
+env:
+  - BENCHMARK_TEST=1
+  - CWL_NAME=addfragtopairs
+  - CWL_NAME=pairsam-filter
+  - CWL_NAME=pairsam-markasdup
+  - CWL_NAME=merge-pairs
+  - CWL_NAME=pairsam-merge
+  - CWL_NAME=pairsam-parse-sort
+  - CWL_NAME=extract-mcool-normvector-for-juicebox
+  - CWL_NAME=md5
+  - CWL_NAME=fastqc-0-11-4-1
+  - CWL_NAME=hi-c-processing-partb
+  - CWL_NAME=cool2mcool
+  - CWL_NAME=hi-c-processing-partc
+  - CWL_NAME=bwa-mem
+python:
+  - '2.7'
+os:
+  - linux
+services:
+  - docker
+install:
+  - pip install git+https://github.com/SooLee/cwltool.git
+  - python setup.py install
+script:
+  - if [ "$BENCHMARK_TEST" == 1 ]; then
+       python tests/tests_benchmark.py;
+    fi
+  - if [ ! -z "$CWL_NAME" ]; then
+       source tests/tests.sh $CWL_NAME;
+    fi
+
