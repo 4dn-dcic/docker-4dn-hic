@@ -27,7 +27,7 @@
                 "separate": true,
                 "position": 3
             },
-            "id": "#out_prefix",
+            "id": "#outprefix",
             "type": [
                 "null",
                 "string"

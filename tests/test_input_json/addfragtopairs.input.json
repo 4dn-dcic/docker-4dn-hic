@@ -1,7 +1,7 @@
 {
     "restriction_file": {
         "class": "File", 
-        "path": "../test_files/hg38_HindIII_new.txt"
+        "path": "../test_files/hg38_HindIII_new.+chr.txt"
     }, 
     "input_pairs": 
     {
