@@ -77,8 +77,11 @@ def fastqc_0_11_4_1(input_json):
 
     input_in_bytes = input_json.get('input_size_in_bytes').get('input_fastq')
     input_size = input_in_bytes / GB_IN_BYTES * 2 + 3
+    mem = 300 * nthreads
+    if mem < 1024:
+        mem = 1024
     r = BenchmarkResult(size=input_size,
-                        mem=300 * nthreads,
+                        mem=mem,
                         cpu=nthreads)
 
     return(r.as_dict())
