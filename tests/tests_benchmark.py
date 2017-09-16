@@ -68,10 +68,10 @@ class TestBenchmark(unittest.TestCase):
     def test_benchmark6(self):
         input_json = {'input_size_in_bytes': {'input_pairsam': 1000000000}}
         res = B.benchmark('pairsam-markasdup', input_json)
+        print(res)
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
-        assert res['aws']['recommended_instance_type'] == 't2.xlarge'
-        print(res)
+        assert res['aws']['recommended_instance_type'] == 'r4.large'
 
     def test_benchmark7(self):
         input_json = {'input_size_in_bytes': {'input_pairsam': 1000000000}}

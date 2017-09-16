@@ -173,7 +173,7 @@ def pairsam_markasdup(input_json):
     assert 'input_pairsam' in input_json.get('input_size_in_bytes')
 
     cpu = 1  # very rough estimate
-    mem = 16000  # very rough estimate
+    mem = 15000  # very rough estimate
 
     # space
     insize = input_json['input_size_in_bytes']['input_pairsam'] / GB_IN_BYTES
