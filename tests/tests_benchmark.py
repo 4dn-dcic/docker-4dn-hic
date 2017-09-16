@@ -89,6 +89,18 @@ class TestBenchmark(unittest.TestCase):
         assert res['aws']['recommended_instance_type'] == 't2.micro'
         print(res)
 
+    def test_benchmark9(self):
+        input_json = {'input_size_in_bytes': {'input_pairs': [1000000000,
+                                                              2000000000,
+                                                              3000000000]},
+                      'parameters': {'ncores': 1,
+                                     'maxmem': '1900g'}}
+        res = B.benchmark('hi-c-processing-partb', input_json)
+        print(res)
+        assert 'aws' in res
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 'x1.32xlarge'
+
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,

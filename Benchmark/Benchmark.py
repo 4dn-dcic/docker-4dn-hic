@@ -16,6 +16,7 @@ import re
 
 GB_IN_BYTES = 1073741824
 MB_IN_BYTES = 1048576
+GB_IN_MB = 1024
 
 
 class BenchmarkResult(object):
@@ -24,7 +25,7 @@ class BenchmarkResult(object):
         self.total_size_in_GB = size
         self.total_mem_in_MB = mem
         self.min_CPU = cpu
-        self.aws = get_optimal_instance_type(cpu=cpu, mem_in_gb=mem / 1024)
+        self.aws = get_optimal_instance_type(cpu=cpu, mem_in_gb=mem / GB_IN_MB)
 
     def as_dict(self):
         return self.__dict__
@@ -47,6 +48,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(pairsam_filter(input_json))
     elif app_name == 'addfragtopairs':
         return(addfragtopairs(input_json))
+    elif app_name == 'hi-c-processing-partb':
+        return(hi_c_processing_partb(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -224,6 +227,43 @@ def addfragtopairs(input_json):
     total_safe_size = total_size * 2
 
     r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=cpu)
+    return(r.as_dict())
+
+
+def hi_c_processing_partb(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairs' in input_json.get('input_size_in_bytes')
+    in_size = input_json['input_size_in_bytes']
+    assert isinstance(in_size['input_pairs'], list)
+
+    # cpu
+    nthreads = 8  # default from cwl
+    if 'parameters' in input_json:
+        if 'ncores' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('ncores')
+
+    # space
+    input_size = sum(in_size['input_pairs']) / GB_IN_BYTES
+    out_pairs_size = input_size
+    out_cool_size = input_size
+    out_hic_size = input_size
+    out_size = out_pairs_size + out_cool_size + out_hic_size
+    total_size = input_size + out_size
+    total_safe_size = total_size * 2
+
+    # mem
+    mem = 14 * GB_IN_MB  # default from cwl
+    if 'parameters' in input_json:
+        if 'maxmem' in input_json.get('parameters'):
+            maxmem = input_json.get('parameters').get('maxmem')
+            if 'g' in maxmem:
+                mem = int(maxmem.replace('g', '')) * GB_IN_MB
+            elif 'm' in maxmem:
+                mem = int(maxmem.replace('m', ''))
+            else:
+                raise Exception("proper maxmem string?")
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
     return(r.as_dict())
 
 
