@@ -93,7 +93,7 @@ class TestBenchmark(unittest.TestCase):
         input_json = {'input_size_in_bytes': {'input_pairs': [1000000000,
                                                               2000000000,
                                                               3000000000]},
-                      'parameters': {'ncores': 1,
+                      'parameters': {'ncores': 16,
                                      'maxmem': '1900g'}}
         res = B.benchmark('hi-c-processing-partb', input_json)
         print(res)

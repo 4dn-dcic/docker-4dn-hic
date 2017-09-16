@@ -252,16 +252,22 @@ def hi_c_processing_partb(input_json):
     total_safe_size = total_size * 2
 
     # mem
-    mem = 14 * GB_IN_MB  # default from cwl
+    maxmem = 14 * GB_IN_MB  # default from cwl
     if 'parameters' in input_json:
         if 'maxmem' in input_json.get('parameters'):
             maxmem = input_json.get('parameters').get('maxmem')
             if 'g' in maxmem:
-                mem = int(maxmem.replace('g', '')) * GB_IN_MB
+                maxmem = int(maxmem.replace('g', '')) * GB_IN_MB
             elif 'm' in maxmem:
-                mem = int(maxmem.replace('m', ''))
+                maxmem = int(maxmem.replace('m', ''))
             else:
                 raise Exception("proper maxmem string?")
+
+    cooler_mem = nthreads * input_size * GB_IN_MB
+    if cooler_mem > maxmem:
+        mem = cooler_mem
+    else:
+        mem = maxmem
 
     r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
     return(r.as_dict())
