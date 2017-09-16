@@ -58,7 +58,7 @@ def md5(input_json):
     input_in_bytes = input_json.get('input_size_in_bytes').get('input_file')
     input_size = input_in_bytes / GB_IN_BYTES + 3
     r = BenchmarkResult(size=input_size,
-                        mem=4,
+                        mem=1024,
                         cpu=1)
 
     return(r.as_dict())

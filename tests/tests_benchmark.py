@@ -22,7 +22,7 @@ class TestBenchmark(unittest.TestCase):
                           {'input_size_in_bytes': {'input_file': 200000000}})
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
-        assert res['aws']['recommended_instance_type'] == 't2.nano'
+        assert res['aws']['recommended_instance_type'] == 't2.micro'
         print(res)
 
     def test_benchmark2(self):
