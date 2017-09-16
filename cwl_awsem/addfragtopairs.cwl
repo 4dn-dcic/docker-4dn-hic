@@ -51,17 +51,10 @@
                 "null",
                 "File"
             ],
-            "id": "#out_pairs"
-        },
-        {
-            "outputBinding": {
-                "glob": "$(inputs.outprefix + '.ff.pairs.gz.px2')"
-            },
-            "type": [
-                "null",
-                "File"
+            "secondaryFiles": [
+                ".px2"
             ],
-            "id": "#out_pairs_px2"
+            "id": "#out_pairs"
         }
     ],
     "class": "CommandLineTool",
