@@ -114,10 +114,11 @@ class TestBenchmark(unittest.TestCase):
                                               'input_hic': 2000000000},
                       'parameters': {'ncores': 1}}
         res = B.benchmark('hi-c-processing-partc', input_json)
+        print('hi-c-processing-partc')
         print(res)
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
-        assert res['aws']['recommended_instance_type'] == 'r4.2xlarge'
+        assert res['aws']['recommended_instance_type'] == 'r4.large'
 
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,

@@ -316,7 +316,7 @@ def hi_c_processing_partc(input_json):
     total_safe_size = total_size * 2
 
     cpu = nthreads
-    mem = nthreads * input_size / GB_IN_MB
+    mem = nthreads * input_size * 5 / MB_IN_BYTES
 
     r = BenchmarkResult(size=total_safe_size,
                         mem=mem,
