@@ -22,7 +22,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v35"
+            "dockerPull": "duplexa/4dn-hic:v40"
         }
     ],
     "inputs": [
