@@ -33,14 +33,14 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.2.5
-wget https://github.com/4dn-dcic/pairix/archive/0.2.5.tar.gz
-tar -xzf 0.2.5.tar.gz
-rm 0.2.5.tar.gz
-cd pairix-0.2.5
+## VERSION: 0.2.6
+wget https://github.com/4dn-dcic/pairix/archive/0.2.6.tar.gz
+tar -xzf 0.2.6.tar.gz
+rm 0.2.6.tar.gz
+cd pairix-0.2.6
 make
 cd ..
-ln -s pairix-0.2.5 pairix
+ln -s pairix-0.2.6 pairix
 
 
 ## SOFTWARE: cooler
