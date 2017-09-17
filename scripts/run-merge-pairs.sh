@@ -2,7 +2,11 @@
 outprefix=$1
 shift
 
-if [ $# -eq 1 ]
+INFILESTR=${@}
+INFILES=(${INFILESTR// / })
+NFILES=${#INFILES[@]}
+
+if [ $NFILES -eq 1 ]
 then
 
     cp $1 $outprefix.pairs.gz
@@ -13,7 +17,7 @@ else
     # unzipping to named pipes
     arg=''
     k=1
-    for f in $@
+    for f in $INFILESTR
     do
     mkfifo pp.$k
     arg="$arg pp.$k"
@@ -22,8 +26,8 @@ else
     done
     
     # header
-    gunzip -c $1 | grep "^#" | grep -v '^#command:'  > $outprefix.pairs
-    for f in $@
+    gunzip -c ${INFILES[0]} | grep "^#" | grep -v '^#command:'  > $outprefix.pairs
+    for f in $INFILESTR
     do
       gunzip -c $f | grep '^#command:' >> $outprefix.pairs
     done
@@ -39,7 +43,7 @@ else
     
     # clean up
     k=1
-    for f in $@
+    for f in $INFILESTR
     do
     rm pp.$k
     let "k++"
