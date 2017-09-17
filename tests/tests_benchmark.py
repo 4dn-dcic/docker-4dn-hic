@@ -101,6 +101,14 @@ class TestBenchmark(unittest.TestCase):
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 'x1.32xlarge'
 
+    def test_benchmark10(self):
+        input_json = {'input_size_in_bytes': {'input_pairs': 1000000000}}
+        res = B.benchmark('pairs-patch', input_json)
+        print(res)
+        assert 'aws' in res
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 't2.micro'
+
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,
