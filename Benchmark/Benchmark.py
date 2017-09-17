@@ -50,6 +50,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(addfragtopairs(input_json))
     elif app_name == 'hi-c-processing-partb':
         return(hi_c_processing_partb(input_json))
+    elif app_name == 'hi-c-processing-partc':
+        return(hi_c_processing_partc(input_json))
     elif app_name == 'pairs-patch':
         return(pairs_patch(input_json))
     else:
@@ -290,6 +292,36 @@ def hi_c_processing_partb(input_json):
         mem = maxmem
 
     r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
+    return(r.as_dict())
+
+
+def hi_c_processing_partc(input_json):
+    assert 'input_size_in_bytes' in input_json
+    insize = input_json.get('input_size_in_bytes')
+    assert 'input_cool' in insize
+    assert 'input_hic' in insize
+
+    nthreads = 1  # default value according to the cwl
+    nres = 13  # default value according to the cwl
+    if 'parameters' in input_json:
+        if 'ncores' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('ncores')
+        if 'nres' in input_json.get('parameters'):
+            nres = input_json.get('parameters').get('nres')
+
+    input_size = insize['input_cool'] + insize['input_hic']
+    out_size = input_size * nres
+    inter_size = out_size
+    total_size = (input_size + out_size + inter_size) / GB_IN_BYTES
+    total_safe_size = total_size * 2
+
+    cpu = nthreads
+    mem = nthreads * input_size / GB_IN_MB
+
+    r = BenchmarkResult(size=total_safe_size,
+                        mem=mem,
+                        cpu=cpu)
+
     return(r.as_dict())
 
 
