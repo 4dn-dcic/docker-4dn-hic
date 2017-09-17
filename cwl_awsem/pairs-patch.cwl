@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "id": "#output_pairs",
+            "id": "#out_pairs",
             "type": [
                 "null",
                 "File"
