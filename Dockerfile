@@ -1,8 +1,5 @@
 FROM ubuntu:16.04
 MAINTAINER Soo Lee (duplexa@gmail.com)
-LABEL docker.image.name="4dn-hic" \
-      docker.image.version="v37" \
-      release.date="2017-09-05"
 
 # 1. general updates & installing necessary Linux components
 RUN apt-get update -y && apt-get install -y \
