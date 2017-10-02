@@ -3,7 +3,7 @@
 * The repo contains a benchmarking script for some of the CWLs, that returns total space, mem and CPUs required per given input size and a recommended AWS EC2 instance type.
 
 ### How to run the cwl
-To run docker through CWL, you need a cwl executor - we use `cwltool` (https://github.com/common-workflow-language/cwltool) to run CWL with a json/yml file describing input data. Some example input data are inside the `test/test_input_json` directory and you can see some `cwltool` (=`cwl-runner`) commands inside the `test/tests.sh` script.
+To run docker through CWL, you need a cwl executor - we use `cwltool` (https://github.com/common-workflow-language/cwltool) to run CWL with a json/yml file describing input data. Some example input data are inside the `tests/test_input_json` directory and you can see some `cwltool` (=`cwl-runner`) commands inside the `tests/tests.sh` script.
 
 
 ### Example usage of benchmarking script
