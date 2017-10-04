@@ -37,18 +37,18 @@ matrix:
 
     - language: scala
       sudo: false
-	env:
-	  - BENCHMARK_TEST=1
-	  - WDL_NAME=bwa-mem
-	scala:
-	  - 2.11.2
-	os:
-	  - linux
-	services:
-	  - docker
-	install:
-	  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
-	script:
-	  - if [ ! -z "$WDL_NAME" ]; then
-	       source tests/tests_wdl.sh $WDL_NAME;
-	    fi
+      env:
+        - BENCHMARK_TEST=1
+        - WDL_NAME=bwa-mem
+      scala:
+        - 2.11.2
+      os:
+        - linux
+      services:
+        - docker
+      install:
+        - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
+      script:
+        - if [ ! -z "$WDL_NAME" ]; then
+             source tests/tests_wdl.sh $WDL_NAME;
+          fi
