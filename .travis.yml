@@ -26,7 +26,8 @@ services:
 install:
   - pip install git+https://github.com/SooLee/cwltool.git
   - python setup.py install
-  - apt-get install sbt & git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly
+  - apt-get install sbt
+  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly
 script:
   - if [ "$BENCHMARK_TEST" == 1 ]; then
        python tests/tests_benchmark.py;
