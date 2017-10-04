@@ -1,7 +1,7 @@
-sudo: false
 matrix:
   include:
     - language: python
+      sudo: false
       env:
         - BENCHMARK_TEST=1
         - CWL_NAME=pairs-patch
@@ -36,11 +36,12 @@ matrix:
           fi
 
       - language: scala
+        sudo: false
 	env:
 	  - BENCHMARK_TEST=1
 	  - WDL_NAME=bwa-mem
-	python:
-	  - '2.7'
+	scala:
+	  - 2.11.2
 	os:
 	  - linux
 	services:
