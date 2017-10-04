@@ -35,8 +35,8 @@ matrix:
              source tests/tests.sh $CWL_NAME;
           fi
 
-      - language: scala
-        sudo: false
+    - language: scala
+      sudo: false
 	env:
 	  - BENCHMARK_TEST=1
 	  - WDL_NAME=bwa-mem
