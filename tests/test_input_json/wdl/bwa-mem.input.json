@@ -1,0 +1,9 @@
+{
+    "bwa_mem.bwa_mem.input_fastq1": "../test_files/SRR1658650_R1.h40.fastq.gz",
+    "bwa_mem.bwa_mem.input_fastq2": "../test_files/SRR1658650_R2.h40.fastq.gz",
+    "bwa_mem.bwa_mem.bwaIndex": "../test_files/hg38.MTonly.bwaIndex.tgz",
+    "bwa_mem.bwa_mem.output_prefix": "out",
+    "bwa_mem.bwa_mem.nThreads": 8,
+    "bwa_mem.bwa_mem.output_dir": "."
+}
+
