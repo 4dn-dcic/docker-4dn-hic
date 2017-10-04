@@ -1,42 +1,53 @@
 sudo: false
-language: python
-env:
-  - BENCHMARK_TEST=1
-  - WDL_NAME=bwa-mem
-  - CWL_NAME=pairs-patch
-  - CWL_NAME=addfragtopairs
-  - CWL_NAME=pairsam-filter
-  - CWL_NAME=pairsam-markasdup
-  - CWL_NAME=merge-pairs
-  - CWL_NAME=pairsam-merge
-  - CWL_NAME=pairsam-parse-sort
-  - CWL_NAME=extract-mcool-normvector-for-juicebox
-  - CWL_NAME=md5
-  - CWL_NAME=fastqc-0-11-4-1
-  - CWL_NAME=hi-c-processing-partb
-  - CWL_NAME=cool2mcool
-  - CWL_NAME=hi-c-processing-partc
-  - CWL_NAME=bwa-mem
-python:
-  - '2.7'
-os:
-  - linux
-services:
-  - docker
-before_install:
-  - sudo apt-get install -y sbt  # for cromwell
-install:
-  - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
-  - python setup.py install  # benchmark
-  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
-script:
-  - if [ "$BENCHMARK_TEST" == 1 ]; then
-       python tests/tests_benchmark.py;
-    fi
-  - if [ ! -z "$CWL_NAME" ]; then
-       source tests/tests.sh $CWL_NAME;
-    fi
-  - if [ ! -z "$WDL_NAME" ]; then
-       source tests/tests_wdl.sh $WDL_NAME;
-    fi
+matrix:
+  include:
+    - language: python
+      env:
+        - BENCHMARK_TEST=1
+        - CWL_NAME=pairs-patch
+        - CWL_NAME=addfragtopairs
+        - CWL_NAME=pairsam-filter
+        - CWL_NAME=pairsam-markasdup
+        - CWL_NAME=merge-pairs
+        - CWL_NAME=pairsam-merge
+        - CWL_NAME=pairsam-parse-sort
+        - CWL_NAME=extract-mcool-normvector-for-juicebox
+        - CWL_NAME=md5
+        - CWL_NAME=fastqc-0-11-4-1
+        - CWL_NAME=hi-c-processing-partb
+        - CWL_NAME=cool2mcool
+        - CWL_NAME=hi-c-processing-partc
+        - CWL_NAME=bwa-mem
+      python:
+        - '2.7'
+      os:
+        - linux
+      services:
+        - docker
+      install:
+        - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+        - python setup.py install  # benchmark
+      script:
+        - if [ "$BENCHMARK_TEST" == 1 ]; then
+             python tests/tests_benchmark.py;
+          fi
+        - if [ ! -z "$CWL_NAME" ]; then
+             source tests/tests.sh $CWL_NAME;
+          fi
 
+      - language: scala
+	env:
+	  - BENCHMARK_TEST=1
+	  - WDL_NAME=bwa-mem
+	python:
+	  - '2.7'
+	os:
+	  - linux
+	services:
+	  - docker
+	install:
+	  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
+	script:
+	  - if [ ! -z "$WDL_NAME" ]; then
+	       source tests/tests_wdl.sh $WDL_NAME;
+	    fi
