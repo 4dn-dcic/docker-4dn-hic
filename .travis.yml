@@ -35,13 +35,12 @@ matrix:
     - language: scala
       sudo: false
       env:
-        - BENCHMARK_TEST=1
         - WDL_NAME=bwa-mem
       scala: 2.11.2
-      os: linux
+      os: osx
       services: docker
       install:
-        - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
+        - brew install cromwell
       script:
         - if [ ! -z "$WDL_NAME" ]; then
              source tests/tests_wdl.sh $WDL_NAME;
