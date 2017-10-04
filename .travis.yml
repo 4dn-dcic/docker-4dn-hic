@@ -23,11 +23,12 @@ os:
   - linux
 services:
   - docker
+before_install:
+  - sudo apt-get install sbt  # for cromwell
 install:
-  - pip install git+https://github.com/SooLee/cwltool.git
-  - python setup.py install
-  - apt-get install sbt
-  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly
+  - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+  - python setup.py install  # benchmark
+  - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
 script:
   - if [ "$BENCHMARK_TEST" == 1 ]; then
        python tests/tests_benchmark.py;
