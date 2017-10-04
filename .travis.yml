@@ -18,12 +18,9 @@ matrix:
         - CWL_NAME=cool2mcool
         - CWL_NAME=hi-c-processing-partc
         - CWL_NAME=bwa-mem
-      python:
-        - '2.7'
-      os:
-        - linux
-      services:
-        - docker
+      python: 2.7
+      os: linux
+      services: docker
       install:
         - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
         - python setup.py install  # benchmark
@@ -40,12 +37,9 @@ matrix:
       env:
         - BENCHMARK_TEST=1
         - WDL_NAME=bwa-mem
-      scala:
-        - 2.11.2
-      os:
-        - linux
-      services:
-        - docker
+      scala: 2.11.2
+      os: linux
+      services: docker
       install:
         - git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly  # cromwell
       script:
