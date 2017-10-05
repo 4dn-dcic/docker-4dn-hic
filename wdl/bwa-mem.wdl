@@ -12,7 +12,7 @@ task bwa_mem_step {
     }
 
     output {
-        File output_bam = output_file_name
+        File output_bam = ${output_file_name}
     }
 
     runtime {
@@ -22,5 +22,8 @@ task bwa_mem_step {
 
 workflow bwa_mem {
     call bwa_mem_step
+    output {
+        bwa_mem_step.output
+    }
 }
 
