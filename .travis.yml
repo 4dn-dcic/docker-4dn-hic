@@ -24,6 +24,8 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+before_install:
+  - wget https://github.com/broadinstitute/cromwell/releases/download/29/cromwell-29.jar -O cromwell.jar
 install:
   - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
   - python setup.py install  # benchmark
