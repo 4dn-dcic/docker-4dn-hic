@@ -21,18 +21,12 @@ python: 2.7
 os: linux
 services: docker
 addons:
-apt:
-packages:
-  - oracle-java8-installer
-  - sbt
-  - git
-before_install:
-  - /usr/local/bin/sbt -sbt-create
-  - git clone https://github.com/broadinstitute/cromwell $TRAVIS_BUILD_DIR/cromwell
+  apt:
+    packages:
+      - oracle-java8-installer
 install:
   - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
   - python setup.py install  # benchmark
-  - cd $TRAVIS_BUILD_DIR/cromwell & sbt assembly
 script:
   - if [ ! -z "$BENCHMARK_TEST" ]; then
        python tests/tests_benchmark.py;
