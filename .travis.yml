@@ -1,39 +1,34 @@
 matrix:
   include:
-    - language: python
+    - env:
+      - WDL_NAME=bwa-mem
+      - BENCHMARK_TEST=1
+      - CWL_NAME=pairs-patch
+      - CWL_NAME=addfragtopairs
+      - CWL_NAME=pairsam-filter
+      - CWL_NAME=pairsam-markasdup
+      - CWL_NAME=merge-pairs
+      - CWL_NAME=pairsam-merge
+      - CWL_NAME=pairsam-parse-sort
+      - CWL_NAME=extract-mcool-normvector-for-juicebox
+      - CWL_NAME=md5
+      - CWL_NAME=fastqc-0-11-4-1
+      - CWL_NAME=hi-c-processing-partb
+      - CWL_NAME=cool2mcool
+      - CWL_NAME=hi-c-processing-partc
+      - CWL_NAME=bwa-mem
+      language: python
       sudo: false
-      env:
-        - BENCHMARK_TEST=1
-      python: 2.7
-      os: linux
-      install:
-        - python setup.py install  # benchmark
-      script:
-        - python tests/tests_benchmark.py
-
-    - language: python
-      sudo: false
-      env:
-        - CWL_NAME=pairs-patch
-        - CWL_NAME=addfragtopairs
-        - CWL_NAME=pairsam-filter
-        - CWL_NAME=pairsam-markasdup
-        - CWL_NAME=merge-pairs
-        - CWL_NAME=pairsam-merge
-        - CWL_NAME=pairsam-parse-sort
-        - CWL_NAME=extract-mcool-normvector-for-juicebox
-        - CWL_NAME=md5
-        - CWL_NAME=fastqc-0-11-4-1
-        - CWL_NAME=hi-c-processing-partb
-        - CWL_NAME=cool2mcool
-        - CWL_NAME=hi-c-processing-partc
-        - CWL_NAME=bwa-mem
       python: 2.7
       os: linux
       services: docker
       install:
         - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+        - python setup.py install  # benchmark
       script:
+        - if [ ! -z "$BENCHMARK_TEST" ]; then
+             python tests/tests_benchmark.py;
+          fi
         - if [ ! -z "$CWL_NAME" ]; then
              source tests/tests.sh $CWL_NAME;
           fi
