@@ -22,9 +22,16 @@ matrix:
       python: 2.7
       os: linux
       services: docker
+      addons:
+      apt:
+      packages:
+        - oracle-java8-installer
+        - sbt
+        - git
       install:
         - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
         - python setup.py install  # benchmark
+        - sudo apt-get install sbt & git clone https://github.com/broadinstitute/cromwell & cd cromwell & sbt assembly
       script:
         - if [ ! -z "$BENCHMARK_TEST" ]; then
              python tests/tests_benchmark.py;
@@ -32,18 +39,6 @@ matrix:
         - if [ ! -z "$CWL_NAME" ]; then
              source tests/tests.sh $CWL_NAME;
           fi
-
-    - language: scala
-      sudo: false
-      env:
-        - WDL_NAME=bwa-mem
-      scala: 2.11.2
-      os: osx
-      jdk: oraclejdk8
-      services: docker
-      install:
-        - brew install cromwell
-      script:
         - if [ ! -z "$WDL_NAME" ]; then
              source tests/tests_wdl.sh $WDL_NAME;
           fi
