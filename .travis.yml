@@ -44,7 +44,7 @@ matrix:
         - WDL_NAME=bwa-mem
       scala: 2.11.2
       os: osx
-      jdk: openjdk7
+      jdk: oraclejdk8
       services: docker
       install:
         - brew install cromwell
