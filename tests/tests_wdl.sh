@@ -5,6 +5,8 @@ INPUT_JSON_NAME=$1.input.json
 CWD=$(pwd)
 OUTDIR=$CWD/tests/test_outdir
 LOCAL_WDL_TMPDIR=$CWD/tests/test_tmp
+#WDL_RUNNER="java -jar $CROMWELL_JAR run"
+#WDL_RUNNER="/usr/bin/java8 -jar $CROMWELL_JAR run"
 WDL_RUNNER="java -jar $CROMWELL_JAR run"
 RUNNER_FLAGS=""
 echo $WDL_RUNNER 

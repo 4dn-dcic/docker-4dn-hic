@@ -7,7 +7,7 @@ task bwa_mem_step {
     String outdir = '.'
 
     command {
-        run-bwa-mem.sh ${fastq1} ${fastq2} ${bwa_index} ${prefix} ${nThreads} ${outdir}
+        run-bwa-mem.sh ${fastq1} ${fastq2} ${bwa_index} ${outdir} ${prefix} ${nThreads}
         ls ${outdir}
     }
 
