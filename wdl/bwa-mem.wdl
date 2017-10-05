@@ -23,7 +23,7 @@ task bwa_mem_step {
 workflow bwa_mem {
     call bwa_mem_step
     output {
-        bwa_mem_step.output
+        bwa_mem_step.out_bam
     }
 }
 
