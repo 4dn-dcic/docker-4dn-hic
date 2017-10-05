@@ -80,3 +80,22 @@ d45a92f81cef: Pull complete
 04f1d4aac5b5: Pull complete
 ef806e570acb: Pull complete
 b795619ead84: Pull complete
+9216c45e8622: Pull complete
+f4c635ec3f25: Pull complete
+f885f0c42bcb: Pull complete
+e82614cb27ec: Pull complete
+93507ad92790: Pull complete
+06d112b0858b: Pull complete
+bfad678ce9c4: Pull complete
+Digest: sha256:b737228f41b79b9672dfc7a8f61f8ca402f6ad018a40438be89357d5806bcfef
+Status: Downloaded newer image for duplexa/4dn-hic@sha256:b737228f41b79b9672dfc7a8f61f8ca402f6ad018a40438be89357d5806bcfef
+/usr/local/bin/run-bwa-mem.sh: line 12: cd: out: No such file or directory
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 20 sequences (2020 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (0, 0, 0, 0)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] skip orientation FR as there are not enough pairs
+[M::mem_pestat] skip orientation RF as there are not enough pairs
+[M::mem_pestat] skip orientation RR as there are not enough pairs
+[mem_sam_pe] paired reads have different names: "SRR1658650.1.1", "SRR1658650.1.2"
+
