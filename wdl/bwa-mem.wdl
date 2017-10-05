@@ -5,7 +5,7 @@ task bwa_mem_step {
     String prefix = 'out'
     Int nThreads = 4
     String outdir = '.'
-    String output_file_name = outdir + "/" + prefix + '.bam'
+    String output_file_name = $outdir + "/" + $prefix + '.bam'
 
     command {
         run-bwa-mem.sh ${fastq1} ${fastq2} ${bwa_index} ${prefix} ${nThreads} ${outdir}
