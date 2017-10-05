@@ -1,20 +1,23 @@
 env:
-  - WDL_NAME=bwa-mem CROMWELL_JAR=cromwell.jar
-  - BENCHMARK_TEST=1
-  - CWL_NAME=pairs-patch
-  - CWL_NAME=addfragtopairs
-  - CWL_NAME=pairsam-filter
-  - CWL_NAME=pairsam-markasdup
-  - CWL_NAME=merge-pairs
-  - CWL_NAME=pairsam-merge
-  - CWL_NAME=pairsam-parse-sort
-  - CWL_NAME=extract-mcool-normvector-for-juicebox
-  - CWL_NAME=md5
-  - CWL_NAME=fastqc-0-11-4-1
-  - CWL_NAME=hi-c-processing-partb
-  - CWL_NAME=cool2mcool
-  - CWL_NAME=hi-c-processing-partc
-  - CWL_NAME=bwa-mem
+  global:
+    - CROMWELL_JAR=cromwell.jar
+  matrix:
+    - WDL_NAME=bwa-mem
+    - BENCHMARK_TEST=1
+    - CWL_NAME=pairs-patch
+    - CWL_NAME=addfragtopairs
+    - CWL_NAME=pairsam-filter
+    - CWL_NAME=pairsam-markasdup
+    - CWL_NAME=merge-pairs
+    - CWL_NAME=pairsam-merge
+    - CWL_NAME=pairsam-parse-sort
+    - CWL_NAME=extract-mcool-normvector-for-juicebox
+    - CWL_NAME=md5
+    - CWL_NAME=fastqc-0-11-4-1
+    - CWL_NAME=hi-c-processing-partb
+    - CWL_NAME=cool2mcool
+    - CWL_NAME=hi-c-processing-partc
+    - CWL_NAME=bwa-mem
 language: python
 sudo: false
 python: 2.7
