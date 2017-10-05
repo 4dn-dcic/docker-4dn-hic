@@ -1,7 +1,0 @@
-#!/bin/bash
-docker run \
-  --rm -i \
-   \
-  --entrypoint /bin/bash \
-  -v /Users/soo/git/pipelines-cwl/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step:/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step \
-  duplexa/4dn-hic@sha256:b737228f41b79b9672dfc7a8f61f8ca402f6ad018a40438be89357d5806bcfef /cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step/execution/script

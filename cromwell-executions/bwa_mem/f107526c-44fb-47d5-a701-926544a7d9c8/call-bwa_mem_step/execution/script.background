@@ -1,3 +1,0 @@
-#!/bin/bash
-'/bin/bash' '/Users/soo/git/pipelines-cwl/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step/execution/script.submit' > /Users/soo/git/pipelines-cwl/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step/execution/stdout 2> /Users/soo/git/pipelines-cwl/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step/execution/stderr < /dev/null || echo -1 > /Users/soo/git/pipelines-cwl/cromwell-executions/bwa_mem/f107526c-44fb-47d5-a701-926544a7d9c8/call-bwa_mem_step/execution/rc &
-echo $!
