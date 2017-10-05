@@ -1,9 +1,9 @@
 {
-    "bwa_mem.bwa_mem_step.input_fastq1": "tests/test_files/SRR1658650_R1.h40.fastq.gz",
-    "bwa_mem.bwa_mem_step.input_fastq2": "tests/test_files/SRR1658650_R2.h40.fastq.gz",
-    "bwa_mem.bwa_mem_step.bwaIndex": "tests/test_files/hg38.MTonly.bwaIndex.tgz",
-    "bwa_mem.bwa_mem_step.output_prefix": "out",
+    "bwa_mem.bwa_mem_step.fastq1": "tests/test_files/SRR1658650_R1.h40.fastq.gz",
+    "bwa_mem.bwa_mem_step.fastq2": "tests/test_files/SRR1658650_R2.h40.fastq.gz",
+    "bwa_mem.bwa_mem_step.bwa_index": "tests/test_files/hg38.MTonly.bwaIndex.tgz",
+    "bwa_mem.bwa_mem_step.prefix": "out",
     "bwa_mem.bwa_mem_step.nThreads": 8,
-    "bwa_mem.bwa_mem_step.output_dir": "."
+    "bwa_mem.bwa_mem_step.outdir": "."
 }
 
