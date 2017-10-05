@@ -2,17 +2,17 @@ task bwa_mem_step {
     File fastq1
     File fastq2
     File bwa_index
+    Int nThreads
     String prefix = 'out'
-    Int nThreads = 4
     String outdir = '.'
-    String output_file_name = "${outdir}/${prefix}.bam"
 
     command {
         run-bwa-mem.sh ${fastq1} ${fastq2} ${bwa_index} ${prefix} ${nThreads} ${outdir}
+        ls ${outdir}
     }
 
     output {
-        File out_bam = "${output_file_name}"
+        File out_bam = "${outdir}/${prefix}.bam"
     }
 
     runtime {
