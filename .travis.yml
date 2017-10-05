@@ -1,35 +1,44 @@
-sudo: false
-language: python
 env:
-  - BENCHMARK_TEST=1
-  - CWL_NAME=pairs-patch
-  - CWL_NAME=addfragtopairs
-  - CWL_NAME=pairsam-filter
-  - CWL_NAME=pairsam-markasdup
-  - CWL_NAME=merge-pairs
-  - CWL_NAME=pairsam-merge
-  - CWL_NAME=pairsam-parse-sort
-  - CWL_NAME=extract-mcool-normvector-for-juicebox
-  - CWL_NAME=md5
-  - CWL_NAME=fastqc-0-11-4-1
-  - CWL_NAME=hi-c-processing-partb
-  - CWL_NAME=cool2mcool
-  - CWL_NAME=hi-c-processing-partc
-  - CWL_NAME=bwa-mem
-python:
-  - '2.7'
-os:
-  - linux
-services:
-  - docker
+  global:
+    - CROMWELL_JAR=cromwell.jar
+  matrix:
+    - WDL_NAME=bwa-mem
+    - BENCHMARK_TEST=1
+    - CWL_NAME=pairs-patch
+    - CWL_NAME=addfragtopairs
+    - CWL_NAME=pairsam-filter
+    - CWL_NAME=pairsam-markasdup
+    - CWL_NAME=merge-pairs
+    - CWL_NAME=pairsam-merge
+    - CWL_NAME=pairsam-parse-sort
+    - CWL_NAME=extract-mcool-normvector-for-juicebox
+    - CWL_NAME=md5
+    - CWL_NAME=fastqc-0-11-4-1
+    - CWL_NAME=hi-c-processing-partb
+    - CWL_NAME=cool2mcool
+    - CWL_NAME=hi-c-processing-partc
+    - CWL_NAME=bwa-mem
+language: python
+sudo: false
+python: 2.7
+os: linux
+services: docker
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+before_install:
+  - wget https://github.com/broadinstitute/cromwell/releases/download/29/cromwell-29.jar -O $CROMWELL_JAR
 install:
-  - pip install git+https://github.com/SooLee/cwltool.git
-  - python setup.py install
+  - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+  - python setup.py install  # benchmark
 script:
-  - if [ "$BENCHMARK_TEST" == 1 ]; then
+  - if [ ! -z "$BENCHMARK_TEST" ]; then
        python tests/tests_benchmark.py;
     fi
   - if [ ! -z "$CWL_NAME" ]; then
        source tests/tests.sh $CWL_NAME;
     fi
-
+  - if [ ! -z "$WDL_NAME" ]; then
+       source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
+    fi
