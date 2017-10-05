@@ -317,6 +317,8 @@ def hi_c_processing_partc(input_json):
 
     cpu = nthreads
     mem = nthreads * input_size * 5 / MB_IN_BYTES
+    if mem < 1024:
+        mem = 1024
 
     r = BenchmarkResult(size=total_safe_size,
                         mem=mem,
