@@ -35,7 +35,7 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
+            "id": "#outprefix",
             "inputBinding": {
                 "position": 4,
                 "separate": true
@@ -63,7 +63,7 @@
             ],
             "id": "#out_filtered_sorted_bam",
             "outputBinding": {
-                "glob": "*.q20_sorted.bam"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.q20_sorted.bam')"
             }
         }
     ],

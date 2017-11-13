@@ -23,7 +23,7 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
+            "id": "#outprefix",
             "inputBinding": {
                 "position": 3,
                 "separate": true
@@ -51,7 +51,7 @@
             ],
             "id": "#out_deduped_bam",
             "outputBinding": {
-                "glob": "*.rmdup.bam"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.rmdup.bam')"
             }
         },
         {
@@ -61,7 +61,7 @@
             ],
             "id": "#out_log",
             "outputBinding": {
-                "glob": "*.rmdup.bam.log"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.rmdup.bam.log')"
             }
         }
     ],

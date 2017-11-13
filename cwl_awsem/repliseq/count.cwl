@@ -45,7 +45,7 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
+            "id": "#outprefix",
             "inputBinding": {
                 "position": 3,
                 "separate": true
@@ -73,7 +73,7 @@
             ],
             "id": "#out_count_bg",
             "outputBinding": {
-                "glob": "*.bg"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.w' + inputs.winsize + '.bg')"
             }
         }
     ],

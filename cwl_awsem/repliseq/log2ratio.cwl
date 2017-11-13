@@ -12,9 +12,19 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq1",
+            "id": "#input_ebg",
             "inputBinding": {
                 "position": 1,
+                "separate": true
+            }
+        },
+        {
+            "type": [
+                "File"
+            ],
+            "id": "#input_lbg",
+            "inputBinding": {
+                "position": 2,
                 "separate": true
             }
         },
@@ -25,7 +35,7 @@
             ],
             "id": "#outprefix",
             "inputBinding": {
-                "position": 2,
+                "position": 4,
                 "separate": true
             },
             "default": "out"
@@ -37,7 +47,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 1,
+                "position": 3,
                 "separate": true
             },
             "default": "."
@@ -49,24 +59,14 @@
                 "null",
                 "File"
             ],
-            "id": "#out_clipped_fastq",
+            "id": "#out_log2ratio",
             "outputBinding": {
-                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.clip.fastq')"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_log",
-            "outputBinding": {
-                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.clip.fastq.log')"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.l2r.out')"
             }
         }
     ],
     "baseCommand": [
-        "clip"
+        "log2ratio"
     ],
     "requirements": [
         {

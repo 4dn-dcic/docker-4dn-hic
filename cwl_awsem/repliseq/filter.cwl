@@ -34,7 +34,7 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
+            "id": "#outprefix",
             "inputBinding": {
                 "position": 3,
                 "separate": true
@@ -62,7 +62,7 @@
             ],
             "id": "#out_filtered_bg",
             "outputBinding": {
-                "glob": "*.filtered.bg"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.filtered.bg')"
             }
         }
     ],
