@@ -12,7 +12,7 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq1",
+            "id": "#input_bam",
             "inputBinding": {
                 "position": 1,
                 "separate": true
@@ -23,9 +23,21 @@
                 "null",
                 "string"
             ],
-            "id": "#prefix",
+            "id": "#memperthread",
             "inputBinding": {
                 "position": 2,
+                "separate": true
+            },
+            "default": "5G"
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
+            "id": "#prefix",
+            "inputBinding": {
+                "position": 4,
                 "separate": true
             },
             "default": "out"
@@ -37,7 +49,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 1,
+                "position": 3,
                 "separate": true
             },
             "default": "."
@@ -49,24 +61,14 @@
                 "null",
                 "File"
             ],
-            "id": "#out_clipped_fastq",
+            "id": "#out_filtered_sorted_bam",
             "outputBinding": {
-                "glob": "*.clip.fastq"
-            }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_log",
-            "outputBinding": {
-                "glob": "*.clip.fastq.log"
+                "glob": "*.q20_sorted.bam"
             }
         }
     ],
     "baseCommand": [
-        "clip"
+        "filtersort"
     ],
     "requirements": [
         {
