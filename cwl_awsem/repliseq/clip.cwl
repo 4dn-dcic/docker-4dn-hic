@@ -12,7 +12,7 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq1",
+            "id": "#input_fastq",
             "inputBinding": {
                 "position": 1,
                 "separate": true
