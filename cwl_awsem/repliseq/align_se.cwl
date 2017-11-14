@@ -77,7 +77,7 @@
         }
     ],
     "baseCommand": [
-        "run-align-pe.sh"
+        "run-align-se.sh"
     ],
     "requirements": [
         {
