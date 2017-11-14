@@ -20,11 +20,21 @@
         },
         {
             "type": [
+                "File"
+            ],
+            "id": "#filtered_bed",
+            "inputBinding": {
+                "position": 2,
+                "separate": true
+            }
+        },
+        {
+            "type": [
                 "float"
             ],
             "id": "#min_rpkm",
             "inputBinding": {
-                "position": 4,
+                "position": 5,
                 "separate": true
             },
             "default": 0.1
@@ -36,7 +46,7 @@
             ],
             "id": "#outprefix",
             "inputBinding": {
-                "position": 3,
+                "position": 4,
                 "separate": true
             },
             "default": "out"
@@ -48,7 +58,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 2,
+                "position": 3,
                 "separate": true
             },
             "default": "."
