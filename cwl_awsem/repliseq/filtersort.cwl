@@ -21,7 +21,7 @@
         {
             "type": [
                 "null",
-                "string"
+                "int"
             ],
             "id": "#nextrathreads",
             "inputBinding": {
