@@ -75,7 +75,7 @@
             ],
             "id": "#out_filtered_sorted_bam",
             "outputBinding": {
-                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.q20_sorted.bam')"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.q20_sort.bam')"
             }
         }
     ],
