@@ -23,6 +23,18 @@
                 "null",
                 "string"
             ],
+            "id": "#nextrathreads",
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "default": 0
+        },
+        {
+            "type": [
+                "null",
+                "string"
+            ],
             "id": "#memperthread",
             "inputBinding": {
                 "position": 2,
@@ -37,7 +49,7 @@
             ],
             "id": "#outprefix",
             "inputBinding": {
-                "position": 4,
+                "position": 5,
                 "separate": true
             },
             "default": "out"
@@ -49,7 +61,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 3,
+                "position": 4,
                 "separate": true
             },
             "default": "."
