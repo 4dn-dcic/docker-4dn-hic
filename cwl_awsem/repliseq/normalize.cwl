@@ -24,7 +24,7 @@
             ],
             "id": "#reference_bg",
             "inputBinding": {
-                "position": 4,
+                "position": 2,
                 "separate": true
             }
         },
@@ -35,7 +35,7 @@
             ],
             "id": "#outprefix",
             "inputBinding": {
-                "position": 3,
+                "position": 4,
                 "separate": true
             },
             "default": "out"
@@ -47,7 +47,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 2,
+                "position": 3,
                 "separate": true
             },
             "default": "."

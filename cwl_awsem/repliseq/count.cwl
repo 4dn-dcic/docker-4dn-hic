@@ -20,11 +20,22 @@
         },
         {
             "type": [
+                "null",
+                "File"
+            ],
+            "inputBinding": {
+                "separate": true,
+                "position": 2
+            },
+            "id": "#chrsizes"
+        },
+        {
+            "type": [
                 "int"
             ],
             "id": "#winsize",
             "inputBinding": {
-                "position": 4,
+                "position": 5,
                 "separate": true
             },
             "default": 5000
@@ -35,7 +46,7 @@
             ],
             "id": "#minsize",
             "inputBinding": {
-                "position": 5,
+                "position": 6,
                 "separate": true
             },
             "default": 10000000
@@ -47,7 +58,7 @@
             ],
             "id": "#outprefix",
             "inputBinding": {
-                "position": 3,
+                "position": 4,
                 "separate": true
             },
             "default": "out"
@@ -59,7 +70,7 @@
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 2,
+                "position": 3,
                 "separate": true
             },
             "default": "."
