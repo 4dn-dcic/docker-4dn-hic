@@ -16,7 +16,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v8",
+            "dockerPull": "duplexa/4dn-repliseq:v9",
             "class": "DockerRequirement"
         }
     ],
@@ -49,10 +49,21 @@
             ]
         },
         {
+            "type": [
+                "float"
+            ],
+            "id": "#min_rpkm",
+            "inputBinding": {
+                "position": 3,
+                "separate": true
+            },
+            "default": 0.1
+        },
+        {
             "id": "#input_bgs",
             "inputBinding": {
                 "itemSeparator": " ",
-                "position": 3,
+                "position": 4,
                 "separate": true
             },
             "type": [
