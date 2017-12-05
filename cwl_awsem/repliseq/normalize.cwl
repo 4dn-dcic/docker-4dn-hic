@@ -64,16 +64,6 @@
             "outputBinding": {
                 "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.qnorm.bg')"
             }
-        },
-        {
-            "type": [
-                "null",
-                "File"
-            ],
-            "id": "#out_reference_bg",
-            "outputBinding": {
-                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.inorm.bg')"
-            }
         }
     ],
     "baseCommand": [
