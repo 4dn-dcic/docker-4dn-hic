@@ -329,7 +329,6 @@ def hi_c_processing_partc(input_json):
     return(r.as_dict())
 
 
-
 def repliseq_parta(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'fastq' in input_json.get('input_size_in_bytes')
