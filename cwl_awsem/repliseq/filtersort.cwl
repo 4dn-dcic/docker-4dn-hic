@@ -20,7 +20,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "int"
             ],
             "id": "#nthreads",
@@ -32,7 +32,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#memperthread",
@@ -44,7 +44,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outprefix",
@@ -56,7 +56,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
@@ -70,7 +70,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_filtered_sorted_bam",

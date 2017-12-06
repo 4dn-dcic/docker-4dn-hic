@@ -26,33 +26,33 @@
             "inputBinding": {
                 "position": 1,
                 "separate": true,
-                "prefix": '-l'
+                "prefix": "-l"
             },
             "default": 300000
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outprefix",
             "inputBinding": {
                 "position": 3,
                 "separate": true,
-                "prefix": '-p'
+                "prefix": "-p"
             },
             "default": "out"
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
             "inputBinding": {
                 "position": 2,
                 "separate": true,
-                "prefix": '-d'
+                "prefix": "-d"
             },
             "default": "."
         }
@@ -60,7 +60,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_smooth_bg",

@@ -50,7 +50,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "int"
             ],
             "id": "#nthreads",
@@ -58,7 +58,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#memperthread",
@@ -66,7 +66,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "int"
             ],
             "id": "#winsize",

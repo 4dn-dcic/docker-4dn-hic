@@ -20,8 +20,7 @@
         },
         {
             "type": [
-                "File",
-                "null"
+                "File"
             ],
             "id": "#reference_bg",
             "inputBinding": {
@@ -31,7 +30,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outprefix",
@@ -43,7 +42,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
@@ -57,7 +56,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_norm_bg",

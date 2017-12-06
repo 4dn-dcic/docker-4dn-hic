@@ -3,7 +3,7 @@
         {
             "id": "#out_filtered_bed",
             "type": [
-                "null",
+                
                 "File"
             ],
             "outputBinding": {
@@ -32,7 +32,7 @@
             },
             "default": ".",
             "type": [
-                "null",
+                
                 "string"
             ]
         },
@@ -44,7 +44,7 @@
             },
             "default": "out",
             "type": [
-                "null",
+                
                 "string"
             ]
         },
@@ -67,7 +67,7 @@
                 "separate": true
             },
             "type": [
-                "null",
+                
                 {
                     "items": "File",
                     "type": "array"

@@ -41,7 +41,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#prefix",
@@ -53,7 +53,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
@@ -67,7 +67,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_bam",
