@@ -106,7 +106,7 @@
                 {
                     "source": "#bwaIndex",
                     "id": "#align.bwa_index"
-                }
+                },
                 {
                     "source": "#nthreads",
                     "id": "#align.nThreads"
