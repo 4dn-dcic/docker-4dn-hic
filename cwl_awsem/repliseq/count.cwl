@@ -42,17 +42,6 @@
         },
         {
             "type": [
-                "int"
-            ],
-            "id": "#minsize",
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "default": 10000000
-        },
-        {
-            "type": [
                 "null",
                 "string"
             ],
