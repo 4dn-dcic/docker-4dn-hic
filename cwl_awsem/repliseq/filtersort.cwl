@@ -23,12 +23,12 @@
                 "null",
                 "int"
             ],
-            "id": "#nextrathreads",
+            "id": "#nthreads",
             "inputBinding": {
                 "position": 3,
                 "separate": true
             },
-            "default": 0
+            "default": 1
         },
         {
             "type": [
