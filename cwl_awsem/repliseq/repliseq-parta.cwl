@@ -54,7 +54,7 @@
                 "int"
             ],
             "id": "#nthreads",
-            "default": "4"
+            "default": 4
         },
         {
             "type": [
