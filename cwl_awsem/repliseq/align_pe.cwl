@@ -20,6 +20,7 @@
         },
         {
             "type": [
+                "null",
                 "File"
             ],
             "id": "#fastq2",
