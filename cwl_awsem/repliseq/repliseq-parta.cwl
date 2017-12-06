@@ -4,7 +4,7 @@
             "type": [
                 "File"
             ],
-            "source": "#align_se.out_bam",
+            "source": "#align.out_bam",
             "id": "#bam"
         },
         {
@@ -94,25 +94,25 @@
         {
             "outputs": [
                 {
-                    "id": "#align_se.out_bam"
+                    "id": "#align.out_bam"
                 }
             ],
-            "run": "align_se.cwl",
+            "run": "align.cwl",
             "inputs": [
                 {
                     "source": "#clip.out_clipped_fastq",
-                    "id": "#align_se.fastq1"
+                    "id": "#align.fastq1"
                 },
                 {
                     "source": "#bwaIndex",
-                    "id": "#align_se.bwa_index"
+                    "id": "#align.bwa_index"
                 }
                 {
                     "source": "#nthreads",
-                    "id": "#align_se.nThreads"
+                    "id": "#align.nThreads"
                 }
             ],
-            "id": "#align_se"
+            "id": "#align"
         },
         {
             "outputs": [
@@ -123,7 +123,7 @@
             "run": "filtersort.cwl",
             "inputs": [
                 {
-                    "source": "#align_se.out_bam",
+                    "source": "#align.out_bam",
                     "id": "#filtersort.input_bam"
                 },
                 {
