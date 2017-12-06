@@ -3,7 +3,7 @@
         {
             "id": "#out_reference_bg",
             "type": [
-                "null",
+                
                 "File"
             ],
             "outputBinding": {
@@ -16,7 +16,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v9",
+            "dockerPull": "duplexa/4dn-repliseq:v10",
             "class": "DockerRequirement"
         }
     ],
@@ -32,7 +32,7 @@
             },
             "default": ".",
             "type": [
-                "null",
+                
                 "string"
             ]
         },
@@ -44,7 +44,7 @@
             },
             "default": "out",
             "type": [
-                "null",
+                
                 "string"
             ]
         },
@@ -56,7 +56,7 @@
                 "separate": true
             },
             "type": [
-                "null",
+                
                 {
                     "items": "File",
                     "type": "array"

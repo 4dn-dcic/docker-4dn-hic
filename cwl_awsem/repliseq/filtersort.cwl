@@ -1,7 +1,7 @@
 {
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v9",
+            "dockerPull": "duplexa/4dn-repliseq:v10",
             "class": "DockerRequirement"
         }
     ],
@@ -20,19 +20,19 @@
         },
         {
             "type": [
-                "null",
+                
                 "int"
             ],
-            "id": "#nextrathreads",
+            "id": "#nthreads",
             "inputBinding": {
                 "position": 3,
                 "separate": true
             },
-            "default": 0
+            "default": 1
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#memperthread",
@@ -44,7 +44,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outprefix",
@@ -56,7 +56,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
@@ -70,7 +70,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_filtered_sorted_bam",

@@ -54,6 +54,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(hi_c_processing_partc(input_json))
     elif app_name == 'pairs-patch':
         return(pairs_patch(input_json))
+    elif app_name == 'repliseq-parta':
+        return(repliseq_parta(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -323,6 +325,43 @@ def hi_c_processing_partc(input_json):
     r = BenchmarkResult(size=total_safe_size,
                         mem=mem,
                         cpu=cpu)
+
+    return(r.as_dict())
+
+
+def repliseq_parta(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'fastq' in input_json.get('input_size_in_bytes')
+    assert 'bwaIndex' in input_json.get('input_size_in_bytes')
+
+    # cpu
+    nthreads = 4  # default from cwl
+    if 'parameters' in input_json:
+        if 'nthreads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('nthreads')
+
+    # space
+    input_sizes = input_json.get('input_size_in_bytes')
+    data_input_size = input_sizes.get('fastq')
+    total_input_size = data_input_size + input_sizes.get('bwaIndex')
+    output_bam_size = data_input_size * 2
+    output_clipped_fq_size = data_input_size
+    output_size = output_bam_size * 3 + output_clipped_fq_size
+    intermediate_index_size = input_sizes.get('bwaIndex') * 2
+    copied_input_size = data_input_size * 7  # copied and unzipped
+    total_intermediate_size \
+        = intermediate_index_size + output_size + copied_input_size
+    total_output_size = output_size
+    additional_size_in_gb = 10
+
+    total_file_size_in_bp \
+        = total_input_size + total_intermediate_size + total_output_size
+    total_size = total_file_size_in_bp / GB_IN_BYTES + additional_size_in_gb
+
+    # mem
+    mem = input_sizes.get('bwaIndex') * 4 / MB_IN_BYTES + (nthreads * 500)
+
+    r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads)
 
     return(r.as_dict())
 

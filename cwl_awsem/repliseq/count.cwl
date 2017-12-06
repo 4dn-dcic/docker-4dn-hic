@@ -1,7 +1,7 @@
 {
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v9",
+            "dockerPull": "duplexa/4dn-repliseq:v10",
             "class": "DockerRequirement"
         }
     ],
@@ -20,7 +20,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "inputBinding": {
@@ -42,18 +42,7 @@
         },
         {
             "type": [
-                "int"
-            ],
-            "id": "#minsize",
-            "inputBinding": {
-                "position": 6,
-                "separate": true
-            },
-            "default": 10000000
-        },
-        {
-            "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outprefix",
@@ -65,7 +54,7 @@
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
@@ -79,7 +68,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_count_bg",

@@ -1,7 +1,7 @@
 {
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v9",
+            "dockerPull": "duplexa/4dn-repliseq:v10",
             "class": "DockerRequirement"
         }
     ],
@@ -22,19 +22,9 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq2",
-            "inputBinding": {
-                "position": 2,
-                "separate": true
-            }
-        },
-        {
-            "type": [
-                "File"
-            ],
             "id": "#bwa_index",
             "inputBinding": {
-                "position": 3,
+                "position": 2,
                 "separate": true
             }
         },
@@ -44,31 +34,31 @@
             ],
             "id": "#nThreads",
             "inputBinding": {
-                "position": 6,
+                "position": 5,
                 "separate": true
             },
             "default": 4
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#prefix",
             "inputBinding": {
-                "position": 5,
+                "position": 4,
                 "separate": true
             },
             "default": "out"
         },
         {
             "type": [
-                "null",
+                
                 "string"
             ],
             "id": "#outdir",
             "inputBinding": {
-                "position": 4,
+                "position": 3,
                 "separate": true
             },
             "default": "."
@@ -77,7 +67,7 @@
     "outputs": [
         {
             "type": [
-                "null",
+                
                 "File"
             ],
             "id": "#out_bam",
@@ -87,7 +77,7 @@
         }
     ],
     "baseCommand": [
-        "run-align-pe.sh"
+        "run-align.sh"
     ],
     "requirements": [
         {
