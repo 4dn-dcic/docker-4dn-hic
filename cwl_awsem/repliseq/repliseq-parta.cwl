@@ -1,9 +1,9 @@
 {
-    "4dn_description": {
+    "4dn_meta": {
         "data_types": [ "Repli-seq" ],
         "category": "clip + align + filter + sort + dedup + count",
         "workflow_type": "Repli-seq data processing",
-        "description": "GITAR Hi-C data processing pipeline"
+        "description": "Repli-seq data processing pipeline"
     },
     "outputs": [
         {
@@ -11,28 +11,32 @@
                 "File"
             ],
             "source": "#align.out_bam",
-            "id": "#bam"
+            "id": "#bam",
+            "4dn_format": "bam"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#filtersort.out_filtered_sorted_bam",
-            "id": "#filtered_sorted_bam"
+            "id": "#filtered_sorted_bam",
+            "4dn_format": "bam"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#dedup.out_deduped_bam",
-            "id": "#filtered_sorted_deduped_bam"
+            "id": "#filtered_sorted_deduped_bam",
+            "4dn_format": "bam"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#count.out_count_bg",
-            "id": "#count_bg"
+            "id": "#count_bg",
+            "4dn_format": "bg"
         }
     ],
     "inputs": [
@@ -40,19 +44,22 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq"
+            "id": "#fastq",
+            "4dn_format": "fastq"
         },
         {
             "type": [
                 "File"
             ],
-            "id": "#bwaIndex"
+            "id": "#bwaIndex",
+            "4dn_format": "bwaIndex"
         },
         {
             "type": [
                 "File"
             ],
-            "id": "#chromsizes"
+            "id": "#chromsizes",
+            "4dn_format": "chromsizes"
         },
         {
             "type": [
@@ -68,7 +75,7 @@
                 "string"
             ],
             "id": "#memperthread",
-            "default": "5G"
+            "default": "2G"
         },
         {
             "type": [
@@ -96,8 +103,8 @@
                 }
             ],
             "id": "#clip",
-            "4dn_description": {
-                "software": "cutadapt",
+            "4dn_step_meta": {
+                "software": [ "cutadapt" ],
                 "description": "Adapter removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "adapter removal" ]
             }
@@ -124,8 +131,8 @@
                 }
             ],
             "id": "#align",
-            "4dn_description": {
-                "software": "bwa",
+            "4dn_step_meta": {
+                "software": [ "bwa" ],
                 "description": "Alignment according to the Repli-seq pipeline",
                 "analysis_step_types": [ "alignment" ]
             }
@@ -152,8 +159,8 @@
                 }
             ],
             "id": "#filtersort",
-            "4dn_description": {
-                "software": "samtools",
+            "4dn_step_meta": {
+                "software": [ "samtools" ],
                 "description": "Filtering and sorting according to the Repli-seq pipeline",
                 "analysis_step_types": [ "filtering", "sorting" ]
             }
@@ -172,8 +179,8 @@
                 }
             ],
             "id": "#dedup",
-            "4dn_description": {
-                "software": "samtools",
+            "4dn_step_meta": {
+                "software": [ "samtools" ],
                 "description": "PCR Duplicate removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "duplicate removal" ]
             }
@@ -200,8 +207,8 @@
                 }
             ],
             "id": "#count",
-            "4dn_description": {
-                "software": "bedtools",
+            "4dn_step_meta": {
+                "software": [ "bedtools" ],
                 "description": "Read aggregation according to the Repli-seq pipeline",
                 "analysis_step_types": [ "aggregation" ]
             }
