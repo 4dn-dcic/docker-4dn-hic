@@ -1,4 +1,10 @@
 {
+    "4dn_description": {
+        "data_types": [ "Repli-seq" ],
+        "category": "clip + align + filter + sort + dedup + count",
+        "workflow_type": "Repli-seq data processing",
+        "description": "GITAR Hi-C data processing pipeline"
+    },
     "outputs": [
         {
             "type": [
