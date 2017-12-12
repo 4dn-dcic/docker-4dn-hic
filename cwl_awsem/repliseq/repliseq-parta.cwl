@@ -1,7 +1,7 @@
 {
     "4dn_meta": {
         "data_types": [ "Repli-seq" ],
-        "category": "clip + align + filter + sort + dedup + count",
+        "category": "align + filter + count",
         "workflow_type": "Repli-seq data processing",
         "description": "Repli-seq data processing pipeline"
     },
@@ -210,7 +210,7 @@
             "4dn_step_meta": {
                 "software": [ "bedtools" ],
                 "description": "Read aggregation according to the Repli-seq pipeline",
-                "analysis_step_types": [ "aggregation" ]
+                "analysis_step_types": [ "binning", "aggregation" ]
             }
         }
     ],
