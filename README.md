@@ -6,16 +6,16 @@
 ### Specification for 4DN
 * Currently, 4DN DCIC uses CWL `draft-3`.
 * The following 4DN custom fields are added, for automated conversion from cwl to the workflow metadata used by the 4DN Data Portal.
-  * `4dn_meta` (top level field) : a dictionary that contains `data_types`, `category`, `workflow_type`, `description`.
+  * `fdn_meta` (top level field) : a dictionary that contains `data_types`, `category`, `workflow_type`, `description`.
     * `data_types` : an array of strings that correspond to the data types to be processed. e.g.) [ 'Repli-seq' ]
     * `category` : a string describing the steps. e.g.) 'clip + align + filter + sort + dedup + count'
     * `workflow_type` : a string describing the purpose of the workflow in short. e.g.) 'Repli-seq data processing'
     * `description` : a string describing the workflow. e.g.) 'Repli-seq data processing pipeline'
-  * `4dn_step_meta` (within each `steps` element) : a dictionary that contains `software`, `description`, `analysis_step_types`.
+  * `fdn_step_meta` (within each `steps` element) : a dictionary that contains `software`, `description`, `analysis_step_types`.
     * `software` : an array of strings that refer to the names of the software used. The name must match the names used in the `downloads.sh` in an accompanying Docker source repo. e.g.) [ 'cutadapt' ]
     * `description` : a string that describes the step. e.g.) 'Adapter removal according to the Repli-seq pipeline'
     * `analysis_step_types` : an array of strings that refer to the step types (i.e. purpose). e.g.) [ 'adapter removal' ]
-  * `4dn_format` (within each top-level `inputs` and `outputs` element) : a string. e.g.) 'bam'
+  * `fdn_format` (within each top-level `inputs` and `outputs` element) : a string. e.g.) 'bam'
 
 
 ### How to run the cwl
