@@ -95,7 +95,12 @@
                     "id": "#clip.input_fastq"
                 }
             ],
-            "id": "#clip"
+            "id": "#clip",
+            "4dn_description": {
+                "software": "cutadapt",
+                "description": "Adapter removal according to the Repli-seq pipeline",
+                "analysis_step_types": [ "adapter removal" ]
+            }
         },
         {
             "outputs": [
@@ -118,7 +123,12 @@
                     "id": "#align.nThreads"
                 }
             ],
-            "id": "#align"
+            "id": "#align",
+            "4dn_description": {
+                "software": "bwa",
+                "description": "Alignment according to the Repli-seq pipeline",
+                "analysis_step_types": [ "alignment" ]
+            }
         },
         {
             "outputs": [
@@ -141,7 +151,12 @@
                     "id": "#filtersort.memperthread"
                 }
             ],
-            "id": "#filtersort"
+            "id": "#filtersort",
+            "4dn_description": {
+                "software": "samtools",
+                "description": "Filtering and sorting according to the Repli-seq pipeline",
+                "analysis_step_types": [ "filtering", "sorting" ]
+            }
         },
         {
             "outputs": [
@@ -156,7 +171,12 @@
                     "id": "#dedup.input_bam"
                 }
             ],
-            "id": "#dedup"
+            "id": "#dedup",
+            "4dn_description": {
+                "software": "samtools",
+                "description": "PCR Duplicate removal according to the Repli-seq pipeline",
+                "analysis_step_types": [ "duplicate removal" ]
+            }
         },
         {
             "outputs": [
@@ -179,7 +199,12 @@
                     "id": "#count.winsize"
                 }
             ],
-            "id": "#count"
+            "id": "#count",
+            "4dn_description": {
+                "software": "bedtools",
+                "description": "Read aggregation according to the Repli-seq pipeline",
+                "analysis_step_types": [ "aggregation" ]
+            }
         }
     ],
     "requirements": [
