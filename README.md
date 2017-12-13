@@ -11,8 +11,8 @@
     * `category` : a string describing the steps. e.g.) 'clip + align + filter + sort + dedup + count'
     * `workflow_type` : a string describing the purpose of the workflow in short. e.g.) 'Repli-seq data processing'
     * `description` : a string describing the workflow. e.g.) 'Repli-seq data processing pipeline'
-  * `fdn_step_meta` (within each `steps` element) : a dictionary that contains `software`, `description`, `analysis_step_types`.
-    * `software` : an array of strings that refer to the names of the software used. The name must match the names used in the `downloads.sh` in an accompanying Docker source repo. e.g.) [ 'cutadapt' ]
+  * `fdn_step_meta` (within each `steps` element) : a dictionary that contains `software_used`, `description`, `analysis_step_types`.
+    * `software_used` : an array of strings that refer to the names of the software used. The name must match the names used in the `downloads.sh` in an accompanying Docker source repo. e.g.) [ 'cutadapt' ]
     * `description` : a string that describes the step. e.g.) 'Adapter removal according to the Repli-seq pipeline'
     * `analysis_step_types` : an array of strings that refer to the step types (i.e. purpose). e.g.) [ 'adapter removal' ]
   * `fdn_format` (within each top-level `inputs` and `outputs` element) : a string. e.g.) 'bam'

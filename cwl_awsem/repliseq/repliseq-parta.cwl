@@ -104,7 +104,7 @@
             ],
             "id": "#clip",
             "fdn_step_meta": {
-                "software": [ "cutadapt" ],
+                "software_used": [ "cutadapt" ],
                 "description": "Adapter removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "adapter removal" ]
             }
@@ -132,7 +132,7 @@
             ],
             "id": "#align",
             "fdn_step_meta": {
-                "software": [ "bwa" ],
+                "software_used": [ "bwa" ],
                 "description": "Alignment according to the Repli-seq pipeline",
                 "analysis_step_types": [ "alignment" ]
             }
@@ -160,7 +160,7 @@
             ],
             "id": "#filtersort",
             "fdn_step_meta": {
-                "software": [ "samtools" ],
+                "software_used": [ "samtools" ],
                 "description": "Filtering and sorting according to the Repli-seq pipeline",
                 "analysis_step_types": [ "filtering", "sorting" ]
             }
@@ -180,7 +180,7 @@
             ],
             "id": "#dedup",
             "fdn_step_meta": {
-                "software": [ "samtools" ],
+                "software_used": [ "samtools" ],
                 "description": "PCR Duplicate removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "duplicate removal" ]
             }
@@ -208,7 +208,7 @@
             ],
             "id": "#count",
             "fdn_step_meta": {
-                "software": [ "bedtools" ],
+                "software_used": [ "bedtools" ],
                 "description": "Read aggregation according to the Repli-seq pipeline",
                 "analysis_step_types": [ "binning", "aggregation" ]
             }
