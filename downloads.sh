@@ -56,11 +56,11 @@ ln -s pairsqc-0.2.0 pairsqc
 
 
 ## SOFTWARE: juicebox
-## VERSION: 1.6.2-cuda8
+## VERSION: 1.7.6-cuda8
 ## TYPE: aggregator,normalizer
 ## SOURCE_URL: https://github.com/theaidenlab/juicebox
-wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.6.2_linux_jcuda.0.8.jar
-ln -s /usr/local/bin/juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools.jar
+wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.7.6_jcuda.0.8.jar
+ln -s /usr/local/bin/juicer_tools.1.7.6_jcuda.0.8.jar juicer_tools.jar
 
 
 ## SOFTWARE: juicer

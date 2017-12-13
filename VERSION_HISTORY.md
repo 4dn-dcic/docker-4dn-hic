@@ -1,5 +1,5 @@
 ### v41
-* version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`.
+* version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
 * annotation for software now includes TYPE and SOURCE_URL
 
 ### v40
