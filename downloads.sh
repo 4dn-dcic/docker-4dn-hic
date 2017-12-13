@@ -10,16 +10,14 @@
 
 
 ## SOFTWARE: bwa
-## VERSION: 0.7.16a-r1185-dirty
-## COMMIT: 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
-# This version of bwa is used because it has the -5 option.
-git clone https://github.com/lh3/bwa
-cd bwa
-git checkout 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
+## VERSION: 0.7.17
+## TYPE: aligner
+wget https://github.com/lh3/bwa/archive/v0.7.17.tar.gz
+tar -xzf v0.7.17.tar.gz
+cd bwa-0.7.17
 make
 cd ..
-mv bwa bwa-0.7.16a-r1185-dirty
-ln -s bwa-0.7.16a-r1185-dirty bwa
+ln -s bwa-0.7.17 bwa
 
 
 ## SOFTWARE: samtools
@@ -33,19 +31,19 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.2.6
-wget https://github.com/4dn-dcic/pairix/archive/0.2.6.tar.gz
-tar -xzf 0.2.6.tar.gz
-rm 0.2.6.tar.gz
-cd pairix-0.2.6
+## VERSION: 0.3.3
+wget https://github.com/4dn-dcic/pairix/archive/0.3.3.tar.gz
+tar -xzf 0.3.3.tar.gz
+rm 0.3.3.tar.gz
+cd pairix-0.3.3
 make
 cd ..
-ln -s pairix-0.2.6 pairix
+ln -s pairix-0.3.3 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.7.4
-pip3 install cooler==0.7.4
+## VERSION: 0.7.6
+pip3 install cooler==0.7.6
 
 
 ## SOFTWARE: pairsqc
@@ -89,11 +87,11 @@ cd ..
 
 
 ## SOFTWARE: pairsamtools
-## COMMIT: 4108cf52c086c7d93d556f077152b2b5ac13d8c4
+## COMMIT: 49489c
 pip3 install numpy Cython click
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git@4108cf52c086c7d93d556f077152b2b5ac13d8c4
+pip3 install git+https://github.com/mirnylab/pairsamtools.git#49489c
 
