@@ -16,7 +16,10 @@
     * `description` : a string that describes the step. e.g.) 'Adapter removal according to the Repli-seq pipeline'
     * `analysis_step_types` : an array of strings that refer to the step types (i.e. purpose). e.g.) [ 'adapter removal' ]
   * `fdn_format` (within each top-level `inputs` and `outputs` element) : a string. e.g.) 'bam'
-
+  * `fdn_output_type` (within each top-level `outputs` element) : a string that corresponds to one of the following three - 'processed', 'QC', 'report'
+    * processed : generic output file
+    * QC : output will be used to generate a quality_metric object (e.g. fastqc report)
+    * report : output will be used to add a metric to input (e.g. md5)
 
 ### How to run the cwl
 To run docker through CWL, you need a cwl executor - we use `cwltool` (https://github.com/common-workflow-language/cwltool) to run CWL with a json/yml file describing input data. Some example input data are inside the `tests/test_input_json` directory and you can see some `cwltool` (=`cwl-runner`) commands inside the `tests/tests.sh` script.

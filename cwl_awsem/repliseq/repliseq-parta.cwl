@@ -12,7 +12,8 @@
             ],
             "source": "#align.out_bam",
             "id": "#bam",
-            "fdn_format": "bam"
+            "fdn_format": "bam",
+            "fdn_output_type": "processed"
         },
         {
             "type": [
@@ -20,6 +21,7 @@
             ],
             "source": "#filtersort.out_filtered_sorted_bam",
             "id": "#filtered_sorted_bam",
+            "fdn_output_type": "processed",
             "fdn_format": "bam"
         },
         {
@@ -28,6 +30,7 @@
             ],
             "source": "#dedup.out_deduped_bam",
             "id": "#filtered_sorted_deduped_bam",
+            "fdn_output_type": "processed",
             "fdn_format": "bam"
         },
         {
@@ -36,6 +39,7 @@
             ],
             "source": "#count.out_count_bg",
             "id": "#count_bg",
+            "fdn_output_type": "processed",
             "fdn_format": "bg"
         }
     ],
