@@ -16,7 +16,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v10",
+            "dockerPull": "duplexa/4dn-repliseq:v11",
             "class": "DockerRequirement"
         }
     ],

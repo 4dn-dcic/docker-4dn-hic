@@ -37,6 +37,14 @@
             "type": [
                 "File"
             ],
+            "source": "#dedup.out_qc_report",
+            "id": "#dedup_qc_report",
+            "fdn_output_type": "QC"
+        },
+        {
+            "type": [
+                "File"
+            ],
             "source": "#count.out_count_bg",
             "id": "#count_bg",
             "fdn_output_type": "processed",
