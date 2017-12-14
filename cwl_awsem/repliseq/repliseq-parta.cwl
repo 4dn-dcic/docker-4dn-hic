@@ -1,32 +1,46 @@
 {
+    "fdn_meta": {
+        "data_types": [ "Repli-seq" ],
+        "category": "align + filter + count",
+        "workflow_type": "Repli-seq data processing",
+        "description": "Repli-seq data processing pipeline"
+    },
     "outputs": [
         {
             "type": [
                 "File"
             ],
             "source": "#align.out_bam",
-            "id": "#bam"
+            "id": "#bam",
+            "fdn_format": "bam",
+            "fdn_output_type": "processed"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#filtersort.out_filtered_sorted_bam",
-            "id": "#filtered_sorted_bam"
+            "id": "#filtered_sorted_bam",
+            "fdn_output_type": "processed",
+            "fdn_format": "bam"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#dedup.out_deduped_bam",
-            "id": "#filtered_sorted_deduped_bam"
+            "id": "#filtered_sorted_deduped_bam",
+            "fdn_output_type": "processed",
+            "fdn_format": "bam"
         },
         {
             "type": [
                 "File"
             ],
             "source": "#count.out_count_bg",
-            "id": "#count_bg"
+            "id": "#count_bg",
+            "fdn_output_type": "processed",
+            "fdn_format": "bg"
         }
     ],
     "inputs": [
@@ -34,19 +48,22 @@
             "type": [
                 "File"
             ],
-            "id": "#fastq"
+            "id": "#fastq",
+            "fdn_format": "fastq"
         },
         {
             "type": [
                 "File"
             ],
-            "id": "#bwaIndex"
+            "id": "#bwaIndex",
+            "fdn_format": "bwaIndex"
         },
         {
             "type": [
                 "File"
             ],
-            "id": "#chromsizes"
+            "id": "#chromsizes",
+            "fdn_format": "chromsizes"
         },
         {
             "type": [
@@ -62,7 +79,7 @@
                 "string"
             ],
             "id": "#memperthread",
-            "default": "5G"
+            "default": "2G"
         },
         {
             "type": [
@@ -89,7 +106,12 @@
                     "id": "#clip.input_fastq"
                 }
             ],
-            "id": "#clip"
+            "id": "#clip",
+            "fdn_step_meta": {
+                "software_used": [ "cutadapt" ],
+                "description": "Adapter removal according to the Repli-seq pipeline",
+                "analysis_step_types": [ "adapter removal" ]
+            }
         },
         {
             "outputs": [
@@ -112,7 +134,12 @@
                     "id": "#align.nThreads"
                 }
             ],
-            "id": "#align"
+            "id": "#align",
+            "fdn_step_meta": {
+                "software_used": [ "bwa" ],
+                "description": "Alignment according to the Repli-seq pipeline",
+                "analysis_step_types": [ "alignment" ]
+            }
         },
         {
             "outputs": [
@@ -135,7 +162,12 @@
                     "id": "#filtersort.memperthread"
                 }
             ],
-            "id": "#filtersort"
+            "id": "#filtersort",
+            "fdn_step_meta": {
+                "software_used": [ "samtools" ],
+                "description": "Filtering and sorting according to the Repli-seq pipeline",
+                "analysis_step_types": [ "filtering", "sorting" ]
+            }
         },
         {
             "outputs": [
@@ -150,7 +182,12 @@
                     "id": "#dedup.input_bam"
                 }
             ],
-            "id": "#dedup"
+            "id": "#dedup",
+            "fdn_step_meta": {
+                "software_used": [ "samtools" ],
+                "description": "PCR Duplicate removal according to the Repli-seq pipeline",
+                "analysis_step_types": [ "duplicate removal" ]
+            }
         },
         {
             "outputs": [
@@ -173,7 +210,12 @@
                     "id": "#count.winsize"
                 }
             ],
-            "id": "#count"
+            "id": "#count",
+            "fdn_step_meta": {
+                "software_used": [ "bedtools" ],
+                "description": "Read aggregation according to the Repli-seq pipeline",
+                "analysis_step_types": [ "binning", "aggregation" ]
+            }
         }
     ],
     "requirements": [
