@@ -4,7 +4,10 @@
     "inputs": [
         {
             "type": [
-                "File"
+                {
+                    "items": "File",
+                    "type": "array"
+                }
             ],
             "inputBinding": {
                 "separate": true,
