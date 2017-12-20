@@ -4,25 +4,19 @@
     "inputs": [
         {
             "type": [
-                "null",
                 "File"
             ],
             "inputBinding": {
                 "separate": true,
                 "position": 1
             },
+            "secondaryFiles": [
+                ".px2"
+            ],
             "id": "#input_pairs"
         },
         {
             "type": [
-                "null",
-                "File"
-            ],
-            "id": "#input_pairs_index"
-        },
-        {
-            "type": [
-                "null",
                 "File"
             ],
             "inputBinding": {
@@ -33,7 +27,6 @@
         },
         {
             "type": [
-                "null",
                 "string"
             ],
             "inputBinding": {
@@ -44,7 +37,6 @@
         },
         {
             "type": [
-                "null",
                 {
                     "name": "enzyme",
                     "type": "enum",
@@ -62,16 +54,10 @@
         },
         {
             "type": [
-                "null",
                 "string"
             ],
             "inputBinding": {
                 "separate": true,
-                "valueFrom": {
-                    "class": "Expression",
-                    "engine": "#cwl-js-engine",
-                    "script": "'.'"
-                },
                 "position": 5
             },
             "default": ".",
@@ -81,7 +67,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v6"
+            "dockerPull": "duplexa/4dn-hic:v41"
         }
     ],
     "class": "CommandLineTool",

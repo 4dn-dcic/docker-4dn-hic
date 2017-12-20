@@ -1,7 +1,7 @@
 {
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-repliseq:v10",
+            "dockerPull": "duplexa/4dn-repliseq:v11",
             "class": "DockerRequirement"
         }
     ],
@@ -59,14 +59,14 @@
                 
                 "File"
             ],
-            "id": "#out_log",
+            "id": "#out_qc_report",
             "outputBinding": {
-                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.rmdup.bam.log')"
+                "glob": "$(inputs.outdir + '/' + inputs.outprefix + '.rmdup.log.qc_report.zip')"
             }
         }
     ],
     "baseCommand": [
-        "dedup"
+        "run-dedup.sh"
     ],
     "requirements": [
         {

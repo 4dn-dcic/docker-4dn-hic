@@ -56,6 +56,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(pairs_patch(input_json))
     elif app_name == 'repliseq-parta':
         return(repliseq_parta(input_json))
+    elif app_name == 'pairsqc-single':
+        return(pairsqc_single(input_json))
     else:
         if raise_error:
             raise AppNameUnavailableException
@@ -247,6 +249,24 @@ def pairs_patch(input_json):
     insize = input_json['input_size_in_bytes']['input_pairs'] / GB_IN_BYTES
     outsize = insize * 2
     intersize = outsize
+    total_size = insize + outsize + intersize
+    total_safe_size = total_size * 2
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=cpu)
+    return(r.as_dict())
+
+
+def pairsqc_single(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairs' in input_json.get('input_size_in_bytes')
+
+    cpu = 1  # very rough estimate
+    mem = 1024  # very rough estimate
+
+    # space
+    insize = input_json['input_size_in_bytes']['input_pairs'] / GB_IN_BYTES
+    outsize = 0
+    intersize = 0
     total_size = insize + outsize + intersize
     total_safe_size = total_size * 2
 
