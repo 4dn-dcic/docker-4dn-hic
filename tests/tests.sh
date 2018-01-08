@@ -7,11 +7,9 @@ cwd=$(pwd)
 mkdir -p tmp_out
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 2 /e/test0 2
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler-balance.sh /e/test0.cool 5000 /e/test 10000000
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool > tmp_out/test.cooldump
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool | tail -n+2  > tmp_out/test.cooldump  ## tail is a temporary fix to remove warning printed out to stdout
 if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
   echo "cooler test failed"
-  head tests/test.cooldump
-  head tmp_out/test.cooldump | tail -8
   return 1;
 fi
 
