@@ -7,8 +7,9 @@ cwd=$(pwd)
 mkdir -p tmp_out
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 2 /e/test0 2
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler-balance.sh /e/test0.cool 5000 /e/test 10000000
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool > tmp_out/test.cooldump
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool | tail -n+3  > tmp_out/test.cooldump  ## tail is a temporary fix to remove warning printed out to stdout
 if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
+  echo "cooler test failed"
   return 1;
 fi
 
@@ -17,6 +18,7 @@ docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name r
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("/e/test.multires.cool"))' > mcool.log1
 docker run -it -v $cwd/tests/:/f/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("/f/test.multires.cool"))' > mcool.log2
 if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
+  echo "zoomify test failed"
   return 1;
 fi
 
@@ -29,6 +31,7 @@ cd ../../
 du -s tests/pairsqc/test_report/ |cut -f1 > pairsqc.log1
 du -s tmp_out/test/test_report/ | cut -f1 > pairsqc.log2
 if [ ! -z "$(diff pairsqc.log1 pairsqc.log2)" ]; then
+  echo "pairsqc test failed"
   return 1;
 fi
 
@@ -38,14 +41,16 @@ docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 0 4g 0
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar /usr/local/bin/juicer_tools.jar dump observed NONE /out/test.hic chr1 chr1 BP 5000 > tmp_out/test.hicdump
 gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | sed 's/ //g' > juicebox-pre.log1
-cut -f3 tmp_out/test.hicdump | tail -n +4 | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
+cut -f3 tmp_out/test.hicdump | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
 if [ ! -z "$(diff juicebox-pre.log1 juicebox-pre.log2)" ]; then
+  echo "juicebox pre test failed"
   return 1;
 fi
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar juicer_tools.jar dump observed KR /out/test.hic chr1 chr1 BP 500000 > tmp_out/test.hicdump3
 cut -f3 tmp_out/test.hicdump3 | tail -n +4 | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 | cut -c1-2 > juicebox-norm.log1
 gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | sed 's/ //g' | cut -c1-2 > juicebox-norm.log2
 if [ ! -z "$(diff juicebox-norm.log1 juicebox-norm.log2)" ]; then
+  echo "juicebox norm test failed"
   return 1;
 fi
 

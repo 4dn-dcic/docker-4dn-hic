@@ -1,3 +1,10 @@
+### v41
+* version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
+* annotation for software now includes TYPE and SOURCE_URL
+
+### v40
+* pairsamtools pipeline added
+
 ### v39
 * bwa-mem 0.7.16a-r1185-dirty
 * run-bwa-mem.sh copies input files to output directory, so that unzipping doesn't change input files.

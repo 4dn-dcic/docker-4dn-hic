@@ -1,29 +1,22 @@
 #!/bin/sh
 
-## SOFTWARE: fastqc
-## VERSION: 0.11.5
-#wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip
-#unzip fastqc_v0.11.5.zip
-#cd FastQC/
-#chmod 755 fastqc
-#cd ..
-
 
 ## SOFTWARE: bwa
-## VERSION: 0.7.16a-r1185-dirty
-## COMMIT: 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
-# This version of bwa is used because it has the -5 option.
-git clone https://github.com/lh3/bwa
-cd bwa
-git checkout 340babdd671eeeb3c7bfbf2e4ad1e761ece94983
+## VERSION: 0.7.17
+## TYPE: aligner
+## SOURCE_URL: https://github.com/lh3/bwa
+wget https://github.com/lh3/bwa/archive/v0.7.17.tar.gz
+tar -xzf v0.7.17.tar.gz
+cd bwa-0.7.17
 make
 cd ..
-mv bwa bwa-0.7.16a-r1185-dirty
-ln -s bwa-0.7.16a-r1185-dirty bwa
+ln -s bwa-0.7.17 bwa
 
 
 ## SOFTWARE: samtools
 ## VERSION: 1.2
+## TYPE: file format converter
+## SOURCE_URL: https://github.com/samtools/samtools
 wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
 tar -xjf samtools-1.2.tar.bz2
 cd samtools-1.2
@@ -33,23 +26,29 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.2.6
-wget https://github.com/4dn-dcic/pairix/archive/0.2.6.tar.gz
-tar -xzf 0.2.6.tar.gz
-rm 0.2.6.tar.gz
-cd pairix-0.2.6
+## VERSION: 0.3.3
+## TYPE: file format converter,indexer
+## SOURCE_URL: https://github.com/4dn-dcic/pairix
+wget https://github.com/4dn-dcic/pairix/archive/0.3.3.tar.gz
+tar -xzf 0.3.3.tar.gz
+rm 0.3.3.tar.gz
+cd pairix-0.3.3
 make
 cd ..
-ln -s pairix-0.2.6 pairix
+ln -s pairix-0.3.3 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.7.4
-pip3 install cooler==0.7.4
+## VERSION: 0.7.6
+## TYPE: aggregator,normalizer
+## SOURCE_URL: https://github.com/mirnylab/cooler
+pip3 install cooler==0.7.6
 
 
 ## SOFTWARE: pairsqc
 ## VERSION: 0.2.0
+## TYPE: quality metric generator
+## SOURCE_URL: https://github.com/4dn-dcic/pairsqc
 wget https://github.com/4dn-dcic/pairsqc/archive/0.2.0.tar.gz
 tar -xzf 0.2.0.tar.gz
 rm 0.2.0.tar.gz
@@ -57,13 +56,17 @@ ln -s pairsqc-0.2.0 pairsqc
 
 
 ## SOFTWARE: juicebox
-## VERSION: 1.6.2-cuda8
-wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.6.2_linux_jcuda.0.8.jar
-ln -s /usr/local/bin/juicer_tools.1.6.2_linux_jcuda.0.8.jar juicer_tools.jar
+## VERSION: 1.7.6-cuda8
+## TYPE: aggregator,normalizer
+## SOURCE_URL: https://github.com/theaidenlab/juicebox
+wget http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.7.6_jcuda.0.8.jar
+ln -s /usr/local/bin/juicer_tools.1.7.6_jcuda.0.8.jar juicer_tools.jar
 
 
 ## SOFTWARE: juicer
 ## COMMIT: e6d60097e589878bdf277fba6d88075430041273
+## TYPE: aligner,file format converter,sorter,annotater,filter,aggregator,normalizer
+## SOURCE_URL: https://github.com/theaidenlab/juicer
 git clone https://github.com/SooLee/juicer.git
 cd juicer
 chmod +x CPU/* CPU/common/*
@@ -72,16 +75,16 @@ cd ..
 
 
 ## SOFTWARE: hic2cool
-## COMMIT: 1aee5e744d36a4a44c8b7dd13bab4563d7f56a09
-git clone https://github.com/SooLee/hic2cool.git
-cd hic2cool
-git checkout 1aee5e744d36a4a44c8b7dd13bab4563d7f56a09
-pip3 install -r requirements.txt
-cd ..
+## VERSION: 0.4.1
+## TYPE: file format converter
+## SOURCE_URL: https://github.com/4dn-dcic/hic2cool
+pip3 install hic2cool==0.4.1
 
 
 ## SOFTWARE: mcool2hic
 ## COMMIT: f2d1283
+## TYPE: file format converter
+## SOURCE_URL: https://github.com/SooLee/mcool2hic
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
 git checkout f2d1283
@@ -89,11 +92,13 @@ cd ..
 
 
 ## SOFTWARE: pairsamtools
-## COMMIT: 4108cf52c086c7d93d556f077152b2b5ac13d8c4
+## COMMIT: 49489c
+## TYPE: file format converter,sorter,annotater,filter
+## SOURCE_URL: https://github.com/mirnylab/pairsamtools
 pip3 install numpy Cython click
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git@4108cf52c086c7d93d556f077152b2b5ac13d8c4
+pip3 install git+https://github.com/mirnylab/pairsamtools.git#49489c
 
