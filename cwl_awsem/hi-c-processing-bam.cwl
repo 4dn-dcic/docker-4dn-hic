@@ -26,7 +26,7 @@
             "inputs": [
                 {
                     "id": "#pairsam-parse-sort.input_bam",
-                    "source": "#input_bam"
+                    "source": "#input_bams"
                 },
                 {
                     "id": "#pairsam-parse-sort.chromsize",
@@ -39,7 +39,7 @@
             ],
             "run": "pairsam-parse-sort.cwl",
             "id": "#pairsam-parse-sort",
-            "scatter": "#input_bams"
+            "scatter": "#pairsam-parse-sort.input_bam"
         },
         {
             "outputs": [
@@ -120,6 +120,9 @@
     "requirements": [
         {
             "class": "InlineJavascriptRequirement"
+        },
+        {
+            "class": "ScatterFeatureRequirement"
         }
     ],
     "class": "Workflow",
