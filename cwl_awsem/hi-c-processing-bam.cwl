@@ -25,7 +25,7 @@
             ],
             "inputs": [
                 {
-                    "id": "#pairsam-parse-sort.input_bam",
+                    "id": "#pairsam-parse-sort.bam",
                     "source": "#input_bams"
                 },
                 {
