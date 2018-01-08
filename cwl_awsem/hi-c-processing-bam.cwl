@@ -32,7 +32,7 @@
                 "software_used": [ "pairsamtools" ],
                 "description": "Parsing and sorting bam file",
                 "analysis_step_types": [ "annotation", "sorting" ]
-            }
+            },
             "outputs": [
                 {
                     "id": "#pairsam-parse-sort.out_pairsam"
@@ -61,7 +61,7 @@
                 "software_used": [ "pairsamtools" ],
                 "description": "Merging pairsam files",
                 "analysis_step_types": [ "merging" ]
-            }
+            },
             "outputs": [
                 {
                     "id": "#pairsam-merge.merged_pairsam"
@@ -85,7 +85,7 @@
                 "software_used": [ "pairsamtools" ],
                 "description": "Marking duplicates to pairsam file",
                 "analysis_step_types": [ "filter" ]
-            }
+            },
             "outputs": [
                 {
                     "id": "#pairsam-markasdup.out_markedpairsam"
@@ -105,7 +105,7 @@
                 "software_used": [ "pairsamtools" ],
                 "description": "Filtering duplicate and invalid reads",
                 "analysis_step_types": [ "filter", "file format conversion" ]
-            }
+            },
             "outputs": [
                 {
                     "id": "#pairsam-filter.lossless_bamfile"
@@ -132,7 +132,7 @@
                 "software_used": [ "pairix" ],
                 "description": "Adding restriction enzyme site information",
                 "analysis_step_types": [ "annotation" ]
-            }
+            },
             "outputs": [
                 {
                     "id": "#addfragtopairs.out_pairs"
