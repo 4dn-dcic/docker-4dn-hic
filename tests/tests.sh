@@ -10,6 +10,8 @@ docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name r
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool > tmp_out/test.cooldump
 if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
   echo "cooler test failed"
+  head tests/test.cooldump
+  head tmp_out/test.cooldump
   return 1;
 fi
 
