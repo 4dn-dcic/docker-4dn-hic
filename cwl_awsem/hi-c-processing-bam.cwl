@@ -39,7 +39,7 @@
             ],
             "run": "pairsam-parse-sort.cwl",
             "id": "#pairsam-parse-sort",
-            "scatter": "#input_bam"
+            "scatter": "#input_bams"
         },
         {
             "outputs": [
@@ -125,7 +125,7 @@
     "class": "Workflow",
     "inputs": [
         {
-            "id": "#input_bam",
+            "id": "#input_bams",
             "type": [
                 "null",
                 {
