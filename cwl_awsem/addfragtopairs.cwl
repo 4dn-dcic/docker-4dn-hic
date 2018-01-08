@@ -38,7 +38,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v40"
+            "dockerPull": "duplexa/4dn-hic:v41"
         }
     ],
     "cwlVersion": "draft-3",
