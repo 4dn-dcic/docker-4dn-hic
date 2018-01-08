@@ -32,8 +32,8 @@ TEMPFILE1=temp1.gz
 pairsamtools split --output-sam ${LOSSLESS_BAM} ${PAIRSAM}
 
 
-# Select CX LL reads
-pairsamtools select '(pair_type == "CX") or (pair_type == "LL")' \
+# Select UU, UR, RU reads
+pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
     --output-rest ${UNMAPPED_SAMPAIRS} \
     --output ${TEMPFILE} \
     ${PAIRSAM}
