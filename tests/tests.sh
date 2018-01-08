@@ -7,7 +7,7 @@ cwd=$(pwd)
 mkdir -p tmp_out
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 2 /e/test0 2
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler-balance.sh /e/test0.cool 5000 /e/test 10000000
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool | tail -n+2  > tmp_out/test.cooldump  ## tail is a temporary fix to remove warning printed out to stdout
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool | tail -n+3  > tmp_out/test.cooldump  ## tail is a temporary fix to remove warning printed out to stdout
 if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
   echo "cooler test failed"
   return 1;
@@ -41,7 +41,7 @@ docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 0 4g 0
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar /usr/local/bin/juicer_tools.jar dump observed NONE /out/test.hic chr1 chr1 BP 5000 > tmp_out/test.hicdump
 gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | sed 's/ //g' > juicebox-pre.log1
-cut -f3 tmp_out/test.hicdump | tail -n +4 | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
+cut -f3 tmp_out/test.hicdump | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
 if [ ! -z "$(diff juicebox-pre.log1 juicebox-pre.log2)" ]; then
   echo "juicebox pre test failed"
   return 1;
