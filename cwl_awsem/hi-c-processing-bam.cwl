@@ -39,7 +39,7 @@
             ],
             "run": "pairsam-parse-sort.cwl",
             "id": "#pairsam-parse-sort",
-            "scatter": "#pairsam-parse-sort.input_bam"
+            "scatter": "#pairsam-parse-sort.bam"
         },
         {
             "outputs": [
