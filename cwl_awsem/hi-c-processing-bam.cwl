@@ -1,23 +1,38 @@
 {
+    "fdn_meta": {
+        "data_types": [ "Hi-C" ],
+        "category": "filter",
+        "workflow_type": "Hi-C data processing",
+        "description": "Hi-C data processing pipeline"
+    },
     "outputs": [
         {
             "id": "#merged_annotated_bam",
             "type": [
                 "File"
             ],
-            "source": "#pairsam-filter.lossless_bamfile"
+            "source": "#pairsam-filter.lossless_bamfile",
+            "fdn_format": "bam",
+            "fdn_output_type": "processed"
         },
         {
             "id": "#out_pairs",
             "type": [
                 "File"
             ],
-            "source": "#addfragtopairs.out_pairs"
+            "source": "#addfragtopairs.out_pairs",
+            "fdn_format": "pairs",
+            "fdn_output_type": "processed"
         }
     ],
     "cwlVersion": "draft-3",
     "steps": [
         {
+            "fdn_step_meta": {
+                "software_used": [ "pairsamtools" ],
+                "description": "Parsing and sorting bam file",
+                "analysis_step_types": [ "annotation", "sorting" ]
+            }
             "outputs": [
                 {
                     "id": "#pairsam-parse-sort.out_pairsam"
@@ -42,6 +57,11 @@
             "scatter": "#pairsam-parse-sort.bam"
         },
         {
+            "fdn_step_meta": {
+                "software_used": [ "pairsamtools" ],
+                "description": "Merging pairsam files",
+                "analysis_step_types": [ "merging" ]
+            }
             "outputs": [
                 {
                     "id": "#pairsam-merge.merged_pairsam"
@@ -61,6 +81,11 @@
             "id": "#pairsam-merge"
         },
         {
+            "fdn_step_meta": {
+                "software_used": [ "pairsamtools" ],
+                "description": "Marking duplicates to pairsam file",
+                "analysis_step_types": [ "filter" ]
+            }
             "outputs": [
                 {
                     "id": "#pairsam-markasdup.out_markedpairsam"
@@ -76,6 +101,11 @@
             "id": "#pairsam-markasdup"
         },
         {
+            "fdn_step_meta": {
+                "software_used": [ "pairsamtools" ],
+                "description": "Filtering duplicate and invalid reads",
+                "analysis_step_types": [ "filter", "file format conversion" ]
+            }
             "outputs": [
                 {
                     "id": "#pairsam-filter.lossless_bamfile"
@@ -98,6 +128,11 @@
             "id": "#pairsam-filter"
         },
         {
+            "fdn_step_meta": {
+                "software_used": [ "pairix" ],
+                "description": "Adding restriction enzyme site information",
+                "analysis_step_types": [ "annotation" ]
+            }
             "outputs": [
                 {
                     "id": "#addfragtopairs.out_pairs"
@@ -135,19 +170,22 @@
                     "type": "array",
                     "items": "File"
                 }
-            ]
+            ],
+            "fdn_format": "bam"
         },
         {
             "id": "#chromsize",
             "type": [
                 "File"
-            ]
+            ],
+            "fdn_format": "chromsizes"
         },
         {
             "id": "#restriction_file",
             "type": [
                 "File"
-            ]
+            ],
+            "fdn_format": "juicer_format_restriction_site_file"
         },
         {
             "default": 8,
