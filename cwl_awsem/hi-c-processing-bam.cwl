@@ -4,7 +4,7 @@
         "name": "hi-c-processing-bam",
         "data_types": [ "Hi-C" ],
         "category": "filter",
-        "workflow_type": "Hi-C data processing",
+        "workflow_type": "Hi-C data analysis",
         "description": "Hi-C data processing pipeline"
     },
     "outputs": [
