@@ -1,5 +1,7 @@
 {
     "fdn_meta": {
+        "title": "Hi-C Post-alignment Processing",
+        "name": "hi-c-processing-bam",
         "data_types": [ "Hi-C" ],
         "category": "filter",
         "workflow_type": "Hi-C data processing",
