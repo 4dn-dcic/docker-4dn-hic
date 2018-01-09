@@ -29,7 +29,7 @@
     "steps": [
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools" ],
+                "software_used": [ "pairsamtools_49489c" ],
                 "description": "Parsing and sorting bam file",
                 "analysis_step_types": [ "annotation", "sorting" ]
             },
@@ -58,7 +58,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools" ],
+                "software_used": [ "pairsamtools_49489c" ],
                 "description": "Merging pairsam files",
                 "analysis_step_types": [ "merging" ]
             },
@@ -82,7 +82,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools" ],
+                "software_used": [ "pairsamtools_49489c" ],
                 "description": "Marking duplicates to pairsam file",
                 "analysis_step_types": [ "filter" ]
             },
@@ -102,7 +102,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools" ],
+                "software_used": [ "pairsamtools_49489c" ],
                 "description": "Filtering duplicate and invalid reads",
                 "analysis_step_types": [ "filter", "file format conversion" ]
             },
@@ -129,7 +129,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairix" ],
+                "software_used": [ "pairix_0.3.3" ],
                 "description": "Adding restriction enzyme site information",
                 "analysis_step_types": [ "annotation" ]
             },
