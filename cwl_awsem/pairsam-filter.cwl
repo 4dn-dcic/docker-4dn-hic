@@ -60,7 +60,7 @@
             "secondaryFiles": [
                 ".px2"
             ],
-            "id": "#dedup_pairs"
+            "id": "#filtered_pairs"
         }
     ],
     "cwlVersion": "draft-3",

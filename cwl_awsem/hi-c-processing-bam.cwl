@@ -9,7 +9,7 @@
     },
     "outputs": [
         {
-            "id": "#merged_annotated_bam",
+            "id": "#annotated_bam",
             "type": [
                 "File"
             ],
@@ -18,11 +18,11 @@
             "fdn_output_type": "processed"
         },
         {
-            "id": "#out_pairs",
+            "id": "#filtered_pairs_with_frags",
             "type": [
                 "File"
             ],
-            "source": "#addfragtopairs.out_pairs",
+            "source": "#addfragtopairs.pairs_with_frags",
             "fdn_format": "pairs",
             "fdn_output_type": "processed"
         }
@@ -37,17 +37,20 @@
             },
             "outputs": [
                 {
-                    "id": "#pairsam-parse-sort.out_pairsam"
+                    "id": "#pairsam-parse-sort.sorted_pairsam",
+                    "fdn_format": "pairsam"
                 }
             ],
             "inputs": [
                 {
                     "id": "#pairsam-parse-sort.bam",
-                    "source": "#input_bams"
+                    "source": "#input_bams",
+                    "fdn_format": "bam"
                 },
                 {
                     "id": "#pairsam-parse-sort.chromsize",
-                    "source": "#chromsize"
+                    "source": "#chromsize",
+                    "fdn_format": "chromsize"
                 },
                 {
                     "id": "#pairsam-parse-sort.Threads",
@@ -66,13 +69,15 @@
             },
             "outputs": [
                 {
-                    "id": "#pairsam-merge.merged_pairsam"
+                    "id": "#pairsam-merge.merged_pairsam",
+                    "fdn_format": "pairsam"
                 }
             ],
             "inputs": [
                 {
                     "id": "#pairsam-merge.input_pairsams",
-                    "source": "#pairsam-parse-sort.out_pairsam"
+                    "source": "#pairsam-parse-sort.out_pairsam",
+                    "fdn_format": "pairsam"
                 },
                 {
                     "id": "#pairsam-merge.nThreads",
@@ -90,13 +95,15 @@
             },
             "outputs": [
                 {
-                    "id": "#pairsam-markasdup.out_markedpairsam"
+                    "id": "#pairsam-markasdup.dupmarked_pairsam",
+                    "fdn_format": "pairsam"
                 }
             ],
             "inputs": [
                 {
                     "id": "#pairsam-markasdup.input_pairsam",
-                    "source": "#pairsam-merge.merged_pairsam"
+                    "source": "#pairsam-merge.merged_pairsam",
+                    "fdn_format": "pairsam"
                 }
             ],
             "run": "pairsam-markasdup.cwl",
@@ -110,20 +117,24 @@
             },
             "outputs": [
                 {
-                    "id": "#pairsam-filter.lossless_bamfile"
+                    "id": "#pairsam-filter.lossless_bamfile",
+                    "fdn_format": "bam"
                 },
                 {
-                    "id": "#pairsam-filter.dedup_pairs"
+                    "id": "#pairsam-filter.filtered_pairs",
+                    "fdn_format": "pairs"
                 }
             ],
             "inputs": [
                 {
                     "id": "#pairsam-filter.input_pairsam",
-                    "source": "#pairsam-markasdup.out_markedpairsam"
+                    "source": "#pairsam-markasdup.out_markedpairsam",
+                    "fdn_format": "pairsam"
                 },
                 {
                     "id": "#pairsam-filter.chromsize",
-                    "source": "#chromsize"
+                    "source": "#chromsize",
+                    "fdn_format": "chromsize"
                 }
             ],
             "run": "pairsam-filter.cwl",
@@ -137,17 +148,20 @@
             },
             "outputs": [
                 {
-                    "id": "#addfragtopairs.out_pairs"
+                    "id": "#addfragtopairs.out_pairs",
+                    "fdn_format": "pairs"
                 }
             ],
             "inputs": [
                 {
                     "id": "#addfragtopairs.input_pairs",
-                    "source": "#pairsam-filter.dedup_pairs"
+                    "source": "#pairsam-filter.dedup_pairs",
+                    "fdn_format": "pairs"
                 },
                 {
                     "id": "#addfragtopairs.restriction_file",
-                    "source": "#restriction_file"
+                    "source": "#restriction_file",
+                    "fdn_format": "juicer_format_restriction_site_file"
                 }
             ],
             "run": "addfragtopairs.cwl",

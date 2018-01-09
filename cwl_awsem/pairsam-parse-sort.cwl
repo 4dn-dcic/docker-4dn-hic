@@ -82,7 +82,7 @@
                 "null",
                 "File"
             ],
-            "id": "#out_pairsam"
+            "id": "#sorted_pairsam"
         }
     ],
     "cwlVersion": "draft-3",

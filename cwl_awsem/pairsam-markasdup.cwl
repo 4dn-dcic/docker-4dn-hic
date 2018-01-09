@@ -39,7 +39,7 @@
             "secondaryFiles": [
                 ".px2"
             ],
-            "id": "#out_markedpairsam"
+            "id": "#dupmarked_pairsam"
         }
     ],
     "cwlVersion": "draft-3",

@@ -54,7 +54,7 @@
             "secondaryFiles": [
                 ".px2"
             ],
-            "id": "#out_pairs"
+            "id": "#pairs_with_frags"
         }
     ],
     "class": "CommandLineTool",

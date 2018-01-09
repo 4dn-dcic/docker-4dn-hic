@@ -17,7 +17,7 @@
     * `software_used` : an array of strings that refer to the names and version/commit of the software used. The name must match the name and version/commit used in the `downloads.sh` in an accompanying Docker source repo. In case of commit, the first 6 character should be used. e.g.) [ 'cutadapt_1.14' ], [ 'repli-seq-pipeline_f2eb460' ]
     * `description` : a string that describes the step. e.g.) 'Adapter removal according to the Repli-seq pipeline'
     * `analysis_step_types` : an array of strings that refer to the step types (i.e. purpose). e.g.) [ 'adapter removal' ]
-  * `fdn_format` (within each top-level `inputs` and `outputs` element) : a string. e.g.) 'bam'
+  * `fdn_format` (within each top-level `inputs` and `outputs` element and in each step 'inputs' and 'outputs' element) : a string. e.g.) 'bam'
   * `fdn_output_type` (within each top-level `outputs` element) : a string that corresponds to one of the following three - 'processed', 'QC', 'report'
     * processed : generic output file
     * QC : output will be used to generate a quality_metric object (e.g. fastqc report)
