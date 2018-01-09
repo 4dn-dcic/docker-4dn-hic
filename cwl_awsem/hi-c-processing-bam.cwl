@@ -155,7 +155,7 @@
             "inputs": [
                 {
                     "id": "#addfragtopairs.input_pairs",
-                    "source": "#pairsam-filter.dedup_pairs",
+                    "source": "#pairsam-filter.filtered_pairs",
                     "fdn_format": "pairs"
                 },
                 {
