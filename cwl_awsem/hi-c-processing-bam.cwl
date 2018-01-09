@@ -5,7 +5,7 @@
         "data_types": [ "Hi-C" ],
         "category": "filter",
         "workflow_type": "Hi-C data analysis",
-        "description": "Hi-C data processing pipeline"
+        "description": "This is a subworkflow of the Hi-C data processing pipeline. It takes a bam file as input and performs parsing, sorting, filtering and deduping. It produces two output files, a lossless, filter-annotated bam file and a filtered pairs (contact list) file."
     },
     "outputs": [
         {
@@ -76,7 +76,7 @@
             "inputs": [
                 {
                     "id": "#pairsam-merge.input_pairsams",
-                    "source": "#pairsam-parse-sort.out_pairsam",
+                    "source": "#pairsam-parse-sort.sorted_pairsam",
                     "fdn_format": "pairsam"
                 },
                 {
@@ -128,7 +128,7 @@
             "inputs": [
                 {
                     "id": "#pairsam-filter.input_pairsam",
-                    "source": "#pairsam-markasdup.out_markedpairsam",
+                    "source": "#pairsam-markasdup.dupmarked_pairsam",
                     "fdn_format": "pairsam"
                 },
                 {
@@ -148,7 +148,7 @@
             },
             "outputs": [
                 {
-                    "id": "#addfragtopairs.out_pairs",
+                    "id": "#addfragtopairs.pairs_with_frags",
                     "fdn_format": "pairs"
                 }
             ],
