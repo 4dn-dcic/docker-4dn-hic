@@ -1,6 +1,7 @@
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
 * annotation for software now includes TYPE and SOURCE_URL
+* pairsamtools parse now has MAPQ score added.
 
 ### v40
 * pairsamtools pipeline added
