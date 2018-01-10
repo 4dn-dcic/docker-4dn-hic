@@ -41,7 +41,7 @@ samtools view -h "${BAM}" | {
     #  * read id
     #  * type of a Hi-C molecule
     #  * corresponding sam entries
-    pairsamtools parse -c $CHR_SIZES
+    pairsamtools parse -c $CHR_SIZES --add-columns mapq
 } | {
     # Block-sort pairs together with SAM entries
     pairsamtools sort --nproc ${THREADS} \
