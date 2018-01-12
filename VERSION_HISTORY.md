@@ -1,3 +1,7 @@
+### v42
+* pairsamtools parse now reports double-closed intervals (change in position of reverse-oriented reads)
+* newly introduced pairsamtools bug of not reporting lines after dedup-marked ones now fixed
+
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
 * annotation for software now includes TYPE and SOURCE_URL
