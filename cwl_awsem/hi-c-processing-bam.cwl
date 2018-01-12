@@ -24,7 +24,8 @@
             ],
             "source": "#addfragtopairs.pairs_with_frags",
             "fdn_format": "pairs",
-            "fdn_output_type": "processed"
+            "fdn_output_type": "processed",
+            "fdn_secondary_file_formats": ["pairs_px2"]
         }
     ],
     "cwlVersion": "draft-3",
