@@ -52,6 +52,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(hi_c_processing_partb(input_json))
     elif app_name == 'hi-c-processing-partc':
         return(hi_c_processing_partc(input_json))
+    elif app_name == 'hi-c-processing-bam':
+        return(hi_c_processing_bam(input_json))
     elif app_name == 'pairs-patch':
         return(pairs_patch(input_json))
     elif app_name == 'repliseq-parta':
@@ -347,6 +349,38 @@ def hi_c_processing_partc(input_json):
                         cpu=cpu)
 
     return(r.as_dict())
+
+
+def hi_c_processing_bam(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_bams' in input_json.get('input_size_in_bytes')
+
+    # cpu
+    nthreads_parse_sort = 8  # default from cwl
+    nthreads_merge = 8  # default from cwl
+    if 'parameters' in input_json:
+        if 'nthreads_parse_sort' in input_json.get('parameters'):
+            nthreads_parse_sort = input_json.get('parameters').get('nthreads_parse_sort')
+        if 'nthreads_merge' in input_json.get('parameters'):
+            nthreads_merge = input_json.get('parameters').get('nthreads_merge')
+
+    # nthreads is the maximum of the two nthread parameters
+    nthreads = nthreads_parse_sort if nthreads_parse_sort > nthreads_merge else nthreads_merge
+
+    in_size = input_json.get('input_size_in_bytes')
+    bamsize = in_size.get('input_bams') / GB_IN_BYTES
+    other_inputsize = (in_size.get('restriction_file') + in_size.get('chromsize')) / GB_IN_BYTES
+    pairsize = bamsize / 2  ## rough number
+    outsize = bamsize + pairsize
+    tmp_pairsamsize = pairsamsize * 2
+    total_size = bamsize + outsize + tmp_pairsamsize + other_inputsize
+    safe_total_size = total_size + bamsize + outsize + other_inputsize  # inputs and outputs are copied once
+    mem = 2000  # very rough number
+
+    r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads * 2)
+
+    return(r.as_dict())
+
 
 
 def repliseq_parta(input_json):
