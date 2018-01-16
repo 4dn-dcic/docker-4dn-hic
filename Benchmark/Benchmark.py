@@ -354,6 +354,8 @@ def hi_c_processing_partc(input_json):
 def hi_c_processing_bam(input_json):
     assert 'input_size_in_bytes' in input_json
     assert 'input_bams' in input_json.get('input_size_in_bytes')
+    assert 'chromsize' in input_json.get('input_size_in_bytes')
+    assert 'restriction_file' in input_json.get('input_size_in_bytes')
 
     # cpu
     nthreads_parse_sort = 8  # default from cwl
@@ -372,7 +374,7 @@ def hi_c_processing_bam(input_json):
     other_inputsize = (in_size.get('restriction_file') + in_size.get('chromsize')) / GB_IN_BYTES
     pairsize = bamsize / 2  ## rough number
     outsize = bamsize + pairsize
-    tmp_pairsamsize = pairsamsize * 2
+    tmp_pairsamsize = bamsize * 2
     total_size = bamsize + outsize + tmp_pairsamsize + other_inputsize
     safe_total_size = total_size + bamsize + outsize + other_inputsize  # inputs and outputs are copied once
     mem = 2000  # very rough number
