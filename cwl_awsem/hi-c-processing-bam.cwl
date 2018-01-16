@@ -18,11 +18,11 @@
             "fdn_output_type": "processed"
         },
         {
-            "id": "#filtered_pairs_with_frags",
+            "id": "#filtered_pairs",
             "type": [
                 "File"
             ],
-            "source": "#addfragtopairs.pairs_with_frags",
+            "source": "#pairsam-filter.filtered_pairs",
             "fdn_format": "pairs",
             "fdn_output_type": "processed",
             "fdn_secondary_file_formats": ["pairs_px2"]
@@ -32,7 +32,7 @@
     "steps": [
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools_49489c" ],
+                "software_used": [ "pairsamtools_eccd21" ],
                 "description": "Parsing and sorting bam file",
                 "analysis_step_types": [ "annotation", "sorting" ]
             },
@@ -64,7 +64,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools_49489c" ],
+                "software_used": [ "pairsamtools_eccd21" ],
                 "description": "Merging pairsam files",
                 "analysis_step_types": [ "merging" ]
             },
@@ -90,7 +90,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools_49489c" ],
+                "software_used": [ "pairsamtools_eccd21" ],
                 "description": "Marking duplicates to pairsam file",
                 "analysis_step_types": [ "filter" ]
             },
@@ -112,7 +112,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools_49489c" ],
+                "software_used": [ "pairsamtools_eccd21" ],
                 "description": "Filtering duplicate and invalid reads",
                 "analysis_step_types": [ "filter", "file format conversion" ]
             },
@@ -140,33 +140,6 @@
             ],
             "run": "pairsam-filter.cwl",
             "id": "#pairsam-filter"
-        },
-        {
-            "fdn_step_meta": {
-                "software_used": [ "pairix_0.3.3" ],
-                "description": "Adding restriction enzyme site information",
-                "analysis_step_types": [ "annotation" ]
-            },
-            "outputs": [
-                {
-                    "id": "#addfragtopairs.pairs_with_frags",
-                    "fdn_format": "pairs"
-                }
-            ],
-            "inputs": [
-                {
-                    "id": "#addfragtopairs.input_pairs",
-                    "source": "#pairsam-filter.filtered_pairs",
-                    "fdn_format": "pairs"
-                },
-                {
-                    "id": "#addfragtopairs.restriction_file",
-                    "source": "#restriction_file",
-                    "fdn_format": "juicer_format_restriction_site_file"
-                }
-            ],
-            "run": "addfragtopairs.cwl",
-            "id": "#addfragtopairs"
         }
     ],
     "requirements": [
