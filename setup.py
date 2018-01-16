@@ -16,7 +16,7 @@ setup(
     license="MIT",
     keywords=['pipeline-cwl', 'benchmark', 'cwl', 'common workflow language',
               'docker', 'tibanna', 'bioinformatics', '4dn'],
-    packages=find_packages("Benchmark", exclude=["tests"]),
+    packages=find_packages(),
     package_data={"": ["aws/*"]},
     classifiers=[
         "Programming Language :: Python :: 2.7",
