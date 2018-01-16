@@ -92,7 +92,7 @@ cd ..
 
 
 ## SOFTWARE: pairsamtools
-## COMMIT: 5f40eb6
+## COMMIT: eccd21
 ## TYPE: file format converter,sorter,annotater,filter
 ## SOURCE_URL: https://github.com/mirnylab/pairsamtools
 pip3 install numpy Cython click
@@ -100,5 +100,5 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git#5f40eb6
+pip3 install git+https://github.com/mirnylab/pairsamtools.git#eccd21
 
