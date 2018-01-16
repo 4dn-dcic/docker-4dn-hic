@@ -377,7 +377,7 @@ def hi_c_processing_bam(input_json):
     outsize = bamsize + pairsize
     tmp_pairsamsize = bamsize * 2
     total_size = bamsize + outsize + tmp_pairsamsize + other_inputsize
-    safe_total_size = total_size + bamsize + outsize + other_inputsize  # inputs and outputs are copied once
+    safe_total_size = (total_size + bamsize + outsize + other_inputsize) * 1.5  # inputs and outputs are copied once
     mem = 2000  # very rough number
 
     r = BenchmarkResult(size=total_size, mem=mem, cpu=nthreads * 2)
