@@ -171,13 +171,6 @@
             "fdn_format": "chromsizes"
         },
         {
-            "id": "#restriction_file",
-            "type": [
-                "File"
-            ],
-            "fdn_format": "juicer_format_restriction_site_file"
-        },
-        {
             "default": 8,
             "type": [
                 "int"
