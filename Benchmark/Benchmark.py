@@ -356,7 +356,6 @@ def hi_c_processing_bam(input_json):
     in_size = input_json.get('input_size_in_bytes')
     assert 'input_bams' in input_json.get('input_size_in_bytes')
     assert 'chromsize' in input_json.get('input_size_in_bytes')
-    assert 'restriction_file' in input_json.get('input_size_in_bytes')
     assert isinstance(in_size['input_bams'], list)
 
     # cpu
@@ -372,7 +371,7 @@ def hi_c_processing_bam(input_json):
     nthreads = nthreads_parse_sort if nthreads_parse_sort > nthreads_merge else nthreads_merge
 
     bamsize = sum(in_size['input_bams']) / GB_IN_BYTES
-    other_inputsize = (in_size.get('restriction_file') + in_size.get('chromsize')) / GB_IN_BYTES
+    other_inputsize = in_size.get('chromsize') / GB_IN_BYTES
     pairsize = bamsize / 2  ## rough number
     outsize = bamsize + pairsize
     tmp_pairsamsize = bamsize * 2
