@@ -120,7 +120,7 @@
             ],
             "id": "#clip",
             "fdn_step_meta": {
-                "software_used": [ "cutadapt_1.14", "repli-seq-pipeline_f2eb460" ],
+                "software_used": [ "cutadapt_1.14", "repli-seq-pipeline_f2eb46" ],
                 "description": "Adapter removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "adapter removal" ]
             }
@@ -151,7 +151,7 @@
             ],
             "id": "#align",
             "fdn_step_meta": {
-                "software_used": [ "bwa_0.7.15", "repli-seq-pipeline_f2eb460" ],
+                "software_used": [ "bwa_0.7.15", "repli-seq-pipeline_f2eb46" ],
                 "description": "Alignment according to the Repli-seq pipeline",
                 "analysis_step_types": [ "alignment" ]
             }
@@ -181,7 +181,7 @@
             ],
             "id": "#filtersort",
             "fdn_step_meta": {
-                "software_used": [ "samtools_1.4", "repli-seq-pipeline_f2eb460" ],
+                "software_used": [ "samtools_1.4", "repli-seq-pipeline_f2eb46" ],
                 "description": "Filtering and sorting according to the Repli-seq pipeline",
                 "analysis_step_types": [ "filtering", "sorting" ]
             }
@@ -203,7 +203,7 @@
             ],
             "id": "#dedup",
             "fdn_step_meta": {
-                "software_used": [ "samtools", "repli-seq-pipeline_f2eb460" ],
+                "software_used": [ "samtools", "repli-seq-pipeline_f2eb46" ],
                 "description": "PCR Duplicate removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "duplicate removal" ]
             }
@@ -234,7 +234,7 @@
             ],
             "id": "#count",
             "fdn_step_meta": {
-                "software_used": [ "bedtools_2.26.0", "repli-seq-pipeline_f2eb460" ],
+                "software_used": [ "bedtools_2.26.0", "repli-seq-pipeline_f2eb46" ],
                 "description": "Read aggregation according to the Repli-seq pipeline",
                 "analysis_step_types": [ "binning", "aggregation" ]
             }
