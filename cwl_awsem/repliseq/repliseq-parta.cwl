@@ -203,7 +203,7 @@
             ],
             "id": "#dedup",
             "fdn_step_meta": {
-                "software_used": [ "samtools", "repli-seq-pipeline_f2eb46" ],
+                "software_used": [ "samtools_1.4", "repli-seq-pipeline_f2eb46" ],
                 "description": "PCR Duplicate removal according to the Repli-seq pipeline",
                 "analysis_step_types": [ "duplicate removal" ]
             }
