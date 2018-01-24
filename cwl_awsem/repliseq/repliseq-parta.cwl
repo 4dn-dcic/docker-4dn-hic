@@ -1,6 +1,7 @@
 {
     "fdn_meta": {
         "title": "Repli-seq data processing pipeline for alignment, filtering and counting",
+        "name": "repliseq-parta",
         "data_types": [ "Repli-seq" ],
         "category": "align + filter + count",
         "workflow_type": "Repli-seq data processing",
