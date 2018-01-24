@@ -1,9 +1,10 @@
 {
     "fdn_meta": {
+        "title": "Repli-seq data processing pipeline for alignment, filtering and counting",
         "data_types": [ "Repli-seq" ],
         "category": "align + filter + count",
         "workflow_type": "Repli-seq data processing",
-        "description": "Repli-seq data processing pipeline"
+        "description": "This is a subworkflow of the Repli-seq data processing pipeline. It takes a raw fastq file, aligns to the reference genome, performs filtering and reports read counts in a bedgraph (bg) format."
     },
     "outputs": [
         {
@@ -104,14 +105,16 @@
         {
             "outputs": [
                 {
-                    "id": "#clip.out_clipped_fastq"
+                    "id": "#clip.out_clipped_fastq",
+                    "fdn_format": "fastq"
                 }
             ],
             "run": "clip.cwl",
             "inputs": [
                 {
                     "source": "#fastq",
-                    "id": "#clip.input_fastq"
+                    "id": "#clip.input_fastq",
+                    "fdn_format": "fastq"
                 }
             ],
             "id": "#clip",
@@ -124,6 +127,7 @@
         {
             "outputs": [
                 {
+                    "fdn_format": "bam",
                     "id": "#align.out_bam"
                 }
             ],
@@ -131,10 +135,12 @@
             "inputs": [
                 {
                     "source": "#clip.out_clipped_fastq",
+                    "fdn_format": "fastq",
                     "id": "#align.fastq1"
                 },
                 {
                     "source": "#bwaIndex",
+                    "fdn_format": "bwaIndex",
                     "id": "#align.bwa_index"
                 },
                 {
@@ -152,6 +158,7 @@
         {
             "outputs": [
                 {
+                    "fdn_format": "bam",
                     "id": "#filtersort.out_filtered_sorted_bam"
                 }
             ],
@@ -159,6 +166,7 @@
             "inputs": [
                 {
                     "source": "#align.out_bam",
+                    "fdn_format": "bam",
                     "id": "#filtersort.input_bam"
                 },
                 {
@@ -180,6 +188,7 @@
         {
             "outputs": [
                 {
+                    "fdn_format": "bam",
                     "id": "#dedup.out_deduped_bam"
                 }
             ],
@@ -187,6 +196,7 @@
             "inputs": [
                 {
                     "source": "#filtersort.out_filtered_sorted_bam",
+                    "fdn_format": "bam",
                     "id": "#dedup.input_bam"
                 }
             ],
@@ -200,6 +210,7 @@
         {
             "outputs": [
                 {
+                    "fdn_format": "bam",
                     "id": "#count.out_count_bg"
                 }
             ],
@@ -207,10 +218,12 @@
             "inputs": [
                 {
                     "source": "#dedup.out_deduped_bam",
+                    "fdn_format": "bam",
                     "id": "#count.input_bam"
                 },
                 {
                     "source": "#chromsizes",
+                    "fdn_format": "chromsize",
                     "id": "#count.chrsizes"
                 },
                 {
