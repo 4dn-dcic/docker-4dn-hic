@@ -22,20 +22,6 @@ if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
   return 1;
 fi
 
-## run-pairsqc-single test
-docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-pairsqc-single.sh /sample_data/test.pairs.gz /sample_data/hg19.chrom.sizes.mainonly test 4 /out/test
-sudo chmod 777 tmp_out/test/
-cd tmp_out/test/
-unzip -o test_report.zip
-cd ../../
-du -s tests/pairsqc/test_report/ |cut -f1 > pairsqc.log1
-du -s tmp_out/test/test_report/ | cut -f1 > pairsqc.log2
-if [ ! -z "$(diff pairsqc.log1 pairsqc.log2)" ]; then
-  echo "pairsqc test failed"
-  return 1;
-fi
-
-
 ## run-addfrag2pairs & run-juicebox-pre test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-addfrag2pairs.sh /sample_data/test2.pairs.gz /sample_data/hg19_DpnII.mainonly.txt /out/test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 0 4g 0
