@@ -374,9 +374,9 @@ def hi_c_processing_bam(input_json):
     other_inputsize = in_size.get('chromsize') / GB_IN_BYTES
     pairsize = bamsize / 2  ## rough number
     outsize = bamsize + pairsize
-    tmp_pairsamsize = bamsize * 2
-    total_size = bamsize + outsize + tmp_pairsamsize + other_inputsize
-    safe_total_size = (total_size + bamsize + outsize + other_inputsize) * 3  # inputs and outputs are copied once, then five times
+    tmp_pairsamsize = bamsize * 5
+    total_size = (bamsize + other_inputsize + outsize) *2 + tmp_pairsamsize  # input and output are copied once
+    safe_total_size = total_size * 1.4
     mem = 2000  # very rough number
 
     r = BenchmarkResult(size=safe_total_size, mem=mem, cpu=nthreads)
