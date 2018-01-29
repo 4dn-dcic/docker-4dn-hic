@@ -2,24 +2,9 @@ env:
   global:
     - CROMWELL_JAR=cromwell.jar
   matrix:
-    - CWL_NAME=hi-c-processing-bam
-    - CWL_NAME=hi-c-processing-pairs
-    - CWL_NAME=pairs-patch
-    - CWL_NAME=addfragtopairs
-    - CWL_NAME=pairsam-filter
-    - CWL_NAME=pairsam-markasdup
-    - CWL_NAME=merge-pairs
-    - CWL_NAME=pairsam-merge
-    - CWL_NAME=pairsam-parse-sort
-    - CWL_NAME=extract-mcool-normvector-for-juicebox
-    - CWL_NAME=md5
-    - CWL_NAME=fastqc-0-11-4-1
-    - CWL_NAME=hi-c-processing-partb
-    - CWL_NAME=cool2mcool
-    - CWL_NAME=hi-c-processing-partc
-    - CWL_NAME=bwa-mem
-    - WDL_NAME=bwa-mem
     - BENCHMARK_TEST=1
+    - CWL_TEST=1 CWL_NAME_LIST="hi-c-processing-bam hi-c-processing-pairs pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
+    - WDL_TEST=1 WDL_NAME_LIST="bwa-mem"
 language: python
 sudo: false
 python: 2.7
@@ -38,9 +23,13 @@ script:
   - if [ ! -z "$BENCHMARK_TEST" ]; then
        python tests/tests_benchmark.py;
     fi
-  - if [ ! -z "$CWL_NAME" ]; then
-       source tests/tests.sh $CWL_NAME;
+  - if [ ! -z "$CWL_TEST" ]; then
+       for CWL_NAME in CWL_NAME_LIST do
+           source tests/tests.sh $CWL_NAME;
+       done
     fi
-  - if [ ! -z "$WDL_NAME" ]; then
-       source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
+  - if [ ! -z "$WDL_TEST" ]; then
+       for WDL_NAME in WDL_NAME_LIST do
+           source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
+       done
     fi
