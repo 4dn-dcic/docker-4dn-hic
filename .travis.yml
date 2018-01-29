@@ -2,8 +2,6 @@ env:
   global:
     - CROMWELL_JAR=cromwell.jar
   matrix:
-    - WDL_NAME=bwa-mem
-    - BENCHMARK_TEST=1
     - CWL_NAME=hi-c-processing-pairs
     - CWL_NAME=pairs-patch
     - CWL_NAME=addfragtopairs
@@ -19,6 +17,8 @@ env:
     - CWL_NAME=cool2mcool
     - CWL_NAME=hi-c-processing-partc
     - CWL_NAME=bwa-mem
+    - WDL_NAME=bwa-mem
+    - BENCHMARK_TEST=1
 language: python
 sudo: false
 python: 2.7
