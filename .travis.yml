@@ -3,7 +3,7 @@ env:
     - CROMWELL_JAR=cromwell.jar
   matrix:
     - BENCHMARK_TEST=1
-    - CWL_TEST=1 CWL_NAME_LIST="hi-c-processing-bam hi-c-processing-pairs pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
+    - CWL_TEST=1 CWL_NAME_LIST="hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
     - WDL_TEST=1 WDL_NAME_LIST="bwa-mem"
 language: python
 sudo: false
