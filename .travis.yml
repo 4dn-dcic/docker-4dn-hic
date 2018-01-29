@@ -24,12 +24,12 @@ script:
        python tests/tests_benchmark.py;
     fi
   - if [ ! -z "$CWL_TEST" ]; then
-       for CWL_NAME in CWL_NAME_LIST do
+       for CWL_NAME in CWL_NAME_LIST; do
            source tests/tests.sh $CWL_NAME;
        done
     fi
   - if [ ! -z "$WDL_TEST" ]; then
-       for WDL_NAME in WDL_NAME_LIST do
+       for WDL_NAME in WDL_NAME_LIST; do
            source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
        done
     fi
