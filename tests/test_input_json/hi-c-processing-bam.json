@@ -1,0 +1,12 @@
+{
+    "bam": [{
+        "class": "File", 
+        "path": "../test_files/test.bam"
+    }], 
+    "chromsize": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    }, 
+    "nthreads_parse_sort": 1,
+    "nthreads_merge": 1
+}
