@@ -2,6 +2,7 @@ env:
   global:
     - CROMWELL_JAR=cromwell.jar
   matrix:
+    - CWL_NAME=hi-c-processing-bam
     - CWL_NAME=hi-c-processing-pairs
     - CWL_NAME=pairs-patch
     - CWL_NAME=addfragtopairs
