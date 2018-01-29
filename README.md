@@ -29,6 +29,12 @@
 To run docker through CWL, you need a cwl executor - we use `cwltool` (https://github.com/common-workflow-language/cwltool) to run CWL with a json/yml file describing input data. Some example input data are inside the `tests/test_input_json` directory and you can see some `cwltool` (=`cwl-runner`) commands inside the `tests/tests.sh` script.
 
 
+### Testing CWL
+To test cwls in this repo against the test files in `tests`, use `tests/tests.sh` with cwl name (without .cwl).
+```bash
+source tests/tests.sh bwa-mem
+```
+
 ### Example usage of benchmarking script
 * importing the module
 ```python
