@@ -155,7 +155,6 @@
         {
             "id": "#input_bams",
             "type": [
-                "null",
                 {
                     "type": "array",
                     "items": "File"
