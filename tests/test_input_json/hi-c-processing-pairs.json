@@ -1,0 +1,13 @@
+{
+    "input_pairs": [
+        {
+            "class": "File", 
+            "path": "../test_files/test1.pairs.gz"
+        },
+        {
+            "class": "File", 
+            "path": "../test_files/test2.pairs.gz"
+        }
+    ], 
+    "nThreads": 1
+}
