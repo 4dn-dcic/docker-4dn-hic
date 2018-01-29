@@ -120,6 +120,22 @@ class TestBenchmark(unittest.TestCase):
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 'r4.large'
 
+        
+def test_benchmark12(self):
+        input_json = {'input_size_in_bytes': {'input_bams': [1000000000, 2000000000],
+                                              'chromsize': 200000},
+                      'parameters': {'nthreads_parse_sort': 1,
+                                     'nthreads_merge': 8}}
+        res = B.benchmark('hi-c-processing-bam', input_json)
+        print('hi-c-processing-bam')
+        print(res)
+        assert 'aws' in res
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 't2.2xlarge'
+        assert res['min_CPU'] == 8
+        assert res['total_size_in_GB'] == 42
+
+        
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
                                               'fastq2': 97604,
