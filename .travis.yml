@@ -4,6 +4,7 @@ env:
   matrix:
     - WDL_NAME=bwa-mem
     - BENCHMARK_TEST=1
+    - CWL_NAME=hi-c-processing-pairs
     - CWL_NAME=pairs-patch
     - CWL_NAME=addfragtopairs
     - CWL_NAME=pairsam-filter
