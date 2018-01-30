@@ -134,7 +134,6 @@ def test_benchmark12(self):
         assert res['aws']['recommended_instance_type'] == 't2.2xlarge'
         assert res['min_CPU'] == 8
         assert res['total_size_in_GB'] == 42
-
         
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
