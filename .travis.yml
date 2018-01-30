@@ -20,16 +20,16 @@ install:
   - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
   - python setup.py install  # benchmark
 script:
-  - if [ ! -z "$BENCHMARK_TEST" ]; then
+  - if [ "$BENCHMARK_TEST" == "1" ]; then
        python tests/tests_benchmark.py;
     fi
-  - if [ ! -z "$CWL_TEST" ]; then
+  - if [ "$CWL_TEST" == "1" ]; then
        set -e;
        for CWL_NAME in CWL_NAME_LIST; do
            source tests/tests.sh $CWL_NAME;
        done
     fi
-  - if [ ! -z "$WDL_TEST" ]; then
+  - if [ "$WDL_TEST" == "1" ]; then
        set -e;
        for WDL_NAME in WDL_NAME_LIST; do
            source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
