@@ -46,13 +46,13 @@ pip3 install cooler==0.7.6
 
 
 ## SOFTWARE: pairsqc
-## VERSION: 0.2.0
+## VERSION: 0.2.3
 ## TYPE: quality metric generator
 ## SOURCE_URL: https://github.com/4dn-dcic/pairsqc
-wget https://github.com/4dn-dcic/pairsqc/archive/0.2.0.tar.gz
-tar -xzf 0.2.0.tar.gz
-rm 0.2.0.tar.gz
-ln -s pairsqc-0.2.0 pairsqc
+wget https://github.com/4dn-dcic/pairsqc/archive/0.2.3.tar.gz
+tar -xzf 0.2.3.tar.gz
+rm 0.2.3.tar.gz
+ln -s pairsqc-0.2.3 pairsqc
 
 
 ## SOFTWARE: juicebox

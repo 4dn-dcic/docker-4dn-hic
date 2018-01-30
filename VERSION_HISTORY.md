@@ -1,6 +1,8 @@
 ### v42
 * pairsamtools parse now reports double-closed intervals (change in position of reverse-oriented reads)
 * newly introduced pairsamtools bug of not reporting lines after dedup-marked ones now fixed
+* pairsqc 0.2.3
+* `run-addfrag2pairs.sh` has an option to do nothing (-0, not adding frag info).
 
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
