@@ -244,7 +244,7 @@
                 {
                     "source": "#chromsizes",
                     "id": "#pairs2hic.chromsizes_file"
-                }
+                },
                 {
                     "source": "#min_res",
                     "id": "#pairs2hic.min_res"
