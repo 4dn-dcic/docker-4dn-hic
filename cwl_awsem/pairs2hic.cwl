@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "id": "#output_hic",
+            "id": "#hic",
             "type": [
                 "null",
                 "File"
@@ -22,7 +22,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v40"
+            "dockerPull": "duplexa/4dn-hic:v42"
         }
     ],
     "inputs": [
@@ -44,7 +44,7 @@
                 "prefix": "-c",
                 "separate": true
             },
-            "id": "#chromsizes_file",
+            "id": "#chromsizes",
             "type": [
                 "null",
                 "File"

@@ -85,13 +85,13 @@
                 "null",
                 "File"
             ],
-            "id": "#out_cool"
+            "id": "#cool"
         }
     ],
     "cwlVersion": "draft-3",
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v40",
+            "dockerPull": "duplexa/4dn-hic:v42",
             "class": "DockerRequirement"
         }
     ],

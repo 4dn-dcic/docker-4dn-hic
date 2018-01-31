@@ -45,7 +45,7 @@
     "hints": [
         {
             "class": "DockerRequirement",
-            "dockerPull": "duplexa/4dn-hic:v38"
+            "dockerPull": "duplexa/4dn-hic:v42"
         }
     ],
     "arguments": [],
@@ -58,7 +58,7 @@
             "outputBinding": {
                 "glob": "$(inputs.outdir + '/' + '*.mcool')"
             },
-            "id": "#output_mcool"
+            "id": "#mcool_with_hicnorm"
         }
     ],
     "baseCommand": [

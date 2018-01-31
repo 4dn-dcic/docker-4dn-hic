@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "id": "#output_pairs",
+            "id": "#merged_pairs",
             "type": [
                 "null",
                 "File"
@@ -19,7 +19,7 @@
     ],
     "hints": [
         {
-            "dockerPull": "duplexa/4dn-hic:v40",
+            "dockerPull": "duplexa/4dn-hic:v42",
             "class": "DockerRequirement"
         }
     ],

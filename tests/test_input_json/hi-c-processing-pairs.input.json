@@ -1,5 +1,5 @@
 { 
-    "chromsize": {
+    "chromsizes": {
         "class": "File", 
         "path": "../test_files/hg38.mainonly.chrom.sizes"
     }, 
