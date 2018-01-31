@@ -155,6 +155,13 @@
             "type": [
                 "int"
             ]
+        },
+        {
+            "id": "#nofrag",
+            "default": false,
+            "type": [
+                "boolean"
+            ]
         }
     ],
     "class": "Workflow",
@@ -200,6 +207,10 @@
                 {
                     "id": "#addfragtopairs.restriction_file",
                     "source": "#restriction_file"
+                },
+                {
+                    "id": "#addfragtopairs.donothing",
+                    "source": "#nofrag"
                 }
             ],
             "run": "addfragtopairs.cwl",

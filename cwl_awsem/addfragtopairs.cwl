@@ -33,6 +33,18 @@
                 "string"
             ],
             "default": "out"
+        },
+        {
+            "inputBinding": {
+                "separate": true,
+                "position": 0,
+                "prefix": "-0"
+            },
+            "id": "#donothing",
+            "type": [
+                "boolean"
+            ],
+            "default": false
         }
     ],
     "hints": [
