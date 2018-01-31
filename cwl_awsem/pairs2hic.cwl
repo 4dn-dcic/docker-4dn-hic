@@ -29,7 +29,8 @@
         {
             "inputBinding": {
                 "position": 1,
-                "separate": true
+                "separate": true,
+                "prefix": "-i"
             },
             "id": "#input_pairs",
             "type": [
@@ -40,6 +41,7 @@
         {
             "inputBinding": {
                 "position": 2,
+                "prefix": "-c",
                 "separate": true
             },
             "id": "#chromsizes_file",
@@ -52,6 +54,7 @@
             "default": "out",
             "inputBinding": {
                 "position": 3,
+                "prefix": "-o",
                 "separate": true
             },
             "id": "#output_prefix",
@@ -64,36 +67,48 @@
             "default": 5000,
             "inputBinding": {
                 "position": 4,
+                "prefix": "-r",
                 "separate": true
             },
             "id": "#min_res",
             "type": [
-                "null",
                 "int"
             ]
         },
         {
-            "default": "1",
+            "default": false,
             "inputBinding": {
                 "position": 5,
+                "prefix": "-g",
                 "separate": true
             },
             "id": "#higlass",
             "type": [
-                "null",
-                "string"
+                "boolean"
             ]
         },
         {
             "default": "14g",
             "inputBinding": {
                 "position": 6,
+                "prefix": "-m",
                 "separate": true
             },
             "id": "#maxmem",
             "type": [
-                "null",
                 "string"
+            ]
+        },
+        {
+            "default": 0,
+            "inputBinding": {
+                "position": 7,
+                "prefix": "-q",
+                "separate": true
+            },
+            "id": "#mapqfilter",
+            "type": [
+                "int"
             ]
         }
     ],
