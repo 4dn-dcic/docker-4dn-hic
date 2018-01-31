@@ -141,6 +141,13 @@
                 "null",
                 "int"
             ]
+        },
+        {
+            "id": "#mapqfilter_juicer",
+            "default": 0,
+            "type": [
+                "int"
+            ]
         }
     ],
     "class": "Workflow",
@@ -256,6 +263,10 @@
                 {
                     "source": "#maxmem",
                     "id": "#pairs2hic.maxmem"
+                },
+                {
+                    "source": "#mapqfilter_juicer",
+                    "id": "#pairs2hic.mapqfilter"
                 }
             ],
             "run": "pairs2hic.cwl",
