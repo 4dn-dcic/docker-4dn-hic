@@ -1,13 +1,13 @@
 {
-	"fdn_meta": {
+    "fdn_meta": {
         "title": "Generation of multiresolution Hi-C contact matrices",
-        "name": "hi-c-processing-pairs,
+        "name": "hi-c-processing-pairs",
         "data_types": [ "Hi-C" ],
         "category": "process",
         "workflow_type": "Hi-C data analysis",
         "description": "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merge them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) cool format file 3) Multiresolution mCool file and 4) Juicer normalization vector"
     },
-	"requirements": [
+    "requirements": [
         {
             "class": "ScatterFeatureRequirement"
         },
@@ -15,13 +15,13 @@
             "class": "InlineJavascriptRequirement"
         }
     ],
-	"outputs": [
+    "outputs": [
         {
             "id": "#merged_pairs",
             "type": [
                 "File"
             ],
-            "source": "#pairsam-merge.merged_pairs",
+            "source": "#pairs-merge.merged_pairs",
             "fdn_format": "pairs",
             "fdn_output_type": "processed"
         },
@@ -52,9 +52,9 @@
             "fdn_format": "normvect",
             "fdn_output_type": "processed"
         }
-	],
-	"inputs": [
-	    {
+    ],
+    "inputs": [
+        {
             "id": "#input_pairs",
             "type": [
                 "null",
@@ -73,41 +73,35 @@
             "fdn_format": "chromsizes"
         },
         {
-            "id": "#nthreads_merge"
+            "id": "#nthreads_cooler",
             "default": 8,
             "type": [
                 "int"
             ]
         },
         {
-            "id": "#nthreads_cooler"
-            "default": 8,
-            "type": [
-                "int"
-            ]
-        },
-        {
-            "id": "#min_res"
+            "id": "#min_res",
             "type": [
                 "null",
                 "int"
             ],
-            "default": 5000,
+            "default": 5000
         },
         {
-            "id": "#binsize"
+            "id": "#binsize",
             "type": [
                 "null",
                 "int"
-            ]
+            ],
+            "default": 500000
         },
         {
-            "id": "#maxmem"
+            "id": "#maxmem",
             "type": [
                 "null",
                 "string"
             ],
-            "default": "14g",
+            "default": "14g"
         },
         {
             "id": "#restriction_file",
@@ -140,8 +134,8 @@
                 "int"
             ]
         }
-	],
-	"class": "Workflow",
+    ],
+    "class": "Workflow",
     "cwlVersion": "draft-3",
     "steps": [
         {
@@ -152,22 +146,21 @@
             },
             "outputs": [
                 {
-                    "id": "#pairsam-merge.merged_pairs",
+                    "id": "#pairs-merge.merged_pairs",
                     "fdn_format": "pairs"
                 }
             ],
             "inputs": [
                 {
-                    "id": "#pairsam-merge.input_pairs",
-                    "source": "#input_pairs"
+                    "id": "#pairs-merge.outprefix"
                 },
                 {
-                    "id": "#pairsam-merge.nThreads",
-                    "source": "#nthreads_merge"
+                    "source": "#input_pairs",
+                    "id": "#pairs-merge.input_pairs"
                 }
             ],
-            "run": "pairsam-merge.cwl",
-            "id": "#pairsam-merge"
+            "run": "merge-pairs.cwl",
+            "id": "#pairs-merge"
         },
         {
             "fdn_step_meta": {
@@ -177,21 +170,21 @@
             },
             "outputs": [
                 {
-                    "id": "#addfragtopairs.REannotated_pairs",
+                    "id": "#addfragtopairs.REannotated_pairs"
                 }
             ],
             "inputs": [
                 {
                     "id": "#addfragtopairs.merged_pairs",
-                    "source": "#pairsam-merge.merged_pairs"
+                    "source": "#pairs-merge.merged_pairs"
                 },
                 {
                     "id": "#addfragtopairs.RE_file",
                     "source": "#restriction_file"
+                },
+                {    
+                    "id": "#addfragtopairs.outprefix"     
                 }
-                { 			    
-            		"id": "#addfragtopairs.outprefix"     
-        		}
             ],
             "run": "addfragtopairs.cwl",
             "id": "#addfragtopairs"
@@ -211,7 +204,7 @@
             "inputs": [
                 {
                     "id": "#cooler.input_pairs",
-                    "source": "#pairsam-merge.merged_pairs"
+                    "source": "#pairs-merge.merged_pairs"
                 },
                 {
                     "id": "#cooler.chrsizes",
@@ -372,7 +365,7 @@
                 }            
             ],
             "run": "extract-mcool-normvector-for-juicebox.cwl",
-            "id": "#add_hic_normvector_to_mcool"
+            "id": "#extract-mcool-normvector-for-juicebox"
         }
     ]
 }
