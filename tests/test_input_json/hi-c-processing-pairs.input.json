@@ -1,5 +1,4 @@
 { 
-    "binsize": 500000, 
     "chrsizes": {
         "class": "File", 
         "path": "../test_files/hg38.mainonly.chrom.sizes"
@@ -10,7 +9,15 @@
             "path": "../test_files/test_4dn.pairs.gz"
         }
     ], 
-    "maxmem": "2g", 
-    "min_res": 500000, 
-    "ncores": 1
+    "restriction_file": {
+        "class": "File", 
+        "path": "../test_files/hg38_HindIII_new.+chr.txt"
+    },
+    "nthreads_cooler":1,
+    "min_res":500000,
+    "binsize":500000,
+    "maxmem":"2g",
+    "nres":13,
+    "nthreads_juicebox":4,
+    "chunksize":10000000
 }
