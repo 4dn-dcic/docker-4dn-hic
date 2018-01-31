@@ -19,5 +19,6 @@
     "maxmem":"2g",
     "nres":13,
     "nthreads_juicebox":4,
-    "chunksize":10000000
+    "chunksize":10000000,
+    "mapqfilter_juicer": 30
 }
