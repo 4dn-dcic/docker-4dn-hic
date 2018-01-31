@@ -1,18 +1,52 @@
 #!/bin/bash
-input_pairs=$1
-chromsizefile=$2
-output_prefix=$3
-min_res=$4   # e.g. 5000
-higlass=$5   # if 1, higlass-compatible aggregation
-maxmem=$6   # e.g. 64g
+shopt -s extglob
+mapqfilter=0
+min_res=5000
+maxmem=64g
+higlass=0  # if 1, higlass-compatible aggregation
+normonly=0  # if 1, normalization only
+output_prefix=out
 
-# creating a hic file
-if [[ $higlass == '1' ]]
+printHelpAndExit() {
+    echo "Usage: ${0##*/} [-q mapqfilter] [-m maxmem] [-r min_res] [-g] [-o out_prefix] -i input_pairs -c chromsize_file"
+    echo "-i input_pairs : input file in pairs.gz format"
+    echo "-c chromsize_file : chromsizes file"
+    echo "-o out_prefix : default out"
+    echo "-q mapqfilter : default 0"
+    echo "-m maxmem : default 64g"
+    echo "-r min_res : default 5000"
+    echo "-g : use HiGlass resolutions (default juicer resolutions)"
+    echo "-n : normalization only"
+    exit "$1"
+}
+
+while getopts "i:c:q:r:m:go:n" opt; do
+    case $opt in
+        i) input_pairs=$OPTARG;;
+        c) chromsizefile=$OPTARG;;
+        q) mapqfilter=$OPTARG;;
+        r) min_res=$OPTARG;;
+        m) maxmem=$OPTARG;;
+        g) higlass=1 ;;
+        n) normonly=1 ;;
+        o) output_prefix=$OPTARG;;
+        h) printHelpAndExit 0;;
+        [?]) printHelpAndExit 1;;
+        esac
+done
+
+if [[ $normonly == '0' ]]
 then
-    reslist=$(python3 -c "from cooler.contrib import higlass; higlass.print_zoom_resolutions('$chromsizefile', $min_res)")
-    java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar pre -n $input_pairs $output_prefix.hic $chromsizefile -r $reslist
-else
-    java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar pre -n $input_pairs $output_prefix.hic $chromsizefile
+
+    # creating a hic file
+    if [[ $higlass == '1' ]]
+    then
+        reslist=$(python3 -c "from cooler.contrib import higlass; higlass.print_zoom_resolutions('$chromsizefile', $min_res)")
+        java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar pre -n $input_pairs $output_prefix.hic $chromsizefile -r $reslist -q $mapqfilter
+    else
+        java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar pre -n $input_pairs $output_prefix.hic $chromsizefile -q $mapqfilter
+    fi
+
 fi
 
 # normalization
