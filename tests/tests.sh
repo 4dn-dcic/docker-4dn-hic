@@ -24,7 +24,7 @@ fi
 
 ## run-addfrag2pairs & run-juicebox-pre test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-addfrag2pairs.sh /sample_data/test2.pairs.gz /sample_data/hg19_DpnII.mainonly.txt /out/test
-docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 0 4g 0
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 5000 -m 4g -q 0
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name java -jar /usr/local/bin/juicer_tools.jar dump observed NONE /out/test.hic chr1 chr1 BP 5000 > tmp_out/test.hicdump
 gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1" && $8!=$9' |wc -l | sed 's/ //g' > juicebox-pre.log1
 cut -f3 tmp_out/test.hicdump | perl -ne 'chomp; $s+=$_; print "$s\n";' - |tail -1 > juicebox-pre.log2
@@ -41,9 +41,7 @@ if [ ! -z "$(diff juicebox-norm.log1 juicebox-norm.log2)" ]; then
 fi
 
 # run-juicebox-pre test with higlass-compatible zoom levels and normlization only
-docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh /out/test.ff.pairs.gz /sample_data/hg19.chrom.sizes.mainonly /out/test 5000 1 4g 1 
-
-
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 5000 -g -m 4g -n 
 
 
 return 0;

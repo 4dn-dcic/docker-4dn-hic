@@ -227,6 +227,7 @@ run-juicebox-pre.sh -i <input_pairs> -c <chromsize_file> [-o <output_prefix>] [-
 # -g : higlass-compatible : if this flag is used, zoom levels are set in a Hi-Glass compatible way, if not, default juicebox zoom levels.
 # -m maxmem : java max mem (e.g. 14g)
 # -q mapqfilter : mapq filter (e.g. 30, default 0)
+# -n : normalization only : if this flag is used, binning is skipped.
 ```
 
 ### run-juicer.sh
