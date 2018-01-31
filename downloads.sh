@@ -82,6 +82,7 @@ git clone https://github.com/4dn-dcic/hic2cool.git
 cd hic2cool
 git checkout 0.4.1
 pip3 install -r requirements.txt
+pip3 install hic2cool==0.4.1
 cd ..
 
 ## SOFTWARE: mcool2hic
