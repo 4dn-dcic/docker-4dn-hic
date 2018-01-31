@@ -104,6 +104,14 @@
             "default": "14g"
         },
         {
+            "id": "#higlass",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": "0"
+        },
+        {
             "id": "#restriction_file",
             "type": [
                 "null",
@@ -152,9 +160,6 @@
             ],
             "inputs": [
                 {
-                    "id": "#pairs-merge.outprefix"
-                },
-                {
                     "source": "#input_pairs",
                     "id": "#pairs-merge.input_pairs"
                 }
@@ -181,9 +186,6 @@
                 {
                     "id": "#addfragtopairs.RE_file",
                     "source": "#restriction_file"
-                },
-                {    
-                    "id": "#addfragtopairs.outprefix"     
                 }
             ],
             "run": "addfragtopairs.cwl",
@@ -215,14 +217,8 @@
                     "source": "#binsize"
                 },
                 {
-                    "id": "#cooler.outprefix"      
-                },
-                {
                     "id": "#cooler.ncores",
                     "source": "#nthreads_cooler"
-                },
-                {
-                    "id": "#cooler.max_split"      
                 }
             ],
             "run": "cooler.cwl",
@@ -248,15 +244,13 @@
                 {
                     "source": "#chromsizes",
                     "id": "#pairs2hic.chromsizes_file"
-                },
-                {
-                    "id": "#pairs2hic.output_prefix"
-                },
+                }
                 {
                     "source": "#min_res",
                     "id": "#pairs2hic.min_res"
                 },
                 {
+                    "source": "#higlass",
                     "id": "#pairs2hic.higlass"
                 },
                 {
@@ -291,9 +285,6 @@
                 {
                     "id": "#cool2mcool.chunksize",
                     "source": "#chunksize"
-                },
-                {
-                    "id": "#cool2mcool.outprefix"
                 }
             ],
             "run": "cool2mcool.cwl",
@@ -312,9 +303,6 @@
                 }
             ],
             "inputs": [
-                {
-                    "id": "#add_hic_normvector_to_mcool.outdir"
-                },
                 {
                     "id": "#add_hic_normvector_to_mcool.input_mcool",
                     "source": "#cool2mcool.output_mcool"
@@ -341,12 +329,6 @@
                 }
             ],
             "inputs": [
-                {
-                    "id": "#extract_mcool_normvector_for_juicebox.output_prefix"
-                },
-                {
-                    "id": "#extract_mcool_normvector_for_juicebox.outdir"
-                },
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.nres",
                     "source": "#nres"
