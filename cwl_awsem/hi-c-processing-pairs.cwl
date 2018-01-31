@@ -106,10 +106,16 @@
         {
             "id": "#higlass",
             "type": [
-                "null",
-                "string"
+                "boolean"
             ],
-            "default": "0"
+            "default": true
+        },
+        {
+            "id": "#juicer_res",
+            "type": [
+                "boolean"
+            ],
+            "default": false
         },
         {
             "id": "#restriction_file",
@@ -318,6 +324,10 @@
                 {
                     "id": "#cool2mcool.chunksize",
                     "source": "#chunksize"
+                },
+                {
+                    "id": "#cool2mcool.juicer_res",
+                    "source": "#juicer_res"
                 }
             ],
             "run": "cool2mcool.cwl",

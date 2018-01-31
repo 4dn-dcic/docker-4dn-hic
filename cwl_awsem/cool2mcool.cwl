@@ -13,6 +13,7 @@
         {
             "inputBinding": {
                 "separate": true,
+                "prefix": "-i",
                 "position": 1
             },
             "type": [
@@ -30,6 +31,7 @@
             "id": "#ncores",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-p",
                 "position": 2
             }
         },
@@ -42,6 +44,7 @@
             "id": "#chunksize",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-c",
                 "position": 4
             }
         },
@@ -49,6 +52,7 @@
             "default": "out",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-o",
                 "position": 3
             },
             "id": "#outprefix",
@@ -56,6 +60,18 @@
                 "null",
                 "string"
             ]
+        },
+        {
+            "default": false,
+            "type": [
+                "boolean"
+            ],
+            "id": "#juicer_res",
+            "inputBinding": {
+                "separate": true,
+                "prefix": "-j",
+                "position": 5
+            }
         }
     ],
     "requirements": [
