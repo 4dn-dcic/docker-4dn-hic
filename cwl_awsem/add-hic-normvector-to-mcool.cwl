@@ -58,7 +58,7 @@
             "outputBinding": {
                 "glob": "$(inputs.outdir + '/' + '*.mcool')"
             },
-            "id": "#output_mcool"
+            "id": "#mcool_with_hicnorm"
         }
     ],
     "baseCommand": [

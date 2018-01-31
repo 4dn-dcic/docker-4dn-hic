@@ -85,7 +85,7 @@
                 "null",
                 "File"
             ],
-            "id": "#out_cool"
+            "id": "#cool"
         }
     ],
     "cwlVersion": "draft-3",

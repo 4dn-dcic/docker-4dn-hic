@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "id": "#output_hic",
+            "id": "#hic",
             "type": [
                 "null",
                 "File"
@@ -42,7 +42,7 @@
                 "position": 2,
                 "separate": true
             },
-            "id": "#chromsizes_file",
+            "id": "#chromsizes",
             "type": [
                 "null",
                 "File"

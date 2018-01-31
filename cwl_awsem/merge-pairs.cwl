@@ -1,7 +1,7 @@
 {
     "outputs": [
         {
-            "id": "#output_pairs",
+            "id": "#merged_pairs",
             "type": [
                 "null",
                 "File"

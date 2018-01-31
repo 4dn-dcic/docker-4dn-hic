@@ -2,7 +2,7 @@
     "arguments": [],
     "outputs": [
         {
-            "id": "#output_normvector",
+            "id": "#cooler_normvector",
             "outputBinding": {
                 "glob": "*.juicerformat.gz"
             },
