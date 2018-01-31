@@ -106,10 +106,9 @@
         {
             "id": "#higlass",
             "type": [
-                "null",
-                "string"
+                "boolean"
             ],
-            "default": "0"
+            "default": false
         },
         {
             "id": "#restriction_file",
