@@ -55,7 +55,7 @@ rm 0.2.3.tar.gz
 ln -s pairsqc-0.2.3 pairsqc
 
 
-## SOFTWARE: juicebox
+## SOFTWARE: juicer_tools
 ## VERSION: 1.7.6-cuda8
 ## TYPE: aggregator,normalizer
 ## SOURCE_URL: https://github.com/theaidenlab/juicebox
