@@ -14,7 +14,7 @@ if [ ! -z "$(diff tests/test.cooldump tmp_out/test.cooldump)" ]; then
 fi
 
 ## run-cool2multirescool test
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cool2multirescool.sh /d/test.cool 2 /e/test 10000000
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cool2multirescool.sh -i /d/test.cool -p 2 -o /e/test
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("/e/test.multires.cool"))' > mcool.log1
 docker run -it -v $cwd/tests/:/f/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("/f/test.multires.cool"))' > mcool.log2
 if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then

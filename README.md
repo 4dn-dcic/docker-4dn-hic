@@ -174,11 +174,12 @@ Runs cooler coarsegrain to create multi-res cool file from a .cool file.
 #### Usage
 Run the following in the container.
 ```
-run-cool2multirescool.sh <input_cool> <ncores> <output_prefix> <chunksize>
+run-cool2multirescool.sh -i <input_cool> [-p <ncores>] [-o <output_prefix>] [-c <chunksize>] [-j]
 # input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
-# ncores: number of cores to use
-# output_prefix: prefix of the output multires.cool file
-# chunksize : chunksize argument of cooler (e.g. 10000000 which is default for cooler)
+# -p ncores: number of cores to use (default: 1)
+# -o output_prefix: prefix of the output multires.cool file (default: out)
+# -c chunksize : chunksize argument of cooler (e.g. default: 10000000)
+# -j : juicer resolutions (default: use HiGlass resolutions)
 ```
 
 ### run-pairsqc-single.sh
