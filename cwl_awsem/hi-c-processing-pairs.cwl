@@ -1,11 +1,11 @@
 {
     "fdn_meta": {
-        "title": "Generation of multiresolution Hi-C contact matrices",
+        "title": "Generation of multiresolution Hi-C contact matrices from a set of contact lists",
         "name": "hi-c-processing-pairs",
         "data_types": [ "Hi-C" ],
-        "category": "process",
+        "category": "merging + aggregation + normalization",
         "workflow_type": "Hi-C data analysis",
-        "description": "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merge them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) cool format file 3) Multiresolution mCool file and 4) Juicer normalization vector"
+        "description": "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merges them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) Contact matrices in .hic format 3) Multiresolution mcool file and 4) normalization vector of mcool files for visualization in juicebox."
     },
     "requirements": [
         {
@@ -49,7 +49,7 @@
                 "File"
             ],
             "source": "#extract_mcool_normvector_for_juicebox.cooler_normvector",
-            "fdn_format": "normvect",
+            "fdn_format": "normvector_juicerformat",
             "fdn_output_type": "processed"
         }
     ],
@@ -70,7 +70,15 @@
             "type": [
                 "File"
             ],
-            "fdn_format": "chromsizes"
+            "fdn_format": "chromsize"
+        },
+        {
+            "id": "#restriction_file",
+            "type": [
+                "null",
+                "File"
+            ],
+            "fdn_format": "juicer_format_restriction_site_file"
         },
         {
             "id": "#nthreads_cooler",
@@ -86,14 +94,6 @@
                 "int"
             ],
             "default": 5000
-        },
-        {
-            "id": "#binsize",
-            "type": [
-                "null",
-                "int"
-            ],
-            "default": 500000
         },
         {
             "id": "#maxmem",
@@ -116,13 +116,6 @@
                 "boolean"
             ],
             "default": false
-        },
-        {
-            "id": "#restriction_file",
-            "type": [
-                "null",
-                "File"
-            ]
         },
         {
             "id": "#nres",
@@ -175,7 +168,7 @@
     "steps": [
         {
             "fdn_step_meta": {
-                "software_used": [ "pairsamtools_eccd21" ],
+                "software_used": [ "pairix_0.3.3" ],
                 "description": "Merging pair files",
                 "analysis_step_types": [ "merging" ]
             },
@@ -196,9 +189,9 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "run-addfrag2pairs.sh" ],    
-                "description": "Adding RE description to the pairs file",
-                "analysis_step_types": [ "AddFragments" ]
+                "software_used": [ "pairix_0.3.3" ],    
+                "description": "Adding restriction enzyme site information to the pairs file",
+                "analysis_step_types": [ "annotation" ]
             },
             "outputs": [
                 {
@@ -224,9 +217,9 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "Cooler" ],
+                "software_used": [ "cooler_0.7.6" ],
                 "description": "Merged Pairs file is processed using Cooler",
-                "analysis_step_types": [ "CoolerProcessing" ]
+                "analysis_step_types": [ "aggregation" ]
             },
             "outputs": [
                 {
@@ -245,7 +238,7 @@
                 },
                 {
                     "id": "#cooler.binsize",
-                    "source": "#binsize"
+                    "source": "#min_res"
                 },
                 {
                     "id": "#cooler.ncores",
@@ -261,9 +254,9 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "Juicebox" ],  
+                "software_used": [ "juicer_tools_1.7.6-cuda8" ],  
                 "description": "Merged Pairs file is processed using Juicebox",
-                "analysis_step_types": [ "Juicebox Processing" ]
+                "analysis_step_types": [ "aggregation", "normalization" ]
             },
             "outputs": [
                 {
@@ -304,7 +297,7 @@
             "fdn_step_meta": {
                 "software_used": [ "cooler" ],
                 "description": "Cooler file is converted to mcool",
-                "analysis_step_types": [ "cooler Processing" ]
+                "analysis_step_types": [ "aggregation", "normalization", "file format conversion" ]
             },
             "outputs": [
                 {
@@ -335,9 +328,9 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "Juicebox" ], 
+                "software_used": [ "hic2cool_0.4.1" ], 
                 "description": "HiC normalization vector is added to mcooler",
-                "analysis_step_types": [ "Juicebox Processing" ]
+                "analysis_step_types": [ "file format conversion" ]
             },
             "outputs": [
                 {
@@ -360,14 +353,14 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "Juicebox" ],
+                "software_used": [ "mcool2hic_f2d128" ],
                 "description": "Extracting HiC normalization vector",
-                "analysis_step_types": [ "Extracting normalization vector" ]
+                "analysis_step_types": [ "file format conversion" ]
             },
             "outputs": [
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.cooler_normvector",
-                    "fdn_format": "normvect"
+                    "fdn_format": "normvector_juicerformat"
 
                 }
             ],

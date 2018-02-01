@@ -20,8 +20,7 @@
              "path":"/home/ec2-user/4DNFI823L812.txt"  
          },
          "nthreads_cooler":8,
-         "min_res":500000,
-         "binsize":500000,
+         "min_res":5000,
          "maxmem":"2g",
          "nres":13,
          "nthreads_juicebox":4,
