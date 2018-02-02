@@ -5,6 +5,7 @@
 * `run-addfrag2pairs.sh` has an option to do nothing (-0, not adding frag info).
 * `run-juicebox-pre.sh` now has mapq filtering option and the usage has changed.
 * `run-cool2multirescool.sh` now has -j option (juicer resolutions) and the usage has changed.
+* juicer_tools version 1.8.9_jcuda8
 
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
