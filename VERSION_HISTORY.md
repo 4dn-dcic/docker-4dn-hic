@@ -3,8 +3,8 @@
 * newly introduced pairsamtools bug of not reporting lines after dedup-marked ones now fixed
 * pairsqc 0.2.3
 * `run-addfrag2pairs.sh` has an option to do nothing (-0, not adding frag info).
-* `run-juicebox-pre.sh` now has mapq filtering option and the usage has changed.
-* `run-cool2multirescool.sh` now has -j option (juicer resolutions) and the usage has changed.
+* `run-juicebox-pre.sh` now has options for mapq filtering (-q) and custom resolutions (-u) and the usage has changed.
+* `run-cool2multirescool.sh` now has -j option (juicer resolutions) and -u option (custom resolutions) and the usage has changed.
 * juicer_tools version 1.8.9_jcuda8
 
 ### v41

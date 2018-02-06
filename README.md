@@ -174,12 +174,13 @@ Runs cooler coarsegrain to create multi-res cool file from a .cool file.
 #### Usage
 Run the following in the container.
 ```
-run-cool2multirescool.sh -i <input_cool> [-p <ncores>] [-o <output_prefix>] [-c <chunksize>] [-j]
+run-cool2multirescool.sh -i <input_cool> [-p <ncores>] [-o <output_prefix>] [-c <chunksize>] [-j] [-u custom_res]
 # input_cool : a (singe-res) cool file with the highest resolution you want in the multi-res cool file
 # -p ncores: number of cores to use (default: 1)
 # -o output_prefix: prefix of the output multires.cool file (default: out)
 # -c chunksize : chunksize argument of cooler (e.g. default: 10000000)
 # -j : juicer resolutions (default: use HiGlass resolutions)
+# -u custom_res : custom resolutions separated by commas (e.g. 100000,200000,500000). The minimun of this set must match min_res (-r).
 ```
 
 ### run-pairsqc-single.sh
@@ -220,12 +221,13 @@ Runs juicebox pre and addNorm on a pairs file and creates a hic file.
 #### Usage
 Run the following in the container
 ```
-run-juicebox-pre.sh -i <input_pairs> -c <chromsize_file> [-o <output_prefix>] [-r <min_res>] [-g] [-m <maxmem>] [-q mapqfilter]
+run-juicebox-pre.sh -i <input_pairs> -c <chromsize_file> [-o <output_prefix>] [-r <min_res>] [-g] [-u custom_res] [-m <maxmem>] [-q mapqfilter]
 # -i input_pairs : a gzipped pairs file (.pairs.gz) with its pairix index (.px2), preferably containing frag information.
 # -c chromsize_file : a chromsize file
 # -o output prefix: prefix of the output hic file
 # -r min_res : minimum resolution for whole-genome normalization (e.g. 5000)
 # -g : higlass-compatible : if this flag is used, zoom levels are set in a Hi-Glass compatible way, if not, default juicebox zoom levels.
+# -u custom_res : custom resolutions separated by commas (e.g. 100000,200000,500000). The minimun of this set must match min_res (-r).
 # -m maxmem : java max mem (e.g. 14g)
 # -q mapqfilter : mapq filter (e.g. 30, default 0)
 # -n : normalization only : if this flag is used, binning is skipped.
