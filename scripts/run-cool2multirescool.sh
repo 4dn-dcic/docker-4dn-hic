@@ -3,6 +3,7 @@ shopt -s extglob
 ncores=1
 chunksize=10000000
 juicer_res=0  # if 1, use juicer resolutions
+custom_res=''  # custom resolutions, separated by commas
 outprefix=out
 
 printHelpAndExit() {
@@ -12,24 +13,35 @@ printHelpAndExit() {
     echo "-p ncores : default 1"
     echo "-c chunksize : default 10000000"
     echo "-j : use Juicer resolutions (default HiGlass resolutions)"
+    echo "-u : custom resolutions (separated by commas)"
     exit "$1"
 }
 
-while getopts "i:o:p:c:j" opt; do
+while getopts "i:o:p:c:ju:" opt; do
     case $opt in
         i) input=$OPTARG;;
         o) outprefix=$OPTARG;;
         p) ncores=$OPTARG;;
         c) chunksize=$OPTARG;;
         j) juicer_res=1;;
+        u) custom_res=$OPTARG;;
         h) printHelpAndExit 0;;
         [?]) printHelpAndExit 1;;
         esac
 done
 
 
+if [[ $juicer_res == "1" && ! -z $custom_res ]]; then
+    echo "Do you want juicer resolutions (-j) or custom resolutions (-u)? Make up your mind! :)"
+    exit 1
+fi
+
 if [[ $juicer_res == "1" ]]; then
     RES_ARG="-r 5000,10000,25000,50000,100000,250000,500000,1000000,2500000"
+fi
+
+if [[ ! -z $custom_res ]]; then
+    RES_ARG="-r $custom_res"
 fi
 
 cooler zoomify --balance $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG

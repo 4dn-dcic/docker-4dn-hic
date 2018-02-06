@@ -22,6 +22,14 @@ if [ ! -z "$(diff mcool.log1 mcool.log2)" ]; then
   return 1;
 fi
 
+# run-cool2multirescool custom res test
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cool2multirescool.sh -i /d/test.cool -p 2 -o /e/test -u 100000,200000,500000
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name python3 -c 'import cooler; print(cooler.io.ls("/e/test.multires.cool"))' > mcool.log1
+if [ ! -z "$(diff mcool.log1 $cwd/tests/test.multires.cool.customres.log"]; then
+  echo "zoomify custom res test failed"
+  return 1;
+fi
+
 ## run-addfrag2pairs & run-juicebox-pre test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-addfrag2pairs.sh /sample_data/test2.pairs.gz /sample_data/hg19_DpnII.mainonly.txt /out/test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 5000 -m 4g -q 0
@@ -38,6 +46,13 @@ gunzip -c tmp_out/test.ff.pairs.gz | grep -v "^#" | awk '$2=="chr1" && $4=="chr1
 if [ ! -z "$(diff juicebox-norm.log1 juicebox-norm.log2)" ]; then
   echo "juicebox norm test failed"
   return 1;
+fi
+
+# run-juicebox-pre custom_res test
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 100000 -u 100000,200000,500000 -g -m 4g > juicebox-custom.log
+if [[ $(grep "Calculating norms" juicebox-custom.log | wc -l) != '3' ]]; then
+   echo "juicebox custom res test failed"
+   return 1;
 fi
 
 # run-juicebox-pre test with higlass-compatible zoom levels and normlization only
