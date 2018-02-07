@@ -90,7 +90,6 @@
         {
             "id": "#min_res",
             "type": [
-                "null",
                 "int"
             ],
             "default": 1000
@@ -98,7 +97,6 @@
         {
             "id": "#maxmem",
             "type": [
-                "null",
                 "string"
             ],
             "default": "14g"
@@ -128,7 +126,6 @@
             "id": "#nres",
             "default": 13,
             "type": [
-                "null",
                 "int"
             ]
         },
@@ -136,7 +133,6 @@
             "id": "#nthreads_juicebox",
             "default": 4,
             "type": [
-                "null",
                 "int"
             ]
         },
@@ -144,7 +140,6 @@
             "id": "#chunksize",
             "default": 10000000,
             "type": [
-                "null",
                 "int"
             ]
         },
@@ -387,6 +382,10 @@
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.min_res",
                     "source": "#min_res"
+                },
+                {
+                    "id": "#extract_mcool_normvector_for_juicebox.custom_res",
+                    "source": "#custom_res"
                 },
                 {
                     "id": "#extract_mcool_normvector_for_juicebox.chromsize",
