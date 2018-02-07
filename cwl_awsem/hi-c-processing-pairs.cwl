@@ -93,7 +93,7 @@
                 "null",
                 "int"
             ],
-            "default": 5000
+            "default": 1000
         },
         {
             "id": "#maxmem",
@@ -108,7 +108,7 @@
             "type": [
                 "boolean"
             ],
-            "default": true
+            "default": false
         },
         {
             "id": "#juicer_res",
@@ -116,6 +116,13 @@
                 "boolean"
             ],
             "default": false
+        },
+        {
+            "id": "#custom_res",
+            "type": [
+                "string"
+            ],
+            "default": "1000,2000,5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000"
         },
         {
             "id": "#nres",
@@ -282,6 +289,10 @@
                     "id": "#pairs2hic.higlass"
                 },
                 {
+                    "source": "#custom_res",
+                    "id": "#pairs2hic.custom_res"
+                },
+                {
                     "source": "#maxmem",
                     "id": "#pairs2hic.maxmem"
                 },
@@ -321,6 +332,10 @@
                 {
                     "id": "#cool2mcool.juicer_res",
                     "source": "#juicer_res"
+                },
+                {
+                    "id": "#cool2mcool.custom_res",
+                    "source": "#custom_res"
                 }
             ],
             "run": "cool2mcool.cwl",

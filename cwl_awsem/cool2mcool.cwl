@@ -72,6 +72,18 @@
                 "prefix": "-j",
                 "position": 5
             }
+        },
+        {
+            "default": "",
+            "type": [
+                "string"
+            ],
+            "id": "#custom_res",
+            "inputBinding": {
+                "separate": true,
+                "prefix": "-u",
+                "position": 6
+            }
         }
     ],
     "requirements": [

@@ -17,10 +17,10 @@
             "id": "#input_mcool",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-i",
                 "position": 1
             },
             "type": [
-                "null",
                 "File"
             ]
         },
@@ -28,10 +28,10 @@
             "id": "#chromsize",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-c",
                 "position": 2
             },
             "type": [
-                "null",
                 "File"
             ]
         },
@@ -40,10 +40,10 @@
             "id": "#outdir",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-d",
                 "position": 3
             },
             "type": [
-                "null",
                 "string"
             ]
         },
@@ -52,11 +52,23 @@
             "id": "#output_prefix",
             "inputBinding": {
                 "separate": true,
+                "prefix": "-o",
                 "position": 4
             },
             "type": [
-                "null",
                 "string"
+            ]
+        },
+        {
+            "default": false,
+            "id": "#higlass",
+            "inputBinding": {
+                "separate": true,
+                "prefix": "-g",
+                "position": 5
+            },
+            "type": [
+                "int"
             ]
         },
         {
@@ -64,22 +76,34 @@
             "id": "#nres",
             "inputBinding": {
                 "separate": true,
-                "position": 5
-            },
-            "type": [
-                "null",
-                "int"
-            ]
-       },
-       {
-            "default": 5000,
-            "id": "#min_res",
-            "inputBinding": {
-                "separate": true,
+                "prefix": "-l",
                 "position": 6
             },
             "type": [
-                "null",
+                "int"
+            ]
+       },
+        {
+            "default": "1000,2000,5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000",
+            "id": "#custom_res",
+            "inputBinding": {
+                "separate": true,
+                "prefix": "-u",
+                "position": 7
+            },
+            "type": [
+                "string"
+            ]
+       },
+       {
+            "default": 1000,
+            "id": "#min_res",
+            "inputBinding": {
+                "separate": true,
+                "prefix": "-r",
+                "position": 8
+            },
+            "type": [
                 "int"
             ]
        }

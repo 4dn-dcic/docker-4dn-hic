@@ -3,7 +3,6 @@
         {
             "id": "#hic",
             "type": [
-                "null",
                 "File"
             ],
             "outputBinding": {
@@ -34,7 +33,6 @@
             },
             "id": "#input_pairs",
             "type": [
-                "null",
                 "File"
             ]
         },
@@ -46,7 +44,6 @@
             },
             "id": "#chromsizes",
             "type": [
-                "null",
                 "File"
             ]
         },
@@ -59,7 +56,6 @@
             },
             "id": "#output_prefix",
             "type": [
-                "null",
                 "string"
             ]
         },
@@ -109,6 +105,18 @@
             "id": "#mapqfilter",
             "type": [
                 "int"
+            ]
+        },
+        {
+            "default": "",
+            "inputBinding": {
+                "position": 8,
+                "prefix": "-u",
+                "separate": true
+            },
+            "id": "#custom_res",
+            "type": [
+                "string"
             ]
         }
     ],

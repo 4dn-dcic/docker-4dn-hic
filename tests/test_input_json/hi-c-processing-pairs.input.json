@@ -14,7 +14,8 @@
         "path": "../test_files/hg38_HindIII_new.+chr.txt"
     },
     "nthreads_cooler":1,
-    "min_res":5000,
+    "min_res":100000,
+    "custom_res": "100000,200000,500000",
     "maxmem":"2g",
     "nres":13,
     "nthreads_juicebox":4,
