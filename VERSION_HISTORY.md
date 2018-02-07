@@ -6,6 +6,7 @@
 * `run-juicebox-pre.sh` now has options for mapq filtering (-q) and custom resolutions (-u) and the usage has changed.
 * `run-cool2multirescool.sh` now has -j option (juicer resolutions) and -u option (custom resolutions) and the usage has changed.
 * juicer_tools version 1.8.9_jcuda8
+* `run-mcool2hic.sh` now has custom_res option (-u) and the usage has changed.
 
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`

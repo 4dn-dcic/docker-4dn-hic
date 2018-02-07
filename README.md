@@ -22,6 +22,7 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-juicebox-pre.sh](#run-juicebox-presh)
   * [run-juicer.sh](#run-juicersh)
   * [run-add-hicnormvector-to-mcool.sh](#run-add-hicnormvector-to-mcoolsh)
+  * [run-mcool2hic.sh](#run-mcool2hicsh)
   * [run-fastqc.sh](#run-fastqcsh)
 
 ## Cloning the repo
@@ -264,6 +265,25 @@ run-add-hicnormvector-to-mcool.sh <input_hic> <input_mcool> <outdir>
 # input_mcool : an mcool file
 # outdir : output directory
 ```
+
+### run-mcool2hic.sh
+Extracts a normalization vector from a mcool file to visualize with a hic file.
+* Input: an .mcool file, a chrom size file
+* Output: an juicer-format normvector file that contains a series of cooler normalization vectors.
+
+#### Usage
+Run the following in the container
+```
+run-mcool2hic.sh -i <input_mcool> -c <chromsize_file> [-r <min_res> -l <nres>] [-u <custom_res>] [-d <outdir>] [-o <output_prefix>]
+# -i input_mcool : an mcool file
+# -c chromsize_file : a chromsize file
+# -r min_res : minimum resolution for whole-genome normalization (e.g. 5000)
+# -l nres : number of resolutions (e.g. 13)
+# -u custom_res : custom resolutions separated by commas (e.g. 100000,200000,500000) (default higlass resolutions).
+# -d outdir : output directory
+# -o output prefix: prefix of the output file
+```
+
 
 ### run-fastqc.sh
 Runs fastqc on a given fastq(.gz) file and produces a fastqc report.
