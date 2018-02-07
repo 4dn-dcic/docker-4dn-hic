@@ -60,24 +60,12 @@
             ]
         },
         {
-            "default": false,
-            "id": "#higlass",
-            "inputBinding": {
-                "separate": true,
-                "prefix": "-g",
-                "position": 5
-            },
-            "type": [
-                "int"
-            ]
-        },
-        {
             "default": 13,
             "id": "#nres",
             "inputBinding": {
                 "separate": true,
                 "prefix": "-l",
-                "position": 6
+                "position": 5
             },
             "type": [
                 "int"
@@ -89,7 +77,7 @@
             "inputBinding": {
                 "separate": true,
                 "prefix": "-u",
-                "position": 7
+                "position": 6
             },
             "type": [
                 "string"
@@ -101,7 +89,7 @@
             "inputBinding": {
                 "separate": true,
                 "prefix": "-r",
-                "position": 8
+                "position": 7
             },
             "type": [
                 "int"
