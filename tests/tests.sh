@@ -30,6 +30,11 @@ if [ ! -z "$(diff mcool.log1 $cwd/tests/test.multires.cool.customres.log)"]; the
   return 1;
 fi
 
+# run-mcool2hic custom res test
+docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-mcool2hic.sh -i /e/test.multires.cool -u 100000,200000,500000 -c /d/hg19.chrom.sizes.mainonly
+
+
+
 ## run-addfrag2pairs & run-juicebox-pre test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-addfrag2pairs.sh /sample_data/test2.pairs.gz /sample_data/hg19_DpnII.mainonly.txt /out/test
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 5000 -m 4g -q 0
