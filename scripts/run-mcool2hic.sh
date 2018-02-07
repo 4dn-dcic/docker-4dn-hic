@@ -1,7 +1,6 @@
 #!/bin/bash
 shopt -s extglob
 min_res=5000
-higlass=0  # if 1, higlass-compatible aggregation
 nres=13
 custom_res=''  # custom resolutions, separated by commas
 output_prefix=out
@@ -15,18 +14,16 @@ printHelpAndExit() {
     echo "-d outdir : default ."
     echo "-r min_res : default 5000 (this option is effective only when used with -g)"
     echo "-l nres : default 13 (this options is effective only when used with -g)"
-    echo "-g : use HiGlass resolutions (default juicer resolutions)"
     echo "-u : custom resolutions (separated by comman)"
     exit "$1"
 }
 
-while getopts "i:c:r:l:go:d:u:" opt; do
+while getopts "i:c:r:l:o:d:u:" opt; do
     case $opt in
         i) input_mcool=$OPTARG;;
         c) chromsizefile=$OPTARG;;
         r) min_res=$OPTARG;;
         l) nres=$OPTARG;;
-        g) higlass=1 ;;
         u) custom_res=$OPTARG;;
         o) output_prefix=$OPTARG;;
         d) outdir=$OPTARG;;
@@ -35,21 +32,6 @@ while getopts "i:c:r:l:go:d:u:" opt; do
         esac
 done
 
-
-
-# error when both higlass and custom_res are set
-if [[ $higlass == '1' && ! -z $custom_res ]]
-then
-    echo "Do you want higlass resolution (-g) or custom-resolution (-u)? Make up your mind! :)"
-    exit 1
-fi
-
-# error when neither higlass and custom_res are set
-if [[ $higlass == '0' && -z $custom_res ]]
-then
-    echo "Please specify whether you want higlass resolution (-g) or custom-resolution (-u)! :)"
-    exit 1
-fi
 
 cp $input_mcool $outdir/$output_prefix.mcool
 scriptdir=/usr/local/bin
