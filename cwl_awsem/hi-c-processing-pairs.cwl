@@ -301,7 +301,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "cooler" ],
+                "software_used": [ "cooler_0.7.6" ],
                 "description": "Cooler file is converted to mcool",
                 "analysis_step_types": [ "aggregation", "normalization", "file format conversion" ]
             },
@@ -363,7 +363,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "mcool2hic_f2d128" ],
+                "software_used": [ "mcool2hic_87a912" ],
                 "description": "Extracting HiC normalization vector",
                 "analysis_step_types": [ "file format conversion" ]
             },
