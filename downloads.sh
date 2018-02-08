@@ -86,12 +86,12 @@ pip3 install hic2cool==0.4.1
 cd ..
 
 ## SOFTWARE: mcool2hic
-## COMMIT: f2d1283
+## COMMIT: 87a912c
 ## TYPE: file format converter
 ## SOURCE_URL: https://github.com/SooLee/mcool2hic
 git clone https://github.com/SooLee/mcool2hic.git
 cd mcool2hic
-git checkout f2d1283
+git checkout 87a912c
 cd ..
 
 

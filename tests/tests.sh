@@ -60,6 +60,9 @@ if [[ $(grep "Calculating norms" juicebox-custom.log | wc -l) != '3' ]]; then
    return 1;
 fi
 
+# run-add-hicnormvector-to-mcool.sh test for custom_res
+docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-add-hicnormvector-to-mcool.sh /out/test.hic /out/test.multires.cool
+
 # run-juicebox-pre test with higlass-compatible zoom levels and normlization only
 docker run -it -v $(pwd)/sample_data/:/sample_data/:ro -v $(pwd)/tmp_out/:/out/:rw $image_name run-juicebox-pre.sh -i /out/test.ff.pairs.gz -c /sample_data/hg19.chrom.sizes.mainonly -o /out/test -r 5000 -g -m 4g -n 
 

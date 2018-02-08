@@ -7,6 +7,7 @@
 * `run-cool2multirescool.sh` now has -j option (juicer resolutions) and -u option (custom resolutions) and the usage has changed.
 * juicer_tools version 1.8.9_jcuda8
 * `run-mcool2hic.sh` now has custom_res option (-u) and the usage has changed.
+* `mcool2hic` updated to handle custom-resolution mcool.
 
 ### v41
 * version updates for `bwa`, `pairix`, `cooler`, `pairsamtools`, `hic2cool`, `juicebox`
