@@ -60,39 +60,15 @@
             ]
         },
         {
-            "default": 13,
-            "id": "#nres",
-            "inputBinding": {
-                "separate": true,
-                "prefix": "-l",
-                "position": 5
-            },
-            "type": [
-                "int"
-            ]
-       },
-        {
             "default": "1000,2000,5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000",
             "id": "#custom_res",
             "inputBinding": {
                 "separate": true,
                 "prefix": "-u",
-                "position": 6
+                "position": 5
             },
             "type": [
                 "string"
-            ]
-       },
-       {
-            "default": 1000,
-            "id": "#min_res",
-            "inputBinding": {
-                "separate": true,
-                "prefix": "-r",
-                "position": 7
-            },
-            "type": [
-                "int"
             ]
        }
     ],

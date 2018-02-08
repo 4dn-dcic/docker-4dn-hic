@@ -376,14 +376,6 @@
             ],
             "inputs": [
                 {
-                    "id": "#extract_mcool_normvector_for_juicebox.nres",
-                    "source": "#nres"
-                },
-                {
-                    "id": "#extract_mcool_normvector_for_juicebox.min_res",
-                    "source": "#min_res"
-                },
-                {
                     "id": "#extract_mcool_normvector_for_juicebox.custom_res",
                     "source": "#custom_res"
                 },
