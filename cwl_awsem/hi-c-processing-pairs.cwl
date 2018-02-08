@@ -256,7 +256,7 @@
         },
         {
             "fdn_step_meta": {
-                "software_used": [ "juicer_tools_1.7.6-cuda8" ],  
+                "software_used": [ "juicer_tools_1.8.9-cuda8" ],  
                 "description": "Merged Pairs file is processed using Juicebox",
                 "analysis_step_types": [ "aggregation", "normalization" ]
             },
