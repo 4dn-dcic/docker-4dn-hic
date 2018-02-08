@@ -54,6 +54,8 @@ def benchmark(app_name, input_json, raise_error=False):
         return(hi_c_processing_partc(input_json))
     elif app_name == 'hi-c-processing-bam':
         return(hi_c_processing_bam(input_json))
+    elif app_name == 'hi-c-processing-pairs':
+        return(hi_c_processing_pairs(input_json))
     elif app_name == 'pairs-patch':
         return(pairs_patch(input_json))
     elif app_name == 'repliseq-parta':
@@ -383,6 +385,55 @@ def hi_c_processing_bam(input_json):
 
     return(r.as_dict())
 
+
+def hi_c_processing_pairs(input_json):
+    assert 'input_size_in_bytes' in input_json
+    assert 'input_pairs' in input_json.get('input_size_in_bytes')
+    in_size = input_json['input_size_in_bytes']
+    assert isinstance(in_size['input_pairs'], list)
+
+    # cpu
+    nthreads = 8  # default from cwl
+    if 'parameters' in input_json:
+        if 'nthreads_cooler' in input_json.get('parameters'):
+            nthreads_cooler = input_json.get('parameters').get('nthreads_cooler')
+        else:
+            nthreads_cooler = 8
+        if 'nthreads_juicebox' in input_json.get('parameters'):
+            nthreads_juicebox = input_json.get('parameters').get('nthreads_juicebox')
+        else:
+            nthreads_juicebox = 4
+
+    # nthreads is the maximum of the two nthread parameters
+    nthreads = nthreads_cooler if nthreads_cooler > nthreads_juicebox else nthreads_juicebox
+
+    # space
+    input_size = sum(in_size['input_pairs']) / GB_IN_BYTES
+    out_size = input_size * 1.5 
+    intermediate_size = input_size * 3
+    total_size = input_size + out_size + intermediate_size
+    total_safe_size = total_size * 1.4
+
+    # mem
+    maxmem = 14 * GB_IN_MB  # default from cwl
+    if 'parameters' in input_json:
+        if 'maxmem' in input_json.get('parameters'):
+            maxmem = input_json.get('parameters').get('maxmem')
+            if 'g' in maxmem:
+                maxmem = int(maxmem.replace('g', '')) * GB_IN_MB
+            elif 'm' in maxmem:
+                maxmem = int(maxmem.replace('m', ''))
+            else:
+                raise Exception("proper maxmem string?")
+
+    cooler_mem = nthreads_cooler * input_size * GB_IN_MB
+    if cooler_mem > maxmem:
+        mem = cooler_mem
+    else:
+        mem = maxmem
+
+    r = BenchmarkResult(size=total_safe_size, mem=mem, cpu=nthreads)
+    return(r.as_dict())
 
 
 def repliseq_parta(input_json):

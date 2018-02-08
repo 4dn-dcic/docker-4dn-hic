@@ -119,21 +119,39 @@ class TestBenchmark(unittest.TestCase):
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 'r4.large'
-
-        
-def test_benchmark12(self):
+    
+    def test_benchmark12(self):
         input_json = {'input_size_in_bytes': {'input_bams': [1000000000, 2000000000],
                                               'chromsize': 200000},
                       'parameters': {'nthreads_parse_sort': 1,
                                      'nthreads_merge': 8}}
         res = B.benchmark('hi-c-processing-bam', input_json)
         print('hi-c-processing-bam')
+        print("benchmark12")
         print(res)
         assert 'aws' in res
         assert 'recommended_instance_type' in res['aws']
         assert res['aws']['recommended_instance_type'] == 't2.2xlarge'
         assert res['min_CPU'] == 8
-        assert res['total_size_in_GB'] == 42
+        assert int(res['total_size_in_GB']) == 39
+
+    def test_benchmark13(self):
+        input_json = {'input_size_in_bytes': {'input_pairs': [1000000000,
+                                                              2000000000,
+                                                              3000000000]},
+                      'parameters': {'nthreads_cooler': 8,
+                                     'nthreads_juicebox': 16,
+                                     'maxmem': '32g'}}
+        res = B.benchmark('hi-c-processing-pairs', input_json)
+        print('hi-c-processing-pairs')
+        print("benchmark13")
+        print(res)
+        assert 'aws' in res
+        assert res['min_CPU'] == 16
+        assert int(res['total_mem_in_MB']) == 45776
+        assert int(res['total_size_in_GB']) == 43
+        assert 'recommended_instance_type' in res['aws']
+        assert res['aws']['recommended_instance_type'] == 'm4.4xlarge'
         
     def test_benchmark_none1(self):
         input_json = {'input_size_in_bytes': {'fastq1': 93520,
