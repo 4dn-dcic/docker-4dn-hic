@@ -48,7 +48,7 @@
             "type": [
                 "File"
             ],
-            "source": "#extract_mcool_normvector_for_juicebox.cooler_normvector",
+            "source": "#extract-mcool-normvector-for-juicebox.cooler_normvector",
             "fdn_format": "normvector_juicerformat",
             "fdn_output_type": "processed"
         }
@@ -369,22 +369,22 @@
             },
             "outputs": [
                 {
-                    "id": "#extract_mcool_normvector_for_juicebox.cooler_normvector",
+                    "id": "#extract-mcool-normvector-for-juicebox.cooler_normvector",
                     "fdn_format": "normvector_juicerformat"
 
                 }
             ],
             "inputs": [
                 {
-                    "id": "#extract_mcool_normvector_for_juicebox.custom_res",
+                    "id": "#extract-mcool-normvector-for-juicebox.custom_res",
                     "source": "#custom_res"
                 },
                 {
-                    "id": "#extract_mcool_normvector_for_juicebox.chromsize",
+                    "id": "#extract-mcool-normvector-for-juicebox.chromsize",
                     "source": "#chromsizes"
                 },
                 {
-                    "id": "#extract_mcool_normvector_for_juicebox.input_mcool",
+                    "id": "#extract-mcool-normvector-for-juicebox.input_mcool",
                     "source": "#add_hic_normvector_to_mcool.mcool_with_hicnorm"
                 }            
             ],
