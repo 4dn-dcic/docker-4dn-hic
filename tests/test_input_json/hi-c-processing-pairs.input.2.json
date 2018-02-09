@@ -19,10 +19,9 @@
              "class":"File",
              "path":"/home/ec2-user/4DNFI823L812.txt"  
          },
-         "nthreads_cooler":8,
+         "nthreads":8,
          "min_res":5000,
          "maxmem":"2g",
-         "nres":13,
-         "nthreads_juicebox":4,
-         "chunksize":10000000
+         "chunksize":10000000,
+         "custom_res": "1000000,2000000,5000000"
 }
