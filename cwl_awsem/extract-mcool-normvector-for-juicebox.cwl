@@ -14,7 +14,7 @@
     ],
     "inputs": [
         {
-            "id": "#input_mcool",
+            "id": "#mcool",
             "inputBinding": {
                 "separate": true,
                 "prefix": "-i",

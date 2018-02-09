@@ -449,7 +449,7 @@
                     "fdn_cardinality": "single"
                 },
                 {
-                    "id": "#extract-mcool-normvector-for-juicebox.input_mcool",
+                    "id": "#extract-mcool-normvector-for-juicebox.mcool",
                     "source": "#add-hic-normvector-to-mcool.mcool_with_hicnorm",
                     "fdn_format": "mcool",
                     "fdn_type": "data file",
