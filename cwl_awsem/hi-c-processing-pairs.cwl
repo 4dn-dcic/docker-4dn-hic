@@ -177,13 +177,18 @@
             "outputs": [
                 {
                     "id": "#merge-pairs.merged_pairs",
-                    "fdn_format": "pairs"
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "source": "#input_pairs",
-                    "id": "#merge-pairs.input_pairs"
+                    "id": "#merge-pairs.input_pairs",
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "array"
                 }
             ],
             "run": "merge-pairs.cwl",
@@ -197,21 +202,32 @@
             },
             "outputs": [
                 {
-                    "id": "#addfragtopairs.pairs_with_frags"
+                    "id": "#addfragtopairs.pairs_with_frags",
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "id": "#addfragtopairs.input_pairs",
-                    "source": "#merge-pairs.merged_pairs"
+                    "source": "#merge-pairs.merged_pairs",
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#addfragtopairs.restriction_file",
-                    "source": "#restriction_file"
+                    "source": "#restriction_file",
+                    "fdn_format": "juicer_format_restriction_site_file",
+                    "fdn_type": "reference file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#addfragtopairs.donothing",
-                    "source": "#nofrag"
+                    "source": "#nofrag",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 }
             ],
             "run": "addfragtopairs.cwl",
@@ -226,29 +242,43 @@
             "outputs": [
                 {
                     "id": "#cooler.cool",
-                    "fdn_format": "cool"
+                    "fdn_format": "cool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "id": "#cooler.pairs",
-                    "source": "#merge-pairs.merged_pairs"
+                    "source": "#merge-pairs.merged_pairs",
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#cooler.chrsizes",
-                    "source": "#chromsizes"
+                    "source": "#chromsizes",
+                    "fdn_format": "chromsizes",
+                    "fdn_type": "reference file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#cooler.binsize",
-                    "source": "#min_res"
+                    "source": "#min_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#cooler.ncores",
-                    "source": "#nthreads_cooler"
+                    "source": "#nthreads_cooler",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#cooler.max_split",
-                    "source": "#max_split_cooler"
+                    "source": "#max_split_cooler",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 }
             ],
             "run": "cooler.cwl",
@@ -269,31 +299,46 @@
                 {
                     "source": "#addfragtopairs.pairs_with_frags",
                     "id": "#pairs2hic.input_pairs",
-                    "fdn_format": "pairs"
+                    "fdn_format": "pairs",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "source": "#chromsizes",
-                    "id": "#pairs2hic.chromsizes"
+                    "id": "#pairs2hic.chromsizes",
+                    "fdn_format": "chromsizes",
+                    "fdn_type": "reference file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "source": "#min_res",
-                    "id": "#pairs2hic.min_res"
+                    "id": "#pairs2hic.min_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "source": "#higlass",
-                    "id": "#pairs2hic.higlass"
+                    "id": "#pairs2hic.higlass",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "source": "#custom_res",
-                    "id": "#pairs2hic.custom_res"
+                    "id": "#pairs2hic.custom_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "source": "#maxmem",
-                    "id": "#pairs2hic.maxmem"
+                    "id": "#pairs2hic.maxmem",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "source": "#mapqfilter_juicer",
-                    "id": "#pairs2hic.mapqfilter"
+                    "id": "#pairs2hic.mapqfilter",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 }
             ],
             "run": "pairs2hic.cwl",
@@ -308,29 +353,42 @@
             "outputs": [
                 {
                     "id": "#cool2mcool.mcool",
-                    "fdn_format": "mcool"
+                    "fdn_format": "mcool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "id": "#cool2mcool.input_cool",
-                    "source": "#cooler.cool"
+                    "source": "#cooler.cool",
+                    "fdn_format": "cool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#cool2mcool.ncores",
-                    "source": "#nthreads_juicebox"
+                    "source": "#nthreads_juicebox",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#cool2mcool.chunksize",
-                    "source": "#chunksize"
+                    "source": "#chunksize",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#cool2mcool.juicer_res",
-                    "source": "#juicer_res"
+                    "source": "#juicer_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#cool2mcool.custom_res",
-                    "source": "#custom_res"
+                    "source": "#custom_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 }
             ],
             "run": "cool2mcool.cwl",
@@ -345,17 +403,25 @@
             "outputs": [
                 {
                     "id": "#add-hic-normvector-to-mcool.mcool_with_hicnorm",
-                    "fdn_format": "mcool"
+                    "fdn_format": "mcool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "id": "#add-hic-normvector-to-mcool.input_mcool",
-                    "source": "#cool2mcool.mcool"
+                    "source": "#cool2mcool.mcool",
+                    "fdn_format": "mcool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#add-hic-normvector-to-mcool.input_hic",
-                    "source": "#pairs2hic.hic"
+                    "source": "#pairs2hic.hic",
+                    "fdn_format": "hic",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "run": "add-hic-normvector-to-mcool.cwl",
@@ -370,22 +436,31 @@
             "outputs": [
                 {
                     "id": "#extract-mcool-normvector-for-juicebox.cooler_normvector",
-                    "fdn_format": "normvector_juicerformat"
-
+                    "fdn_format": "normvector_juicerformat",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }
             ],
             "inputs": [
                 {
                     "id": "#extract-mcool-normvector-for-juicebox.custom_res",
-                    "source": "#custom_res"
+                    "source": "#custom_res",
+                    "fdn_cardinality": "single",
+                    "fdn_type": "parameter"
                 },
                 {
                     "id": "#extract-mcool-normvector-for-juicebox.chromsize",
-                    "source": "#chromsizes"
+                    "source": "#chromsizes",
+                    "fdn_format": "chromsizes",
+                    "fdn_type": "reference file",
+                    "fdn_cardinality": "single"
                 },
                 {
                     "id": "#extract-mcool-normvector-for-juicebox.input_mcool",
-                    "source": "#add-hic-normvector-to-mcool.mcool_with_hicnorm"
+                    "source": "#add-hic-normvector-to-mcool.mcool_with_hicnorm",
+                    "fdn_format": "mcool",
+                    "fdn_type": "data file",
+                    "fdn_cardinality": "single"
                 }            
             ],
             "run": "extract-mcool-normvector-for-juicebox.cwl",
