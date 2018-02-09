@@ -395,17 +395,8 @@ def hi_c_processing_pairs(input_json):
     # cpu
     nthreads = 8  # default from cwl
     if 'parameters' in input_json:
-        if 'nthreads_cooler' in input_json.get('parameters'):
-            nthreads_cooler = input_json.get('parameters').get('nthreads_cooler')
-        else:
-            nthreads_cooler = 8
-        if 'nthreads_juicebox' in input_json.get('parameters'):
-            nthreads_juicebox = input_json.get('parameters').get('nthreads_juicebox')
-        else:
-            nthreads_juicebox = 4
-
-    # nthreads is the maximum of the two nthread parameters
-    nthreads = nthreads_cooler if nthreads_cooler > nthreads_juicebox else nthreads_juicebox
+        if 'nthreads' in input_json.get('parameters'):
+            nthreads = input_json.get('parameters').get('nthreads')
 
     # space
     input_size = sum(in_size['input_pairs']) / GB_IN_BYTES
@@ -426,7 +417,7 @@ def hi_c_processing_pairs(input_json):
             else:
                 raise Exception("proper maxmem string?")
 
-    cooler_mem = nthreads_cooler * input_size * GB_IN_MB
+    cooler_mem = nthreads * input_size * GB_IN_MB
     if cooler_mem > maxmem:
         mem = cooler_mem
     else:

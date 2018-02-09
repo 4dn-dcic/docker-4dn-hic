@@ -81,7 +81,7 @@
             "fdn_format": "juicer_format_restriction_site_file"
         },
         {
-            "id": "#nthreads_cooler",
+            "id": "#nthreads",
             "default": 8,
             "type": [
                 "int"
@@ -125,13 +125,6 @@
         {
             "id": "#nres",
             "default": 13,
-            "type": [
-                "int"
-            ]
-        },
-        {
-            "id": "#nthreads_juicebox",
-            "default": 4,
             "type": [
                 "int"
             ]
@@ -270,7 +263,7 @@
                 },
                 {
                     "id": "#cooler.ncores",
-                    "source": "#nthreads_cooler",
+                    "source": "#nthreads",
                     "fdn_cardinality": "single",
                     "fdn_type": "parameter"
                 },
@@ -368,7 +361,7 @@
                 },
                 {
                     "id": "#cool2mcool.ncores",
-                    "source": "#nthreads_cooler",
+                    "source": "#nthreads",
                     "fdn_cardinality": "single",
                     "fdn_type": "parameter"
                 },
