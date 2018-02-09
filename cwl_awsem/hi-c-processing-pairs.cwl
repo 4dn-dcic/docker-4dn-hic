@@ -39,7 +39,7 @@
             "type": [
                 "File"
             ],
-            "source": "#add_hic_normvector_to_mcool.mcool_with_hicnorm",
+            "source": "#add-hic-normvector-to-mcool.mcool_with_hicnorm",
             "fdn_format": "mcool",
             "fdn_output_type": "processed"
         },
@@ -344,22 +344,22 @@
             },
             "outputs": [
                 {
-                    "id": "#add_hic_normvector_to_mcool.mcool_with_hicnorm",
+                    "id": "#add-hic-normvector-to-mcool.mcool_with_hicnorm",
                     "fdn_format": "mcool"
                 }
             ],
             "inputs": [
                 {
-                    "id": "#add_hic_normvector_to_mcool.input_mcool",
+                    "id": "#add-hic-normvector-to-mcool.input_mcool",
                     "source": "#cool2mcool.mcool"
                 },
                 {
-                    "id": "#add_hic_normvector_to_mcool.input_hic",
+                    "id": "#add-hic-normvector-to-mcool.input_hic",
                     "source": "#pairs2hic.hic"
                 }
             ],
             "run": "add-hic-normvector-to-mcool.cwl",
-            "id": "#add_hic_normvector_to_mcool"
+            "id": "#add-hic-normvector-to-mcool"
         },
         {
             "fdn_step_meta": {
@@ -385,7 +385,7 @@
                 },
                 {
                     "id": "#extract-mcool-normvector-for-juicebox.input_mcool",
-                    "source": "#add_hic_normvector_to_mcool.mcool_with_hicnorm"
+                    "source": "#add-hic-normvector-to-mcool.mcool_with_hicnorm"
                 }            
             ],
             "run": "extract-mcool-normvector-for-juicebox.cwl",
