@@ -368,7 +368,7 @@
                 },
                 {
                     "id": "#cool2mcool.ncores",
-                    "source": "#nthreads_juicebox",
+                    "source": "#nthreads_cooler",
                     "fdn_cardinality": "single",
                     "fdn_type": "parameter"
                 },
