@@ -1,5 +1,5 @@
 sudo: required
-language: c, python
+language: c python
 python: 2.7
 os: linux
 addons:
