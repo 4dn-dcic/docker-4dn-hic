@@ -16,9 +16,9 @@ install:
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
 script:
   - if [ "$DOCKER" == "on" ]; then
-      docker build -t $LOCAL_NAME .
-      source tests/tests.sh
-    if
+      docker build -t $LOCAL_NAME .;
+      source tests/tests.sh;
+    fi
     for CWL_NAME in $CWL_NAME_LIST; do
        source tests/tests_cwl.sh $CWL_NAME;
     done
