@@ -25,7 +25,7 @@
                 "position": 2
             },
             "id": "#outprefix"
-        },
+        }
     ],
      "outputs": [
         {

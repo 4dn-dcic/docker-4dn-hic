@@ -70,8 +70,7 @@
                 "position": 6
             },
             "id": "#compress_programm"
-        },
-
+        }
     ],
      "outputs": [
         {
