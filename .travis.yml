@@ -10,23 +10,21 @@ services:
   - docker
  
 env:
-  - TEST=docker LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
-  - TEST=cwl CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
+  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
 
 install:
   - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
 script:
-  - if [ "$TEST" == "docker" ]; then
+  - if [ "$DOCKER" == "on" ]; then
       docker build -t $LOCAL_NAME .
       source tests/tests.sh
-    elif [ "$TEST" == "cwl" ]; then
-      for CWL_NAME in $CWL_NAME_LIST; do
-         source tests/tests_cwl.sh $CWL_NAME;
-      done
-    fi
+    if
+    for CWL_NAME in $CWL_NAME_LIST; do
+       source tests/tests_cwl.sh $CWL_NAME;
+    done
 
 after_success:
-  - if [ $TEST" == "docker" ]; then
+  - if [ $DOCKER" == "on" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       if [ "$TRAVIS_BRANCH" == "master" ]; then
         if [ "$TRAVIS_PULL_REQUEST" != false ]; then
