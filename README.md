@@ -24,6 +24,11 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-add-hicnormvector-to-mcool.sh](#run-add-hicnormvector-to-mcoolsh)
   * [run-mcool2hic.sh](#run-mcool2hicsh)
   * [run-fastqc.sh](#run-fastqcsh)
+  * [run-pairsam-parse-sort.sh](#run-parisam-parse-sortsh)
+  * [run-pairsam-merge.sh](#run-parisam-mergesh)
+  * [run-pairsam-markasdup.sh](#run-parisam-markasdupsh)
+  * [run-pairsam-filter.sh](#run-parisam-filtersh)
+
 
 ## Cloning the repo
 ```
@@ -299,4 +304,21 @@ run-fastqc.sh <input_fastq> <nthread> <outdir>
 # outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
 ```
 
+
+### run-pairsam-parse-sort.sh
+Runs pairsam parse and sort on a bwa-produced bam file and produces a pair-type/duplicate annotated lossless bam file and a filtered pairs file.
+* Input: a bam file
+* Output: an annotatd bam file and a filtered pairs file
+
+#### Usage
+Run the following in the container
+```
+run-pairsam-parse-sort.sh <input_bam> <chromsizes> <outdir> <outprefix> <nthread> <compress_program>
+# input_bam : an input bam file.
+# chromsizes : a chromsize file
+# outdir : output directory
+# outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
+# outprefix : prefix of output files
+# nthread : number of threads to use
+```
 
