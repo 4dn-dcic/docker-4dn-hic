@@ -10,7 +10,7 @@ services:
   - docker
  
 env:
-  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
+  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox cool2mcool bwa-mem"
 
 install:
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
