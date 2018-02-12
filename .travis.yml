@@ -1,27 +1,41 @@
 sudo: required
-language: c
+language: c, python
+python: 2.7
+os: linux
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
 services:
   - docker
  
 env:
-  - LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
+  - TEST=docker LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
+  - TEST=cwl CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
 
 install:
-  - docker build -t $LOCAL_NAME .
-
+  - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
 script:
-  - source tests/tests.sh
+  - if [ "$TEST" == "docker" ]; then
+      docker build -t $LOCAL_NAME .
+      source tests/tests.sh
+    elif [ "$TEST" == "cwl" ]; then
+      for CWL_NAME in $CWL_NAME_LIST; do
+         source tests/tests_cwl.sh $CWL_NAME;
+      done
+    fi
 
 after_success:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      if [ "$TRAVIS_PULL_REQUEST" != false ]; then
-        docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-        docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-      else 
-        docker tag $LOCAL_NAME $REMOTE_NAME:latest;
-        docker push $REMOTE_NAME:latest;
+  - if [ $TEST" == "docker" ]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      if [ "$TRAVIS_BRANCH" == "master" ]; then
+        if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+          docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+          docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+        else 
+          docker tag $LOCAL_NAME $REMOTE_NAME:latest;
+          docker push $REMOTE_NAME:latest;
+        fi
       fi
-    fi
   - echo 'good'
   - date
