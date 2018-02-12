@@ -1,0 +1,7 @@
+{
+    "input_cool": {
+        "class": "File", 
+        "path": "../test_files/test.cool"
+    }, 
+    "ncores": 1
+}
