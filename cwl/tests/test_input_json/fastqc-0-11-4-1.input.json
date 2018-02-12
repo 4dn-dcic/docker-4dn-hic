@@ -1,0 +1,6 @@
+{
+    "input_fastq": {
+        "class": "File", 
+        "path": "../test_files/SRR1658650_R1.h20.fastq.gz"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "input_mcool": {
+        "class": "File", 
+        "path": "../test_files/test.mcool"
+    },
+    "chromsize": {
+        "class": "File",
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
+    "custom_res": "500000,10000000,20000000,4000000"
+}

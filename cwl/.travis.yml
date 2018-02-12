@@ -1,0 +1,37 @@
+env:
+  global:
+    - CROMWELL_JAR=cromwell.jar
+  matrix:
+    - BENCHMARK_TEST=1
+    - CWL_TEST=1 CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam pairs-patch addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox md5 fastqc-0-11-4-1 hi-c-processing-partb cool2mcool hi-c-processing-partc bwa-mem"
+    - WDL_TEST=1 WDL_NAME_LIST="bwa-mem"
+language: python
+sudo: false
+python: 2.7
+os: linux
+services: docker
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+before_install:
+  - wget https://github.com/broadinstitute/cromwell/releases/download/29/cromwell-29.jar -O $CROMWELL_JAR
+install:
+  - pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+  - python setup.py install  # benchmark
+script:
+  - if [ "$BENCHMARK_TEST" == "1" ]; then
+       python tests/tests_benchmark.py;
+    fi
+  - if [ "$CWL_TEST" == "1" ]; then
+       set -e;
+       for CWL_NAME in CWL_NAME_LIST; do
+           source tests/tests.sh $CWL_NAME;
+       done
+    fi
+  - if [ "$WDL_TEST" == "1" ]; then
+       set -e;
+       for WDL_NAME in WDL_NAME_LIST; do
+           source tests/tests_wdl.sh $WDL_NAME $CROMWELL_JAR;
+       done
+    fi
