@@ -18,7 +18,7 @@ script:
   - if [ "$DOCKER" == "on" ]; then
       docker build -t $LOCAL_NAME .;
       source tests/tests.sh;
-    fi
+    fi;
     for CWL_NAME in $CWL_NAME_LIST; do
        source tests/tests_cwl.sh $CWL_NAME;
     done
