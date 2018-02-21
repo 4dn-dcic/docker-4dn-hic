@@ -3,6 +3,15 @@
 The following are an example run of the actual commands for the current Hi-C pipeline on the 4DN Data Portal.
 
 ```
+run-bwa-mem.sh \
+    /var/lib/cwl/stgc2042ace-5194-4afa-b19f-3333295b0afc/4DNFI74FHUH6.fastq.gz \
+    /var/lib/cwl/stg77712e5d-9cf4-4909-b554-407cd9286042/4DNFIUT9GCZL.fastq.gz \
+    /var/lib/cwl/stgc9006e13-858f-47e5-9d98-5ac079efd385/4DNFIZQZ39L9.bwaIndex.tgz \
+    . \
+    out \
+    16
+```
+```
 run-pairsam-parse-sort.sh \
     /var/lib/cwl/stgbdbee468-1bb0-4c21-b787-fce8bafd3be5/4DNFI1XCVK6M.bam \
     /var/lib/cwl/stg58fca694-ecd7-402c-b0d3-fe4452e1abaa/4DNFI823LSII.chrom.sizes \
@@ -40,7 +49,7 @@ run-addfrag2pairs.sh \
      out
 ```
 ```
-un-cooler.sh \
+run-cooler.sh \
      /var/lib/cwl/stg284aa703-4d0e-4085-8eb4-6139c57e4ba0/out.pairs.gz \
      /var/lib/cwl/stg6fc477a4-cec5-49cf-8dec-cdc3924dc54d/4DNFI823LSII.chrom.sizes \
      1000 \
@@ -59,7 +68,7 @@ run-juicebox-pre.sh \
       -u 1000,2000,5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000
 ```
 ```
-un-cool2multirescool.sh \
+run-cool2multirescool.sh \
       -i /var/lib/cwl/stgce797073-b04e-48ce-b11b-f2865c4f39b9/out.cool \
       -p 1 \
       -o out \
