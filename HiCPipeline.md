@@ -38,6 +38,14 @@ run-pairsam-filter.sh \
     /var/lib/cwl/stg971507ac-daab-4fdc-98cf-56027f3dc411/4DNFI823LSII.chrom.sizes
 ```
 ```
+run-pairsqc-single.sh \
+    /var/lib/cwl/stg3f209dd8-644b-486c-aa8e-b4ed0c235cec/4DNFI3G7ACRU.pairs.gz \
+    /var/lib/cwl/stgd0f8d862-d460-4e5b-b234-2ba651395aa8/4DNFI823LSII.chrom.sizes \
+    4DNFI3G7ACRU \
+    6 \
+    .
+```
+```
 run-merge-pairs.sh \
     out \
     /var/lib/cwl/stg6e5744ea-fa67-4075-9999-682cf123ccd2/4DNFIS5PRTL5.pairs.gz
