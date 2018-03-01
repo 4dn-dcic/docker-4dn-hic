@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ $# -le 1 ] ; then
-    echo "Usage: bash pipeline_markasdup.sh PAIRSAM OUTPUT_PREFIX"
+    echo "Usage: bash run-pairsam-markasdup.sh PAIRSAM OUTPUT_PREFIX"
     echo ""
     echo "An example of markasdup pipeline for marking duplicates in a given pairsam file"
     echo ""
