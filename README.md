@@ -24,10 +24,10 @@ This repo contains the source files for a docker image stored in duplexa/4dn-hic
   * [run-add-hicnormvector-to-mcool.sh](#run-add-hicnormvector-to-mcoolsh)
   * [run-mcool2hic.sh](#run-mcool2hicsh)
   * [run-fastqc.sh](#run-fastqcsh)
-  * [run-pairsam-parse-sort.sh](#run-parisam-parse-sortsh)
-  * [run-pairsam-merge.sh](#run-parisam-mergesh)
-  * [run-pairsam-markasdup.sh](#run-parisam-markasdupsh)
-  * [run-pairsam-filter.sh](#run-parisam-filtersh)
+  * [run-pairsam-parse-sort.sh](#run-pairsam-parse-sortsh)
+  * [run-pairsam-merge.sh](#run-pairsam-mergesh)
+  * [run-pairsam-markasdup.sh](#run-pairsam-markasdupsh)
+  * [run-pairsam-filter.sh](#run-pairsam-filtersh)
 
 
 ## Cloning the repo
@@ -306,9 +306,9 @@ run-fastqc.sh <input_fastq> <nthread> <outdir>
 
 
 ### run-pairsam-parse-sort.sh
-Runs pairsam parse and sort on a bwa-produced bam file and produces a pair-type/duplicate annotated lossless bam file and a filtered pairs file.
+Runs pairsam parse and sort on a bwa-produced bam file and produces a sorted pairsam file
 * Input: a bam file
-* Output: an annotatd bam file and a filtered pairs file
+* Output: a pairsam file
 
 #### Usage
 Run the following in the container
@@ -317,8 +317,44 @@ run-pairsam-parse-sort.sh <input_bam> <chromsizes> <outdir> <outprefix> <nthread
 # input_bam : an input bam file.
 # chromsizes : a chromsize file
 # outdir : output directory
-# outdir : output directory (This should be a mounted host directory, so that the output files are visible from the host and to avoid any bus error)
 # outprefix : prefix of output files
 # nthread : number of threads to use
 ```
 
+### run-pairsam-merge.sh
+Merges a list of pairsam files
+* Input: a list of pairsam files
+* Output: a merged pairsam file
+
+#### Usage
+Run the following in the container
+```
+run-pairsam-merge.sh <outprefix> <nthreads> <input_pairsam1> [<input_pairsam2> [<input_pairsam3> [...]]]
+# outprefix : prefix of output files
+# nthreads : number of threads to use
+# input_pairsam : an input pairsam file.
+
+### run-pairsam-markasdup.sh
+Takes a pairsam file in and creates a pairsam file with duplicate reads marked
+* Input: a pairsam file
+* Output: a duplicate-marked pairsam file
+
+#### Usage
+Run the following in the container
+```
+run-pairsam-markasdup.sh <input_pairsam> <outprefix>
+# input_pairsam : an input pairsam file.
+# outprefix : prefix of output files
+
+### run-pairsam-filter.sh
+Takes in a pairsam file and creates a lossless, annotated bam file and a filtered pairs file.
+* Input: a pairsam file
+* Output: an annotatd bam file and a filtered pairs file
+
+#### Usage
+Run the following in the container
+```
+run-pairsam-filter.sh <input_pairsam> <outprefix> <chromsizes>
+# input_pairsam : an input pairsam file.
+# outprefix : prefix of output files
+# chromsizes : a chromsize file
