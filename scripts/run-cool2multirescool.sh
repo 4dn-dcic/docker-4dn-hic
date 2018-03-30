@@ -53,6 +53,6 @@ else
     BALANCE_OPION=""
 fi
 
-cooler zoomify BALANCE_OPTION $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG
+cooler zoomify $BALANCE_OPTION $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG
 
 
