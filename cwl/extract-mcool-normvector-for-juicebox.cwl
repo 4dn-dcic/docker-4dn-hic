@@ -62,5 +62,5 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42"
+      dockerPull: "duplexa/4dn-hic:v42.1"
 

@@ -3,7 +3,7 @@
     - "run-cool2multirescool.sh"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42"
+      dockerPull: "duplexa/4dn-hic:v42.1"
       class: "DockerRequirement"
   cwlVersion: "draft-3"
   inputs: 
