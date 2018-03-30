@@ -6,6 +6,7 @@ maxmem=64g
 higlass=0  # if 1, higlass-compatible aggregation
 custom_res=''  # custom resolutions, separated by commas
 normonly=0  # if 1, normalization only
+balance=1  # if 0, no normalization
 output_prefix=out
 
 printHelpAndExit() {
@@ -19,10 +20,11 @@ printHelpAndExit() {
     echo "-g : use HiGlass resolutions (default juicer resolutions)"
     echo "-u : custom resolutions (separated by comman)"
     echo "-n : normalization only"
+    echo "-B : no balancing/normalization"
     exit "$1"
 }
 
-while getopts "i:c:q:r:m:go:nu:" opt; do
+while getopts "i:c:q:r:m:go:nu:B" opt; do
     case $opt in
         i) input_pairs=$OPTARG;;
         c) chromsizefile=$OPTARG;;
@@ -32,6 +34,7 @@ while getopts "i:c:q:r:m:go:nu:" opt; do
         g) higlass=1 ;;
         u) custom_res=$OPTARG;;
         n) normonly=1 ;;
+        B) balance=0 ;;
         o) output_prefix=$OPTARG;;
         h) printHelpAndExit 0;;
         [?]) printHelpAndExit 1;;
@@ -71,6 +74,7 @@ then
 fi
 
 
+# aggregation
 if [[ $normonly == '0' ]]
 then
 
@@ -87,7 +91,10 @@ then
     fi
 fi
 
-# normalization
-java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $output_prefix.hic
 
+# normalization
+if [[ $balance == '1' ]]
+then
+  java -Xmx$maxmem -Xms$maxmem -jar /usr/local/bin/juicer_tools.jar addNorm -w $min_res -d -F $output_prefix.hic
+fi
 

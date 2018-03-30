@@ -1,0 +1,18 @@
+{ 
+    "chromsizes": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    }, 
+    "input_pairs": [
+        {
+            "class": "File", 
+            "path": "../test_files/test_4dn.pairs.gz"
+        }
+    ], 
+    "nthreads":1,
+    "min_res":500000,
+    "custom_res": "500000,1000000,2000000",
+    "maxmem":"2g",
+    "chunksize":10000000,
+    "mapqfilter_juicer": 30
+}

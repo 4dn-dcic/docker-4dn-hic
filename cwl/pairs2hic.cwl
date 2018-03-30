@@ -86,6 +86,15 @@
       id: "#custom_res"
       type: 
         - "string"
+    -   
+      default: false
+      type: 
+        - "boolean"
+      id: "#no_balance"
+      inputBinding: 
+        separate: true
+        prefix: "-B"
+        position: 9
   class: "CommandLineTool"
   arguments: []
   cwlVersion: "draft-3"

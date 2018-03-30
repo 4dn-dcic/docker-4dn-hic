@@ -1,3 +1,8 @@
+### v42.1
+* run-cool2multirescool.sh now has an option -B to skip balancing
+* run-juicebox-pre.sh now has an option -B to skip balancing
+* Additional cwls : hi-c-processing-pairs-nore.cwl, hi-c-processing-pairs-nonorm.cwl, hi-c-processing-pairs-nore-nonorm.cwl
+
 ### v42
 * pairsamtools parse now reports double-closed intervals (change in position of reverse-oriented reads)
 * newly introduced pairsamtools bug of not reporting lines after dedup-marked ones now fixed
