@@ -16,7 +16,7 @@ install:
   - sudo pip install schema_salad
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
 script:
-  - tests/travis_test.sh
+  - source tests/travis_test.sh
 
 after_success:
   - if [ "$DOCKER" == "on" ]; then
