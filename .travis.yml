@@ -10,24 +10,13 @@ services:
   - docker
  
 env:
-  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-pairs-nore hi-c-processing-pairs-nonorm hi-c-processing-pairs-nore-nonorm hi-c-processing-bam pairs2hic addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox cool2mcool bwa-mem"
+  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
 
 install:
   - sudo pip install schema_salad
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
 script:
-  - if [ "$DOCKER" == "on" ]; then
-      docker build -t $LOCAL_NAME .;
-      source tests/tests.sh;
-    fi;
-    if [ "$TRAVIS_PULL_REQUEST" != false ]; then
-       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-    else
-       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_BRANCH;
-    fi;
-    for CWL_NAME in $CWL_NAME_LIST; do
-       source tests/tests_cwl.sh $CWL_NAME;
-    done
+  - tests/travis_test.sh
 
 after_success:
   - if [ "$DOCKER" == "on" ]; then

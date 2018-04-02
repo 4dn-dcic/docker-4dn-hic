@@ -1,0 +1,13 @@
+{
+    "pairs": 
+    {
+        "class": "File", 
+        "path": "../test_files/test2.pairs.gz"
+    },
+    "chrsizes": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
+    "binsize": 100000,
+    "ncores": 1
+}

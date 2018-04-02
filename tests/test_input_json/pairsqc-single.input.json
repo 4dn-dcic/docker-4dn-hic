@@ -1,0 +1,13 @@
+{
+    "input_pairs": 
+    {
+        "class": "File", 
+        "path": "../test_files/test2.pairs.gz"
+    },
+    "chromsizes": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
+    "sample_name": "mysample",
+    "enzyme": "6"
+}

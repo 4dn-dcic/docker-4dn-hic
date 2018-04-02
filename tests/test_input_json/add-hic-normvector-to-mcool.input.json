@@ -1,0 +1,10 @@
+{
+    "input_mcool": {
+        "class": "File", 
+        "path": "../test_files/test.mcool"
+    },
+    "input_hic": {
+        "class": "File", 
+        "path": "../test_files/test2.hic"
+    }
+}
