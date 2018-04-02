@@ -1,7 +1,7 @@
 ---
   fdn_meta: 
     title: "Generation of multiresolution Hi-C contact matrices from a set of contact lists, no normalization"
-    name: "hi-c-processing-pairs"
+    name: "hi-c-processing-pairs-nonorm"
     data_types: 
       - "Capture Hi-C"
     category: "merging + aggregation + normalization"
