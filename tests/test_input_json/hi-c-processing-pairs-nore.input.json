@@ -6,7 +6,7 @@
     "input_pairs": [
         {
             "class": "File", 
-            "path": "../test_files/test_4dn.pairs.gz"
+            "path": "../test_files/test2.pairs.gz"
         }
     ], 
     "nthreads":1,

@@ -1,0 +1,14 @@
+{
+    "input_pairs": 
+    {
+        "class": "File", 
+        "path": "../test_files/test2.pairs.gz"
+    },
+    "chromsizes": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    },
+    "maxmem": "2g",
+    "custom_res": "100000,200000,500000",
+    "min_res": 100000
+}
