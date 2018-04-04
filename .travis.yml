@@ -10,25 +10,33 @@ services:
   - docker
  
 env:
-  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
+  - LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
 
 install:
   - sudo pip install schema_salad
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+
+before_script:
+  - docker build -t $LOCAL_NAME .;
+    if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+    else
+       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_BRANCH;
+    fi;
+
 script:
-  - source tests/travis_test.sh
+  - source tests/tests.sh
+  - source tests/test_cwl_all.sh
 
 after_success:
-  - if [ "$DOCKER" == "on" ]; then
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      if [ "$TRAVIS_BRANCH" == "master" ]; then
-        if [ "$TRAVIS_PULL_REQUEST" != false ]; then
-          docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-          docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-        else 
-          docker tag $LOCAL_NAME $REMOTE_NAME:latest;
-          docker push $REMOTE_NAME:latest;
-        fi
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+      if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+        docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+        docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+      else 
+        docker tag $LOCAL_NAME $REMOTE_NAME:latest;
+        docker push $REMOTE_NAME:latest;
       fi
     fi
   - echo 'good'
