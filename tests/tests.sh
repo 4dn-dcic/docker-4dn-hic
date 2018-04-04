@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 image_name=docker-4dn-hic_local  # local image name for testing
 
