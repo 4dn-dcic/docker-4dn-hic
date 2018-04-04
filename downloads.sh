@@ -104,5 +104,5 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git#eccd21
+pip3 install git+https://github.com/mirnylab/pairsamtools.git@eccd21
 

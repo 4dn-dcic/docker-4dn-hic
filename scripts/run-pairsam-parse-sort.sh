@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ $# -le 2 ] ; then
-    echo "Usage: bash pipeline_bam2sortedPairsam.sh BAM OUTPUT_PREFIX CHR_SIZES THREADS COMPRESS_PROGRAM"
+    echo "Usage: bash run-pairsam-parse-sort.sh BAM OUTPUT_PREFIX CHR_SIZES THREADS COMPRESS_PROGRAM"
     echo ""
-    echo "A example of a bam2sortedPairs.sh pipeline"
+    echo "A example of a run-pairsam-parse-sort.sh pipeline"
     echo ""
     echo "positional arguments:"
     echo ""

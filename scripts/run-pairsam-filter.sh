@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 if [ $# -le 2 ] ; then
-    echo "Usage: bash pipeline_Sorted2noDups.sh PAIRSAM OUTPUT_PREFIX CHR_SIZES"
+    echo "Usage: bash run-pairsam-filter.sh PAIRSAM OUTPUT_PREFIX CHR_SIZES"
     echo ""
-    echo "A example Sorted2noDups.sh pipeline for processing sorted reads to get nodup pairs file"
+    echo "A example run-pairsam-filter.sh pipeline for processing sorted reads to get nodup pairs file"
     echo ""
     echo "positional arguments:"
     echo ""

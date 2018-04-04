@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -le 2 ] ; then
-    echo "Usage: bash pipeline_bam2sortedPairsam.sh OUTPUT_PREFIX THREADS PAIRSAM"
+    echo "Usage: bash run-pairsam-merge.sh OUTPUT_PREFIX THREADS PAIRSAM"
     echo ""
     echo ""
     echo "positional arguments:"

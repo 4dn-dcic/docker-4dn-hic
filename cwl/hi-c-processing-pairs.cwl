@@ -20,6 +20,8 @@
       source: "#merge-pairs.merged_pairs"
       fdn_format: "pairs"
       fdn_output_type: "processed"
+      fdn_secondary_file_formats: 
+        - "pairs_px2"
     - 
       id: "#hic"
       type: 

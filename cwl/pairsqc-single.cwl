@@ -11,6 +11,8 @@
       secondaryFiles: 
         - ".px2"
       id: "#input_pairs"
+      fdn_secondary_file_formats: 
+        - "pairs_px2"
     - 
       type: 
         - "File"
