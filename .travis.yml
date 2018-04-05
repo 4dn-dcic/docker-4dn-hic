@@ -15,10 +15,10 @@ env:
 install:
   - sudo pip install schema_salad
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
+  - docker build -t $LOCAL_NAME .;
 
 before_script:
-  - docker build -t $LOCAL_NAME .;
-    if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+  - if [ "$TRAVIS_PULL_REQUEST" != false ]; then
        docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
     else
        docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_BRANCH;
