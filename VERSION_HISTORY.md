@@ -1,3 +1,6 @@
+### v42.2
+* pairix version 0.3.6, that fixed integer overflow for total line count (`pairix -n`)
+
 ### v42.1
 * run-cool2multirescool.sh now has an option -B to skip balancing
 * run-juicebox-pre.sh now has an option -B to skip balancing

@@ -33,7 +33,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.1"
+      dockerPull: "duplexa/4dn-hic:v42.2"
   arguments: []
   outputs: 
     - 

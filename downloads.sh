@@ -26,16 +26,16 @@ ln -s samtools-1.2 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.3.3
+## VERSION: 0.3.6
 ## TYPE: file format converter,indexer
 ## SOURCE_URL: https://github.com/4dn-dcic/pairix
-wget https://github.com/4dn-dcic/pairix/archive/0.3.3.tar.gz
-tar -xzf 0.3.3.tar.gz
-rm 0.3.3.tar.gz
-cd pairix-0.3.3
+wget https://github.com/4dn-dcic/pairix/archive/0.3.6.tar.gz
+tar -xzf 0.3.6.tar.gz
+rm 0.3.6.tar.gz
+cd pairix-0.3.6
 make
 cd ..
-ln -s pairix-0.3.3 pairix
+ln -s pairix-0.3.6 pairix
 
 
 ## SOFTWARE: cooler
