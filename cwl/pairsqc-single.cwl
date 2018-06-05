@@ -47,6 +47,14 @@
         position: 5
       default: "."
       id: "#output_dir"
+    - 
+      type: 
+        - "float"
+      inputBinding: 
+        separate: true
+        position: 6
+      default: "8.4"
+      id: "#max_distance"
   hints: 
     - 
       class: "DockerRequirement"

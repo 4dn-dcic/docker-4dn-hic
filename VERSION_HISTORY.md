@@ -1,5 +1,6 @@
 ### v42.2
 * pairix version 0.3.6, that fixed integer overflow for total line count (`pairix -n`)
+* cwl and runscript for pairsqc updated to include -M option.
 
 ### v42.1
 * run-cool2multirescool.sh now has an option -B to skip balancing
