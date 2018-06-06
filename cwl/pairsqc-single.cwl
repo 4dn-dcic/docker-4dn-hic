@@ -53,7 +53,7 @@
       inputBinding: 
         separate: true
         position: 6
-      default: "8.4"
+      default: 8.4
       id: "#max_distance"
   hints: 
     - 
