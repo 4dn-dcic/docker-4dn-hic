@@ -3,7 +3,7 @@
     - "run-cool2multirescool.sh"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42"
+      dockerPull: "duplexa/4dn-hic:v42.1"
       class: "DockerRequirement"
   cwlVersion: "draft-3"
   inputs: 
@@ -64,6 +64,15 @@
         separate: true
         prefix: "-u"
         position: 6
+    - 
+      default: false
+      type: 
+        - "boolean"
+      id: "#no_balance"
+      inputBinding: 
+        separate: true
+        prefix: "-B"
+        position: 7
   requirements: 
     - 
       class: "InlineJavascriptRequirement"

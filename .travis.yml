@@ -10,36 +10,33 @@ services:
   - docker
  
 env:
-  - DOCKER=on LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic CWL_NAME_LIST="hi-c-processing-pairs hi-c-processing-bam addfragtopairs pairsam-filter pairsam-markasdup merge-pairs pairsam-merge pairsam-parse-sort extract-mcool-normvector-for-juicebox cool2mcool bwa-mem"
+  - LOCAL_NAME=docker-4dn-hic_local REMOTE_NAME=duplexa/4dn-hic
 
 install:
   - sudo pip install schema_salad
   - sudo pip install git+https://github.com/SooLee/cwltool.git  # cwltool
-script:
-  - if [ "$DOCKER" == "on" ]; then
-      docker build -t $LOCAL_NAME .;
-      source tests/tests.sh;
-    fi;
-    if [ "$TRAVIS_PULL_REQUEST" != false ]; then
-       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+  - docker build -t $LOCAL_NAME .;
+
+before_script:
+  - if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+       docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
     else
-       docker tag $LOCAL_NAME REMOTE_NAME:$TRAVIS_BRANCH;
+       docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_BRANCH;
     fi;
-    for CWL_NAME in $CWL_NAME_LIST; do
-       source tests/tests_cwl.sh $CWL_NAME;
-    done
+
+script:
+  - source tests/tests.sh > /dev/null
+  - source tests/tests_cwl_all.sh > /dev/null
 
 after_success:
-  - if [ "$DOCKER" == "on" ]; then
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      if [ "$TRAVIS_BRANCH" == "master" ]; then
-        if [ "$TRAVIS_PULL_REQUEST" != false ]; then
-          docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-          docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
-        else 
-          docker tag $LOCAL_NAME $REMOTE_NAME:latest;
-          docker push $REMOTE_NAME:latest;
-        fi
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+      if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+        docker tag $LOCAL_NAME $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+        docker push $REMOTE_NAME:$TRAVIS_PULL_REQUEST_BRANCH;
+      else 
+        docker tag $LOCAL_NAME $REMOTE_NAME:latest;
+        docker push $REMOTE_NAME:latest;
       fi
     fi
   - echo 'good'

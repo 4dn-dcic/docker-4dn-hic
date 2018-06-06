@@ -4,6 +4,7 @@ ncores=1
 chunksize=10000000
 juicer_res=0  # if 1, use juicer resolutions
 custom_res=''  # custom resolutions, separated by commas
+balance=1
 outprefix=out
 
 printHelpAndExit() {
@@ -14,10 +15,11 @@ printHelpAndExit() {
     echo "-c chunksize : default 10000000"
     echo "-j : use Juicer resolutions (default HiGlass resolutions)"
     echo "-u : custom resolutions (separated by commas)"
+    echo "-B : no balance"
     exit "$1"
 }
 
-while getopts "i:o:p:c:ju:" opt; do
+while getopts "i:o:p:c:ju:B" opt; do
     case $opt in
         i) input=$OPTARG;;
         o) outprefix=$OPTARG;;
@@ -25,6 +27,7 @@ while getopts "i:o:p:c:ju:" opt; do
         c) chunksize=$OPTARG;;
         j) juicer_res=1;;
         u) custom_res=$OPTARG;;
+        B) balance=0;;
         h) printHelpAndExit 0;;
         [?]) printHelpAndExit 1;;
         esac
@@ -44,5 +47,12 @@ if [[ ! -z $custom_res ]]; then
     RES_ARG="-r $custom_res"
 fi
 
-cooler zoomify --balance $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG
+if [[ $balance == "1" ]]; then
+    BALANCE_OPTION="--balance"
+else
+    BALANCE_OPION=""
+fi
+
+cooler zoomify $BALANCE_OPTION $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG
+
 

@@ -41,7 +41,7 @@
   cwlVersion: "draft-3"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42"
+      dockerPull: "duplexa/4dn-hic:v42.1"
       class: "DockerRequirement"
   requirements: 
     - 

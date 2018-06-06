@@ -1,0 +1,22 @@
+{ 
+    "chromsizes": {
+        "class": "File", 
+        "path": "../test_files/hg38.mainonly.chrom.sizes"
+    }, 
+    "input_pairs": [
+        {
+            "class": "File", 
+            "path": "../test_files/test2.pairs.gz"
+        }
+    ], 
+    "restriction_file": {
+        "class": "File", 
+        "path": "../test_files/hg38_HindIII_new.+chr.txt"
+    },
+    "nthreads":1,
+    "min_res":500000,
+    "custom_res": "500000,1000000,2000000",
+    "maxmem":"2g",
+    "chunksize":10000000,
+    "mapqfilter_juicer": 30
+}
