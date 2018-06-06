@@ -7,5 +7,5 @@
         "class": "File", 
         "path": "../test_files/hg38.mainonly.chrom.sizes"
     }, 
-    "Threads": 1
+    "nThreads": 1
 }
