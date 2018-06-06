@@ -10,4 +10,3 @@ RUNNER_FLAGS="--copy-outputs --no-read-only --no-match-user --outdir $OUTDIR --t
 cd cwl
 $CWL_RUNNER $RUNNER_FLAGS $CWL_FILENAME ../tests/test_input_json/$INPUT_JSON_NAME | python $CWD/tests/json_null_test.py
 cd ..
-set +e
