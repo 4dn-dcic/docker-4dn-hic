@@ -1,0 +1,17 @@
+Not including fragment map
+Start preprocess
+Writing header
+Writing body
+.............................................................................................................................................................................................................................................................................................................
+Writing footer
+
+Finished preprocess
+Done creating .hic file. Normalization not calculated due to -n flag.
+To run normalization, run: juicebox addNorm <hicfile>
+
+Calculating norms for zoom BP_500000
+Calculating norms for zoom BP_200000
+Calculating norms for zoom BP_100000
+Writing expected
+Writing norms
+Finished writing norms

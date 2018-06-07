@@ -13,7 +13,7 @@
     - "run-merge-pairs.sh"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42.1"
+      dockerPull: "duplexa/4dn-hic:v42.2"
       class: "DockerRequirement"
   cwlVersion: "draft-3"
   class: "CommandLineTool"

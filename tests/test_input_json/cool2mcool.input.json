@@ -3,5 +3,6 @@
         "class": "File", 
         "path": "../test_files/test.cool"
     }, 
-    "ncores": 1
+    "ncores": 1,
+    "custom_res": "100000,200000,500000"
 }
