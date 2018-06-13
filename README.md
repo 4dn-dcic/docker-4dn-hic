@@ -1,6 +1,6 @@
 # Docker-4dn-hic
 
-This repo contains the source files for a docker image stored in duplexa/4dn-hic:v42.2. (we will change the docker hub account soon)
+This repo contains the source files for a docker image stored in duplexa/4dn-hic:v42.3. (we will change the docker hub account soon)
 
 ## Table of contents
 * [Cloning the repo](#cloning-the-repo)
@@ -41,18 +41,18 @@ Major software tools used inside the docker container are downloaded by the scri
 The `downloads.sh` file also contains comment lines that specifies the name and version of individual software tools.
 
 ## Building docker image
-You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v42.2 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v42.2.
+You need docker daemon to rebuild the docker image. If you want to push it to a different docker repo, replace duplexa/4dn-hic:v42.3 with your desired docker repo name. You need permission to push to duplexa/4dn-hic:v42.3.
 ```
-docker build -t duplexa/4dn-hic:v42.2 .
-docker push duplexa/4dn-hic:v42.2
+docker build -t duplexa/4dn-hic:v42.3 .
+docker push duplexa/4dn-hic:v42.3
 ```
-You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v42.2). The command 'docker run' (below) automatically pulls the image from docker hub.
+You can skip this if you want to use an already built image on docker hub (image name duplexa/4dn-hic:v42.3). The command 'docker run' (below) automatically pulls the image from docker hub.
 
 
 ## Benchmarking tools
 To obtain run time and max mem stats, use `usr/bin/time` that is installed in the docker container. For example, run the following to benchmark `du`.
 ```
-docker run duplexa/4dn-hic:v42.2 /usr/bin/time du 2> log
+docker run duplexa/4dn-hic:v42.3 /usr/bin/time du 2> log
 cat log
 ```
 The output looks as follows:
@@ -73,13 +73,13 @@ Tool wrappers are under the `scripts` directory and follow naming conventions `r
 
 ```
 # default
-docker run duplexa/4dn-hic:v42.2
+docker run duplexa/4dn-hic:v42.3
 
 # specific run command
-docker run duplexa/4dn-hic:v42.2 <run-xx.sh> <arg1> <arg2> ...
+docker run duplexa/4dn-hic:v42.3 <run-xx.sh> <arg1> <arg2> ...
 
 # may need -v option to mount data file/folder if they are used as arguments.
-docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v42.2 <run-xx.sh> /d1/file1 /d2/file2 ...
+docker run -v /data1/:/d1/:rw -v /data2/:/d2/:rw duplexa/4dn-hic:v42.3 <run-xx.sh> /d1/file1 /d2/file2 ...
 ```
 
 ### run-list.sh

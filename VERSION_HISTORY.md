@@ -1,3 +1,6 @@
+### v42.3
+* CWL version `1.0` is used instead of `draft-3`.
+
 ### v42.2
 * pairix version 0.3.6, that fixed integer overflow for total line count (`pairix -n`)
 * cwl and runscript for pairsqc updated to include -M option.

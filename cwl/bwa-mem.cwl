@@ -1,7 +1,7 @@
 ---
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v42.3"
       class: "DockerRequirement"
   arguments: []
   class: "CommandLineTool"
@@ -66,5 +66,5 @@
   requirements: 
     - 
       class: "InlineJavascriptRequirement"
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
 
