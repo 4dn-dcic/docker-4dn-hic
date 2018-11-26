@@ -88,12 +88,4 @@ run-add-hicnormvector-to-mcool.sh \
       /var/lib/cwl/stgf94132ba-8dce-4879-a3b2-c42456b24b04/out.hic \
       /var/lib/cwl/stgc774ceb2-de86-4169-a256-6faad2a13067/out.multires.cool
 ```
-```
-run-mcool2hic.sh \
-      -i /var/lib/cwl/stgf8068b6a-496d-41ea-b1f4-67b730d97685/output.mcool \
-      -c /var/lib/cwl/stgb04547b8-3729-418d-9a9b-ddc11986da28/4DNFI823LSII.chrom.sizes \
-      -d . \
-      -o out \
-      -u 1000,2000,5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000
-```
 
