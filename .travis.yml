@@ -14,7 +14,7 @@ env:
 
 install:
   - sudo pip install schema_salad
-  - sudo pip install cwltool
+  - sudo pip install cwltool==1.0.20181201184214
   - docker build -t $LOCAL_NAME .;
 
 before_script:
