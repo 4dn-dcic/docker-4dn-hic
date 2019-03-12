@@ -5,6 +5,8 @@
     category: "merging + aggregation + normalization"
     data_types: 
       - "Hi-C"
+      - "DNase Hi-C"
+      - "micro-C"
     description: "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merges them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) Contact matrices in .hic format 3) Multiresolution mcool file and 4) normalization vector of mcool files for visualization in juicebox."
     name: "hi-c-processing-pairs"
     title: "Generation of multiresolution Hi-C contact matrices from a set of contact lists"
