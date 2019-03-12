@@ -79,11 +79,6 @@
       id: "#max_split_cooler"
       type: 
         - "int"
-    - 
-      default: false
-      id: "#nofrag"
-      type: 
-        - "boolean"
   outputs: 
     - 
       fdn_format: "pairs"
@@ -161,12 +156,6 @@
           fdn_type: "reference file"
           id: "#addfragtopairs/restriction_file"
           source: "#restriction_file"
-        - 
-          arg_name: "donothing"
-          fdn_cardinality: "single"
-          fdn_type: "parameter"
-          id: "#addfragtopairs/donothing"
-          source: "#nofrag"
       out: 
         - 
           arg_name: "pairs_with_frags"
