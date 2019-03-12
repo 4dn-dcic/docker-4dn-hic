@@ -39,10 +39,10 @@ ln -s pairix-0.3.6 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.7.6
+## VERSION: 0.8.3
 ## TYPE: aggregator,normalizer
 ## SOURCE_URL: https://github.com/mirnylab/cooler
-pip3 install cooler==0.7.6
+pip3 install cooler==0.8.3
 
 
 ## SOFTWARE: pairsqc
@@ -75,34 +75,15 @@ cd ..
 
 
 ## SOFTWARE: hic2cool
-## VERSION: 0.4.1
+## VERSION: 0.5.1
 ## TYPE: file format converter
 ## SOURCE_URL: https://github.com/4dn-dcic/hic2cool
-git clone https://github.com/4dn-dcic/hic2cool.git
-cd hic2cool
-git checkout 0.4.1
-pip3 install -r requirements.txt
-pip3 install hic2cool==0.4.1
-cd ..
-
-## SOFTWARE: mcool2hic
-## COMMIT: 87a912c
-## TYPE: file format converter
-## SOURCE_URL: https://github.com/SooLee/mcool2hic
-git clone https://github.com/SooLee/mcool2hic.git
-cd mcool2hic
-git checkout 87a912c
-cd ..
+pip3 install hic2cool==0.5.1
 
 
-## SOFTWARE: pairsamtools
-## COMMIT: eccd21
+## SOFTWARE: pairtools
+## VERSION: 0.2.2
 ## TYPE: file format converter,sorter,annotater,filter
-## SOURCE_URL: https://github.com/mirnylab/pairsamtools
-pip3 install numpy Cython click
-conda config --add channels conda-forge
-conda config --add channels bioconda
-conda install -y pbgzip
-conda install -y coreutils
-pip3 install git+https://github.com/mirnylab/pairsamtools.git@eccd21
+## SOURCE_URL: https://github.com/mirnylab/pairtools
+pip3 install numpy Cython click pairtools=0.2.2
 
