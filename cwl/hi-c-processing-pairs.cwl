@@ -108,13 +108,6 @@
       outputSource: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
       type: 
         - "File"
-    - 
-      fdn_format: "normvector_juicerformat"
-      fdn_output_type: "processed"
-      id: "#cooler_normvector"
-      outputSource: "#extract-mcool-normvector-for-juicebox/cooler_normvector"
-      type: 
-        - "File"
   requirements: 
     - 
       class: "ScatterFeatureRequirement"
@@ -371,41 +364,3 @@
           fdn_type: "data file"
           id: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
       run: "add-hic-normvector-to-mcool.cwl"
-    - 
-      fdn_step_meta: 
-        analysis_step_types: 
-          - "file format conversion"
-        description: "Extracting HiC normalization vector"
-        software_used: 
-          - "mcool2hic_87a912"
-      id: "#extract-mcool-normvector-for-juicebox"
-      in: 
-        - 
-          arg_name: "custom_res"
-          fdn_cardinality: "single"
-          fdn_type: "parameter"
-          id: "#extract-mcool-normvector-for-juicebox/custom_res"
-          source: "#custom_res"
-        - 
-          arg_name: "chromsize"
-          fdn_cardinality: "single"
-          fdn_format: "chromsizes"
-          fdn_type: "reference file"
-          id: "#extract-mcool-normvector-for-juicebox/chromsize"
-          source: "#chromsizes"
-        - 
-          arg_name: "mcool"
-          fdn_cardinality: "single"
-          fdn_format: "mcool"
-          fdn_type: "data file"
-          id: "#extract-mcool-normvector-for-juicebox/mcool"
-          source: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
-      out: 
-        - 
-          arg_name: "cooler_normvector"
-          fdn_cardinality: "single"
-          fdn_format: "normvector_juicerformat"
-          fdn_type: "data file"
-          id: "#extract-mcool-normvector-for-juicebox/cooler_normvector"
-      run: "extract-mcool-normvector-for-juicebox.cwl"
-
