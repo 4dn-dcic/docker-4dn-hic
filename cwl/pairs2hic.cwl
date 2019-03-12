@@ -14,7 +14,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v42.3"
   inputs: 
     - 
       inputBinding: 
@@ -86,7 +86,7 @@
       id: "#custom_res"
       type: 
         - "string"
-    -   
+    - 
       default: false
       type: 
         - "boolean"
@@ -97,5 +97,5 @@
         position: 9
   class: "CommandLineTool"
   arguments: []
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
 

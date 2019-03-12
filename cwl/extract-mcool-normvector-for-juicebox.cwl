@@ -52,7 +52,7 @@
         position: 5
       type: 
         - "string"
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
   baseCommand: 
     - "run-mcool2hic.sh"
   class: "CommandLineTool"
@@ -62,5 +62,5 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v42.3"
 

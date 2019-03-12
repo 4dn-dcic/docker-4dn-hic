@@ -61,10 +61,10 @@
         - "null"
         - "File"
       id: "#sorted_pairsam"
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v42.3"
       class: "DockerRequirement"
   requirements: 
     - 

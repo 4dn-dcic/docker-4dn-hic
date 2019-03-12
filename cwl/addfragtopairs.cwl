@@ -37,8 +37,8 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.2"
-  cwlVersion: "draft-3"
+      dockerPull: "duplexa/4dn-hic:v42.3"
+  cwlVersion: "v1.0"
   outputs: 
     - 
       outputBinding: 

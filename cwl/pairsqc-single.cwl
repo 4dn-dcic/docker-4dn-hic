@@ -1,6 +1,6 @@
 ---
   arguments: []
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
   inputs: 
     - 
       type: 

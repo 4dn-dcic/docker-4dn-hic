@@ -1,5 +1,5 @@
 ---
-  cwlVersion: "draft-3"
+  cwlVersion: "v1.0"
   class: "CommandLineTool"
   inputs: 
     - 
@@ -33,7 +33,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v42.3"
   arguments: []
   outputs: 
     - 
