@@ -85,5 +85,5 @@ pip3 install hic2cool==0.5.1
 ## VERSION: 0.2.2
 ## TYPE: file format converter,sorter,annotater,filter
 ## SOURCE_URL: https://github.com/mirnylab/pairtools
-pip3 install numpy Cython click pairtools=0.2.2
+pip3 install numpy Cython click pairtools==0.2.2
 
