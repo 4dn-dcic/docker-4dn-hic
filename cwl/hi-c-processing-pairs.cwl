@@ -7,6 +7,8 @@
       - "Hi-C"
       - "DNase Hi-C"
       - "micro-C"
+      - "Capture Hi-C"
+      - "ChIA-PET"
     description: "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merges them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) Contact matrices in .hic format 3) Multiresolution mcool file and 4) normalization vector of mcool files for visualization in juicebox."
     name: "hi-c-processing-pairs"
     title: "Generation of multiresolution Hi-C contact matrices from a set of contact lists"
@@ -81,6 +83,11 @@
       id: "#max_split_cooler"
       type: 
         - "int"
+    - 
+      default: true
+      id: "#no_balance"
+      type: 
+        - "boolean"
   outputs: 
     - 
       fdn_format: "pairs"
@@ -269,6 +276,12 @@
           fdn_type: "parameter"
           id: "#pairs2hic/mapqfilter"
           source: "#mapqfilter_juicer"
+        - 
+          arg_name: "no_balance"
+          fdn_cardinality: "single"
+          fdn_type: "parameter"
+          id: "#pairs2hic/no_balance"
+          source: "#no_balance"
       out: 
         - 
           arg_name: "hic"
@@ -316,6 +329,12 @@
           fdn_type: "parameter"
           id: "#cool2mcool/custom_res"
           source: "#custom_res"
+        - 
+          arg_name: "no_balance"
+          fdn_cardinality: "single"
+          fdn_type: "parameter"
+          id: "#cool2mcool/no_balance"
+          source: "#no_balance"
       out: 
         - 
           arg_name: "mcool"
