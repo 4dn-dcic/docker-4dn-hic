@@ -1,3 +1,14 @@
+### v43
+* extract-norm
+  * hic2cool 0.4.1 -> 0.5.1
+  * hic2cool extract-norms -e <hic file> <cooler file>
+* cooler
+  * cooler 0.7.6 -> 0.8.3
+  * cooler zoomify --balance --balance-argss "--convergence-policy store_nan"
+* remove extract-mcool-normvector-for-juicebox (remove output file normvector_juicerformat as well)
+* nore, nonorm, norenonorm merged into hicpairs
+* pairtools eccd21 -> 0.2.2
+
 ### v42.3
 * CWL version `1.0` is used instead of `draft-3`.
 
