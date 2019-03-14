@@ -4,5 +4,5 @@
         "path": "../test_files/test.cool"
     }, 
     "ncores": 1,
-    "custom_res": "100000,200000,500000"
+    "custom_res": "50000,100000,200000,500000"
 }
