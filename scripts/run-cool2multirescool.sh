@@ -48,7 +48,7 @@ if [[ ! -z $custom_res ]]; then
 fi
 
 if [[ $balance == "1" ]]; then
-    BALANCE_OPTION="--balance --balance-options '--convergence-policy store_nan'"
+    BALANCE_OPTION="--balance --balance-args '--convergence-policy store_nan'"
 else
     BALANCE_OPION=""
 fi
