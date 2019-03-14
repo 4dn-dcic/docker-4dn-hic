@@ -179,7 +179,7 @@
           - "aggregation"
         description: "Merged Pairs file is processed using Cooler"
         software_used: 
-          - "cooler_0.7.6"
+          - "cooler_0.8.3"
       id: "#cooler"
       in: 
         - 
@@ -295,7 +295,7 @@
           - "file format conversion"
         description: "Cooler file is converted to mcool"
         software_used: 
-          - "cooler_0.7.6"
+          - "cooler_0.8.3"
       id: "#cool2mcool"
       in: 
         - 
@@ -349,7 +349,7 @@
           - "file format conversion"
         description: "HiC normalization vector is added to mcooler"
         software_used: 
-          - "hic2cool_0.4.1"
+          - "hic2cool_0.5.1"
       id: "#add-hic-normvector-to-mcool"
       in: 
         - 
