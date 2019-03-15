@@ -85,5 +85,9 @@ pip3 install hic2cool==0.5.1
 ## VERSION: 0.2.2
 ## TYPE: file format converter,sorter,annotater,filter
 ## SOURCE_URL: https://github.com/mirnylab/pairtools
+conda config --add channels conda-forge
+conda config --add channels bioconda
+conda install -y pbgzip
+conda install -y coreutils
 pip3 install numpy Cython click pairtools==0.2.2
 
