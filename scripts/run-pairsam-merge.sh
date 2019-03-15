@@ -28,4 +28,4 @@ MEMORY=2G
 MERGED_PAIRSAM=${OUTPREFIX}.merged.sam.pairs.gz
 TEMPDIR=""
 
-pairsamtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} ${INFILES[@]}
+pairtools merge --max-nmerge ${MAXFILEMERGE} --nproc ${THREADS} --memory ${MEMORY} --output ${MERGED_PAIRSAM} ${INFILES[@]}
