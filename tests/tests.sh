@@ -3,11 +3,10 @@
 
 image_name=docker-4dn-hic_local  # local image name for testing
 
-## run-cooler & run-cooler-balance test
+## run-cooler test
 cwd=$(pwd)
 mkdir -p tmp_out
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler.sh /d/test.pairs.gz /d/hg19.chrom.sizes.mainonly 100000 2 /e/test0 2
-docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name run-cooler-balance.sh /e/test0.cool 5000 /e/test 10000000
 docker run -it -v $cwd/sample_data/:/d/:ro -v $cwd/tmp_out/:/e/:rw $image_name cooler dump --join /e/test.cool | tail -n+3  > tmp_out/test.cooldump  ## tail is a temporary fix to remove warning printed out to stdout
 if [ ! -z "$(diff tests/test_files/test.cooldump tmp_out/test.cooldump)" ]; then
   echo "cooler test failed"
