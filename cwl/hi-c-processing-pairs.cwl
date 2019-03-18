@@ -84,7 +84,7 @@
       type: 
         - "int"
     - 
-      default: true
+      default: false
       id: "#no_balance"
       type: 
         - "boolean"
