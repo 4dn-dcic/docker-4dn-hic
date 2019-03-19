@@ -45,6 +45,7 @@ samtools view -h "${BAM}" | {
 } | {
     # Block-sort pairs together with SAM entries
     pairtools sort --nproc ${THREADS} \
+    --memory 48G \
     --compress-program ${COMPRESS_PROGRAM} \
     --tmpdir ${OUTDIR} \
     --output ${SORTED_PAIRS_PATH}
