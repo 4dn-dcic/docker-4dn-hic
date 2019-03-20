@@ -1,32 +1,31 @@
 #!/bin/bash
 shopt -s extglob
-donothing=0
+input_pairs=''
+restriction_file=''  # Juicer format
+output_prefix=out
 
 printHelpAndExit() {
-    echo "Usage: ${0##*/} [-0] input_pairs restriction_file(juicer_format) output_prefix"
+    echo "Usage: ${0##*/} [-o out_prefix] -i input_pairs -r restriction_site_file"
+    echo "-i input_pairs : input file in pairs.gz format"
+    echo "-r restriction_site_file : restriction site file"
+    echo "-o out_prefix : default out"
     exit "$1"
 }
 
-while getopts "0" opt; do
+while getopts "i:r:o:h" opt; do
     case $opt in
-        0) donothing=1 ;;
+        i) input_pairs=$OPTARG;;
+        r) restriction_file=$OPTARG;;
+        o) output_prefix=$OPTARG;;
         h) printHelpAndExit 0;;
         [?]) printHelpAndExit 1;;
         esac
 done
 
-if [ "$donothing" == "1" ]; then
-    shift $(($OPTIND - 1))
-fi
 
-input_pairs=$1
-restriction_file=$2  # Juicer format
-output_prefix=$3
-
-echo $input_pairs
-
-if [ "$donothing" == "0" ]; then
+if [ ! -z $restriction_file ]; then
     scriptdir=/usr/local/bin
+    # use fragment_4dnpairs.pl in pairix/util instead of juicer/CPU/common
     gunzip -c $input_pairs | $scriptdir/pairix/util/fragment_4dnpairs.pl -a - $output_prefix.ff.pairs $restriction_file
     bgzip -f $output_prefix.ff.pairs
     pairix -f $output_prefix.ff.pairs.gz

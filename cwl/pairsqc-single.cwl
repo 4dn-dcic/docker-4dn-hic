@@ -58,7 +58,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.2"
+      dockerPull: "duplexa/4dn-hic:v43"
   class: "CommandLineTool"
   requirements: 
     - 

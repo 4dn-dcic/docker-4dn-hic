@@ -29,18 +29,18 @@ TEMPFILE=temp.gz
 TEMPFILE1=temp1.gz
 
 ## Generate lossless bam
-pairsamtools split --output-sam ${LOSSLESS_BAM} ${PAIRSAM}
+pairtools split --output-sam ${LOSSLESS_BAM} ${PAIRSAM}
 
 
 # Select UU, UR, RU reads
-pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+pairtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
     --output-rest ${UNMAPPED_SAMPAIRS} \
     --output ${TEMPFILE} \
     ${PAIRSAM}
 
-pairsamtools split --output-pairs ${TEMPFILE1} ${TEMPFILE}
+pairtools split --output-pairs ${TEMPFILE1} ${TEMPFILE}
 
-pairsamtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${TEMPFILE1}
+pairtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${TEMPFILE1}
 
 pairix ${DEDUP_PAIRS}  # sanity check & indexing    
 

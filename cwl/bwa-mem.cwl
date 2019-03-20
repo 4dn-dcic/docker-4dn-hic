@@ -1,7 +1,7 @@
 ---
   hints: 
     - 
-      dockerPull: "duplexa/4dn-hic:v42.3"
+      dockerPull: "duplexa/4dn-hic:v43"
       class: "DockerRequirement"
   arguments: []
   class: "CommandLineTool"

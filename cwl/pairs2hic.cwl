@@ -14,7 +14,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.3"
+      dockerPull: "duplexa/4dn-hic:v43"
   inputs: 
     - 
       inputBinding: 

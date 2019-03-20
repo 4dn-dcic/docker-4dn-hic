@@ -5,6 +5,10 @@
     category: "merging + aggregation + normalization"
     data_types: 
       - "Hi-C"
+      - "DNase Hi-C"
+      - "micro-C"
+      - "Capture Hi-C"
+      - "ChIA-PET"
     description: "This is a subworkflow of the Hi-C data analysis pipeline. It takes pairs files for all replicates of a sample, merges them and then produces multi-resolution Hi-c matrices for visualization. The pipeline produces 4 output files. 1) Replicated merged pairs file 2) Contact matrices in .hic format 3) Multiresolution mcool file and 4) normalization vector of mcool files for visualization in juicebox."
     name: "hi-c-processing-pairs"
     title: "Generation of multiresolution Hi-C contact matrices from a set of contact lists"
@@ -81,7 +85,7 @@
         - "int"
     - 
       default: false
-      id: "#nofrag"
+      id: "#no_balance"
       type: 
         - "boolean"
   outputs: 
@@ -106,13 +110,6 @@
       fdn_output_type: "processed"
       id: "#mcool"
       outputSource: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
-      type: 
-        - "File"
-    - 
-      fdn_format: "normvector_juicerformat"
-      fdn_output_type: "processed"
-      id: "#cooler_normvector"
-      outputSource: "#extract-mcool-normvector-for-juicebox/cooler_normvector"
       type: 
         - "File"
   requirements: 
@@ -168,12 +165,6 @@
           fdn_type: "reference file"
           id: "#addfragtopairs/restriction_file"
           source: "#restriction_file"
-        - 
-          arg_name: "donothing"
-          fdn_cardinality: "single"
-          fdn_type: "parameter"
-          id: "#addfragtopairs/donothing"
-          source: "#nofrag"
       out: 
         - 
           arg_name: "pairs_with_frags"
@@ -188,7 +179,7 @@
           - "aggregation"
         description: "Merged Pairs file is processed using Cooler"
         software_used: 
-          - "cooler_0.7.6"
+          - "cooler_0.8.3"
       id: "#cooler"
       in: 
         - 
@@ -285,6 +276,12 @@
           fdn_type: "parameter"
           id: "#pairs2hic/mapqfilter"
           source: "#mapqfilter_juicer"
+        - 
+          arg_name: "no_balance"
+          fdn_cardinality: "single"
+          fdn_type: "parameter"
+          id: "#pairs2hic/no_balance"
+          source: "#no_balance"
       out: 
         - 
           arg_name: "hic"
@@ -298,7 +295,7 @@
           - "file format conversion"
         description: "Cooler file is converted to mcool"
         software_used: 
-          - "cooler_0.7.6"
+          - "cooler_0.8.3"
       id: "#cool2mcool"
       in: 
         - 
@@ -332,6 +329,12 @@
           fdn_type: "parameter"
           id: "#cool2mcool/custom_res"
           source: "#custom_res"
+        - 
+          arg_name: "no_balance"
+          fdn_cardinality: "single"
+          fdn_type: "parameter"
+          id: "#cool2mcool/no_balance"
+          source: "#no_balance"
       out: 
         - 
           arg_name: "mcool"
@@ -346,7 +349,7 @@
           - "file format conversion"
         description: "HiC normalization vector is added to mcooler"
         software_used: 
-          - "hic2cool_0.4.1"
+          - "hic2cool_0.5.1"
       id: "#add-hic-normvector-to-mcool"
       in: 
         - 
@@ -371,41 +374,3 @@
           fdn_type: "data file"
           id: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
       run: "add-hic-normvector-to-mcool.cwl"
-    - 
-      fdn_step_meta: 
-        analysis_step_types: 
-          - "file format conversion"
-        description: "Extracting HiC normalization vector"
-        software_used: 
-          - "mcool2hic_87a912"
-      id: "#extract-mcool-normvector-for-juicebox"
-      in: 
-        - 
-          arg_name: "custom_res"
-          fdn_cardinality: "single"
-          fdn_type: "parameter"
-          id: "#extract-mcool-normvector-for-juicebox/custom_res"
-          source: "#custom_res"
-        - 
-          arg_name: "chromsize"
-          fdn_cardinality: "single"
-          fdn_format: "chromsizes"
-          fdn_type: "reference file"
-          id: "#extract-mcool-normvector-for-juicebox/chromsize"
-          source: "#chromsizes"
-        - 
-          arg_name: "mcool"
-          fdn_cardinality: "single"
-          fdn_format: "mcool"
-          fdn_type: "data file"
-          id: "#extract-mcool-normvector-for-juicebox/mcool"
-          source: "#add-hic-normvector-to-mcool/mcool_with_hicnorm"
-      out: 
-        - 
-          arg_name: "cooler_normvector"
-          fdn_cardinality: "single"
-          fdn_format: "normvector_juicerformat"
-          fdn_type: "data file"
-          id: "#extract-mcool-normvector-for-juicebox/cooler_normvector"
-      run: "extract-mcool-normvector-for-juicebox.cwl"
-

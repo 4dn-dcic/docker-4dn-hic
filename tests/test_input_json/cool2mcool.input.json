@@ -1,8 +1,8 @@
 {
     "input_cool": {
         "class": "File", 
-        "path": "../test_files/test.cool"
+        "path": "../test_files/test3.cool"
     }, 
     "ncores": 1,
-    "custom_res": "100000,200000,500000"
+    "custom_res": "5000,10000,25000,50000,100000,250000,500000,1000000,2500000,5000000,10000000"
 }

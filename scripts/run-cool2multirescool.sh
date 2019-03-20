@@ -8,8 +8,8 @@ balance=1
 outprefix=out
 
 printHelpAndExit() {
-    echo "Usage: ${0##*/} [-p ncores] [-c chunksize] [-j] [-o out_prefix] -i input_pairs"
-    echo "-i input_pairs : input file in pairs.gz format"
+    echo "Usage: ${0##*/} [-p ncores] [-c chunksize] [-j] [-o out_prefix] -i input_cool"
+    echo "-i input_cool : input file in .cool format"
     echo "-o out_prefix : default out"
     echo "-p ncores : default 1"
     echo "-c chunksize : default 10000000"
@@ -48,11 +48,9 @@ if [[ ! -z $custom_res ]]; then
 fi
 
 if [[ $balance == "1" ]]; then
-    BALANCE_OPTION="--balance"
+    cooler zoomify --balance --balance-args '--convergence-policy store_nan' -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG $input
 else
-    BALANCE_OPION=""
+    cooler zoomify -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG $input
 fi
-
-cooler zoomify $BALANCE_OPTION $input -n $ncores -o $outprefix.multires.cool -c $chunksize $RES_ARG
 
 

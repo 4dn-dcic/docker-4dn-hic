@@ -1,3 +1,18 @@
+### v43
+* extract-norm
+  * `hic2cool` `0.4.1` -> `0.5.1`
+  * `hic2cool extract-norms -e <hic file> <cooler file>`
+  * A bug in MT exclusion which caused an error in chicken is now fixed.
+* cooler
+  * `cooler` `0.7.6` -> `0.8.3`
+  * `cooler zoomify --balance --balance-argss "--convergence-policy store_nan"`
+  * For resolutions where balancing doesn't converge, now it stores NaN as weight vector instead of throwing an error.
+  * pairs file coordinates are now considered 0-based (instead of 1-based).
+* remove `extract-mcool-normvector-for-juicebox` (remove output file normvector_juicerformat as well)
+* nore, nonorm, norenonorm variants are now merged into a single workflow `hi-c-processing-pairs`
+* `pairsamtools` `eccd21` -> `pairtools` `0.2.2`
+  * The lossless bam file and filtered pairs files are exactly the same between the two versions.
+
 ### v42.3
 * CWL version `1.0` is used instead of `draft-3`.
 

@@ -62,7 +62,7 @@
           - "sorting"
         description: "Parsing and sorting bam file"
         software_used: 
-          - "pairsamtools_eccd21"
+          - "pairtools_0.2.2"
       id: "#pairsam-parse-sort"
       in: 
         - 
@@ -92,7 +92,7 @@
           - "merging"
         description: "Merging pairsam files"
         software_used: 
-          - "pairsamtools_eccd21"
+          - "pairtools_0.2.2"
       id: "#pairsam-merge"
       in: 
         - 
@@ -116,7 +116,7 @@
           - "filter"
         description: "Marking duplicates to pairsam file"
         software_used: 
-          - "pairsamtools_eccd21"
+          - "pairtools_0.2.2"
       id: "#pairsam-markasdup"
       in: 
         - 
@@ -137,7 +137,7 @@
           - "file format conversion"
         description: "Filtering duplicate and invalid reads"
         software_used: 
-          - "pairsamtools_eccd21"
+          - "pairtools_0.2.2"
       id: "#pairsam-filter"
       in: 
         - 

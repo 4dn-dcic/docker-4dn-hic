@@ -3,14 +3,15 @@
     - 
       inputBinding: 
         separate: true
+        prefix: '-i'
         position: 1
       id: "#input_pairs"
       type: 
-        - "null"
         - "File"
     - 
       inputBinding: 
         separate: true
+        prefix: '-r'
         position: 2
       id: "#restriction_file"
       type: 
@@ -22,22 +23,12 @@
         position: 3
       id: "#outprefix"
       type: 
-        - "null"
         - "string"
       default: "out"
-    - 
-      inputBinding: 
-        separate: true
-        position: 0
-        prefix: "-0"
-      id: "#donothing"
-      type: 
-        - "boolean"
-      default: false
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "duplexa/4dn-hic:v42.3"
+      dockerPull: "duplexa/4dn-hic:v43"
   cwlVersion: "v1.0"
   outputs: 
     - 
