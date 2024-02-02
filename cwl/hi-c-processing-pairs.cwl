@@ -95,7 +95,7 @@
       fdn_secondary_file_formats: 
         - "pairs_px2"
       id: "#merged_pairs"
-      outputSource: "#merge-pairs/merged_pairs"
+      outputSource: "#mapq-pairs/filtered_pairs"
       type: 
         - "File"
     - 
@@ -118,30 +118,6 @@
     - 
       class: "InlineJavascriptRequirement"
   steps: 
-    -
-      fdn_step_meta:
-        analysis_step_types:
-          - "filtering"
-        description: "Mapq>30 filter pairs files"
-        software_used:
-          - "pairtools_0.2.2"
-      id: "#mapq-pairs"
-      in:
-        -
-          arg_name: "input_pairs"
-          fdn_cardinality: "array"
-          fdn_format: "pairs"
-          fdn_type: "data file"
-          id: "#mapq-pairs/input_pairs"
-          source: "#input_pairs"
-      out:
-        -
-          arg_name: "merged_pairs"
-          fdn_cardinality: "single"
-          fdn_format: "pairs"
-          fdn_type: "data file"
-          id: "#mapq-pairs/filter_pairs"
-      run: "mapq-pairs.cwl"
     - 
       fdn_step_meta: 
         analysis_step_types: 
@@ -157,7 +133,7 @@
           fdn_format: "pairs"
           fdn_type: "data file"
           id: "#merge-pairs/input_pairs"
-          source: "#mapq-pairs/filter_pairs"
+          source: "#input_pairs"
       out: 
         - 
           arg_name: "merged_pairs"
@@ -166,6 +142,30 @@
           fdn_type: "data file"
           id: "#merge-pairs/merged_pairs"
       run: "merge-pairs.cwl"
+    -
+      fdn_step_meta:
+        analysis_step_types:
+          - "filtering"
+        description: "Mapq>30 filter pairs files"
+        software_used:
+          - "pairtools_0.2.2"
+      id: "#mapq-pairs"
+      in:
+        -
+          arg_name: "input_pairs"
+          fdn_cardinality: "array"
+          fdn_format: "pairs"
+          fdn_type: "data file"
+          id: "#mapq-pairs/input_pairs"
+          source: "#merge-pairs/merged_pairs"
+      out:
+        -
+          arg_name: "merged_pairs"
+          fdn_cardinality: "single"
+          fdn_format: "pairs"
+          fdn_type: "data file"
+          id: "#mapq-pairs/filter_pairs"
+      run: "mapq-pairs.cwl"
     - 
       fdn_step_meta: 
         analysis_step_types: 
@@ -181,7 +181,7 @@
           fdn_format: "pairs"
           fdn_type: "data file"
           id: "#addfragtopairs/input_pairs"
-          source: "#merge-pairs/merged_pairs"
+          source: "#mapq-pairs/filter_pairs"
         - 
           arg_name: "restriction_file"
           fdn_cardinality: "single"
@@ -212,7 +212,7 @@
           fdn_format: "pairs"
           fdn_type: "data file"
           id: "#cooler/pairs"
-          source: "#merge-pairs/merged_pairs"
+          source: "#mapq-pairs/filter_pairs"
         - 
           arg_name: "chrsizes"
           fdn_cardinality: "single"

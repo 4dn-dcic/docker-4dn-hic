@@ -14,35 +14,35 @@ ln -s bwa-0.7.17 bwa
 
 
 ## SOFTWARE: samtools
-## VERSION: 1.2
+## VERSION: 1.4
 ## TYPE: file format converter
 ## SOURCE_URL: https://github.com/samtools/samtools
-wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
-tar -xjf samtools-1.2.tar.bz2
-cd samtools-1.2
+wget https://github.com/samtools/samtools/releases/download/1.4/samtools-1.4.tar.bz2
+tar -xjf samtools-1.4.tar.bz2
+cd samtools-1.4
 make
 cd ..
-ln -s samtools-1.2 samtools
+ln -s samtools-1.4 samtools
 
 
 ## SOFTWARE: pairix
-## VERSION: 0.3.6
+## VERSION: 0.3.8
 ## TYPE: file format converter,indexer
 ## SOURCE_URL: https://github.com/4dn-dcic/pairix
-wget https://github.com/4dn-dcic/pairix/archive/0.3.6.tar.gz
-tar -xzf 0.3.6.tar.gz
-rm 0.3.6.tar.gz
-cd pairix-0.3.6
+wget https://github.com/4dn-dcic/pairix/archive/0.3.8.tar.gz
+tar -xzf 0.3.8.tar.gz
+rm 0.3.8.tar.gz
+cd pairix-0.3.8
 make
 cd ..
-ln -s pairix-0.3.6 pairix
+ln -s pairix-0.3.8 pairix
 
 
 ## SOFTWARE: cooler
-## VERSION: 0.8.3
+## VERSION: 0.9.3
 ## TYPE: aggregator,normalizer
 ## SOURCE_URL: https://github.com/mirnylab/cooler
-pip3 install cooler==0.8.3
+pip3 install cooler==0.9.3
 
 
 ## SOFTWARE: pairsqc
@@ -75,19 +75,19 @@ cd ..
 
 
 ## SOFTWARE: hic2cool
-## VERSION: 0.5.1
+## VERSION: 1.0.1
 ## TYPE: file format converter
 ## SOURCE_URL: https://github.com/4dn-dcic/hic2cool
-pip3 install hic2cool==0.5.1
+pip3 install hic2cool==1.0.1
 
 
 ## SOFTWARE: pairtools
-## VERSION: 0.2.2
+## VERSION: 1.0.3
 ## TYPE: file format converter,sorter,annotater,filter
 ## SOURCE_URL: https://github.com/mirnylab/pairtools
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -y pbgzip
 conda install -y coreutils
-pip3 install numpy Cython click pairtools==0.2.2
+pip3 install numpy Cython click pairtools==1.0.3
 
