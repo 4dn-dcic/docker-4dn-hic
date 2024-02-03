@@ -1,6 +1,6 @@
 ---
   baseCommand: 
-    - "run-pairs-mapq.sh"
+    - "run-mapq-pairs.sh"
   inputs: 
     - 
       type: 
