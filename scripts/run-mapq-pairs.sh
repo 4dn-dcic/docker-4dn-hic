@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 if [ $# -le 1 ] ; then
-    echo "Usage: bash run-pairs-mapq.sh PAIRS OUTPUT_PREFIX"
+    echo "Usage: bash run-mapq-pairs.sh PAIRS OUTPUT_PREFIX"
     echo ""
-    echo "A example run-pairs-mapq.sh pipeline for processing pairs to mapq>30 filtered pairs file"
+    echo "A example run-mapq-pairs.sh pipeline for processing pairs to mapq>30 filtered pairs file"
     echo ""
     echo "positional arguments:"
     echo ""
