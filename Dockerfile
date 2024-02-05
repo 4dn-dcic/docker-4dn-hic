@@ -53,10 +53,10 @@ RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/
 RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
 # installing conda
-RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh && bash Miniconda2-latest-Linux-x86_64.sh -p /miniconda2 -b
-ENV PATH=/miniconda2/bin:$PATH
-RUN conda update -y conda \
-    && rm Miniconda2-latest-Linux-x86_64.sh
+#RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda3 -b
+#ENV PATH=/miniconda3/bin:$PATH
+#RUN conda update -y conda \
+#    && rm Miniconda3-latest-Linux-x86_64.sh
 
 RUN pip3 install \
     cython \
