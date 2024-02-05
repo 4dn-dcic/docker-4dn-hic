@@ -94,8 +94,8 @@
       fdn_output_type: "processed"
       fdn_secondary_file_formats: 
         - "pairs_px2"
-      id: "#merged_pairs"
-      outputSource: "#mapq-pairs/filtered_pairs"
+      id: "#filter_pairs"
+      outputSource: "#mapq-pairs/filter_pairs"
       type: 
         - "File"
     - 
