@@ -52,11 +52,12 @@ RUN R -e 'install.packages( "Nozzle.R1", type="source", repos="http://cran.us.r-
 RUN R -e 'library(devtools); install_url("https://github.com/SooLee/plotosaurus/archive/0.9.2.zip")' \ # plotosaurus
 RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
+ARG SOME_ARG=null
 # installing conda
-#RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda3 -b
-#ENV PATH=/miniconda3/bin:$PATH
-#RUN conda update -y conda \
-#    && rm Miniconda3-latest-Linux-x86_64.sh
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda3 -b
+ENV PATH=/miniconda3/bin:$PATH
+RUN conda update -y conda \
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
 RUN pip3 install \
     cython \
