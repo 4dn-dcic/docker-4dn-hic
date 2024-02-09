@@ -94,7 +94,7 @@
       fdn_output_type: "processed"
       fdn_secondary_file_formats: 
         - "pairs_px2"
-      id: "#filter_pairs"
+      id: "#merged_pairs"
       outputSource: "#mapq-pairs/filter_pairs"
       type: 
         - "File"
@@ -160,7 +160,7 @@
           source: "#merge-pairs/merged_pairs"
       out:
         -
-          arg_name: "merged_pairs"
+          arg_name: "filter_pairs"
           fdn_cardinality: "single"
           fdn_format: "pairs"
           fdn_type: "data file"
