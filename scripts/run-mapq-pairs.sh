@@ -23,5 +23,5 @@ OUTPREFIX=$2
 FILTERED_PAIRS=${OUTPREFIX}".mapq_filt.pairs.gz"
 
 # Perform mapq filtering
-pairtools select '"mapq1>30 and mapq2>30"' -o ${FILTERED_PAIRS} ${PAIRS}
+pairtools select "mapq1>30 and mapq2>30" -o ${FILTERED_PAIRS} ${PAIRS}
 pairix ${FILTERED_PAIRS}

@@ -37,7 +37,7 @@
       fdn_format: "bam"
       fdn_output_type: "processed"
       id: "#annotated_bam"
-      outputSource: "#pairsam-filter/lossless_bamfile"
+      outputSource: "#pairsam-filter2/lossless_bamfile"
       type: 
         - "File"
     - 
@@ -46,7 +46,7 @@
       fdn_secondary_file_formats: 
         - "pairs_px2"
       id: "#filtered_pairs"
-      outputSource: "#pairsam-filter/filtered_pairs"
+      outputSource: "#pairsam-filter2/filtered_pairs"
       type: 
         - "File"
   requirements: 
@@ -138,26 +138,26 @@
         description: "Filtering duplicate and invalid reads"
         software_used: 
           - "pairtools_0.2.2"
-      id: "#pairsam-filter"
+      id: "#pairsam-filter2"
       in: 
         - 
           arg_name: "input_pairsam"
           fdn_format: "pairsam"
-          id: "#pairsam-filter/input_pairsam"
+          id: "#pairsam-filter2/input_pairsam"
           source: "#pairsam-markasdup/dupmarked_pairsam"
         - 
           arg_name: "chromsize"
           fdn_format: "chromsize"
-          id: "#pairsam-filter/chromsize"
+          id: "#pairsam-filter2/chromsize"
           source: "#chromsize"
       out: 
         - 
           arg_name: "lossless_bamfile"
           fdn_format: "bam"
-          id: "#pairsam-filter/lossless_bamfile"
+          id: "#pairsam-filter2/lossless_bamfile"
         - 
           arg_name: "filtered_pairs"
           fdn_format: "pairs"
-          id: "#pairsam-filter/filtered_pairs"
-      run: "pairsam-filter.cwl"
+          id: "#pairsam-filter2/filtered_pairs"
+      run: "pairsam-filter2.cwl"
 
