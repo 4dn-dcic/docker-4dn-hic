@@ -27,23 +27,20 @@ DEDUP_PAIRS=${OUTPREFIX}.dedup.pairs.gz
 LOSSLESS_BAM=${OUTPREFIX}.lossless.bam
 TEMPFILE=temp.gz
 TEMPFILE1=temp1.gz
-FILTERED_PAIRS=${OUTPREFIX}.filtered.pairs.gz
 
 ## Generate lossless bam
 pairtools split --output-sam ${LOSSLESS_BAM} ${PAIRSAM}
 
 
 # Select UU, UR, RU reads
-pairtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+pairtools select '(chrom1 != "!") and (chrom2 != "!")' \
     --output-rest ${UNMAPPED_SAMPAIRS} \
     --output ${TEMPFILE} \
     ${PAIRSAM}
 
 pairtools split --output-pairs ${TEMPFILE1} ${TEMPFILE}
 
-pairtools select 'mapq1>30 and mapq2>30' -o ${FILTERED_PAIRS} ${TEMPFILE1}
-
-pairtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${FILTERED_PAIRS}
+pairtools select 'True' --chrom-subset ${CHR_SIZES} -o ${DEDUP_PAIRS} ${TEMPFILE1}
 
 pairix ${DEDUP_PAIRS}  # sanity check & indexing    
 

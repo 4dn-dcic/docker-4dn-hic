@@ -11,19 +11,7 @@ cd bwa-0.7.17
 make
 cd ..
 ln -s bwa-0.7.17 bwa
-
-
-## SOFTWARE: samtools
-## VERSION: 1.4
-## TYPE: file format converter
-## SOURCE_URL: https://github.com/samtools/samtools
-wget https://github.com/samtools/samtools/releases/download/1.4/samtools-1.4.tar.bz2
-tar -xjf samtools-1.4.tar.bz2
-cd samtools-1.4
-make
-cd ..
-ln -s samtools-1.4 samtools
-
+rm v0.7.17.tar.gz
 
 ## SOFTWARE: pairix
 ## VERSION: 0.3.8
@@ -36,6 +24,31 @@ cd pairix-0.3.8
 make
 cd ..
 ln -s pairix-0.3.8 pairix
+rm /usr/local/bin/pairix/bin/bgzip
+
+## SOFTWARE: samtools
+## VERSION: 1.19.2
+## TYPE: file format converter
+## SOURCE_URL: https://github.com/samtools/samtools
+wget https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2
+tar -xjf samtools-1.19.2.tar.bz2
+cd samtools-1.19.2
+#./configure
+make
+#make install
+
+
+## SOFTWARE: htslib
+## VERSION: 1.19.1
+## TYPE: file format converter
+## SOURCE_URL: https://github.com/samtools/htslib/
+cd htslib-1.19.1
+./configure
+make
+make install
+cd ../..
+ln -s samtools-1.19.2 samtools
+rm samtools-1.19.2.tar.bz2
 
 
 ## SOFTWARE: cooler
@@ -87,7 +100,6 @@ pip3 install hic2cool==1.0.1
 ## SOURCE_URL: https://github.com/mirnylab/pairtools
 conda config --add channels conda-forge
 conda config --add channels bioconda
-conda install -y pbgzip
 conda install -y coreutils
 pip3 install numpy Cython click pairtools==1.0.3
 
