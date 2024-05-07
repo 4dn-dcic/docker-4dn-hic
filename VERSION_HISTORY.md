@@ -1,3 +1,14 @@
+### v44
+  * `cooler` `0.8.3` -> `0.9.3`
+  * `pairix` `0.3.6` -> `0.3.8`
+  * `pairtools` `1.0.3` -> `1.0.0`
+  * `hic2cool` `0.5.1` -> `1.0.1`
+  * `samtools` `1.2` -> `1.19.2`
+  * upgrades to ubuntu 20.04, python 3.9 and miniconda3
+  * MAPQ>30 filtering now occurs prior to producing mcools
+  * Disambiguate pairtools select and parse parameters
+  * Additional cwl: mapq-pairs.cwl
+
 ### v43
 * extract-norm
   * `hic2cool` `0.4.1` -> `0.5.1`

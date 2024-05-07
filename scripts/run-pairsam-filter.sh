@@ -33,7 +33,7 @@ pairtools split --output-sam ${LOSSLESS_BAM} ${PAIRSAM}
 
 
 # Select UU, UR, RU reads
-pairtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+pairtools select '(chrom1 != "!") and (chrom2 != "!") and (pair_type != "DD")' \
     --output-rest ${UNMAPPED_SAMPAIRS} \
     --output ${TEMPFILE} \
     ${PAIRSAM}

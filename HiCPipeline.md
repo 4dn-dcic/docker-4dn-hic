@@ -51,8 +51,13 @@ run-merge-pairs.sh \
     /var/lib/cwl/stg6e5744ea-fa67-4075-9999-682cf123ccd2/4DNFIS5PRTL5.pairs.gz
 ```
 ```
+run-mapq-pairs.sh \
+    /var/lib/cwl/stgcdf1b66c-0a8c-46e8-a070-38e76afa3b11/out.pairs.gz \
+    out
+```
+```
 run-addfrag2pairs.sh \
-     /var/lib/cwl/stgafb5b43e-0465-49cf-8464-87d2c2b34ab5/out.pairs.gz \
+     /var/lib/cwl/stgafb5b43e-0465-49cf-8464-87d2c2b34ab5/out.mapq_filt.pairs.gz \
      /var/lib/cwl/stgb747dbc9-7068-478d-a250-3b8a3b369487/4DNFI823L812.txt \
      out
 ```

@@ -28,6 +28,7 @@ This repo contains the source files for a docker image stored in 4dndcic/4dn-hic
   * [run-pairsam-merge.sh](#run-pairsam-mergesh)
   * [run-pairsam-markasdup.sh](#run-pairsam-markasdupsh)
   * [run-pairsam-filter.sh](#run-pairsam-filtersh)
+  * [run-mapq-pairs.sh](#run-mapq-pairssh)
 
 
 ## Cloning the repo
@@ -337,6 +338,7 @@ run-pairsam-merge.sh <outprefix> <nthreads> <input_pairsam1> [<input_pairsam2> [
 # outprefix : prefix of output files
 # nthreads : number of threads to use
 # input_pairsam : an input pairsam file.
+```
 
 ### run-pairsam-markasdup.sh
 Takes a pairsam file in and creates a pairsam file with duplicate reads marked
@@ -349,11 +351,12 @@ Run the following in the container
 run-pairsam-markasdup.sh <input_pairsam> <outprefix>
 # input_pairsam : an input pairsam file.
 # outprefix : prefix of output files
+```
 
 ### run-pairsam-filter.sh
 Takes in a pairsam file and creates a lossless, annotated bam file and a filtered pairs file.
 * Input: a pairsam file
-* Output: an annotatd bam file and a filtered pairs file
+* Output: an annotated bam file and a filtered pairs file
 
 #### Usage
 Run the following in the container
@@ -362,3 +365,17 @@ run-pairsam-filter.sh <input_pairsam> <outprefix> <chromsizes>
 # input_pairsam : an input pairsam file.
 # outprefix : prefix of output files
 # chromsizes : a chromsize file
+```
+
+### run-mapq-pairs.sh
+Takes in a pairs file and creates a mapq>30 filtered pairs file
+* Input: a pairs file
+* Output: a filtered pairs file
+
+#### Usage
+Run the following in the container
+```
+run-mapq-pairs.sh <input_pairs> <outprefix>
+# input_pairs : an input pairs file.
+# outprefix : prefix of output files
+```

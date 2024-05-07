@@ -5,21 +5,10 @@ MAINTAINER Soo Lee (duplexa@gmail.com)
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get install -y \
-    #build-essential \
     bzip2 \
-    #checkinstall \
     gcc \
     git \
     less \
-    #libreadline-gplv2-dev \
-    #libncursesw5-dev \
-    #libsqlite3-dev \
-    #tk-dev \
-    #libgdbm-dev \
-    #libc6-dev \
-    #libbz2-dev \
-    #libffi-dev \
-    #libncurses-dev \
     llvm \
     make \
     time \
@@ -28,13 +17,6 @@ RUN apt-get update -y && apt-get install -y \
     wget \
     zlib1g-dev \
     liblz4-tool
-
-# installing python3.8 & pip
-RUN apt-get update -y && apt-get install -y \
-    python3.8-dev \
-    python3-setuptools \
-    && wget https://bootstrap.pypa.io/get-pip.py \
-    && python3.8 get-pip.py
 
 # installing java (for nozzle) - latest java version
 RUN apt-get update -y && apt-get install -y default-jdk 
@@ -55,15 +37,17 @@ RUN R -e 'install.packages("stringr", repos="http://cran.us.r-project.org" )'
 
 ARG SOME_ARG=null
 # installing conda
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda3 -b
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.3.0-0-Linux-x86_64.sh && bash Miniconda3-py39_24.3.0-0-Linux-x86_64.sh -p /miniconda3 -b
 ENV PATH=/miniconda3/bin:$PATH
 RUN conda update -y conda \
-    && rm Miniconda3-latest-Linux-x86_64.sh
+    && rm Miniconda3-py39_24.3.0-0-Linux-x86_64.sh
 
 RUN pip3 install \
     cython \
     numpy \
-    pysam
+    click \
+    pysam \
+    pypairix
 
 # installing gawk for juicer
 RUN apt-get update -y && apt-get install -y gawk \
@@ -83,6 +67,7 @@ ENV PATH=/usr/local/bin/bgzip:$PATH
 ENV PATH=/usr/local/bin/pairsqc/:$PATH
 ENV PATH=/usr/local/bin/juicer/CPU/:/usr/local/bin/juicer/CPU/common:$PATH
 ENV PATH=/usr/local/bin/hic2cool/:$PATH
+ENV PATH=/usr/local/bin/pairtools/:$PATH
 ENV PATH=/usr/local/bin/mcool2hic/:$PATH
 ENV PATH=/usr/local/bin/FastQC/:$PATH
 

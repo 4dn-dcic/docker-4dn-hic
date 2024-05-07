@@ -124,7 +124,7 @@
           - "merging"
         description: "Merging pair files"
         software_used: 
-          - "pairix_0.3.3"
+          - "pairix_0.3.8"
       id: "#merge-pairs"
       in: 
         - 
@@ -148,7 +148,7 @@
           - "filtering"
         description: "Mapq>30 filter pairs files"
         software_used:
-          - "pairtools_0.2.2"
+          - "pairtools_1.1.0"
       id: "#mapq-pairs"
       in:
         -
@@ -172,7 +172,7 @@
           - "annotation"
         description: "Adding restriction enzyme site information to the pairs file"
         software_used: 
-          - "pairix_0.3.3"
+          - "pairix_0.3.8"
       id: "#addfragtopairs"
       in: 
         - 
@@ -203,7 +203,7 @@
           - "aggregation"
         description: "Merged Pairs file is processed using Cooler"
         software_used: 
-          - "cooler_0.8.3"
+          - "cooler_0.9.3"
       id: "#cooler"
       in: 
         - 
@@ -319,7 +319,7 @@
           - "file format conversion"
         description: "Cooler file is converted to mcool"
         software_used: 
-          - "cooler_0.8.3"
+          - "cooler_0.9.3"
       id: "#cool2mcool"
       in: 
         - 
@@ -373,7 +373,7 @@
           - "file format conversion"
         description: "HiC normalization vector is added to mcooler"
         software_used: 
-          - "hic2cool_0.5.1"
+          - "hic2cool_1.0.1"
       id: "#add-hic-normvector-to-mcool"
       in: 
         - 

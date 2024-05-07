@@ -95,11 +95,12 @@ pip3 install hic2cool==1.0.1
 
 
 ## SOFTWARE: pairtools
-## VERSION: 1.0.3
+## VERSION: 1.1.0
 ## TYPE: file format converter,sorter,annotater,filter
 ## SOURCE_URL: https://github.com/mirnylab/pairtools
-conda config --add channels conda-forge
-conda config --add channels bioconda
-conda install -y coreutils
-pip3 install numpy Cython click pairtools==1.0.3
-
+wget https://github.com/open2c/pairtools/archive/refs/tags/v1.1.0.tar.gz
+tar -xzf v1.1.0.tar.gz
+rm v1.1.0.tar.gz
+cd pairtools-1.1.0
+pip3 install -e .
+ln -s pairtools-1.1.0 pairtools
