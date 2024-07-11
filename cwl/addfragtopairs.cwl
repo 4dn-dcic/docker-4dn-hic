@@ -28,7 +28,7 @@
   hints: 
     - 
       class: "DockerRequirement"
-      dockerPull: "4dndcic/4dn-hic:v44"
+      dockerPull: "public.ecr.aws/dcic-4dn/4dn-hic:v44"
   cwlVersion: "v1.0"
   outputs: 
     - 
