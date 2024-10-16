@@ -64,7 +64,7 @@
   cwlVersion: "v1.0"
   hints: 
     - 
-      dockerPull: "public.ecr.aws/dcic-4dn/4dn-hic:v44"
+      dockerPull: "public.ecr.aws/dcic-4dn/4dn-hic:v44.1"
       class: "DockerRequirement"
   requirements: 
     - 

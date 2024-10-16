@@ -34,6 +34,14 @@ if [[ ${OUTDIR} != "." ]]; then
   mkdir -p ${OUTDIR}
 fi
 
+# use approximate instance memory to determine memory for sorting
+# however, expect to use no less than 2G
+MEM_MB=$(awk '/MemTotal/ { print int($2 / 1000)}' /proc/meminfo)
+if [[ ${MEM_MB} -lt 2000 ]]; then
+  MEM_MB=2000
+fi
+MEM_MB=${MEM_MB}M
+
 samtools view -h "${BAM}" | {
     # Classify Hi-C molecules as unmapped/single-sided/multimapped/chimeric/etc
     # and output one line per read, containing the following, separated by \\v:
@@ -45,7 +53,7 @@ samtools view -h "${BAM}" | {
 } | {
     # Block-sort pairs together with SAM entries
     pairtools sort --nproc ${THREADS} \
-    --memory 48G \
+    --memory ${MEM_MB} \
     --compress-program ${COMPRESS_PROGRAM} \
     --tmpdir ${OUTDIR} \
     --output ${SORTED_PAIRS_PATH}
