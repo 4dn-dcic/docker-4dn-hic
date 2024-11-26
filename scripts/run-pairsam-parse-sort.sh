@@ -37,7 +37,7 @@ fi
 # use approximate instance memory to determine memory for sorting
 # however, expect to use no less than 2G
 MEM_GB=$(awk '/MemTotal/ { print int($2 / 1000000)}' /proc/meminfo)
-if [[ ${MEM_MB} -lt 2 ]]; then
+if [[ ${MEM_GB} -lt 2 ]]; then
   MEM_GB=2
 fi
 MEM_MB=${MEM_GB}000M
